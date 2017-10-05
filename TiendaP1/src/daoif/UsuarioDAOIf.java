@@ -23,5 +23,6 @@ public interface UsuarioDAOIf {
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Usuario> cargarCombo();
     public abstract DefaultListModel<Usuario> cargarLista();
+    public abstract Usuario iniciaSesion(String usuario,String password);
 
 }
