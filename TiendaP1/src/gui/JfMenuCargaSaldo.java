@@ -7,12 +7,12 @@ package gui;
  *
  * @author BurnKill
  */
-public class CargaSaldo extends javax.swing.JFrame {
+public class JfMenuCargaSaldo extends javax.swing.JFrame {
 
     /**
      * Creates new form CargaSaldo
      */
-    public CargaSaldo() {
+    public JfMenuCargaSaldo() {
         initComponents();
     }
 
@@ -58,20 +58,21 @@ public class CargaSaldo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfMenuCargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfMenuCargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfMenuCargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfMenuCargaSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CargaSaldo().setVisible(true);
+                new JfMenuCargaSaldo().setVisible(true);
             }
         });
     }
