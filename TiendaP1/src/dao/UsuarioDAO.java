@@ -7,17 +7,21 @@
 package dao;
 
 import daoif.UsuarioDAOIf;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.table.DefaultTableModel;
 import pojo.Usuario;
 
 
 public class UsuarioDAO implements UsuarioDAOIf{
 
+    
+    
     @Override
     public Usuario iniciaSesion(String usuario, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Usuario pojo = new Usuario();
+        pojo.setIdUsuario(1);
+        pojo.setNombre("Nombre");
+        pojo.setUsuario("Usuario");
+        pojo.setPassword("Contrasena");
+        return pojo;
     }
 
 }

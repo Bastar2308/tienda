@@ -17,5 +17,6 @@ import pojo.Usuario;
 public interface UsuarioDAOIf {
     
     public abstract Usuario iniciaSesion(String usuario,String password);
+    
 
 }
