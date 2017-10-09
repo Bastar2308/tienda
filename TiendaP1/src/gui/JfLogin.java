@@ -3,18 +3,23 @@
  */
 package gui;
 
+import controladores.LoginControlador;
+import guiif.JfLoginIf;
+
 /**
  *
  * @author BurnKill
  */
-public class JfLogin extends javax.swing.JFrame {
+public class JfLogin extends javax.swing.JFrame implements JfLoginIf{
 
     /**
      * Creates new form Login
      */
+    private LoginControlador controlador;
     public JfLogin() {
         initComponents();
         setLocationRelativeTo(null);
+        controlador=new LoginControlador(this);
     }
 
     /**
@@ -30,9 +35,9 @@ public class JfLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tfPassword = new javax.swing.JPasswordField();
+        tfUsuario = new javax.swing.JTextField();
+        jbIngresar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -55,21 +60,21 @@ public class JfLogin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Usuario");
 
-        jPasswordField1.setBackground(new java.awt.Color(51, 51, 51));
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setToolTipText("Contraseña");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tfPassword.setBackground(new java.awt.Color(51, 51, 51));
+        tfPassword.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tfPassword.setForeground(new java.awt.Color(255, 255, 255));
+        tfPassword.setToolTipText("Contraseña");
+        tfPassword.setBorder(null);
+        tfPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setToolTipText("Usuario");
-        jTextField1.setBorder(null);
+        tfUsuario.setBackground(new java.awt.Color(51, 51, 51));
+        tfUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tfUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        tfUsuario.setToolTipText("Usuario");
+        tfUsuario.setBorder(null);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Ingresar");
+        jbIngresar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jbIngresar.setText("Ingresar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,13 +86,13 @@ public class JfLogin extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfUsuario, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,17 +103,17 @@ public class JfLogin extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
 
@@ -169,15 +174,39 @@ public class JfLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbIngresar;
+    private javax.swing.JPasswordField tfPassword;
+    private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getJbIngresar() {
+        return jbIngresar;
+    }
+
+    public void setJbIngresar(javax.swing.JButton jbIngresar) {
+        this.jbIngresar = jbIngresar;
+    }
+
+    public javax.swing.JPasswordField getTfPassword() {
+        return tfPassword;
+    }
+
+    public void setTfPassword(javax.swing.JPasswordField tfPassword) {
+        this.tfPassword = tfPassword;
+    }
+
+    public javax.swing.JTextField getTfUsuario() {
+        return tfUsuario;
+    }
+
+    public void setTfUsuario(javax.swing.JTextField tfUsuario) {
+        this.tfUsuario = tfUsuario;
+    }
 }
