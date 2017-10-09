@@ -16,13 +16,6 @@ import pojo.Usuario;
  */
 public interface UsuarioDAOIf {
     
-    public abstract int insertaUsuario(Usuario pojo);
-    public abstract boolean eliminaUsuario(int id);
-    public abstract boolean modificaUsuario(int id);
-    public abstract Usuario buscaUsuario(int id);
-    public abstract DefaultTableModel cargarTabla();
-    public abstract DefaultComboBoxModel<Usuario> cargarCombo();
-    public abstract DefaultListModel<Usuario> cargarLista();
     public abstract Usuario iniciaSesion(String usuario,String password);
 
 }

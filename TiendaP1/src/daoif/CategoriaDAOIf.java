@@ -5,6 +5,7 @@
  */
 package daoif;
 
+import java.sql.ResultSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
@@ -17,9 +18,10 @@ import pojo.Categoria;
 public interface CategoriaDAOIf {
     public abstract int insertaCategoria(Categoria pojo);
     public abstract boolean eliminaCategoria(int id);
-    public abstract boolean modificaCategoria(int id);
+    public abstract boolean modificaCategoria(Categoria pojo, int id);
     public abstract Categoria buscaCategoria(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Categoria> cargarCombo();
     public abstract DefaultListModel<Categoria> cargarLista();
+    public abstract Categoria inflaCategoria(ResultSet rs);
 }

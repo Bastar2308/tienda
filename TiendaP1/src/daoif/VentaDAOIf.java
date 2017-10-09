@@ -5,6 +5,7 @@
  */
 package daoif;
 
+import java.sql.ResultSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
@@ -22,4 +23,5 @@ public interface VentaDAOIf {
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Venta> cargarCombo();
     public abstract DefaultListModel<Venta> cargarLista();
+    public abstract Venta inflaCategoria(ResultSet rs);
 }

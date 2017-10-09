@@ -5,6 +5,7 @@
  */
 package daoif;
 
+import java.sql.ResultSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
@@ -22,4 +23,5 @@ public interface GrupoDAOIf {
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Grupo> cargarCombo();
     public abstract DefaultListModel<Grupo> cargarLista();
+    public abstract Grupo inflaCategoria(ResultSet rs);
 }
