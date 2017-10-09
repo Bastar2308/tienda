@@ -5,10 +5,22 @@
  */
 package guiif;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+
 /**
  *
  * @author Profesor Bastar
  */
 public interface JfLoginIf {
     
+    public abstract JTextField getTfUsuario();
+    public abstract void setTfUsuario(JTextField tf);
+    public abstract JPasswordField getTfPassword();
+    public abstract void setTfPassword(JPasswordField tf);
+    public abstract JButton getJbIngresar();
+    public abstract void setJbIngresar(JButton bt);
+
 }
