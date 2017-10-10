@@ -7,7 +7,7 @@ package controladores;
 
 import dao.UsuarioDAO;
 import daoif.UsuarioDAOIf;
-import guiif.JfLoginIf;
+import gui.JfLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -15,10 +15,10 @@ import pojo.Usuario;
 
 public class LoginControlador implements ActionListener {
 
-    private JfLoginIf vista;
+    private JfLogin vista;
     private UsuarioDAOIf dao;
 
-    public LoginControlador(JfLoginIf vista) {
+    public LoginControlador(JfLogin vista) {
         this.vista = vista;
         dao = new UsuarioDAO();
         cargarListeners();
