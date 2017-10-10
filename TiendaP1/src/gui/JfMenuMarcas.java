@@ -182,6 +182,7 @@ public class JfMenuMarcas extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú de marcas");
 
         jtDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
