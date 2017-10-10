@@ -11,7 +11,7 @@ import javax.swing.JLabel;
  *
  * @author BurnKill
  */
-public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuPrincipalIf{
+public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuPrincipalIf {
 
     /**
      * Creates new form MenuPrincipal
@@ -19,7 +19,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     public JfMenuPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
-        getContentPane().setBackground(new Color(51,51,51));
+        getContentPane().setBackground(new Color(51, 51, 51));
     }
 
     /**
@@ -242,82 +242,73 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public JLabel getTfUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JLabel getJlUsuario() {
+        return jlUsuario;
     }
 
     @Override
-    public void setTfUsuario(JLabel tf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setJlUsuario(JLabel jl) {
+        this.jlUsuario = jl;
     }
 
     @Override
     public JButton getJbAyuda() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbAyuda;
     }
 
     @Override
     public void setJbAyuda(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbAyuda = jb;
     }
 
     @Override
     public JButton getJbCargarSaldo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbCargarSaldo;
     }
 
     @Override
     public void setJbCargarSaldo(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbCargarSaldo = jb;
     }
 
     @Override
     public JButton getJbFinanzas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbFinanzas;
     }
 
     @Override
     public void setJbFinanzas(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbFinanzas = jb;
     }
 
     @Override
     public JButton getJbClientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbClientes;
     }
 
     @Override
     public void setJbClientes(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbClientes = jb;
     }
 
     @Override
     public JButton getJbGeneradorDeCredenciales() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbGeneradorDeCredenciales;
     }
 
     @Override
     public void setJbGeneradorDeCredenciales(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbGeneradorDeCredenciales = jb;
     }
 
     @Override
     public JButton getJbPuntoDeVentas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jbPuntoDeVista;
     }
 
     @Override
     public void setJbPuntoDeVentas(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jbPuntoDeVista = jb;
     }
 
-    @Override
-    public JButton getJbMenuDeProductos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setJbMenuDeProductos(JButton jb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
