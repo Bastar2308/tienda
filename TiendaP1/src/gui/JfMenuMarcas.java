@@ -132,6 +132,8 @@ public class JfMenuMarcas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jdEliminar.setTitle("Eliminar marca");
+
         jLabel3.setText("¿Reálmente desea eliminar");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
