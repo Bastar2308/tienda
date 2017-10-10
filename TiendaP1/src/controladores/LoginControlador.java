@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import auxiliares.GuiTools;
 import dao.UsuarioDAO;
 import daoif.UsuarioDAOIf;
 import gui.JfLogin;
@@ -12,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import pojo.Usuario;
+import gui.JfMenuPrincipal;
 
 public class LoginControlador implements ActionListener {
 
@@ -45,6 +47,7 @@ public class LoginControlador implements ActionListener {
         Usuario pojo=dao.iniciaSesion(usuario, password);
         if (pojo!=null) {
             JOptionPane.showMessageDialog(null, "Éxito");
+            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
         }else{
             JOptionPane.showMessageDialog(null, "Error");
         }
