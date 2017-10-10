@@ -13,15 +13,38 @@ import java.awt.event.ActionListener;
  *
  * @author MAESTROAD
  */
-public class MenuPrincipalControlador implements ActionListener{
+public class MenuPrincipalControlador implements ActionListener {
+
     JfMenuPrincipal vista;
 
     public MenuPrincipalControlador(JfMenuPrincipal vista) {
         this.vista = vista;
+        cargarListeners();
+    }
+
+    private void cargarListeners() {
+        vista.getJbAyuda().addActionListener(this);
+        vista.getJbCargarSaldo().addActionListener(this);
+        vista.getJbClientes().addActionListener(this);
+        vista.getJbFinanzas().addActionListener(this);
+        vista.getJbGeneradorDeCredenciales().addActionListener(this);
+        vista.getJbPuntoDeVentas().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (e.getSource().equals(vista.getJbAyuda())) {
+
+        } else if (e.getSource().equals(vista.getJbCargarSaldo())) {
+
+        } else if (e.getSource().equals(vista.getJbClientes())) {
+
+        } else if (e.getSource().equals(vista.getJbFinanzas())) {
+
+        } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
+
+        } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
+
+        }
     }
 }
