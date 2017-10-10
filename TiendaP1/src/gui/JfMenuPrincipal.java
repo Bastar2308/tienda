@@ -3,6 +3,7 @@
  */
 package gui;
 
+import controladores.MenuPrincipalControlador;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,10 +17,13 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     /**
      * Creates new form MenuPrincipal
      */
+    private MenuPrincipalControlador controlador;
+
     public JfMenuPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(51, 51, 51));
+        controlador = new MenuPrincipalControlador(this);
     }
 
     /**
