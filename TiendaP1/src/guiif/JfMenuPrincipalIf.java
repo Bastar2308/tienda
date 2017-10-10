@@ -32,10 +32,5 @@ public interface JfMenuPrincipalIf {
     public abstract void setJbGeneradorDeCredenciales(JButton jb);
     
     public abstract JButton getJbPuntoDeVentas();
-    public abstract void setJbPuntoDeVentas(JButton jb);
-
-    public abstract JButton getJbMenuDeProductos();
-    public abstract void setJbMenuDeProductos(JButton jb);
-    
-    
+    public abstract void setJbPuntoDeVentas(JButton jb);    
 }
