@@ -31,13 +31,13 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jbPuntoDeVista = new javax.swing.JButton();
+        jbCargarSaldo = new javax.swing.JButton();
+        jbGeneradorDeCredenciales = new javax.swing.JButton();
+        jbFinanzas = new javax.swing.JButton();
+        jbClientes = new javax.swing.JButton();
+        jbAyuda = new javax.swing.JButton();
+        jlUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,61 +51,61 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jButton1.setText("Punto de Venta");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setIconTextGap(15);
-        jButton1.setMargin(new java.awt.Insets(30, 20, 30, 20));
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbPuntoDeVista.setBackground(new java.awt.Color(51, 51, 51));
+        jbPuntoDeVista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbPuntoDeVista.setForeground(new java.awt.Color(255, 255, 255));
+        jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbPuntoDeVista.setText("Punto de Venta");
+        jbPuntoDeVista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbPuntoDeVista.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbPuntoDeVista.setIconTextGap(15);
+        jbPuntoDeVista.setMargin(new java.awt.Insets(30, 20, 30, 20));
+        jbPuntoDeVista.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jButton3.setText("Cargar Saldo");
-        jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setIconTextGap(15);
-        jButton3.setMargin(new java.awt.Insets(30, 90, 10, 80));
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbCargarSaldo.setBackground(new java.awt.Color(51, 51, 51));
+        jbCargarSaldo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbCargarSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbCargarSaldo.setText("Cargar Saldo");
+        jbCargarSaldo.setBorder(null);
+        jbCargarSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbCargarSaldo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbCargarSaldo.setIconTextGap(15);
+        jbCargarSaldo.setMargin(new java.awt.Insets(30, 90, 10, 80));
+        jbCargarSaldo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jButton4.setText("Generador de credenciales");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setIconTextGap(15);
-        jButton4.setMargin(new java.awt.Insets(30, 10, 30, 10));
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbGeneradorDeCredenciales.setBackground(new java.awt.Color(51, 51, 51));
+        jbGeneradorDeCredenciales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbGeneradorDeCredenciales.setForeground(new java.awt.Color(255, 255, 255));
+        jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbGeneradorDeCredenciales.setText("Generador de credenciales");
+        jbGeneradorDeCredenciales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbGeneradorDeCredenciales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbGeneradorDeCredenciales.setIconTextGap(15);
+        jbGeneradorDeCredenciales.setMargin(new java.awt.Insets(30, 10, 30, 10));
+        jbGeneradorDeCredenciales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton5.setBackground(new java.awt.Color(51, 51, 51));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jButton5.setText("Finanzas");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setIconTextGap(15);
-        jButton5.setMargin(new java.awt.Insets(30, 10, 30, 10));
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbFinanzas.setBackground(new java.awt.Color(51, 51, 51));
+        jbFinanzas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbFinanzas.setForeground(new java.awt.Color(255, 255, 255));
+        jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbFinanzas.setText("Finanzas");
+        jbFinanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbFinanzas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbFinanzas.setIconTextGap(15);
+        jbFinanzas.setMargin(new java.awt.Insets(30, 10, 30, 10));
+        jbFinanzas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton6.setBackground(new java.awt.Color(51, 51, 51));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jButton6.setText("Clientes");
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setIconTextGap(15);
-        jButton6.setMargin(new java.awt.Insets(30, 10, 30, 10));
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbClientes.setBackground(new java.awt.Color(51, 51, 51));
+        jbClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbClientes.setText("Clientes");
+        jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbClientes.setIconTextGap(15);
+        jbClientes.setMargin(new java.awt.Insets(30, 10, 30, 10));
+        jbClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,15 +115,15 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbPuntoDeVista, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,26 +132,26 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jbCargarSaldo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbPuntoDeVista, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ayuda.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ayudamenor.png"))); // NOI18N
+        jbAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ayuda.png"))); // NOI18N
+        jbAyuda.setBorder(null);
+        jbAyuda.setBorderPainted(false);
+        jbAyuda.setContentAreaFilled(false);
+        jbAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAyuda.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ayudamenor.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("[USUARIO ACTUAL]");
+        jlUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jlUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jlUsuario.setText("[USUARIO ACTUAL]");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,9 +168,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jbAyuda)
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
@@ -179,9 +179,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbAyuda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
@@ -227,15 +227,15 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbAyuda;
+    private javax.swing.JButton jbCargarSaldo;
+    private javax.swing.JButton jbClientes;
+    private javax.swing.JButton jbFinanzas;
+    private javax.swing.JButton jbGeneradorDeCredenciales;
+    private javax.swing.JButton jbPuntoDeVista;
+    private javax.swing.JLabel jlUsuario;
     // End of variables declaration//GEN-END:variables
 }
