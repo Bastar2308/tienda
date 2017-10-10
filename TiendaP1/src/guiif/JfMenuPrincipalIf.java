@@ -13,8 +13,8 @@ import javax.swing.JLabel;
  */
 public interface JfMenuPrincipalIf {
     
-    public abstract JLabel getTfUsuario();
-    public abstract void setTfUsuario(JLabel tf);
+    public abstract JLabel getJlUsuario();
+    public abstract void setJlUsuario(JLabel jl);
     
     public abstract JButton getJbAyuda();
     public abstract void setJbAyuda(JButton jb);
