@@ -42,6 +42,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbGeneradorDeCredenciales = new javax.swing.JButton();
         jbFinanzas = new javax.swing.JButton();
         jbClientes = new javax.swing.JButton();
+        jbPuntoDeVista1 = new javax.swing.JButton();
         jbAyuda = new javax.swing.JButton();
         jlUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -113,38 +114,51 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbClientes.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        jbPuntoDeVista1.setBackground(new java.awt.Color(51, 51, 51));
+        jbPuntoDeVista1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbPuntoDeVista1.setForeground(new java.awt.Color(255, 255, 255));
+        jbPuntoDeVista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbPuntoDeVista1.setText("Menu Productos");
+        jbPuntoDeVista1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbPuntoDeVista1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbPuntoDeVista1.setIconTextGap(15);
+        jbPuntoDeVista1.setMargin(new java.awt.Insets(30, 20, 30, 20));
+        jbPuntoDeVista1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbPuntoDeVista, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbGeneradorDeCredenciales)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbPuntoDeVista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbPuntoDeVista1)))
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jbCargarSaldo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbPuntoDeVista1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbPuntoDeVista, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbPuntoDeVista, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -167,7 +181,6 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel1)
@@ -178,6 +191,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                 .addGap(18, 18, 18)
                 .addComponent(jbAyuda)
                 .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,6 +258,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     private javax.swing.JButton jbFinanzas;
     private javax.swing.JButton jbGeneradorDeCredenciales;
     private javax.swing.JButton jbPuntoDeVista;
+    private javax.swing.JButton jbPuntoDeVista1;
     private javax.swing.JLabel jlUsuario;
     // End of variables declaration//GEN-END:variables
 
