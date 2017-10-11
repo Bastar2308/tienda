@@ -3,11 +3,14 @@
  */
 package gui;
 
+import guiif.JfMenuFinanzasIf;
+import javax.swing.JButton;
+
 /**
  *
  * @author BurnKill
  */
-public class JfMenuFinanzas extends javax.swing.JFrame {
+public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzasIf {
 
     /**
      * Creates new form JfFinanzas
@@ -91,4 +94,14 @@ public class JfMenuFinanzas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbRegresar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    @Override
+    public void setJbRegresar(JButton jb) {
+        this.jbRegresar = jb;
+    }
 }
