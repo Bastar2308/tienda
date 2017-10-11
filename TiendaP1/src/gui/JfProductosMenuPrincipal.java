@@ -5,6 +5,8 @@
  */
 package gui;
 
+import controladores.ProductosMenuPrincipalControlador;
+
 /**
  *
  * @author ALUMNO
@@ -14,8 +16,10 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form JfProductosMenuPrincipal
      */
+    private ProductosMenuPrincipalControlador controlador;
     public JfProductosMenuPrincipal() {
         initComponents();
+        controlador=new ProductosMenuPrincipalControlador(this);
     }
 
     /**

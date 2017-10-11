@@ -5,6 +5,7 @@
  */
 package gui;
 
+import controladores.MenuMarcasControlador;
 import guiif.JfMenuMarcasIf;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -20,8 +21,11 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     /**
      * Creates new form JfMenuMarcas
      */
+    private MenuMarcasControlador controlador;
+
     public JfMenuMarcas() {
         initComponents();
+        controlador = new MenuMarcasControlador(this);
     }
 
     /**

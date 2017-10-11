@@ -42,7 +42,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbGeneradorDeCredenciales = new javax.swing.JButton();
         jbFinanzas = new javax.swing.JButton();
         jbClientes = new javax.swing.JButton();
-        jbPuntoDeVista1 = new javax.swing.JButton();
+        jbMenuProductos = new javax.swing.JButton();
         jbAyuda = new javax.swing.JButton();
         jlUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -114,16 +114,16 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbClientes.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbPuntoDeVista1.setBackground(new java.awt.Color(51, 51, 51));
-        jbPuntoDeVista1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbPuntoDeVista1.setForeground(new java.awt.Color(255, 255, 255));
-        jbPuntoDeVista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
-        jbPuntoDeVista1.setText("Menu Productos");
-        jbPuntoDeVista1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbPuntoDeVista1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jbPuntoDeVista1.setIconTextGap(15);
-        jbPuntoDeVista1.setMargin(new java.awt.Insets(30, 20, 30, 20));
-        jbPuntoDeVista1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbMenuProductos.setBackground(new java.awt.Color(51, 51, 51));
+        jbMenuProductos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
+        jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbMenuProductos.setText("Menu Productos");
+        jbMenuProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbMenuProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbMenuProductos.setIconTextGap(15);
+        jbMenuProductos.setMargin(new java.awt.Insets(30, 20, 30, 20));
+        jbMenuProductos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,7 +143,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jbPuntoDeVista1)))
+                        .addComponent(jbMenuProductos)))
                 .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,7 +153,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbPuntoDeVista1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbMenuProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,8 +257,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbFinanzas;
     private javax.swing.JButton jbGeneradorDeCredenciales;
+    private javax.swing.JButton jbMenuProductos;
     private javax.swing.JButton jbPuntoDeVista;
-    private javax.swing.JButton jbPuntoDeVista1;
     private javax.swing.JLabel jlUsuario;
     // End of variables declaration//GEN-END:variables
 
@@ -305,6 +305,14 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     @Override
     public JButton getJbClientes() {
         return jbClientes;
+    }
+
+    public JButton getJbMenuProductos() {
+        return jbMenuProductos;
+    }
+
+    public void setJbMenuProductos(JButton jbMenuProductos) {
+        this.jbMenuProductos = jbMenuProductos;
     }
 
     @Override

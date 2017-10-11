@@ -33,4 +33,8 @@ public interface JfMenuPrincipalIf {
     
     public abstract JButton getJbPuntoDeVentas();
     public abstract void setJbPuntoDeVentas(JButton jb);    
+
+    public abstract JButton getJbMenuProductos();
+    public abstract void setJbMenuProductos(JButton jb);    
+
 }

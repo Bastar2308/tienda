@@ -11,6 +11,7 @@ import gui.JfMenuClientes;
 import gui.JfMenuFinanzas;
 import gui.JfMenuGeneradorCredenciales;
 import gui.JfMenuPrincipal;
+import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -34,6 +35,7 @@ public class MenuPrincipalControlador implements ActionListener {
         vista.getJbFinanzas().addActionListener(this);
         vista.getJbGeneradorDeCredenciales().addActionListener(this);
         vista.getJbPuntoDeVentas().addActionListener(this);
+        vista.getJbMenuProductos().addActionListener(this);
     }
 
     @Override
@@ -53,6 +55,8 @@ public class MenuPrincipalControlador implements ActionListener {
             GuiTools.getInstance().abre(vista, new JfMenuGeneradorCredenciales());
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
 
+        } else if (e.getSource().equals(vista.getJbMenuProductos())) {
+            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
         }
     }
 }

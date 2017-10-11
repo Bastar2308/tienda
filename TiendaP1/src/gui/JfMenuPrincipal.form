@@ -99,7 +99,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jbFinanzas" min="-2" pref="183" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jbPuntoDeVista1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbMenuProductos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jbCargarSaldo" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                       <Component id="jbFinanzas" min="-2" pref="124" max="-2" attributes="0"/>
-                      <Component id="jbPuntoDeVista1" min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="jbMenuProductos" min="-2" pref="124" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -260,7 +260,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jbPuntoDeVista1">
+        <Component class="javax.swing.JButton" name="jbMenuProductos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
