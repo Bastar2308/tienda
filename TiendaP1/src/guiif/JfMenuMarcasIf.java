@@ -28,14 +28,14 @@ public interface JfMenuMarcasIf {
     public abstract JButton getJbEliminar();
     public abstract JButton setJbEliminar(JButton jb);
     //Dialogos
-    public abstract JDialog getAgregar();
-    public abstract JDialog setAgregar(JDialog jd);
+    public abstract JDialog getJdAgregar();
+    public abstract JDialog setJdAgregar(JDialog jd);
     
-    public abstract JDialog getEditar();
-    public abstract JDialog setEditar(JDialog jd);
+    public abstract JDialog getJdEditar();
+    public abstract JDialog setJdEditar(JDialog jd);
     
-    public abstract JDialog getEliminar();
-    public abstract JDialog setEliminar(JDialog jd);
+    public abstract JDialog getJdEliminar();
+    public abstract JDialog setJdEliminar(JDialog jd);
     
     //Dialogo agregar
     public abstract JTextField getTfAgregarNombre();
