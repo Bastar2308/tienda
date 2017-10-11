@@ -5,10 +5,13 @@
  */
 package guiif;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author ALUMNO
  */
 public interface JfProductosMenuPrincipalIf {
-    
+    public abstract JButton getJbControlDeCategorias();
+    public abstract JButton setJbControlDeCategorias();
 }
