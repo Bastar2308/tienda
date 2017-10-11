@@ -13,15 +13,16 @@ import javax.swing.JButton;
  *
  * @author ALUMNO
  */
-public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfProductosMenuPrincipalIf{
+public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfProductosMenuPrincipalIf {
 
     /**
      * Creates new form JfProductosMenuPrincipal
      */
     private ProductosMenuPrincipalControlador controlador;
+
     public JfProductosMenuPrincipal() {
         initComponents();
-        controlador=new ProductosMenuPrincipalControlador(this);
+        controlador = new ProductosMenuPrincipalControlador(this);
     }
 
     /**
@@ -464,7 +465,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         return jbControlDeCategorias;
     }
 
-    
     public void setJbControlDeCategorias(JButton jbControlDeCategorias) {
         this.jbControlDeCategorias = jbControlDeCategorias;
     }
@@ -485,7 +485,4 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         this.jbRegresar = jbRegresar;
     }
 
-    
-
-   
 }
