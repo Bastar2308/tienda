@@ -280,6 +280,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú de productos");
 
         jButton1.setText("Control de Categorías");
 
