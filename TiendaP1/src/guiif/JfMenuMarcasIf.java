@@ -14,46 +14,46 @@ import javax.swing.JTextField;
  */
 public interface JfMenuMarcasIf {
     public abstract JTable getJtDatos();
-    public abstract JTable setJtDatos(JTable jt);
+    public abstract void setJtDatos(JTable jt);
     
     public abstract JButton getJbRegresar();
-    public abstract JButton setJbRegresar(JButton jb);
+    public abstract void setJbRegresar(JButton jb);
     
     public abstract JButton getJbAgregar();
-    public abstract JButton setJbAgregar(JButton jb);
+    public abstract void setJbAgregar(JButton jb);
     
     public abstract JButton getJbEditar();
-    public abstract JButton setJbEditar(JButton jb);
+    public abstract void setJbEditar(JButton jb);
     
     public abstract JButton getJbEliminar();
-    public abstract JButton setJbEliminar(JButton jb);
+    public abstract void setJbEliminar(JButton jb);
     //Dialogos
     public abstract JDialog getJdAgregar();
-    public abstract JDialog setJdAgregar(JDialog jd);
+    public abstract void setJdAgregar(JDialog jd);
     
     public abstract JDialog getJdEditar();
-    public abstract JDialog setJdEditar(JDialog jd);
+    public abstract void setJdEditar(JDialog jd);
     
     public abstract JDialog getJdEliminar();
-    public abstract JDialog setJdEliminar(JDialog jd);
+    public abstract void setJdEliminar(JDialog jd);
     
     //Dialogo agregar
     public abstract JTextField getTfAgregarNombre();
-    public abstract JTextField setTfAgregarNombre(JTextField tf);
+    public abstract void setTfAgregarNombre(JTextField tf);
     
     public abstract JButton getJbAgregarCancelar();
-    public abstract JButton setJbAgregarCancelar(JButton jb);
+    public abstract void setJbAgregarCancelar(JButton jb);
     
     
     public abstract JButton getJbAgregarAceptar();
-    public abstract JButton setJbAgregarAceptar(JButton jb);
+    public abstract void setJbAgregarAceptar(JButton jb);
     
     //Dialogo editar
     public abstract JTextField getTfEditarNombre();
-    public abstract JTextField setTfEditarNombre(JTextField tf);
+    public abstract void setTfEditarNombre(JTextField tf);
     
     public abstract JButton getJbEditarCancelar();
-    public abstract JButton setJbEditarCancelar(JButton jb);
+    public abstract void setJbEditarCancelar(JButton jb);
     
     
     public abstract JButton getJbEditarAceptar();
