@@ -45,6 +45,24 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
         jbAgregarAceptar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         tfAgregarCodigo = new javax.swing.JTextField();
+        jdEditar = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        tfAgregarNombre1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jsAgregarPrecio1 = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        jsAgregarStock1 = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtaAgregarDetalles1 = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jcbAgregarCategoria1 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jcbAgregarMarca1 = new javax.swing.JComboBox<>();
+        jbAgregarCancelar1 = new javax.swing.JButton();
+        jbAgregarAceptar1 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        tfAgregarCodigo1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -155,6 +173,109 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAgregarAceptar)
                     .addComponent(jbAgregarCancelar))
+                .addContainerGap())
+        );
+
+        jdEditar.setTitle("Agregar producto");
+        jdEditar.setModal(true);
+
+        jLabel8.setText("Nombre:");
+
+        jLabel9.setText("Precio:");
+
+        jsAgregarPrecio1.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+
+        jLabel10.setText("Stock:");
+
+        jsAgregarStock1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        jLabel11.setText("Detalles:");
+
+        jtaAgregarDetalles1.setColumns(20);
+        jtaAgregarDetalles1.setRows(5);
+        jScrollPane3.setViewportView(jtaAgregarDetalles1);
+
+        jLabel12.setText("Categoría:");
+
+        jcbAgregarCategoria1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel13.setText("Marca:");
+
+        jcbAgregarMarca1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jbAgregarCancelar1.setText("Cancelar");
+
+        jbAgregarAceptar1.setText("Aceptar");
+
+        jLabel14.setText("Código:");
+
+        javax.swing.GroupLayout jdEditarLayout = new javax.swing.GroupLayout(jdEditar.getContentPane());
+        jdEditar.getContentPane().setLayout(jdEditarLayout);
+        jdEditarLayout.setHorizontalGroup(
+            jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEditarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbAgregarCancelar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbAgregarAceptar1))
+                    .addGroup(jdEditarLayout.createSequentialGroup()
+                        .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel14))
+                        .addGap(13, 13, 13)
+                        .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfAgregarNombre1)
+                            .addComponent(jsAgregarPrecio1)
+                            .addComponent(jcbAgregarCategoria1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jsAgregarStock1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(jcbAgregarMarca1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfAgregarCodigo1))))
+                .addContainerGap())
+        );
+        jdEditarLayout.setVerticalGroup(
+            jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tfAgregarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jsAgregarPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jsAgregarStock1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbAgregarCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbAgregarMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(tfAgregarCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbAgregarAceptar1)
+                    .addComponent(jbAgregarCancelar1))
                 .addContainerGap())
         );
 
@@ -291,26 +412,44 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregarAceptar;
+    private javax.swing.JButton jbAgregarAceptar1;
     private javax.swing.JButton jbAgregarCancelar;
+    private javax.swing.JButton jbAgregarCancelar1;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JComboBox<String> jcbAgregarCategoria;
+    private javax.swing.JComboBox<String> jcbAgregarCategoria1;
     private javax.swing.JComboBox<String> jcbAgregarMarca;
+    private javax.swing.JComboBox<String> jcbAgregarMarca1;
     private javax.swing.JDialog jdAgregar;
+    private javax.swing.JDialog jdEditar;
     private javax.swing.JSpinner jsAgregarPrecio;
+    private javax.swing.JSpinner jsAgregarPrecio1;
     private javax.swing.JSpinner jsAgregarStock;
+    private javax.swing.JSpinner jsAgregarStock1;
     private javax.swing.JTextArea jtaAgregarDetalles;
+    private javax.swing.JTextArea jtaAgregarDetalles1;
     private javax.swing.JTextField tfAgregarCodigo;
+    private javax.swing.JTextField tfAgregarCodigo1;
     private javax.swing.JTextField tfAgregarNombre;
+    private javax.swing.JTextField tfAgregarNombre1;
     // End of variables declaration//GEN-END:variables
 }
