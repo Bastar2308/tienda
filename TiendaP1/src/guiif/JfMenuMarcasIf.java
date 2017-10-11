@@ -57,12 +57,12 @@ public interface JfMenuMarcasIf {
     
     
     public abstract JButton getJbEditarAceptar();
-    public abstract JButton setJbEditarAceptar(JButton jb);
+    public abstract void setJbEditarAceptar(JButton jb);
     //Dialogo eliminar
     public abstract JButton getJbEliminarCancelar();
-    public abstract JButton setJbEliminarCancelar(JButton jb);
+    public abstract void setJbEliminarCancelar(JButton jb);
     
     
     public abstract JButton getJbEliminarAceptar();
-    public abstract JButton setJbEliminarAceptar(JButton jb);    
+    public abstract void setJbEliminarAceptar(JButton jb);    
 }
