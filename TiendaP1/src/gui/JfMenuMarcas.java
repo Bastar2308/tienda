@@ -5,11 +5,17 @@
  */
 package gui;
 
+import guiif.JfMenuMarcasIf;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ALUMNO
  */
-public class JfMenuMarcas extends javax.swing.JFrame {
+public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
 
     /**
      * Creates new form JfMenuMarcas
@@ -347,4 +353,165 @@ public class JfMenuMarcas extends javax.swing.JFrame {
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    @Override
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    @Override
+    public JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    @Override
+    public JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    @Override
+    public JButton getJbEliminar() {
+        return jbEliminar;
+    }
+
+    @Override
+    public JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    @Override
+    public JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    @Override
+    public JDialog getJdEliminar() {
+        return jdEliminar;
+    }
+
+    @Override
+    public JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    @Override
+    public JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    @Override
+    public JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    @Override
+    public JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    @Override
+    public JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    @Override
+    public JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    @Override
+    public JButton getJbEliminarCancelar() {
+        return jbEliminarCancelar;
+    }
+
+    @Override
+    public JButton getJbEliminarAceptar() {
+        return jbEliminarAceptar;
+    }
+
+    @Override
+    public void setJtDatos(JTable jt) {
+        this.jtDatos = jt;
+    }
+
+    @Override
+    public void setJbRegresar(JButton x) {
+        this.jbRegresar = x;
+    }
+
+    @Override
+    public void setJbAgregar(JButton x) {
+        this.jbAgregar = x;
+    }
+
+    @Override
+    public void setJbEditar(JButton x) {
+        this.jbEditar = x;
+    }
+
+    @Override
+    public void setJbEliminar(JButton x) {
+        this.jbEliminar = x;
+    }
+
+    @Override
+    public void setJdAgregar(JDialog x) {
+        this.jdAgregar = x;
+    }
+
+    @Override
+    public void setJdEditar(JDialog x) {
+        this.jdEditar = x;
+    }
+
+    @Override
+    public void setJdEliminar(JDialog x) {
+        this.jdEliminar = x;
+    }
+
+    @Override
+    public void setTfAgregarNombre(JTextField x) {
+        this.tfAgregarNombre = x;
+    }
+
+    @Override
+    public void setJbAgregarCancelar(JButton x) {
+        this.jbAgregarCancelar = x;
+    }
+
+    @Override
+    public void setJbAgregarAceptar(JButton x) {
+        this.jbAgregarAceptar = x;
+    }
+
+    @Override
+    public void setTfEditarNombre(JTextField x) {
+        this.tfEditarNombre = x;
+    }
+
+    @Override
+    public void setJbEditarCancelar(JButton x) {
+        this.jbEditarCancelar = x;
+    }
+
+    @Override
+    public void setJbEditarAceptar(JButton x) {
+        this.jbEditarAceptar = x;
+    }
+
+    @Override
+    public void setJbEliminarCancelar(JButton x) {
+        this.jbEliminarCancelar = x;
+    }
+
+    @Override
+    public void setJbEliminarAceptar(JButton x) {
+        this.jbEliminarAceptar = x;
+    }
+
 }
