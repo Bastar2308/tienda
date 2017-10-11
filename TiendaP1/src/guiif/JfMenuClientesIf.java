@@ -9,6 +9,6 @@ package guiif;
  *
  * @author Profesor Bastar
  */
-public interface JfMenuClientesIf {
+public interface JfMenuClientesIf extends FrameRegresable{
     
 }

@@ -9,6 +9,6 @@ package guiif;
  *
  * @author Profesor Bastar
  */
-public interface JfPuntoDeVentaIf {
+public interface JfPuntoDeVentaIf extends FrameRegresable{
     
 }
