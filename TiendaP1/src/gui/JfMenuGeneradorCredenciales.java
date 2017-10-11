@@ -3,17 +3,24 @@
  */
 package gui;
 
+import controladores.MenuGeneradorCredencialesControlador;
+import guiif.JfMenuGeneradorCredencialesIf;
+import javax.swing.JButton;
+
 /**
  *
  * @author BurnKill
  */
-public class JfMenuGeneradorCredenciales extends javax.swing.JFrame {
+public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements JfMenuGeneradorCredencialesIf {
+
+    MenuGeneradorCredencialesControlador controlador;
 
     /**
      * Creates new form JfMenuGeneradorCredenciales
      */
     public JfMenuGeneradorCredenciales() {
         initComponents();
+        controlador = new MenuGeneradorCredencialesControlador(this);
     }
 
     /**
@@ -90,4 +97,14 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbRegresar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    @Override
+    public void setJbRegresar(JButton jb) {
+        this.jbRegresar = jb;
+    }
 }

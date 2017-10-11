@@ -3,17 +3,24 @@
  */
 package gui;
 
+import controladores.MenuCargaSaldoControlador;
+import guiif.JfMenuCargaSaldoIf;
+import javax.swing.JButton;
+
 /**
  *
  * @author BurnKill
  */
-public class JfMenuCargaSaldo extends javax.swing.JFrame {
+public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaSaldoIf {
+
+    private MenuCargaSaldoControlador controlador;
 
     /**
      * Creates new form CargaSaldo
      */
     public JfMenuCargaSaldo() {
         initComponents();
+        controlador = new MenuCargaSaldoControlador(this);
     }
 
     /**
@@ -318,4 +325,14 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jbRegresar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    @Override
+    public void setJbRegresar(JButton jb) {
+        this.jbRegresar = jb;
+    }
 }

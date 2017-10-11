@@ -9,6 +9,6 @@ package guiif;
  *
  * @author Profesor Bastar
  */
-public interface JfMenuCargaSaldoIf {
+public interface JfMenuCargaSaldoIf extends FrameRegresable{
     
 }

@@ -5,17 +5,22 @@
  */
 package gui;
 
+import controladores.MenuCategoriasControlador;
+
 /**
  *
  * @author ALUMNO
  */
 public class JfMenuCategorias extends javax.swing.JFrame {
 
+    MenuCategoriasControlador controlador;
+
     /**
      * Creates new form JfMenuCategorias
      */
     public JfMenuCategorias() {
         initComponents();
+        controlador=new MenuCategoriasControlador(this);
     }
 
     /**

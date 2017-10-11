@@ -9,6 +9,6 @@ package guiif;
  *
  * @author Profesor Bastar
  */
-public interface JfMenuGeneradorCredencialesIf {
+public interface JfMenuGeneradorCredencialesIf extends FrameRegresable{
     
 }
