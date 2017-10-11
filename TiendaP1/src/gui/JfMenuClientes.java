@@ -3,11 +3,14 @@
  */
 package gui;
 
+import guiif.JfMenuClientesIf;
+import javax.swing.JButton;
+
 /**
  *
  * @author BurnKill
  */
-public class JfMenuClientes extends javax.swing.JFrame {
+public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientesIf {
 
     /**
      * Creates new form MenuClientes
@@ -93,4 +96,14 @@ public class JfMenuClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbRegresar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    @Override
+    public void setJbRegresar(JButton jb) {
+        this.jbRegresar = jb;
+    }
 }
