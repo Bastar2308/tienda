@@ -219,9 +219,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jbAgregarCancelar1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbEditarCancelar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jbAgregarAceptar1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbEditarAceptar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -235,13 +235,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfAgregarNombre1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jsAgregarPrecio1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jcbAgregarCategoria1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tfEditarNombre" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jsEditarPrecio" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jcbEditarCategoria" alignment="0" max="32767" attributes="0"/>
                               <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jsAgregarStock1" alignment="0" pref="336" max="32767" attributes="0"/>
-                              <Component id="jcbAgregarMarca1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfAgregarCodigo1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jsEditarStock" alignment="0" pref="336" max="32767" attributes="0"/>
+                              <Component id="jcbEditarMarca" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tfEditarCodigo" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -255,16 +255,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfAgregarNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEditarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jsAgregarPrecio1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jsEditarPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jsAgregarStock1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jsEditarStock" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -274,23 +274,23 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jcbAgregarCategoria1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbEditarCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jcbAgregarMarca1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbEditarMarca" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfAgregarCodigo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfEditarCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jbAgregarAceptar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbAgregarCancelar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbEditarAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbEditarCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -303,14 +303,14 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfAgregarNombre1">
+        <Component class="javax.swing.JTextField" name="tfEditarNombre">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="Precio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jsAgregarPrecio1">
+        <Component class="javax.swing.JSpinner" name="jsEditarPrecio">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
@@ -322,7 +322,7 @@
             <Property name="text" type="java.lang.String" value="Stock:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jsAgregarStock1">
+        <Component class="javax.swing.JSpinner" name="jsEditarStock">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -341,7 +341,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jtaAgregarDetalles1">
+            <Component class="javax.swing.JTextArea" name="jtaEditarDetalles">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -354,7 +354,7 @@
             <Property name="text" type="java.lang.String" value="Categor&#xed;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbAgregarCategoria1">
+        <Component class="javax.swing.JComboBox" name="jcbEditarCategoria">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -374,7 +374,7 @@
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbAgregarMarca1">
+        <Component class="javax.swing.JComboBox" name="jcbEditarMarca">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -389,12 +389,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jbAgregarCancelar1">
+        <Component class="javax.swing.JButton" name="jbEditarCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jbAgregarAceptar1">
+        <Component class="javax.swing.JButton" name="jbEditarAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
@@ -404,7 +404,7 @@
             <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfAgregarCodigo1">
+        <Component class="javax.swing.JTextField" name="tfEditarCodigo">
         </Component>
       </SubComponents>
     </Container>

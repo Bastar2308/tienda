@@ -47,22 +47,22 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
         tfAgregarCodigo = new javax.swing.JTextField();
         jdEditar = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
-        tfAgregarNombre1 = new javax.swing.JTextField();
+        tfEditarNombre = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jsAgregarPrecio1 = new javax.swing.JSpinner();
+        jsEditarPrecio = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
-        jsAgregarStock1 = new javax.swing.JSpinner();
+        jsEditarStock = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jtaAgregarDetalles1 = new javax.swing.JTextArea();
+        jtaEditarDetalles = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
-        jcbAgregarCategoria1 = new javax.swing.JComboBox<>();
+        jcbEditarCategoria = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jcbAgregarMarca1 = new javax.swing.JComboBox<>();
-        jbAgregarCancelar1 = new javax.swing.JButton();
-        jbAgregarAceptar1 = new javax.swing.JButton();
+        jcbEditarMarca = new javax.swing.JComboBox<>();
+        jbEditarCancelar = new javax.swing.JButton();
+        jbEditarAceptar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        tfAgregarCodigo1 = new javax.swing.JTextField();
+        tfEditarCodigo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -183,29 +183,29 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
 
         jLabel9.setText("Precio:");
 
-        jsAgregarPrecio1.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
+        jsEditarPrecio.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
 
         jLabel10.setText("Stock:");
 
-        jsAgregarStock1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jsEditarStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel11.setText("Detalles:");
 
-        jtaAgregarDetalles1.setColumns(20);
-        jtaAgregarDetalles1.setRows(5);
-        jScrollPane3.setViewportView(jtaAgregarDetalles1);
+        jtaEditarDetalles.setColumns(20);
+        jtaEditarDetalles.setRows(5);
+        jScrollPane3.setViewportView(jtaEditarDetalles);
 
         jLabel12.setText("Categoría:");
 
-        jcbAgregarCategoria1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbEditarCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setText("Marca:");
 
-        jcbAgregarMarca1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbEditarMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jbAgregarCancelar1.setText("Cancelar");
+        jbEditarCancelar.setText("Cancelar");
 
-        jbAgregarAceptar1.setText("Aceptar");
+        jbEditarAceptar.setText("Aceptar");
 
         jLabel14.setText("Código:");
 
@@ -218,9 +218,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEditarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbAgregarCancelar1)
+                        .addComponent(jbEditarCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbAgregarAceptar1))
+                        .addComponent(jbEditarAceptar))
                     .addGroup(jdEditarLayout.createSequentialGroup()
                         .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -232,13 +232,13 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addGap(13, 13, 13)
                         .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfAgregarNombre1)
-                            .addComponent(jsAgregarPrecio1)
-                            .addComponent(jcbAgregarCategoria1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfEditarNombre)
+                            .addComponent(jsEditarPrecio)
+                            .addComponent(jcbEditarCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane3)
-                            .addComponent(jsAgregarStock1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                            .addComponent(jcbAgregarMarca1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfAgregarCodigo1))))
+                            .addComponent(jsEditarStock, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                            .addComponent(jcbEditarMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfEditarCodigo))))
                 .addContainerGap())
         );
         jdEditarLayout.setVerticalGroup(
@@ -247,14 +247,14 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(tfAgregarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEditarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jsAgregarPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jsEditarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jsAgregarStock1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jsEditarStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,20 +262,20 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbAgregarCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbEditarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbAgregarMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbEditarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(tfAgregarCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEditarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbAgregarAceptar1)
-                    .addComponent(jbAgregarCancelar1))
+                    .addComponent(jbEditarAceptar)
+                    .addComponent(jbEditarCancelar))
                 .addContainerGap())
         );
 
@@ -431,25 +431,25 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregarAceptar;
-    private javax.swing.JButton jbAgregarAceptar1;
     private javax.swing.JButton jbAgregarCancelar;
-    private javax.swing.JButton jbAgregarCancelar1;
+    private javax.swing.JButton jbEditarAceptar;
+    private javax.swing.JButton jbEditarCancelar;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JComboBox<String> jcbAgregarCategoria;
-    private javax.swing.JComboBox<String> jcbAgregarCategoria1;
     private javax.swing.JComboBox<String> jcbAgregarMarca;
-    private javax.swing.JComboBox<String> jcbAgregarMarca1;
+    private javax.swing.JComboBox<String> jcbEditarCategoria;
+    private javax.swing.JComboBox<String> jcbEditarMarca;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JSpinner jsAgregarPrecio;
-    private javax.swing.JSpinner jsAgregarPrecio1;
     private javax.swing.JSpinner jsAgregarStock;
-    private javax.swing.JSpinner jsAgregarStock1;
+    private javax.swing.JSpinner jsEditarPrecio;
+    private javax.swing.JSpinner jsEditarStock;
     private javax.swing.JTextArea jtaAgregarDetalles;
-    private javax.swing.JTextArea jtaAgregarDetalles1;
+    private javax.swing.JTextArea jtaEditarDetalles;
     private javax.swing.JTextField tfAgregarCodigo;
-    private javax.swing.JTextField tfAgregarCodigo1;
     private javax.swing.JTextField tfAgregarNombre;
-    private javax.swing.JTextField tfAgregarNombre1;
+    private javax.swing.JTextField tfEditarCodigo;
+    private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
 }
