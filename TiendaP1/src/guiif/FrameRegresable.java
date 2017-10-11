@@ -9,11 +9,10 @@ import javax.swing.JButton;
 
 /**
  *
- * @author ALUMNO
+ * @author Profesor Bastar
  */
-public interface JfProductosMenuPrincipalIf extends FrameRegresable {
-
-    public abstract JButton getJbControlDeCategorias();
-
-    public abstract void setJbControlDeCategorias(JButton boton);
+public interface FrameRegresable {
+    
+    public abstract JButton getJbRegresar();
+    public abstract void setJbRegresar(JButton jb);
 }

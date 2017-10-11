@@ -6,12 +6,14 @@
 package gui;
 
 import controladores.ProductosMenuPrincipalControlador;
+import guiif.JfProductosMenuPrincipalIf;
+import javax.swing.JButton;
 
 /**
  *
  * @author ALUMNO
  */
-public class JfProductosMenuPrincipal extends javax.swing.JFrame {
+public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfProductosMenuPrincipalIf{
 
     /**
      * Creates new form JfProductosMenuPrincipal
@@ -457,4 +459,33 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tfEditarCodigo;
     private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getJbControlDeCategorias() {
+        return jbControlDeCategorias;
+    }
+
+    
+    public void setJbControlDeCategorias(JButton jbControlDeCategorias) {
+        this.jbControlDeCategorias = jbControlDeCategorias;
+    }
+
+    public JButton getJbControlDeMarcas() {
+        return jbControlDeMarcas;
+    }
+
+    public void setJbControlDeMarcas(JButton jbControlDeMarcas) {
+        this.jbControlDeMarcas = jbControlDeMarcas;
+    }
+
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
+    }
+
+    
+
+   
 }
