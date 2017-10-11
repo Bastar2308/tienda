@@ -63,14 +63,14 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
         jbEditarAceptar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         tfEditarCodigo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbControlDeCategorias = new javax.swing.JButton();
+        jbControlDeMarcas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jbAgregar = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
 
         jdAgregar.setTitle("Agregar producto");
@@ -282,9 +282,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú de productos");
 
-        jButton1.setText("Control de Categorías");
+        jbControlDeCategorias.setText("Control de Categorías");
 
-        jButton2.setText("Control de Marcas");
+        jbControlDeMarcas.setText("Control de Marcas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -301,11 +301,11 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
 
-        jButton3.setText("Agregar");
+        jbAgregar.setText("Agregar");
 
-        jButton4.setText("Editar");
+        jbEditar.setText("Editar");
 
-        jButton5.setText("Eliminar");
+        jbEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -314,20 +314,20 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                    .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
+                .addComponent(jbAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(jbEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(jbEliminar)
                 .addContainerGap())
         );
 
@@ -346,9 +346,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jbControlDeCategorias)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jbControlDeMarcas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbRegresar)))
                 .addContainerGap())
@@ -358,8 +358,8 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(jbControlDeCategorias)
+                    .addComponent(jbControlDeMarcas)
                     .addComponent(jbRegresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -407,11 +407,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,10 +426,15 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
+    private javax.swing.JButton jbControlDeCategorias;
+    private javax.swing.JButton jbControlDeMarcas;
+    private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbEditarAceptar;
     private javax.swing.JButton jbEditarCancelar;
+    private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JComboBox<String> jcbAgregarCategoria;
     private javax.swing.JComboBox<String> jcbAgregarMarca;
