@@ -3,6 +3,7 @@
  */
 package gui;
 
+import controladores.MenuFinanzasControlador;
 import guiif.JfMenuFinanzasIf;
 import javax.swing.JButton;
 
@@ -12,11 +13,14 @@ import javax.swing.JButton;
  */
 public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzasIf {
 
+    MenuFinanzasControlador controlador;
+
     /**
      * Creates new form JfFinanzas
      */
     public JfMenuFinanzas() {
         initComponents();
+        controlador=new MenuFinanzasControlador(this);
     }
 
     /**

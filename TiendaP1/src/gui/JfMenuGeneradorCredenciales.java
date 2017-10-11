@@ -3,6 +3,7 @@
  */
 package gui;
 
+import controladores.MenuGeneradorCredencialesControlador;
 import guiif.JfMenuGeneradorCredencialesIf;
 import javax.swing.JButton;
 
@@ -12,11 +13,14 @@ import javax.swing.JButton;
  */
 public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements JfMenuGeneradorCredencialesIf {
 
+    MenuGeneradorCredencialesControlador controlador;
+
     /**
      * Creates new form JfMenuGeneradorCredenciales
      */
     public JfMenuGeneradorCredenciales() {
         initComponents();
+        controlador = new MenuGeneradorCredencialesControlador(this);
     }
 
     /**

@@ -3,6 +3,7 @@
  */
 package gui;
 
+import controladores.MenuCargaSaldoControlador;
 import guiif.JfMenuCargaSaldoIf;
 import javax.swing.JButton;
 
@@ -12,11 +13,14 @@ import javax.swing.JButton;
  */
 public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaSaldoIf {
 
+    private MenuCargaSaldoControlador controlador;
+
     /**
      * Creates new form CargaSaldo
      */
     public JfMenuCargaSaldo() {
         initComponents();
+        controlador = new MenuCargaSaldoControlador(this);
     }
 
     /**
