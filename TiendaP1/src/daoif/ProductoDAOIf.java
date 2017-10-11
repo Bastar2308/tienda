@@ -18,10 +18,10 @@ import pojo.Producto;
 public interface ProductoDAOIf {
     public abstract int insertaProducto(Producto pojo);
     public abstract boolean eliminaProducto(int id);
-    public abstract boolean modificaProducto(int id);
+    public abstract boolean modificaProducto(Producto pojo, int id);
     public abstract Producto buscaCategoria(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Producto> cargarCombo();
     public abstract DefaultListModel<Producto> cargarLista();
-    public abstract Producto inflaCategoria(ResultSet rs);
+    public abstract Producto inflaProducto(ResultSet rs);
 }

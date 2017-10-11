@@ -10,9 +10,11 @@ import daoif.VentaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import pojo.Cliente;
 import pojo.Venta;
 
 
@@ -49,27 +51,135 @@ public class VentaDAO implements VentaDAOIf{
 
     @Override
     public boolean eliminaVenta(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_DELETE);
+            st.setInt(1, id);
+            int num = st.executeUpdate();
+            if (num == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar venta " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override
-    public boolean modificaVenta(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificaVenta(Venta pojo, int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE);
+            st.setString(1, pojo.getNota());
+            st.setTimestamp(2, pojo.getFechahora());
+            st.setDouble(3, pojo.getTotal());
+            st.setInt(4, pojo.getCliente_idCliente());
+            st.setInt(5, pojo.getIdVenta());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar venta" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override
-    public Venta buscaCategoria(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Venta buscaVenta(int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        Venta pojo = new Venta();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                pojo = inflaVenta(rs);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar venta " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return pojo;
     }
 
     @Override
     public DefaultTableModel cargarTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Id","Nota","Fecha/Hora","Total","Cliente"};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Object ob[] = new Object[2];
+                Venta pojo = inflaVenta(rs);
+                ClienteDAO clienteDAO = new ClienteDAO();
+                Cliente cliente = clienteDAO.buscaCliente(pojo.getCliente_idCliente());
+                ob[0] = pojo.getIdVenta();
+                ob[1] = pojo.getNota();
+                ob[2] = pojo.getFechahora();
+                ob[3] = pojo.getTotal();
+                ob[4] = cliente.getIdCliente();
+                dt.addRow(ob);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla venta " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
     }
 
     @Override
     public DefaultComboBoxModel<Venta> cargarCombo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultComboBoxModel combo = null;
+        try {
+            combo = new DefaultComboBoxModel();
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            ResultSet rs = st.executeQuery();
+            combo.addElement("Seleccionar venta");
+            while (rs.next()) {
+                Venta venta = inflaVenta(rs);
+                combo.addElement(venta);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar combo venta");
+        } finally {
+            try {
+                st.close();
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error al cargar combo venta");
+            }
+        }
+        return combo;
     }
 
     @Override
@@ -78,8 +188,18 @@ public class VentaDAO implements VentaDAOIf{
     }
 
     @Override
-    public Venta inflaCategoria(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Venta inflaVenta(ResultSet rs) {
+        Venta pojo = new Venta();
+        try {
+            pojo.setIdVenta(rs.getInt("idVenta"));
+            pojo.setNota(rs.getString("nota"));
+            pojo.setFechahora(rs.getTimestamp("fechahora"));
+            pojo.setTotal(rs.getDouble("total"));
+            pojo.setCliente_idCliente(rs.getInt("cliente_idCliente"));
+        } catch (SQLException ex) {
+            System.out.println("Error al inflar venta " + ex);
+        }
+        return pojo;
     }
 
 }

@@ -18,10 +18,10 @@ import pojo.Venta;
 public interface VentaDAOIf {
     public abstract int insertaVenta(Venta pojo);
     public abstract boolean eliminaVenta(int id);
-    public abstract boolean modificaVenta(int id);
-    public abstract Venta buscaCategoria(int id);
+    public abstract boolean modificaVenta(Venta pojo, int id);
+    public abstract Venta buscaVenta(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Venta> cargarCombo();
     public abstract DefaultListModel<Venta> cargarLista();
-    public abstract Venta inflaCategoria(ResultSet rs);
+    public abstract Venta inflaVenta(ResultSet rs);
 }

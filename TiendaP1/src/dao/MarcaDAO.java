@@ -10,6 +10,7 @@ import daoif.MarcaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
@@ -46,27 +47,127 @@ public class MarcaDAO implements MarcaDAOIf{
 
     @Override
     public boolean eliminaMarca(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_DELETE);
+            st.setInt(1, id);
+            int num = st.executeUpdate();
+            if (num == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar marca " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override
-    public boolean modificaMarca(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificaMarca(Marca pojo, int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE);
+            st.setString(1, pojo.getNombre());
+            st.setInt(2, pojo.getIdMarca());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar marca " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override
     public Marca buscaMarca(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        Marca pojo = new Marca();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                pojo = inflaMarca(rs);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar  marca" + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return pojo;
     }
 
     @Override
     public DefaultTableModel cargarTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Id","Nombre"};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Object ob[] = new Object[2];
+                Marca pojo = inflaMarca(rs);
+                ob[0] = pojo.getIdMarca();
+                ob[1] = pojo.getNombre();
+                dt.addRow(ob);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla marca " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
     }
 
     @Override
     public DefaultComboBoxModel<Marca> cargarCombo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultComboBoxModel combo = null;
+        try {
+            combo = new DefaultComboBoxModel();
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            ResultSet rs = st.executeQuery();
+            combo.addElement("Seleccionar marca");
+            while (rs.next()) {
+                Marca marca = inflaMarca(rs);
+                combo.addElement(marca);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar combo marca");
+        } finally {
+            try {
+                st.close();
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error al cargar combo marca");
+            }
+        }
+        return combo;
     }
 
     @Override
@@ -75,8 +176,15 @@ public class MarcaDAO implements MarcaDAOIf{
     }
 
     @Override
-    public Marca inflaCategoria(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Marca inflaMarca(ResultSet rs) {
+        Marca pojo = new Marca();
+        try {
+            pojo.setIdMarca(rs.getInt("idMarca"));
+            pojo.setNombre(rs.getString("nombre"));
+        } catch (SQLException ex) {
+            System.out.println("Error al inflar marca " + ex);
+        }
+        return pojo;
     }
 
 }

@@ -5,9 +5,7 @@
  */
 package daoif;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
 import pojo.Usuario;
 
 /**
@@ -17,6 +15,7 @@ import pojo.Usuario;
 public interface UsuarioDAOIf {
     
     public abstract Usuario iniciaSesion(String usuario,String password);
+    public abstract Usuario inflaUsuario(ResultSet rs);
     
 
 }

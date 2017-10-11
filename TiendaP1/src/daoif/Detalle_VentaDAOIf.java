@@ -17,7 +17,7 @@ import pojo.Detalle_Venta;
 public interface Detalle_VentaDAOIf {
     public abstract int insertaDetalle_Venta(Detalle_Venta pojo);
     public abstract boolean eliminaDetalle_Venta(int id, int id2);
-    public abstract boolean modificaDetalle_Venta(int id, int id2);
+    public abstract boolean modificaDetalle_Venta(Detalle_Venta pojo, int id, int id2);
     public abstract Detalle_Venta buscaCategoria(int id, int id2);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Detalle_Venta> cargarCombo();

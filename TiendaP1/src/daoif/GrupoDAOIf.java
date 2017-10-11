@@ -18,10 +18,10 @@ import pojo.Grupo;
 public interface GrupoDAOIf {
     public abstract int insertaGrupo(Grupo pojo);
     public abstract boolean eliminaGrupo(int id);
-    public abstract boolean modificaGrupo(int id);
+    public abstract boolean modificaGrupo(Grupo pojo, int id);
     public abstract Grupo buscaGrupo(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Grupo> cargarCombo();
     public abstract DefaultListModel<Grupo> cargarLista();
-    public abstract Grupo inflaCategoria(ResultSet rs);
+    public abstract Grupo inflaGrupo(ResultSet rs);
 }

@@ -105,7 +105,7 @@ public class CategoriaDAO implements CategoriaDAOIf{
                 pojo = inflaCategoria(rs);
             }
         } catch (Exception e) {
-            System.out.println("Error al consultar  " + e);
+            System.out.println("Error al consultar categoria " + e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);

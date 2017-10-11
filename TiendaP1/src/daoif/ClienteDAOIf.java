@@ -18,10 +18,10 @@ import pojo.Cliente;
 public interface ClienteDAOIf {
     public abstract int insertaCliente(Cliente pojo);
     public abstract boolean eliminaCliente(int id);
-    public abstract boolean modificaCliente(int id);
+    public abstract boolean modificaCliente(Cliente pojo, int id);
     public abstract Cliente buscaCliente(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Cliente> cargarCombo();
     public abstract DefaultListModel<Cliente> cargarLista();
-    public abstract Cliente inflaCategoria(ResultSet rs);
+    public abstract Cliente inflaCliente(ResultSet rs);
 }

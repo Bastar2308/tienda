@@ -7,8 +7,6 @@
 package dao;
 
 import daoif.Alimento_Prohibido_ClienteDAOIf;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
@@ -58,7 +56,7 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
     }
 
     @Override
-    public boolean modificaAlimento_Prohibido_Cliente(int id, int id2) {
+    public boolean modificaAlimento_Prohibido_Cliente(Alimento_Prohibido_Cliente pojo, int id, int id2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -81,5 +79,4 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
     public DefaultListModel<Alimento_Prohibido_Cliente> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

@@ -7,6 +7,7 @@
 package pojo;
 
 import java.awt.Image;
+import java.sql.Blob;
 
 
 public class Cliente {
@@ -15,7 +16,7 @@ public class Cliente {
     private String nombre;
     private double saldo;
     private String qr;
-    private Image foto;
+    private Blob foto;
     private String tutor;
     private String telefono;
     private String correo;
@@ -62,11 +63,11 @@ public class Cliente {
         this.qr = qr;
     }
 
-    public Image getFoto() {
+    public Blob getFoto() {
         return foto;
     }
 
-    public void setFoto(Image foto) {
+    public void setFoto(Blob foto) {
         this.foto = foto;
     }
 

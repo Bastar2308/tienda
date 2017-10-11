@@ -21,7 +21,7 @@ public class Conexion {
 
     private static final String JDBC_PASS = "";
 
-    private static final String JDBC_BD = "optica";
+    private static final String JDBC_BD = "tienda_cbb";
 
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
