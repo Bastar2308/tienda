@@ -36,21 +36,21 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        rb20 = new javax.swing.JRadioButton();
+        rb50 = new javax.swing.JRadioButton();
+        rb100 = new javax.swing.JRadioButton();
+        rb200 = new javax.swing.JRadioButton();
+        rb500 = new javax.swing.JRadioButton();
+        rb1000 = new javax.swing.JRadioButton();
+        rbOtra = new javax.swing.JRadioButton();
+        jsOtra = new javax.swing.JSpinner();
+        jbAgregarSaldo = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
+        jlClientes = new javax.swing.JList<>();
+        jbFiltrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,88 +62,88 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
 
         jPanel3.setLayout(new java.awt.GridLayout(3, 1, 10, 10));
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("$20");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb20);
+        rb20.setText("$20");
+        rb20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rb20ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton1);
+        jPanel3.add(rb20);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("$50");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb50);
+        rb50.setText("$50");
+        rb50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rb50ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton2);
+        jPanel3.add(rb50);
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("$100");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb100);
+        rb100.setText("$100");
+        rb100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rb100ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton3);
+        jPanel3.add(rb100);
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("$200");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb200);
+        rb200.setText("$200");
+        rb200.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                rb200ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton4);
+        jPanel3.add(rb200);
 
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setText("$500");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb500);
+        rb500.setText("$500");
+        rb500.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                rb500ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton5);
+        jPanel3.add(rb500);
 
-        buttonGroup1.add(jRadioButton6);
-        jRadioButton6.setText("$1,000");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb1000);
+        rb1000.setText("$1,000");
+        rb1000.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                rb1000ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton6);
+        jPanel3.add(rb1000);
 
-        buttonGroup1.add(jRadioButton7);
-        jRadioButton7.setText("Otra:");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbOtra);
+        rbOtra.setText("Otra:");
+        rbOtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                rbOtraActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton7);
+        jPanel3.add(rbOtra);
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10000, 10));
-        jSpinner1.setEnabled(false);
-        jPanel3.add(jSpinner1);
+        jsOtra.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10000, 10));
+        jsOtra.setEnabled(false);
+        jPanel3.add(jsOtra);
 
-        jButton1.setText("Agregar saldo");
+        jbAgregarSaldo.setText("Agregar saldo");
 
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
 
         jLabel3.setText("Buscar:");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jlClientes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jlClientes);
 
-        jButton2.setText("Filtrar");
+        jbFiltrar.setText("Filtrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,7 +155,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(jbAgregarSaldo))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
@@ -167,9 +167,9 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                        .addComponent(tfBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(jbFiltrar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -182,8 +182,8 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(tfBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbFiltrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addGap(21, 21, 21)
@@ -191,40 +191,40 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButton1)
+                .addComponent(jbAgregarSaldo)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
-        jSpinner1.setEnabled(true);
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    private void rbOtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbOtraActionPerformed
+        jsOtra.setEnabled(true);
+    }//GEN-LAST:event_rbOtraActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        jSpinner1.setEnabled(false);
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    private void rb20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb20ActionPerformed
+        jsOtra.setEnabled(false);
+    }//GEN-LAST:event_rb20ActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        jSpinner1.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    private void rb50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb50ActionPerformed
+        jsOtra.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb50ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        jSpinner1.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    private void rb100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb100ActionPerformed
+        jsOtra.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb100ActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        jSpinner1.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    private void rb200ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb200ActionPerformed
+        jsOtra.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb200ActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        jSpinner1.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    private void rb500ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb500ActionPerformed
+        jsOtra.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb500ActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
-        jSpinner1.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    private void rb1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb1000ActionPerformed
+        jsOtra.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_rb1000ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,24 +264,24 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbAgregarSaldo;
+    private javax.swing.JButton jbFiltrar;
     private javax.swing.JButton jbRegresar;
+    private javax.swing.JList<String> jlClientes;
+    private javax.swing.JSpinner jsOtra;
+    private javax.swing.JRadioButton rb100;
+    private javax.swing.JRadioButton rb1000;
+    private javax.swing.JRadioButton rb20;
+    private javax.swing.JRadioButton rb200;
+    private javax.swing.JRadioButton rb50;
+    private javax.swing.JRadioButton rb500;
+    private javax.swing.JRadioButton rbOtra;
+    private javax.swing.JTextField tfBuscar;
     // End of variables declaration//GEN-END:variables
 
     @Override
