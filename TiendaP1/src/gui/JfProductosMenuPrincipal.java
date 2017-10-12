@@ -7,7 +7,7 @@ package gui;
 
 import controladores.ProductosMenuPrincipalControlador;
 import guiif.JfProductosMenuPrincipalIf;
-import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -461,28 +461,228 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getJbControlDeCategorias() {
+    public ProductosMenuPrincipalControlador getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(ProductosMenuPrincipalControlador controlador) {
+        this.controlador = controlador;
+    }
+
+    public javax.swing.JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(javax.swing.JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public javax.swing.JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(javax.swing.JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public javax.swing.JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(javax.swing.JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public javax.swing.JButton getJbControlDeCategorias() {
         return jbControlDeCategorias;
     }
 
-    public void setJbControlDeCategorias(JButton jbControlDeCategorias) {
+    public void setJbControlDeCategorias(javax.swing.JButton jbControlDeCategorias) {
         this.jbControlDeCategorias = jbControlDeCategorias;
     }
 
-    public JButton getJbControlDeMarcas() {
+    public javax.swing.JButton getJbControlDeMarcas() {
         return jbControlDeMarcas;
     }
 
-    public void setJbControlDeMarcas(JButton jbControlDeMarcas) {
+    public void setJbControlDeMarcas(javax.swing.JButton jbControlDeMarcas) {
         this.jbControlDeMarcas = jbControlDeMarcas;
     }
 
-    public JButton getJbRegresar() {
+    public javax.swing.JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(javax.swing.JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public javax.swing.JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(javax.swing.JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public javax.swing.JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    public void setJbEditarCancelar(javax.swing.JButton jbEditarCancelar) {
+        this.jbEditarCancelar = jbEditarCancelar;
+    }
+
+    public javax.swing.JButton getJbEliminar() {
+        return jbEliminar;
+    }
+
+    public void setJbEliminar(javax.swing.JButton jbEliminar) {
+        this.jbEliminar = jbEliminar;
+    }
+
+    public javax.swing.JButton getJbRegresar() {
         return jbRegresar;
     }
 
-    public void setJbRegresar(JButton jbRegresar) {
+    public void setJbRegresar(javax.swing.JButton jbRegresar) {
         this.jbRegresar = jbRegresar;
+    }
+
+    public javax.swing.JComboBox<String> getJcbAgregarCategoria() {
+        return jcbAgregarCategoria;
+    }
+
+    public void setJcbAgregarCategoria(javax.swing.JComboBox jcbAgregarCategoria) {
+        this.jcbAgregarCategoria = jcbAgregarCategoria;
+    }
+
+    public JComboBox getJcbAgregarMarca() {
+        return jcbAgregarMarca;
+    }
+
+    public void setJcbAgregarMarca(javax.swing.JComboBox jcbAgregarMarca) {
+        this.jcbAgregarMarca = jcbAgregarMarca;
+    }
+
+    public javax.swing.JComboBox<String> getJcbEditarCategoria() {
+        return jcbEditarCategoria;
+    }
+
+    public void setJcbEditarCategoria(javax.swing.JComboBox jcbEditarCategoria) {
+        this.jcbEditarCategoria = jcbEditarCategoria;
+    }
+
+    public javax.swing.JComboBox<String> getJcbEditarMarca() {
+        return jcbEditarMarca;
+    }
+
+    public void setJcbEditarMarca(javax.swing.JComboBox jcbEditarMarca) {
+        this.jcbEditarMarca = jcbEditarMarca;
+    }
+
+    public javax.swing.JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(javax.swing.JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public javax.swing.JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(javax.swing.JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public javax.swing.JSpinner getJsAgregarPrecio() {
+        return jsAgregarPrecio;
+    }
+
+    public void setJsAgregarPrecio(javax.swing.JSpinner jsAgregarPrecio) {
+        this.jsAgregarPrecio = jsAgregarPrecio;
+    }
+
+    public javax.swing.JSpinner getJsAgregarStock() {
+        return jsAgregarStock;
+    }
+
+    public void setJsAgregarStock(javax.swing.JSpinner jsAgregarStock) {
+        this.jsAgregarStock = jsAgregarStock;
+    }
+
+    public javax.swing.JSpinner getJsEditarPrecio() {
+        return jsEditarPrecio;
+    }
+
+    public void setJsEditarPrecio(javax.swing.JSpinner jsEditarPrecio) {
+        this.jsEditarPrecio = jsEditarPrecio;
+    }
+
+    public javax.swing.JSpinner getJsEditarStock() {
+        return jsEditarStock;
+    }
+
+    public void setJsEditarStock(javax.swing.JSpinner jsEditarStock) {
+        this.jsEditarStock = jsEditarStock;
+    }
+
+    public javax.swing.JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(javax.swing.JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public javax.swing.JTextArea getJtaAgregarDetalles() {
+        return jtaAgregarDetalles;
+    }
+
+    public void setJtaAgregarDetalles(javax.swing.JTextArea jtaAgregarDetalles) {
+        this.jtaAgregarDetalles = jtaAgregarDetalles;
+    }
+
+    public javax.swing.JTextArea getJtaEditarDetalles() {
+        return jtaEditarDetalles;
+    }
+
+    public void setJtaEditarDetalles(javax.swing.JTextArea jtaEditarDetalles) {
+        this.jtaEditarDetalles = jtaEditarDetalles;
+    }
+
+    public javax.swing.JTextField getTfAgregarCodigo() {
+        return tfAgregarCodigo;
+    }
+
+    public void setTfAgregarCodigo(javax.swing.JTextField tfAgregarCodigo) {
+        this.tfAgregarCodigo = tfAgregarCodigo;
+    }
+
+    public javax.swing.JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public javax.swing.JTextField getTfEditarCodigo() {
+        return tfEditarCodigo;
+    }
+
+    public void setTfEditarCodigo(javax.swing.JTextField tfEditarCodigo) {
+        this.tfEditarCodigo = tfEditarCodigo;
+    }
+
+    public javax.swing.JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
     }
 
 }
