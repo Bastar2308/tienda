@@ -5,6 +5,7 @@ package gui;
 
 import guiif.JfMenuClientesIf;
 import javax.swing.JButton;
+import controladores.MenuClientesControlador;
 
 /**
  *
@@ -12,11 +13,14 @@ import javax.swing.JButton;
  */
 public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientesIf {
 
+    MenuClientesControlador controlador;
+
     /**
      * Creates new form MenuClientes
      */
     public JfMenuClientes() {
         initComponents();
+        controlador = new MenuClientesControlador(this);
     }
 
     /**
