@@ -33,19 +33,53 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
     private void initComponents() {
 
         jbRegresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jcbConsultas = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtResultados = new javax.swing.JTable();
+        jbConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
 
+        jLabel1.setText("Consultas predefinidas:");
+
+        jcbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jtResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtResultados);
+
+        jbConsultar.setText("Consultar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(293, Short.MAX_VALUE)
-                .addComponent(jbRegresar)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jcbConsultas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbRegresar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbConsultar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -53,7 +87,15 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jbRegresar)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jcbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbConsultar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -96,16 +138,45 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbRegresar;
+    private javax.swing.JComboBox<String> jcbConsultas;
+    private javax.swing.JTable jtResultados;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public JButton getJbRegresar() {
+    public javax.swing.JButton getJbConsultar() {
+        return jbConsultar;
+    }
+
+    public void setJbConsultar(javax.swing.JButton jbConsultar) {
+        this.jbConsultar = jbConsultar;
+    }
+
+    public javax.swing.JButton getJbRegresar() {
         return jbRegresar;
     }
 
-    @Override
-    public void setJbRegresar(JButton jb) {
-        this.jbRegresar = jb;
+    public void setJbRegresar(javax.swing.JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
     }
+
+    public javax.swing.JComboBox<String> getJcbConsultas() {
+        return jcbConsultas;
+    }
+
+    public void setJcbConsultas(javax.swing.JComboBox jcbConsultas) {
+        this.jcbConsultas = jcbConsultas;
+    }
+
+    public javax.swing.JTable getJtResultados() {
+        return jtResultados;
+    }
+
+    public void setJtResultados(javax.swing.JTable jtResultados) {
+        this.jtResultados = jtResultados;
+    }
+
+   
 }

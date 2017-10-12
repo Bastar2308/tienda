@@ -7,7 +7,6 @@ package controladores;
 
 import auxiliares.GuiTools;
 import gui.JfMenuClientes;
-import gui.JfMenuMarcas;
 import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

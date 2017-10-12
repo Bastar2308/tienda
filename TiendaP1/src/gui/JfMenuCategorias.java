@@ -6,12 +6,154 @@
 package gui;
 
 import controladores.MenuCategoriasControlador;
+import guiif.JMenuCategoriasIf;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
  * @author ALUMNO
  */
-public class JfMenuCategorias extends javax.swing.JFrame {
+public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategoriasIf{
+
+    public JButton getJbEliminar() {
+        return JbEliminar;
+    }
+
+    public void setJbEliminar(JButton JbEliminar) {
+        this.JbEliminar = JbEliminar;
+    }
+
+    public JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    public void setJbEditarCancelar(JButton jbEditarCancelar) {
+        this.jbEditarCancelar = jbEditarCancelar;
+    }
+
+    public JButton getJbEliminarAceptar() {
+        return jbEliminarAceptar;
+    }
+
+    public void setJbEliminarAceptar(JButton jbEliminarAceptar) {
+        this.jbEliminarAceptar = jbEliminarAceptar;
+    }
+
+    public JButton getJbEliminarCancelar() {
+        return jbEliminarCancelar;
+    }
+
+    public void setJbEliminarCancelar(JButton jbEliminarCancelar) {
+        this.jbEliminarCancelar = jbEliminarCancelar;
+    }
+
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
+    }
+
+    public JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public JDialog getJdEliminar() {
+        return jdEliminar;
+    }
+
+    public void setJdEliminar(JDialog jdEliminar) {
+        this.jdEliminar = jdEliminar;
+    }
+
+    public JLabel getJlCategoria() {
+        return jlCategoria;
+    }
+
+    public void setJlCategoria(JLabel jlCategoria) {
+        this.jlCategoria = jlCategoria;
+    }
+
+    public JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
+    }
 
     MenuCategoriasControlador controlador;
 
@@ -44,14 +186,14 @@ public class JfMenuCategorias extends javax.swing.JFrame {
         jbEditarAceptar = new javax.swing.JButton();
         jdEliminar = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlCategoria = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbEliminarCancelar = new javax.swing.JButton();
         jbEliminarAceptar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbAgregar = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
+        JbEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtDatos = new javax.swing.JTable();
         jbRegresar = new javax.swing.JButton();
@@ -142,8 +284,8 @@ public class JfMenuCategorias extends javax.swing.JFrame {
 
         jLabel3.setText("¿Reálmente desea eliminar");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("<categoria>");
+        jlCategoria.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlCategoria.setText("<categoria>");
 
         jLabel5.setText("?");
 
@@ -161,7 +303,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
                     .addGroup(jdEliminarLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(jlCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(0, 160, Short.MAX_VALUE))
@@ -180,7 +322,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jLabel4)))
+                        .addComponent(jlCategoria)))
                 .addGap(35, 35, 35)
                 .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbEliminarAceptar)
@@ -193,11 +335,11 @@ public class JfMenuCategorias extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
 
-        jButton1.setText("Agregar");
+        jbAgregar.setText("Agregar");
 
-        jButton2.setText("Editar");
+        jbEditar.setText("Editar");
 
-        jButton3.setText("Eliminar");
+        JbEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,20 +348,20 @@ public class JfMenuCategorias extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(JbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jbAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jbEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(JbEliminar)
                 .addContainerGap())
         );
 
@@ -324,18 +466,17 @@ public class JfMenuCategorias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton JbEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
+    private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbEditarAceptar;
     private javax.swing.JButton jbEditarCancelar;
     private javax.swing.JButton jbEliminarAceptar;
@@ -344,6 +485,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdEliminar;
+    private javax.swing.JLabel jlCategoria;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
