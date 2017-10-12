@@ -5,17 +5,33 @@
  */
 package controladores;
 
+import auxiliares.GuiTools;
 import gui.JfMenuGeneradorCredenciales;
+import gui.JfMenuPrincipal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author MAESTROAD
  */
-public class MenuGeneradorCredencialesControlador {
+public class MenuGeneradorCredencialesControlador implements ActionListener{
     JfMenuGeneradorCredenciales vista;
 
     public MenuGeneradorCredencialesControlador(JfMenuGeneradorCredenciales vista) {
         this.vista = vista;
+            addListeners();
+    }
+
+    private void addListeners() {
+        vista.getJbRegresar().addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(vista.getJbRegresar())) {
+            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+        }
     }
     
 }

@@ -5,6 +5,10 @@
  */
 package controladores;
 
+import auxiliares.GuiTools;
+import gui.JfMenuCategorias;
+import gui.JfMenuMarcas;
+import gui.JfMenuPrincipal;
 import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,14 +24,24 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
     public ProductosMenuPrincipalControlador(JfProductosMenuPrincipal vista) {
         this.vista = vista;
         addListeners();
+
     }
-    public void addListeners(){
-        
+
+    private void addListeners() {
+        vista.getJbRegresar().addActionListener(this);
+        vista.getJbControlDeMarcas().addActionListener(this);
+        vista.getJbControlDeCategorias().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (e.getSource().equals(vista.getJbRegresar())) {
+            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+        } else if (e.getSource().equals(vista.getJbControlDeCategorias())) {
+            GuiTools.getInstance().abre(vista, new JfMenuCategorias());
+        } else if (e.getSource().equals(vista.getJbControlDeMarcas())) {
+            GuiTools.getInstance().abre(vista, new JfMenuMarcas());
+        }
     }
 
 }

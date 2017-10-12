@@ -5,18 +5,35 @@
  */
 package controladores;
 
+import auxiliares.GuiTools;
+import gui.JfMenuPrincipal;
 import gui.JfPuntoDeVenta;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author MAESTROAD
  */
-public class PuntoDeVentaControlador {
+public class PuntoDeVentaControlador implements ActionListener {
+
     JfPuntoDeVenta vista;
 
     public PuntoDeVentaControlador(JfPuntoDeVenta vista) {
         this.vista = vista;
+        addListeners();
+
     }
-    
-    
+
+    private void addListeners() {
+        vista.getJbRegresar().addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(vista.getJbRegresar())) {
+            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+        }
+    }
+
 }

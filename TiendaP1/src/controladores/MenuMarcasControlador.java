@@ -8,6 +8,7 @@ package controladores;
 import auxiliares.GuiTools;
 import gui.JfMenuMarcas;
 import gui.JfMenuPrincipal;
+import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
  *
  * @author MAESTROAD
  */
-public class MenuMarcasControlador implements ActionListener{
+public class MenuMarcasControlador implements ActionListener {
 
     JfMenuMarcas vista;
 
@@ -31,7 +32,7 @@ public class MenuMarcasControlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
         }
     }
 }

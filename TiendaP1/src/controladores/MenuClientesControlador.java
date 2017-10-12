@@ -21,10 +21,10 @@ public class MenuClientesControlador implements ActionListener{
 
     public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
-        cargarListeners();
+        addListeners();
     }
 
-    private void cargarListeners() {
+    private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
     }
 
