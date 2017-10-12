@@ -503,4 +503,252 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     public void setJbRegresar(JButton jb) {
         this.jbRegresar = jb;
     }
+
+    public javax.swing.JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(javax.swing.JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public javax.swing.JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(javax.swing.JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public javax.swing.JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(javax.swing.JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public javax.swing.JButton getJbAgregarTomarFoto() {
+        return jbAgregarTomarFoto;
+    }
+
+    public void setJbAgregarTomarFoto(javax.swing.JButton jbAgregarTomarFoto) {
+        this.jbAgregarTomarFoto = jbAgregarTomarFoto;
+    }
+
+    public javax.swing.JButton getJbControlDeGrupos() {
+        return jbControlDeGrupos;
+    }
+
+    public void setJbControlDeGrupos(javax.swing.JButton jbControlDeGrupos) {
+        this.jbControlDeGrupos = jbControlDeGrupos;
+    }
+
+    public javax.swing.JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(javax.swing.JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public javax.swing.JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(javax.swing.JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public javax.swing.JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    public void setJbEditarCancelar(javax.swing.JButton jbEditarCancelar) {
+        this.jbEditarCancelar = jbEditarCancelar;
+    }
+
+    public javax.swing.JButton getJbEditarTomarFoto() {
+        return jbEditarTomarFoto;
+    }
+
+    public void setJbEditarTomarFoto(javax.swing.JButton jbEditarTomarFoto) {
+        this.jbEditarTomarFoto = jbEditarTomarFoto;
+    }
+
+    public javax.swing.JButton getJbEliminar() {
+        return jbEliminar;
+    }
+
+    public void setJbEliminar(javax.swing.JButton jbEliminar) {
+        this.jbEliminar = jbEliminar;
+    }
+
+    public javax.swing.JComboBox<String> getJcbAgregarGrupo() {
+        return jcbAgregarGrupo;
+    }
+
+    public void setJcbAgregarGrupo(javax.swing.JComboBox jcbAgregarGrupo) {
+        this.jcbAgregarGrupo = jcbAgregarGrupo;
+    }
+
+    public javax.swing.JComboBox<String> getJcbEditarGrupo() {
+        return jcbEditarGrupo;
+    }
+
+    public void setJcbEditarGrupo(javax.swing.JComboBox jcbEditarGrupo) {
+        this.jcbEditarGrupo = jcbEditarGrupo;
+    }
+
+    public javax.swing.JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(javax.swing.JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public javax.swing.JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(javax.swing.JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public javax.swing.JLabel getJlAgregarImagen() {
+        return jlAgregarImagen;
+    }
+
+    public void setJlAgregarImagen(javax.swing.JLabel jlAgregarImagen) {
+        this.jlAgregarImagen = jlAgregarImagen;
+    }
+
+    public javax.swing.JLabel getJlEditarImagen() {
+        return jlEditarImagen;
+    }
+
+    public void setJlEditarImagen(javax.swing.JLabel jlEditarImagen) {
+        this.jlEditarImagen = jlEditarImagen;
+    }
+
+    public javax.swing.JSpinner getJsAgregarComprasSinCredencial() {
+        return jsAgregarComprasSinCredencial;
+    }
+
+    public void setJsAgregarComprasSinCredencial(javax.swing.JSpinner jsAgregarComprasSinCredencial) {
+        this.jsAgregarComprasSinCredencial = jsAgregarComprasSinCredencial;
+    }
+
+    public javax.swing.JSpinner getJsAgregarSaldo() {
+        return jsAgregarSaldo;
+    }
+
+    public void setJsAgregarSaldo(javax.swing.JSpinner jsAgregarSaldo) {
+        this.jsAgregarSaldo = jsAgregarSaldo;
+    }
+
+    public javax.swing.JSpinner getJsEditarComprasSinCredencial() {
+        return jsEditarComprasSinCredencial;
+    }
+
+    public void setJsEditarComprasSinCredencial(javax.swing.JSpinner jsEditarComprasSinCredencial) {
+        this.jsEditarComprasSinCredencial = jsEditarComprasSinCredencial;
+    }
+
+    public javax.swing.JSpinner getJsEditarSaldo() {
+        return jsEditarSaldo;
+    }
+
+    public void setJsEditarSaldo(javax.swing.JSpinner jsEditarSaldo) {
+        this.jsEditarSaldo = jsEditarSaldo;
+    }
+
+    public javax.swing.JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(javax.swing.JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public javax.swing.JTextField getTfAgregarCorreo() {
+        return tfAgregarCorreo;
+    }
+
+    public void setTfAgregarCorreo(javax.swing.JTextField tfAgregarCorreo) {
+        this.tfAgregarCorreo = tfAgregarCorreo;
+    }
+
+    public javax.swing.JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public javax.swing.JTextField getTfAgregarQr() {
+        return tfAgregarQr;
+    }
+
+    public void setTfAgregarQr(javax.swing.JTextField tfAgregarQr) {
+        this.tfAgregarQr = tfAgregarQr;
+    }
+
+    public javax.swing.JTextField getTfAgregarTelefono() {
+        return tfAgregarTelefono;
+    }
+
+    public void setTfAgregarTelefono(javax.swing.JTextField tfAgregarTelefono) {
+        this.tfAgregarTelefono = tfAgregarTelefono;
+    }
+
+    public javax.swing.JTextField getTfAgregarTutor() {
+        return tfAgregarTutor;
+    }
+
+    public void setTfAgregarTutor(javax.swing.JTextField tfAgregarTutor) {
+        this.tfAgregarTutor = tfAgregarTutor;
+    }
+
+    public javax.swing.JTextField getTfEditarCorreo() {
+        return tfEditarCorreo;
+    }
+
+    public void setTfEditarCorreo(javax.swing.JTextField tfEditarCorreo) {
+        this.tfEditarCorreo = tfEditarCorreo;
+    }
+
+    public javax.swing.JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
+    }
+
+    public javax.swing.JTextField getTfEditarQr() {
+        return tfEditarQr;
+    }
+
+    public void setTfEditarQr(javax.swing.JTextField tfEditarQr) {
+        this.tfEditarQr = tfEditarQr;
+    }
+
+    public javax.swing.JTextField getTfEditarTelefono() {
+        return tfEditarTelefono;
+    }
+
+    public void setTfEditarTelefono(javax.swing.JTextField tfEditarTelefono) {
+        this.tfEditarTelefono = tfEditarTelefono;
+    }
+
+    public javax.swing.JTextField getTfEditarTutor() {
+        return tfEditarTutor;
+    }
+
+    public void setTfEditarTutor(javax.swing.JTextField tfEditarTutor) {
+        this.tfEditarTutor = tfEditarTutor;
+    }
 }
