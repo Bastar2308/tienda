@@ -293,4 +293,100 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
     public void setJbRegresar(JButton jb) {
         this.jbRegresar = jb;
     }
+
+    public javax.swing.JButton getJbAgregarSaldo() {
+        return jbAgregarSaldo;
+    }
+
+    public void setJbAgregarSaldo(javax.swing.JButton jbAgregarSaldo) {
+        this.jbAgregarSaldo = jbAgregarSaldo;
+    }
+
+    public javax.swing.JButton getJbFiltrar() {
+        return jbFiltrar;
+    }
+
+    public void setJbFiltrar(javax.swing.JButton jbFiltrar) {
+        this.jbFiltrar = jbFiltrar;
+    }
+
+    public javax.swing.JList<String> getJlClientes() {
+        return jlClientes;
+    }
+
+    public void setJlClientes(javax.swing.JList jlClientes) {
+        this.jlClientes = jlClientes;
+    }
+
+    public javax.swing.JSpinner getJsOtra() {
+        return jsOtra;
+    }
+
+    public void setJsOtra(javax.swing.JSpinner jsOtra) {
+        this.jsOtra = jsOtra;
+    }
+
+    public javax.swing.JRadioButton getRb100() {
+        return rb100;
+    }
+
+    public void setRb100(javax.swing.JRadioButton rb100) {
+        this.rb100 = rb100;
+    }
+
+    public javax.swing.JRadioButton getRb1000() {
+        return rb1000;
+    }
+
+    public void setRb1000(javax.swing.JRadioButton rb1000) {
+        this.rb1000 = rb1000;
+    }
+
+    public javax.swing.JRadioButton getRb20() {
+        return rb20;
+    }
+
+    public void setRb20(javax.swing.JRadioButton rb20) {
+        this.rb20 = rb20;
+    }
+
+    public javax.swing.JRadioButton getRb200() {
+        return rb200;
+    }
+
+    public void setRb200(javax.swing.JRadioButton rb200) {
+        this.rb200 = rb200;
+    }
+
+    public javax.swing.JRadioButton getRb50() {
+        return rb50;
+    }
+
+    public void setRb50(javax.swing.JRadioButton rb50) {
+        this.rb50 = rb50;
+    }
+
+    public javax.swing.JRadioButton getRb500() {
+        return rb500;
+    }
+
+    public void setRb500(javax.swing.JRadioButton rb500) {
+        this.rb500 = rb500;
+    }
+
+    public javax.swing.JRadioButton getRbOtra() {
+        return rbOtra;
+    }
+
+    public void setRbOtra(javax.swing.JRadioButton rbOtra) {
+        this.rbOtra = rbOtra;
+    }
+
+    public javax.swing.JTextField getTfBuscar() {
+        return tfBuscar;
+    }
+
+    public void setTfBuscar(javax.swing.JTextField tfBuscar) {
+        this.tfBuscar = tfBuscar;
+    }
 }
