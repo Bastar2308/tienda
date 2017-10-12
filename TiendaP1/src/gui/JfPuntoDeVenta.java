@@ -5,6 +5,7 @@ package gui;
 
 import guiif.JfPuntoDeVentaIf;
 import javax.swing.JButton;
+import controladores.PuntoDeVentaControlador;
 
 /**
  *
@@ -12,11 +13,14 @@ import javax.swing.JButton;
  */
 public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVentaIf {
 
+    private PuntoDeVentaControlador controlador;
+
     /**
      * Creates new form JfPuntoDeVenta
      */
     public JfPuntoDeVenta() {
         initComponents();
+        controlador = new PuntoDeVentaControlador(this);
     }
 
     /**
