@@ -6,12 +6,154 @@
 package gui;
 
 import controladores.MenuCategoriasControlador;
+import guiif.JMenuCategoriasIf;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
  * @author ALUMNO
  */
-public class JfMenuCategorias extends javax.swing.JFrame {
+public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategoriasIf{
+
+    public JButton getJbEliminar() {
+        return JbEliminar;
+    }
+
+    public void setJbEliminar(JButton JbEliminar) {
+        this.JbEliminar = JbEliminar;
+    }
+
+    public JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    public void setJbEditarCancelar(JButton jbEditarCancelar) {
+        this.jbEditarCancelar = jbEditarCancelar;
+    }
+
+    public JButton getJbEliminarAceptar() {
+        return jbEliminarAceptar;
+    }
+
+    public void setJbEliminarAceptar(JButton jbEliminarAceptar) {
+        this.jbEliminarAceptar = jbEliminarAceptar;
+    }
+
+    public JButton getJbEliminarCancelar() {
+        return jbEliminarCancelar;
+    }
+
+    public void setJbEliminarCancelar(JButton jbEliminarCancelar) {
+        this.jbEliminarCancelar = jbEliminarCancelar;
+    }
+
+    public JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
+    }
+
+    public JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public JDialog getJdEliminar() {
+        return jdEliminar;
+    }
+
+    public void setJdEliminar(JDialog jdEliminar) {
+        this.jdEliminar = jdEliminar;
+    }
+
+    public JLabel getJlCategoria() {
+        return jlCategoria;
+    }
+
+    public void setJlCategoria(JLabel jlCategoria) {
+        this.jlCategoria = jlCategoria;
+    }
+
+    public JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
+    }
 
     MenuCategoriasControlador controlador;
 
