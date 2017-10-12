@@ -44,7 +44,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
         jbEditarAceptar = new javax.swing.JButton();
         jdEliminar = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlCategoria = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbEliminarCancelar = new javax.swing.JButton();
         jbEliminarAceptar = new javax.swing.JButton();
@@ -142,8 +142,8 @@ public class JfMenuCategorias extends javax.swing.JFrame {
 
         jLabel3.setText("¿Reálmente desea eliminar");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("<categoria>");
+        jlCategoria.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlCategoria.setText("<categoria>");
 
         jLabel5.setText("?");
 
@@ -161,7 +161,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
                     .addGroup(jdEliminarLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(jlCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(0, 160, Short.MAX_VALUE))
@@ -180,7 +180,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jLabel4)))
+                        .addComponent(jlCategoria)))
                 .addGap(35, 35, 35)
                 .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbEliminarAceptar)
@@ -328,7 +328,6 @@ public class JfMenuCategorias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -344,6 +343,7 @@ public class JfMenuCategorias extends javax.swing.JFrame {
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdEliminar;
+    private javax.swing.JLabel jlCategoria;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
