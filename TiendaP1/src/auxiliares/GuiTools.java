@@ -12,20 +12,22 @@ import javax.swing.JFrame;
  * @author MAESTROAD
  */
 public class GuiTools {
-    
+
     private GuiTools() {
     }
-    
+
     public static GuiTools getInstance() {
         return GuiToolesHolder.INSTANCE;
     }
-    
+
     private static class GuiToolesHolder {
 
         private static final GuiTools INSTANCE = new GuiTools();
     }
-    public void abre(JFrame viejo,JFrame nuevo){
-        viejo.setVisible(false);
+
+    public void abre(JFrame viejo, JFrame nuevo) {
+
+        viejo.dispose();
         nuevo.setVisible(true);
     }
 }
