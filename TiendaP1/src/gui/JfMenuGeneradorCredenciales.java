@@ -185,4 +185,61 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
     public void setJbRegresar(JButton jb) {
         this.jbRegresar = jb;
     }
+
+    public javax.swing.JFileChooser getFcSelector() {
+        return fcSelector;
+    }
+
+    public void setFcSelector(javax.swing.JFileChooser fcSelector) {
+        this.fcSelector = fcSelector;
+    }
+
+    public javax.swing.JButton getJbFiltrar() {
+        return jbFiltrar;
+    }
+
+    public void setJbFiltrar(javax.swing.JButton jbFiltrar) {
+        this.jbFiltrar = jbFiltrar;
+    }
+
+    public javax.swing.JButton getJbGenerar() {
+        return jbGenerar;
+    }
+
+    public void setJbGenerar(javax.swing.JButton jbGenerar) {
+        this.jbGenerar = jbGenerar;
+    }
+
+    public javax.swing.JButton getJbSeleccionar() {
+        return jbSeleccionar;
+    }
+
+    public void setJbSeleccionar(javax.swing.JButton jbSeleccionar) {
+        this.jbSeleccionar = jbSeleccionar;
+    }
+
+    public javax.swing.JList<String> getJlLista() {
+        return jlLista;
+    }
+
+    public void setJlLista(javax.swing.JList jlLista) {
+        this.jlLista = jlLista;
+    }
+
+    public javax.swing.JTextField getTfBuscar() {
+        return tfBuscar;
+    }
+
+    public void setTfBuscar(javax.swing.JTextField tfBuscar) {
+        this.tfBuscar = tfBuscar;
+    }
+
+    public javax.swing.JTextField getTfRuta() {
+        return tfRuta;
+    }
+
+    public void setTfRuta(javax.swing.JTextField tfRuta) {
+        this.tfRuta = tfRuta;
+    }
+    
 }
