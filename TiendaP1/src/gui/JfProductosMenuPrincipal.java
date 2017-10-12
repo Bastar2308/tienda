@@ -73,7 +73,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbControlDeCategorias = new javax.swing.JButton();
         jbControlDeMarcas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtDatos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jbAgregar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
@@ -293,7 +293,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
 
         jbControlDeMarcas.setText("Control de Marcas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -304,7 +304,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtDatos);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
 
@@ -432,7 +432,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
@@ -453,6 +452,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JSpinner jsAgregarStock;
     private javax.swing.JSpinner jsEditarPrecio;
     private javax.swing.JSpinner jsEditarStock;
+    private javax.swing.JTable jtDatos;
     private javax.swing.JTextArea jtaAgregarDetalles;
     private javax.swing.JTextArea jtaEditarDetalles;
     private javax.swing.JTextField tfAgregarCodigo;
