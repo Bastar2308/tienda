@@ -61,7 +61,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbPuntoDeVista.setBackground(new java.awt.Color(51, 51, 51));
         jbPuntoDeVista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbPuntoDeVista.setForeground(new java.awt.Color(255, 255, 255));
-        jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/puntoDeVenta.png"))); // NOI18N
         jbPuntoDeVista.setText("Punto de Venta");
         jbPuntoDeVista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbPuntoDeVista.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -84,7 +84,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbGeneradorDeCredenciales.setBackground(new java.awt.Color(51, 51, 51));
         jbGeneradorDeCredenciales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbGeneradorDeCredenciales.setForeground(new java.awt.Color(255, 255, 255));
-        jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/generador.png"))); // NOI18N
         jbGeneradorDeCredenciales.setText("Generador de credenciales");
         jbGeneradorDeCredenciales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbGeneradorDeCredenciales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -95,7 +95,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbFinanzas.setBackground(new java.awt.Color(51, 51, 51));
         jbFinanzas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbFinanzas.setForeground(new java.awt.Color(255, 255, 255));
-        jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/finanzas.png"))); // NOI18N
         jbFinanzas.setText("Finanzas");
         jbFinanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbFinanzas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -106,7 +106,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbClientes.setBackground(new java.awt.Color(51, 51, 51));
         jbClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/clientes.png"))); // NOI18N
         jbClientes.setText("Clientes");
         jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -117,7 +117,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbMenuProductos.setBackground(new java.awt.Color(51, 51, 51));
         jbMenuProductos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
-        jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/productos.png"))); // NOI18N
         jbMenuProductos.setText("Menu Productos");
         jbMenuProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbMenuProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -130,8 +130,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbGeneradorDeCredenciales)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -142,8 +142,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                         .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbMenuProductos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbMenuProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,7 +193,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
