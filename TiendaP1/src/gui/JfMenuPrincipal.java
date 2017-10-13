@@ -72,7 +72,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbCargarSaldo.setBackground(new java.awt.Color(51, 51, 51));
         jbCargarSaldo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbCargarSaldo.setForeground(new java.awt.Color(255, 255, 255));
-        jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregarSaldo.png"))); // NOI18N
         jbCargarSaldo.setText("Cargar Saldo");
         jbCargarSaldo.setBorder(null);
         jbCargarSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
