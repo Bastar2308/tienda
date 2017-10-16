@@ -40,6 +40,7 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
         jbConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Finanzas");
 
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");

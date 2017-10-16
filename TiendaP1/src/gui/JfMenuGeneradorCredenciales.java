@@ -47,6 +47,7 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         fcSelector.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Generador de credenciales");
 
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
