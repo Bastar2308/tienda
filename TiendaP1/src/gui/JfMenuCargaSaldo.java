@@ -21,6 +21,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
     public JfMenuCargaSaldo() {
         initComponents();
         controlador = new MenuCargaSaldoControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

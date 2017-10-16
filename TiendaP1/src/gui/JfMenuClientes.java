@@ -21,6 +21,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     public JfMenuClientes() {
         initComponents();
         controlador = new MenuClientesControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

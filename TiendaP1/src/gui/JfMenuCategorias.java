@@ -163,6 +163,7 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     public JfMenuCategorias() {
         initComponents();
         controlador=new MenuCategoriasControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

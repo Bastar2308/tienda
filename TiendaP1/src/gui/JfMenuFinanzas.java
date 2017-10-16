@@ -21,6 +21,7 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
     public JfMenuFinanzas() {
         initComponents();
         controlador=new MenuFinanzasControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

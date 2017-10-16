@@ -21,6 +21,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     public JfPuntoDeVenta() {
         initComponents();
         controlador = new PuntoDeVentaControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

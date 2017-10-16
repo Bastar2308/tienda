@@ -21,6 +21,7 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
     public JfMenuGeneradorCredenciales() {
         initComponents();
         controlador = new MenuGeneradorCredencialesControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**
