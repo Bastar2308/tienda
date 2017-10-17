@@ -4,18 +4,20 @@
 package gui;
 
 import guiif.JfControlDeGruposIf;
+import controladores.ControlDeGruposControlador;
 
 /**
  *
  * @author BurnKill
  */
 public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDeGruposIf{
-
+ControlDeGruposControlador controlador;
     /**
      * Creates new form JfControlDeGrupos
      */
     public JfControlDeGrupos() {
         initComponents();
+        controlador=new ControlDeGruposControlador(this);
         setLocationRelativeTo(null);
     }
 
