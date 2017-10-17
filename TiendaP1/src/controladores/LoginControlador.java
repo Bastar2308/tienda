@@ -45,7 +45,7 @@ public class LoginControlador implements ActionListener {
         String password = vista.getTfPassword().getText();
 
         Usuario pojo = dao.iniciaSesion(usuario, password);
-        
+    
         if (pojo.getIdUsuario() != 0) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + pojo.getNombre());
             GuiTools.getInstance().abre(vista, new JfMenuPrincipal());

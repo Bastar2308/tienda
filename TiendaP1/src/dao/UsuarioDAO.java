@@ -23,7 +23,8 @@ public class UsuarioDAO implements UsuarioDAOIf{
         Connection con = null;
         int id = 0;
         try {
-            String consult = "SELECT * FROM usuario WHERE nombre = '"+usuario+"' and password = '"+password+"'";
+            String consult = "SELECT * FROM usuario WHERE usuario = '"+usuario+"' and password = '"+password+"'";
+         
             con = Conexion.getConnection();
             PreparedStatement st = con.prepareStatement(consult);
             ResultSet rs = st.executeQuery();
