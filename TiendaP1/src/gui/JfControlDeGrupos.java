@@ -3,11 +3,13 @@
  */
 package gui;
 
+import guiif.JfControlDeGruposIf;
+
 /**
  *
  * @author BurnKill
  */
-public class JfControlDeGrupos extends javax.swing.JFrame {
+public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDeGruposIf{
 
     /**
      * Creates new form JfControlDeGrupos
@@ -370,4 +372,157 @@ public class JfControlDeGrupos extends javax.swing.JFrame {
     private javax.swing.JTextField tfEditarNivel;
     private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(javax.swing.JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public javax.swing.JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(javax.swing.JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public javax.swing.JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(javax.swing.JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public javax.swing.JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(javax.swing.JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public javax.swing.JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(javax.swing.JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public javax.swing.JButton getJbEditarCancelar() {
+        return jbEditarCancelar;
+    }
+
+    public void setJbEditarCancelar(javax.swing.JButton jbEditarCancelar) {
+        this.jbEditarCancelar = jbEditarCancelar;
+    }
+
+    public javax.swing.JButton getJbEliminar() {
+        return jbEliminar;
+    }
+
+    public void setJbEliminar(javax.swing.JButton jbEliminar) {
+        this.jbEliminar = jbEliminar;
+    }
+
+    public javax.swing.JButton getJbEliminarAceptar() {
+        return jbEliminarAceptar;
+    }
+
+    public void setJbEliminarAceptar(javax.swing.JButton jbEliminarAceptar) {
+        this.jbEliminarAceptar = jbEliminarAceptar;
+    }
+
+    public javax.swing.JButton getJbEliminarCancelar() {
+        return jbEliminarCancelar;
+    }
+
+    public void setJbEliminarCancelar(javax.swing.JButton jbEliminarCancelar) {
+        this.jbEliminarCancelar = jbEliminarCancelar;
+    }
+
+    public javax.swing.JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(javax.swing.JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
+    }
+
+    public javax.swing.JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(javax.swing.JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public javax.swing.JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(javax.swing.JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public javax.swing.JDialog getJdEliminar() {
+        return jdEliminar;
+    }
+
+    public void setJdEliminar(javax.swing.JDialog jdEliminar) {
+        this.jdEliminar = jdEliminar;
+    }
+
+    public javax.swing.JLabel getJlGrupo() {
+        return jlGrupo;
+    }
+
+    public void setJlGrupo(javax.swing.JLabel jlGrupo) {
+        this.jlGrupo = jlGrupo;
+    }
+
+    public javax.swing.JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(javax.swing.JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public javax.swing.JTextField getTfAgregarNivel() {
+        return tfAgregarNivel;
+    }
+
+    public void setTfAgregarNivel(javax.swing.JTextField tfAgregarNivel) {
+        this.tfAgregarNivel = tfAgregarNivel;
+    }
+
+    public javax.swing.JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public javax.swing.JTextField getTfEditarNivel() {
+        return tfEditarNivel;
+    }
+
+    public void setTfEditarNivel(javax.swing.JTextField tfEditarNivel) {
+        this.tfEditarNivel = tfEditarNivel;
+    }
+
+    public javax.swing.JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
+    }
+
 }
