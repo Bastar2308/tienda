@@ -50,7 +50,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         jbEditarAceptar = new javax.swing.JButton();
         jdEliminar = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlMarca = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbEliminarCancelar = new javax.swing.JButton();
         jbEliminarAceptar = new javax.swing.JButton();
@@ -148,8 +148,8 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
 
         jLabel3.setText("¿Reálmente desea eliminar");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("<marca>");
+        jlMarca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlMarca.setText("<marca>");
 
         jLabel5.setText("?");
 
@@ -167,7 +167,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
                     .addGroup(jdEliminarLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(jlMarca)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(0, 178, Short.MAX_VALUE))
@@ -186,7 +186,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jLabel4)))
+                        .addComponent(jlMarca)))
                 .addGap(35, 35, 35)
                 .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbEliminarAceptar)
@@ -337,7 +337,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -354,6 +353,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdEliminar;
+    private javax.swing.JLabel jlMarca;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
