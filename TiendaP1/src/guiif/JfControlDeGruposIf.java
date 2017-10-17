@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author BurnKill
  */
-public interface JfControlDeGruposIf {
+public interface JfControlDeGruposIf extends FrameRegresable{
     public abstract JTable getJtDatos();
 public abstract void setJtDatos(JTable x);
 
