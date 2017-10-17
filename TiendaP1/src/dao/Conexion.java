@@ -15,11 +15,11 @@ import java.sql.SQLException;
 
 
 public class Conexion {
-    private static final String JDBC_HOST = "localhost";
+    private static final String JDBC_HOST = "201.150.40.222";
 
     private static final String JDBC_USER = "root";
 
-    private static final String JDBC_PASS = "";
+    private static final String JDBC_PASS = "OSIlgf81467";
 
     private static final String JDBC_BD = "tienda_cbb";
 
