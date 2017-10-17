@@ -48,7 +48,9 @@ public class LoginControlador implements ActionListener {
     
         if (pojo.getIdUsuario() != 0) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + pojo.getNombre());
-            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+            JfMenuPrincipal menu=new JfMenuPrincipal();
+            menu.getJlUsuario().setText(pojo.getNombre());
+            GuiTools.getInstance().abre(vista, menu);
         } else {
             JOptionPane.showMessageDialog(null, "Error");
         }

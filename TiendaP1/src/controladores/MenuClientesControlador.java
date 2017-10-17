@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  *
  * @author MAESTROAD
  */
-public class MenuClientesControlador implements ActionListener{
+public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
 
@@ -26,12 +26,15 @@ public class MenuClientesControlador implements ActionListener{
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
+        vista.getJbControlDeGrupos().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+        } else if (e.getSource().equals(vista.getJbControlDeGrupos())) {
+            System.out.println("Aún no existe la ventana control de grupos");
         }
     }
 }
