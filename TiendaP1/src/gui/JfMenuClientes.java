@@ -21,6 +21,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     public JfMenuClientes() {
         initComponents();
         controlador = new MenuClientesControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -318,6 +319,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Clientes");
 
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");

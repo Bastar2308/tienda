@@ -26,6 +26,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     public JfMenuMarcas() {
         initComponents();
         controlador = new MenuMarcasControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

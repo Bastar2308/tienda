@@ -51,17 +51,16 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         setTitle("Menú Principal");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/menuIcono.png"))); // NOI18N
         jLabel1.setText("  Menú principal");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jbPuntoDeVista.setBackground(new java.awt.Color(51, 51, 51));
+        jbPuntoDeVista.setBackground(new java.awt.Color(204, 204, 204));
         jbPuntoDeVista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbPuntoDeVista.setForeground(new java.awt.Color(255, 255, 255));
-        jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/puntoDeVenta.png"))); // NOI18N
         jbPuntoDeVista.setText("Punto de Venta");
         jbPuntoDeVista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbPuntoDeVista.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -69,10 +68,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbPuntoDeVista.setMargin(new java.awt.Insets(30, 20, 30, 20));
         jbPuntoDeVista.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbCargarSaldo.setBackground(new java.awt.Color(51, 51, 51));
+        jbCargarSaldo.setBackground(new java.awt.Color(204, 204, 204));
         jbCargarSaldo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbCargarSaldo.setForeground(new java.awt.Color(255, 255, 255));
-        jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregarSaldo.png"))); // NOI18N
         jbCargarSaldo.setText("Cargar Saldo");
         jbCargarSaldo.setBorder(null);
         jbCargarSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -81,10 +79,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbCargarSaldo.setMargin(new java.awt.Insets(30, 90, 10, 80));
         jbCargarSaldo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbGeneradorDeCredenciales.setBackground(new java.awt.Color(51, 51, 51));
+        jbGeneradorDeCredenciales.setBackground(new java.awt.Color(204, 204, 204));
         jbGeneradorDeCredenciales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbGeneradorDeCredenciales.setForeground(new java.awt.Color(255, 255, 255));
-        jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/generador.png"))); // NOI18N
         jbGeneradorDeCredenciales.setText("Generador de credenciales");
         jbGeneradorDeCredenciales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbGeneradorDeCredenciales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -92,10 +89,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbGeneradorDeCredenciales.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbGeneradorDeCredenciales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbFinanzas.setBackground(new java.awt.Color(51, 51, 51));
+        jbFinanzas.setBackground(new java.awt.Color(204, 204, 204));
         jbFinanzas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbFinanzas.setForeground(new java.awt.Color(255, 255, 255));
-        jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/finanzas.png"))); // NOI18N
         jbFinanzas.setText("Finanzas");
         jbFinanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbFinanzas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,10 +99,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbFinanzas.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbFinanzas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbClientes.setBackground(new java.awt.Color(51, 51, 51));
+        jbClientes.setBackground(new java.awt.Color(204, 204, 204));
         jbClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/clientes.png"))); // NOI18N
         jbClientes.setText("Clientes");
         jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -114,10 +109,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbClientes.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbMenuProductos.setBackground(new java.awt.Color(51, 51, 51));
+        jbMenuProductos.setBackground(new java.awt.Color(204, 204, 204));
         jbMenuProductos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbMenuProductos.setForeground(new java.awt.Color(255, 255, 255));
-        jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconoBoton.png"))); // NOI18N
+        jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/productos.png"))); // NOI18N
         jbMenuProductos.setText("Menu Productos");
         jbMenuProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbMenuProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -130,8 +124,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbGeneradorDeCredenciales)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -142,8 +136,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                         .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbMenuProductos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbMenuProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,16 +178,14 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbAyuda)
                 .addGap(28, 28, 28))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +198,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                     .addComponent(jlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();

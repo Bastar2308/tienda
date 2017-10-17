@@ -23,6 +23,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     public JfProductosMenuPrincipal() {
         initComponents();
         controlador = new ProductosMenuPrincipalControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**

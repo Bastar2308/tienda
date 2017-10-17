@@ -21,6 +21,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
     public JfMenuCargaSaldo() {
         initComponents();
         controlador = new MenuCargaSaldoControlador(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -53,6 +54,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         jbFiltrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Clientes");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione cliente");
