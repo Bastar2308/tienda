@@ -5,6 +5,7 @@ package guiif;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -65,4 +66,7 @@ public interface JfMenuMarcasIf {
     
     public abstract JButton getJbEliminarAceptar();
     public abstract void setJbEliminarAceptar(JButton x);    
+    
+    public abstract JLabel getJlMarca();
+    public abstract void setJlMarca(JLabel x);    
 }

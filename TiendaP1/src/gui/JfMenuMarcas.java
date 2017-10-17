@@ -519,4 +519,12 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         this.jbEliminarAceptar = x;
     }
 
+    public javax.swing.JLabel getJlMarca() {
+        return jlMarca;
+    }
+
+    public void setJlMarca(javax.swing.JLabel jlMarca) {
+        this.jlMarca = jlMarca;
+    }
+
 }
