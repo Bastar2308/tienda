@@ -68,7 +68,7 @@ public class CategoriaDAO implements CategoriaDAOIf{
     }
 
     @Override
-    public boolean modificaCategoria(Categoria pojo, int id) {
+    public boolean modificaCategoria(Categoria pojo) {
         Connection con = null;
         PreparedStatement st = null;
         try {

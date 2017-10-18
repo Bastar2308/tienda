@@ -68,7 +68,7 @@ public class MarcaDAO implements MarcaDAOIf{
     }
 
     @Override
-    public boolean modificaMarca(Marca pojo, int id) {
+    public boolean modificaMarca(Marca pojo) {
         Connection con = null;
         PreparedStatement st = null;
         try {
