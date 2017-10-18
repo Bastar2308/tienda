@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import gui.JfControlDeGrupos;
 import gui.JfMenuClientes;
 import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
@@ -32,9 +33,9 @@ public class MenuClientesControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+            GuiTools.getInstance().regresaMenu(vista);
         } else if (e.getSource().equals(vista.getJbControlDeGrupos())) {
-            System.out.println("Aún no existe la ventana control de grupos");
+            GuiTools.getInstance().abre(vista, new JfControlDeGrupos());
         }
     }
 }

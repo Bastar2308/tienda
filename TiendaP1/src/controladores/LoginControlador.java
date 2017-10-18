@@ -45,12 +45,12 @@ public class LoginControlador implements ActionListener {
         String password = vista.getTfPassword().getText();
 
         Usuario pojo = dao.iniciaSesion(usuario, password);
-    
+
         if (pojo.getIdUsuario() != 0) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + pojo.getNombre());
-            JfMenuPrincipal menu=new JfMenuPrincipal();
-            menu.getJlUsuario().setText(pojo.getNombre());
-            GuiTools.getInstance().abre(vista, menu);
+            JfMenuPrincipal.getInstance().getJlUsuario().setText(pojo.getNombre());
+            JfMenuPrincipal.getInstance().setVisible(true);
+            vista.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Error");
         }

@@ -5,6 +5,7 @@
  */
 package auxiliares;
 
+import gui.JfMenuPrincipal;
 import javax.swing.JFrame;
 
 /**
@@ -29,5 +30,10 @@ public class GuiTools {
 
         viejo.dispose();
         nuevo.setVisible(true);
+    }
+
+    public void regresaMenu(JFrame viejo) {
+        viejo.dispose();
+        JfMenuPrincipal.getInstance().setVisible(true);
     }
 }

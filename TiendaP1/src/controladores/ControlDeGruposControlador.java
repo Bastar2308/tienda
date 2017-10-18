@@ -5,7 +5,9 @@
  */
 package controladores;
 
+import auxiliares.GuiTools;
 import gui.JfControlDeGrupos;
+import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,12 +21,18 @@ public class ControlDeGruposControlador implements ActionListener {
 
     public ControlDeGruposControlador(JfControlDeGrupos vista) {
         this.vista = vista;
+        addListeners();
     }
-    
+
+    private void addListeners() {
+        vista.getJbRegresar().addActionListener(this);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (e.getSource().equals(vista.getJbRegresar())) {
+            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+        }
     }
 
 }

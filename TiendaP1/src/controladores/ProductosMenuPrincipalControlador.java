@@ -36,7 +36,7 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+            GuiTools.getInstance().regresaMenu(vista);
         } else if (e.getSource().equals(vista.getJbControlDeCategorias())) {
             GuiTools.getInstance().abre(vista, new JfMenuCategorias());
         } else if (e.getSource().equals(vista.getJbControlDeMarcas())) {
