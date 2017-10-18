@@ -76,7 +76,7 @@ public class ProductoDAO implements ProductoDAOIf{
     }
 
     @Override
-    public boolean modificaProducto(Producto pojo, int id) {
+    public boolean modificaProducto(Producto pojo) {
         Connection con = null;
         PreparedStatement st = null;
         try {
@@ -207,9 +207,10 @@ public class ProductoDAO implements ProductoDAOIf{
             pojo.setNombre(rs.getString("nombre"));
             pojo.setPrecio(rs.getDouble("precio"));
             pojo.setStock(rs.getInt("stock"));
-            pojo.setNombre(rs.getString("detalles"));
+            pojo.setDetalles(rs.getString("detalles"));
             pojo.setCategoria_idCategoria(rs.getInt("categoria_idCategoria"));
             pojo.setMarca_idMarca(rs.getInt("marca_idMarca"));
+            pojo.setCodigo(rs.getString("codigo"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar categoria " + ex);
         }

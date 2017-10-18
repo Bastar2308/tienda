@@ -69,7 +69,7 @@ public class GrupoDAO implements GrupoDAOIf{
     }
 
     @Override
-    public boolean modificaGrupo(Grupo pojo, int id) {
+    public boolean modificaGrupo(Grupo pojo) {
         Connection con = null;
         PreparedStatement st = null;
         try {

@@ -18,7 +18,7 @@ import pojo.Marca;
 public interface MarcaDAOIf {
     public abstract int insertaMarca(Marca pojo);
     public abstract boolean eliminaMarca(int id);
-    public abstract boolean modificaMarca(Marca pojo, int id);
+    public abstract boolean modificaMarca(Marca pojo);
     public abstract Marca buscaMarca(int id);
     public abstract DefaultTableModel cargarTabla();
     public abstract DefaultComboBoxModel<Marca> cargarCombo();

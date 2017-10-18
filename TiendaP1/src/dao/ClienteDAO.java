@@ -79,7 +79,7 @@ public class ClienteDAO implements ClienteDAOIf{
     }
 
     @Override
-    public boolean modificaCliente(Cliente pojo, int id) {
+    public boolean modificaCliente(Cliente pojo) {
         Connection con = null;
         PreparedStatement st = null;
         try {
