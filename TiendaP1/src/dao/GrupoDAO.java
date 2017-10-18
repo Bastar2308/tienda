@@ -128,7 +128,7 @@ public class GrupoDAO implements GrupoDAOIf{
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[2];
+                Object ob[] = new Object[3];
                 Grupo pojo = inflaGrupo(rs);
                 ob[0] = pojo.getIdGrupo();
                 ob[1] = pojo.getNombre();

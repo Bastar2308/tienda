@@ -146,7 +146,7 @@ public class ClienteDAO implements ClienteDAOIf{
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[2];
+                Object ob[] = new Object[9];
                 Cliente pojo = inflaCliente(rs);
                 GrupoDAO grupoDAO = new GrupoDAO();
                 Grupo grupo = grupoDAO.buscaGrupo(pojo.getGrupo_idGrupo());
