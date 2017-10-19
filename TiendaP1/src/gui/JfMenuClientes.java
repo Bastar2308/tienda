@@ -24,6 +24,15 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         setLocationRelativeTo(null);
     }
 
+    public static JfMenuClientes getInstance() {
+        return JfMenuClientesHolder.INSTANCE;
+    }
+
+    private static class JfMenuClientesHolder {
+
+        private static final JfMenuClientes INSTANCE = new JfMenuClientes();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -29,6 +29,15 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         setLocationRelativeTo(null);
     }
 
+    public static JfMenuMarcas getInstance() {
+        return JfMenuMarcasHolder.INSTANCE;
+    }
+
+    private static class JfMenuMarcasHolder {
+
+        private static final JfMenuMarcas INSTANCE = new JfMenuMarcas();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

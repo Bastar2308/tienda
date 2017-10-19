@@ -10,15 +10,26 @@ import controladores.ControlDeGruposControlador;
  *
  * @author BurnKill
  */
-public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDeGruposIf{
-ControlDeGruposControlador controlador;
+public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDeGruposIf {
+
+    ControlDeGruposControlador controlador;
+
     /**
      * Creates new form JfControlDeGrupos
      */
     public JfControlDeGrupos() {
         initComponents();
-        controlador=new ControlDeGruposControlador(this);
+        controlador = new ControlDeGruposControlador(this);
         setLocationRelativeTo(null);
+    }
+
+    public static JfControlDeGrupos getInstance() {
+        return JfControlDeGruposHolder.INSTANCE;
+    }
+
+    private static class JfControlDeGruposHolder {
+
+        private static final JfControlDeGrupos INSTANCE = new JfControlDeGrupos();
     }
 
     /**

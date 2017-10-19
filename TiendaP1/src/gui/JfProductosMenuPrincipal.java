@@ -26,6 +26,15 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         setLocationRelativeTo(null);
     }
 
+    public static JfProductosMenuPrincipal getInstance() {
+        return JfProductosMenuPrincipalHolder.INSTANCE;
+    }
+
+    private static class JfProductosMenuPrincipalHolder {
+
+        private static final JfProductosMenuPrincipal INSTANCE = new JfProductosMenuPrincipal();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

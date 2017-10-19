@@ -20,8 +20,17 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
      */
     public JfMenuFinanzas() {
         initComponents();
-        controlador=new MenuFinanzasControlador(this);
+        controlador = new MenuFinanzasControlador(this);
         setLocationRelativeTo(null);
+    }
+
+    public static JfMenuFinanzas getInstance() {
+        return JfMenuFinanzasHolder.INSTANCE;
+    }
+
+    private static class JfMenuFinanzasHolder {
+
+        private static final JfMenuFinanzas INSTANCE = new JfMenuFinanzas();
     }
 
     /**
@@ -180,5 +189,4 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
         this.jtResultados = jtResultados;
     }
 
-   
 }

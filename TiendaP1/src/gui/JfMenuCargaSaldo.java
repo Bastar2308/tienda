@@ -24,6 +24,15 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         setLocationRelativeTo(null);
     }
 
+    public static JfMenuCargaSaldo getInstance() {
+        return JfMenuCargaSaldoHolder.INSTANCE;
+    }
+
+    private static class JfMenuCargaSaldoHolder {
+
+        private static final JfMenuCargaSaldo INSTANCE = new JfMenuCargaSaldo();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author ALUMNO
  */
-public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategoriasIf{
+public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategoriasIf {
 
     public JButton getJbEliminar() {
         return JbEliminar;
@@ -157,12 +157,21 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
 
     MenuCategoriasControlador controlador;
 
+    public static JfMenuCategorias getInstance() {
+        return JfMenuCategoriasHolder.INSTANCE;
+    }
+
+    private static class JfMenuCategoriasHolder {
+
+        private static final JfMenuCategorias INSTANCE = new JfMenuCategorias();
+    }
+
     /**
      * Creates new form JfMenuCategorias
      */
     public JfMenuCategorias() {
         initComponents();
-        controlador=new MenuCategoriasControlador(this);
+        controlador = new MenuCategoriasControlador(this);
         setLocationRelativeTo(null);
     }
 

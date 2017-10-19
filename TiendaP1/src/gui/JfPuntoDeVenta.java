@@ -24,6 +24,15 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         setLocationRelativeTo(null);
     }
 
+    public static JfPuntoDeVenta getInstance() {
+        return JfPuntoDeVentaHolder.INSTANCE;
+    }
+
+    private static class JfPuntoDeVentaHolder {
+
+        private static final JfPuntoDeVenta INSTANCE = new JfPuntoDeVenta();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -325,5 +334,5 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     public void setTfBuscar(javax.swing.JTextField tfBuscar) {
         this.tfBuscar = tfBuscar;
     }
-    
+
 }

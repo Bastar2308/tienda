@@ -19,6 +19,15 @@ public class JfAyuda extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public static JfAyuda getInstance() {
+        return JfAyudaHolder.INSTANCE;
+    }
+
+    private static class JfAyudaHolder {
+
+        private static final JfAyuda INSTANCE = new JfAyuda();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -23,7 +23,14 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         controlador = new MenuGeneradorCredencialesControlador(this);
         setLocationRelativeTo(null);
     }
+    public static JfMenuGeneradorCredenciales getInstance() {
+        return JfMenuGeneradorCredencialesHolder.INSTANCE;
+    }
 
+    private static class JfMenuGeneradorCredencialesHolder {
+
+        private static final JfMenuGeneradorCredenciales INSTANCE = new JfMenuGeneradorCredenciales();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

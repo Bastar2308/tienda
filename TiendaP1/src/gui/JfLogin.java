@@ -10,16 +10,26 @@ import guiif.JfLoginIf;
  *
  * @author BurnKill
  */
-public class JfLogin extends javax.swing.JFrame implements JfLoginIf{
+public class JfLogin extends javax.swing.JFrame implements JfLoginIf {
 
     /**
      * Creates new form Login
      */
     private LoginControlador controlador;
+
     public JfLogin() {
         initComponents();
         setLocationRelativeTo(null);
-        controlador=new LoginControlador(this);
+        controlador = new LoginControlador(this);
+    }
+
+    public static JfLogin getInstance() {
+        return JfLoginHolder.INSTANCE;
+    }
+
+    private static class JfLoginHolder {
+
+        private static final JfLogin INSTANCE = new JfLogin();
     }
 
     /**
