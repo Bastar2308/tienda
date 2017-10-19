@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.ClienteDAO;
 import gui.JfControlDeGrupos;
 import gui.JfMenuClientes;
 import gui.JfMenuPrincipal;
@@ -19,10 +20,16 @@ import java.awt.event.ActionListener;
 public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
-
+    ClienteDAO dao;
     public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
+        dao=new ClienteDAO();
         addListeners();
+        cargarTabla();
+    }
+
+    public void cargarTabla() {
+        vista.getJtDatos().setModel(dao.cargarTabla());
     }
 
     private void addListeners() {

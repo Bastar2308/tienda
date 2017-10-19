@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.ProductoDAO;
 import gui.JfMenuCategorias;
 import gui.JfMenuMarcas;
 import gui.JfMenuPrincipal;
@@ -20,11 +21,17 @@ import java.awt.event.ActionListener;
 public class ProductosMenuPrincipalControlador implements ActionListener {
 
     JfProductosMenuPrincipal vista;
+    ProductoDAO dao;
 
     public ProductosMenuPrincipalControlador(JfProductosMenuPrincipal vista) {
         this.vista = vista;
+        dao = new ProductoDAO();
         addListeners();
+        cargarTabla();
+    }
 
+    public void cargarTabla() {
+        vista.getJtDatos().setModel(dao.cargarTabla());
     }
 
     private void addListeners() {

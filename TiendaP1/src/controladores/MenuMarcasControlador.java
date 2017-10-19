@@ -6,8 +6,8 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.MarcaDAO;
 import gui.JfMenuMarcas;
-import gui.JfMenuPrincipal;
 import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +19,17 @@ import java.awt.event.ActionListener;
 public class MenuMarcasControlador implements ActionListener {
 
     JfMenuMarcas vista;
+    MarcaDAO dao;
 
     public MenuMarcasControlador(JfMenuMarcas vista) {
         this.vista = vista;
+        dao = new MarcaDAO();
         cargarListeners();
+        cargarTabla();
+    }
+
+    public void cargarTabla() {
+        vista.getJtDatos().setModel(dao.cargarTabla());
     }
 
     private void cargarListeners() {

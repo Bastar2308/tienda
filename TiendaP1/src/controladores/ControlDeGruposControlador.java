@@ -6,7 +6,9 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.GrupoDAO;
 import gui.JfControlDeGrupos;
+import gui.JfMenuClientes;
 import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,10 +20,13 @@ import java.awt.event.ActionListener;
 public class ControlDeGruposControlador implements ActionListener {
 
     JfControlDeGrupos vista;
+    GrupoDAO dao;
 
     public ControlDeGruposControlador(JfControlDeGrupos vista) {
         this.vista = vista;
+        dao=new GrupoDAO();
         addListeners();
+        cargarTabla();
     }
 
     private void addListeners() {
@@ -31,8 +36,11 @@ public class ControlDeGruposControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfMenuPrincipal());
+            GuiTools.getInstance().abre(vista, new JfMenuClientes());
         }
     }
 
+    public void cargarTabla() {
+        vista.getJtDatos().setModel(dao.cargarTabla());
+    }
 }
