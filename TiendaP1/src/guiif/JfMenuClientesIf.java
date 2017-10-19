@@ -42,8 +42,8 @@ public abstract void setJbEditar(JButton x);
 public abstract JTextField getTfAgregarNombre();
 public abstract void setTfAgregarNombre(JTextField x);
 
-public abstract JComboBox getJcbAgregarGrupo();
-public abstract void setJcbAgregarGrupo(JComboBox x);
+public abstract JComboBox<pojo.Grupo> getJcbAgregarGrupo();
+public abstract void setJcbAgregarGrupo(JComboBox<pojo.Grupo> x);
 
 public abstract JSpinner getJsAgregarSaldo();
 public abstract void setJsAgregarSaldo(JSpinner x);
@@ -78,8 +78,8 @@ public abstract void setJbAgregarAceptar(JButton x);
 public abstract JTextField getTfEditarNombre();
 public abstract void setTfEditarNombre(JTextField x);
 
-public abstract JComboBox getJcbEditarGrupo();
-public abstract void setJcbEditarGrupo(JComboBox x);
+public abstract JComboBox<pojo.Grupo> getJcbEditarGrupo();
+public abstract void setJcbEditarGrupo(JComboBox<pojo.Grupo> x);
 
 public abstract JSpinner getJsEditarSaldo();
 public abstract void setJsEditarSaldo(JSpinner x);

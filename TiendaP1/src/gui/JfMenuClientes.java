@@ -110,8 +110,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jLabel3.setText("Grupo:");
 
-        jcbAgregarGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel15.setText("QR:");
 
         jbAgregarTomarFoto.setText("Tomar foto");
@@ -226,8 +224,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel8.setText("Compras sin credencial:");
 
         jLabel6.setText("Grupo:");
-
-        jcbEditarGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel16.setText("QR:");
 
@@ -482,8 +478,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JButton jbEditarTomarFoto;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbRegresar;
-    private javax.swing.JComboBox<String> jcbAgregarGrupo;
-    private javax.swing.JComboBox<String> jcbEditarGrupo;
+    private javax.swing.JComboBox<pojo.Grupo> jcbAgregarGrupo;
+    private javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JLabel jlAgregarImagen;
@@ -595,19 +591,19 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.jbEliminar = jbEliminar;
     }
 
-    public javax.swing.JComboBox<String> getJcbAgregarGrupo() {
+    public javax.swing.JComboBox<pojo.Grupo> getJcbAgregarGrupo() {
         return jcbAgregarGrupo;
     }
 
-    public void setJcbAgregarGrupo(javax.swing.JComboBox jcbAgregarGrupo) {
+    public void setJcbAgregarGrupo(javax.swing.JComboBox<pojo.Grupo> jcbAgregarGrupo) {
         this.jcbAgregarGrupo = jcbAgregarGrupo;
     }
 
-    public javax.swing.JComboBox<String> getJcbEditarGrupo() {
+    public javax.swing.JComboBox<pojo.Grupo> getJcbEditarGrupo() {
         return jcbEditarGrupo;
     }
 
-    public void setJcbEditarGrupo(javax.swing.JComboBox jcbEditarGrupo) {
+    public void setJcbEditarGrupo(javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo) {
         this.jcbEditarGrupo = jcbEditarGrupo;
     }
 
