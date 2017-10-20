@@ -111,11 +111,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
 
         jLabel5.setText("Categoría:");
 
-        jcbAgregarCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel6.setText("Marca:");
-
-        jcbAgregarMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jbAgregarCancelar.setText("Cancelar");
 
@@ -214,11 +210,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
 
         jLabel12.setText("Categoría:");
 
-        jcbEditarCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel13.setText("Marca:");
-
-        jcbEditarMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jbEditarCancelar.setText("Cancelar");
 
@@ -452,10 +444,10 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JButton jbEditarCancelar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbRegresar;
-    private javax.swing.JComboBox<String> jcbAgregarCategoria;
-    private javax.swing.JComboBox<String> jcbAgregarMarca;
-    private javax.swing.JComboBox<String> jcbEditarCategoria;
-    private javax.swing.JComboBox<String> jcbEditarMarca;
+    private javax.swing.JComboBox<pojo.Categoria> jcbAgregarCategoria;
+    private javax.swing.JComboBox<pojo.Marca> jcbAgregarMarca;
+    private javax.swing.JComboBox<pojo.Categoria> jcbEditarCategoria;
+    private javax.swing.JComboBox<pojo.Marca> jcbEditarMarca;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JSpinner jsAgregarPrecio;
@@ -559,35 +551,35 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         this.jbRegresar = jbRegresar;
     }
 
-    public javax.swing.JComboBox<String> getJcbAgregarCategoria() {
+    public javax.swing.JComboBox<pojo.Categoria> getJcbAgregarCategoria() {
         return jcbAgregarCategoria;
     }
 
-    public void setJcbAgregarCategoria(javax.swing.JComboBox jcbAgregarCategoria) {
+    public void setJcbAgregarCategoria(javax.swing.JComboBox<pojo.Categoria> jcbAgregarCategoria) {
         this.jcbAgregarCategoria = jcbAgregarCategoria;
     }
 
-    public JComboBox getJcbAgregarMarca() {
+    public JComboBox<pojo.Marca> getJcbAgregarMarca() {
         return jcbAgregarMarca;
     }
 
-    public void setJcbAgregarMarca(javax.swing.JComboBox jcbAgregarMarca) {
+    public void setJcbAgregarMarca(javax.swing.JComboBox<pojo.Marca> jcbAgregarMarca) {
         this.jcbAgregarMarca = jcbAgregarMarca;
     }
 
-    public javax.swing.JComboBox<String> getJcbEditarCategoria() {
+    public javax.swing.JComboBox<pojo.Categoria> getJcbEditarCategoria() {
         return jcbEditarCategoria;
     }
 
-    public void setJcbEditarCategoria(javax.swing.JComboBox jcbEditarCategoria) {
+    public void setJcbEditarCategoria(javax.swing.JComboBox<pojo.Categoria> jcbEditarCategoria) {
         this.jcbEditarCategoria = jcbEditarCategoria;
     }
 
-    public javax.swing.JComboBox<String> getJcbEditarMarca() {
+    public javax.swing.JComboBox<pojo.Marca> getJcbEditarMarca() {
         return jcbEditarMarca;
     }
 
-    public void setJcbEditarMarca(javax.swing.JComboBox jcbEditarMarca) {
+    public void setJcbEditarMarca(javax.swing.JComboBox<pojo.Marca> jcbEditarMarca) {
         this.jcbEditarMarca = jcbEditarMarca;
     }
 

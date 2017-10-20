@@ -62,13 +62,13 @@ public interface JfProductosMenuPrincipalIf extends FrameRegresable {
 
     public abstract void setJtaAgregarDetalles(JTextArea x);
 
-    public abstract JComboBox getJcbAgregarCategoria();
+    public abstract JComboBox<pojo.Categoria> getJcbAgregarCategoria();
 
-    public abstract void setJcbAgregarCategoria(JComboBox x);
+    public abstract void setJcbAgregarCategoria(JComboBox<pojo.Categoria> x);
 
-    public abstract JComboBox getJcbAgregarMarca();
+    public abstract JComboBox<pojo.Marca> getJcbAgregarMarca();
 
-    public abstract void setJcbAgregarMarca(JComboBox x);
+    public abstract void setJcbAgregarMarca(JComboBox<pojo.Marca> x);
 
     public abstract JTextField getTfAgregarCodigo();
 
@@ -98,13 +98,13 @@ public interface JfProductosMenuPrincipalIf extends FrameRegresable {
 
     public abstract void setJtaEditarDetalles(JTextArea x);
 
-    public abstract JComboBox getJcbEditarCategoria();
+    public abstract JComboBox<pojo.Categoria> getJcbEditarCategoria();
 
-    public abstract void setJcbEditarCategoria(JComboBox x);
+    public abstract void setJcbEditarCategoria(JComboBox<pojo.Categoria> x);
 
-    public abstract JComboBox getJcbEditarMarca();
+    public abstract JComboBox<pojo.Marca> getJcbEditarMarca();
 
-    public abstract void setJcbEditarMarca(JComboBox x);
+    public abstract void setJcbEditarMarca(JComboBox<pojo.Marca> x);
 
     public abstract JTextField getTfEditarCodigo();
 
