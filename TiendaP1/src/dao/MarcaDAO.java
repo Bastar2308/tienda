@@ -26,6 +26,18 @@ public class MarcaDAO implements MarcaDAOIf{
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idMarca=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=? WHERE idMarca=?";
     
+    private MarcaDAO() {
+    }
+    
+    public static MarcaDAO getInstance() {
+        return MarcaDAOHolder.INSTANCE;
+    }
+    
+    private static class MarcaDAOHolder {
+
+        private static final MarcaDAO INSTANCE = new MarcaDAO();
+    }
+    
     @Override
     public int insertaMarca(Marca pojo) {
         Connection con = null;

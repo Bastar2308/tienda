@@ -27,6 +27,18 @@ public class VentaDAO implements VentaDAOIf{
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idVenta=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nota=?, fechahora=?, total=?, cliente_idCliente=? WHERE idVenta=?";
     
+    private VentaDAO() {
+    }
+    
+    public static VentaDAO getInstance() {
+        return VentaDAOHolder.INSTANCE;
+    }
+    
+    private static class VentaDAOHolder {
+
+        private static final VentaDAO INSTANCE = new VentaDAO();
+    }
+    
     @Override
     public int insertaVenta(Venta pojo) {
         Connection con = null;
@@ -135,8 +147,7 @@ public class VentaDAO implements VentaDAOIf{
             while (rs.next()) {
                 Object ob[] = new Object[2];
                 Venta pojo = inflaVenta(rs);
-                ClienteDAO clienteDAO = new ClienteDAO();
-                Cliente cliente = clienteDAO.buscaCliente(pojo.getCliente_idCliente());
+                Cliente cliente = ClienteDAO.getInstance().buscaCliente(pojo.getCliente_idCliente());
                 ob[0] = pojo.getIdVenta();
                 ob[1] = pojo.getNota();
                 ob[2] = pojo.getFechahora();

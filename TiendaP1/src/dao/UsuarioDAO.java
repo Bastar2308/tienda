@@ -17,6 +17,18 @@ import pojo.Usuario;
 
 public class UsuarioDAO implements UsuarioDAOIf{
     
+    private UsuarioDAO() {
+    }
+    
+    public static UsuarioDAO getInstance() {
+        return UsuarioDAOHolder.INSTANCE;
+    }
+    
+    private static class UsuarioDAOHolder {
+
+        private static final UsuarioDAO INSTANCE = new UsuarioDAO();
+    }
+    
     @Override
     public Usuario iniciaSesion(String usuario, String password) {
         Usuario pojo = new Usuario();

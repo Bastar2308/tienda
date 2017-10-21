@@ -26,6 +26,18 @@ public class GrupoDAO implements GrupoDAOIf{
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idGrupo=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, nivel=? WHERE idGrupo=?";
     
+    private GrupoDAO() {
+    }
+    
+    public static GrupoDAO getInstance() {
+        return GrupoDAOHolder.INSTANCE;
+    }
+    
+    private static class GrupoDAOHolder {
+
+        private static final GrupoDAO INSTANCE = new GrupoDAO();
+    }
+    
     @Override
     public int insertaGrupo(Grupo pojo) {
         Connection con = null;

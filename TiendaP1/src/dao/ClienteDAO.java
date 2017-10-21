@@ -28,6 +28,18 @@ public class ClienteDAO implements ClienteDAOIf{
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCliente=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET grupo_idGrupo=?, nombre=?, saldo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, limite_deuda=? WHERE idCliente=?";
 
+    private ClienteDAO() {
+    }
+    
+    public static ClienteDAO getInstance() {
+        return ClienteDAOHolder.INSTANCE;
+    }
+    
+    private static class ClienteDAOHolder {
+
+        private static final ClienteDAO INSTANCE = new ClienteDAO();
+    }
+    
     @Override
     public int insertaCliente(Cliente pojo) {
         Connection con = null;
@@ -148,8 +160,7 @@ public class ClienteDAO implements ClienteDAOIf{
             while (rs.next()) {
                 Object ob[] = new Object[9];
                 Cliente pojo = inflaCliente(rs);
-                GrupoDAO grupoDAO = new GrupoDAO();
-                Grupo grupo = grupoDAO.buscaGrupo(pojo.getGrupo_idGrupo());
+                Grupo grupo = GrupoDAO.getInstance().buscaGrupo(pojo.getGrupo_idGrupo());
                 ob[0] = pojo.getIdCliente();
                 ob[1] = grupo.getNombre();
                 ob[2] = pojo.getNombre();

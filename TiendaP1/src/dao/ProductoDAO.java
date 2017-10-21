@@ -27,6 +27,18 @@ public class ProductoDAO implements ProductoDAOIf{
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idProducto=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, precio=?, stock=?, detalles=?, categoria_idCategoria=?, marca_idMarca=?, codigo=? WHERE idProducto=?";
+    
+    private ProductoDAO() {
+    }
+    
+    public static ProductoDAO getInstance() {
+        return ProductoDAOHolder.INSTANCE;
+    }
+    
+    private static class ProductoDAOHolder {
+
+        private static final ProductoDAO INSTANCE = new ProductoDAO();
+    }
 
     @Override
     public int insertaProducto(Producto pojo) {
@@ -142,10 +154,8 @@ public class ProductoDAO implements ProductoDAOIf{
             while (rs.next()) {
                 Object ob[] = new Object[8];
                 Producto pojo = inflaProducto(rs);
-                CategoriaDAO categoriaDAO = new CategoriaDAO();
-                Categoria categoria = categoriaDAO.buscaCategoria(pojo.getCategoria_idCategoria());
-                MarcaDAO marcaDAO = new MarcaDAO();
-                Marca marca = marcaDAO.buscaMarca(pojo.getMarca_idMarca());
+                Categoria categoria = CategoriaDAO.getInstance().buscaCategoria(pojo.getCategoria_idCategoria());
+                Marca marca = MarcaDAO.getInstance().buscaMarca(pojo.getMarca_idMarca());
                 ob[0] = pojo.getIdProducto();
                 ob[1] = pojo.getNombre();
                 ob[2] = pojo.getPrecio();

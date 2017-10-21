@@ -26,6 +26,18 @@ public class CategoriaDAO implements CategoriaDAOIf{
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCategoria=?";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=? WHERE idCategoria=?";
     
+    CategoriaDAO() {
+    }
+    
+    public static CategoriaDAO getInstance() {
+        return CategoriaDAOHolder.INSTANCE;
+    }
+    
+    private static class CategoriaDAOHolder {
+
+        private static final CategoriaDAO INSTANCE = new CategoriaDAO();
+    }
+    
     @Override
     public int insertaCategoria(Categoria pojo) {
         Connection con = null;
