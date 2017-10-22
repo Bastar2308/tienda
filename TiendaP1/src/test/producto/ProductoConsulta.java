@@ -14,8 +14,7 @@ import pojo.Producto;
  */
 public class ProductoConsulta {
     public static void main(String[] args) {
-        ProductoDAO productoDAO = new ProductoDAO();
-        Producto producto = productoDAO.buscaCategoria(2);
+        Producto producto = ProductoDAO.getInstance().buscaCategoria(2);
         if (producto != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: "+producto.getIdProducto());

@@ -18,9 +18,8 @@ public class MarcaGUI extends javax.swing.JFrame {
      */
     public MarcaGUI() {
         initComponents();
-        MarcaDAO marcaDAO = new MarcaDAO();
-        jComboBox1.setModel(marcaDAO.cargarCombo());
-        jTable1.setModel(marcaDAO.cargarTabla());
+        jComboBox1.setModel(MarcaDAO.getInstance().cargarCombo());
+        jTable1.setModel(MarcaDAO.getInstance().cargarTabla());
     }
 
     /**

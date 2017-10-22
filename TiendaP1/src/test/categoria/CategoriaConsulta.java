@@ -14,8 +14,7 @@ import pojo.Categoria;
  */
 public class CategoriaConsulta {
     public static void main(String[] args) {
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        Categoria categoria = categoriaDAO.buscaCategoria(2);
+        Categoria categoria = CategoriaDAO.getInstance().buscaCategoria(2);
         if (categoria != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: "+categoria.getIdCategoria());

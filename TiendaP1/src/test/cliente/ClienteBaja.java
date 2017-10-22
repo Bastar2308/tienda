@@ -14,8 +14,7 @@ import dao.ClienteDAO;
  */
 public class ClienteBaja {
     public static void main(String[] args) {
-        ClienteDAO clienteDAO = new ClienteDAO();
-        if (clienteDAO.eliminaCliente(2) == true) {
+        if (ClienteDAO.getInstance().eliminaCliente(2) == true) {
             System.out.println("Éxito al eliminar");
         } else {
             System.out.println("Error al eliminar");

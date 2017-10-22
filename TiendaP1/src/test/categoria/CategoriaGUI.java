@@ -18,9 +18,8 @@ public class CategoriaGUI extends javax.swing.JFrame {
      */
     public CategoriaGUI() {
         initComponents();
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        jComboBox1.setModel(categoriaDAO.cargarCombo());
-        jTable1.setModel(categoriaDAO.cargarTabla());
+        jComboBox1.setModel(CategoriaDAO.getInstance().cargarCombo());
+        jTable1.setModel(CategoriaDAO.getInstance().cargarTabla());
     }
 
     /**

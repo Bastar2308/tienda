@@ -18,9 +18,8 @@ public class ProductoGUI extends javax.swing.JFrame {
      */
     public ProductoGUI() {
         initComponents();
-        ProductoDAO productoDAO = new ProductoDAO();
-        jComboBox1.setModel(productoDAO.cargarCombo());
-        jTable1.setModel(productoDAO.cargarTabla());
+        jComboBox1.setModel(ProductoDAO.getInstance().cargarCombo());
+        jTable1.setModel(ProductoDAO.getInstance().cargarTabla());
     }
 
     /**

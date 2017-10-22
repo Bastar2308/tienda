@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.grupo;
+package test.prohibido;
 
-import dao.GrupoDAO;
+import dao.Alimento_Prohibido_ClienteDAO;
 
 /**
  *
  * @author Fernando
  */
-public class GrupoBaja {
+public class ProhibidoBaja {
     public static void main(String[] args) {
-        if (GrupoDAO.getInstance().eliminaGrupo(6) == true) {
+        if (Alimento_Prohibido_ClienteDAO.getInstance().eliminaAlimento_Prohibido_Cliente(1, 3) == true) {
             System.out.println("Éxito al eliminar");
         } else {
             System.out.println("Error al eliminar");

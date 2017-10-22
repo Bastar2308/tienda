@@ -18,9 +18,8 @@ public class GrupoGUI extends javax.swing.JFrame {
      */
     public GrupoGUI() {
         initComponents();
-        GrupoDAO grupoDAO = new GrupoDAO();
-        jComboBox1.setModel(grupoDAO.cargarCombo());
-        jTable1.setModel(grupoDAO.cargarTabla());
+        jComboBox1.setModel(GrupoDAO.getInstance().cargarCombo());
+        jTable1.setModel(GrupoDAO.getInstance().cargarTabla());
     }
 
     /**

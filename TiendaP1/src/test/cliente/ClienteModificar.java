@@ -27,8 +27,7 @@ public class ClienteModificar {
         cliente.setCorreo("correo002");
         cliente.setCompras_sin_credencial(10);
         cliente.setLimite_deuda(200);
-        ClienteDAO clienteDAO = new ClienteDAO();
-        if (clienteDAO.modificaCliente(cliente) == true) {
+        if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
             System.out.println("Actualizado correctamente");
         } else {
             System.out.println("Error en la actualización");

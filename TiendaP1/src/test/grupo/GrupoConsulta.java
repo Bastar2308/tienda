@@ -14,8 +14,7 @@ import pojo.Grupo;
  */
 public class GrupoConsulta {
     public static void main(String[] args) {
-        GrupoDAO grupoDAO = new GrupoDAO();
-        Grupo grupo = grupoDAO.buscaGrupo(3);
+        Grupo grupo = GrupoDAO.getInstance().buscaGrupo(3);
         if (grupo != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: "+grupo.getIdGrupo());

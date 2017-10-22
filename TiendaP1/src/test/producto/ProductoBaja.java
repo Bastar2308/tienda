@@ -13,8 +13,7 @@ import dao.ProductoDAO;
  */
 public class ProductoBaja {
     public static void main(String[] args) {
-        ProductoDAO productoDAO = new ProductoDAO();
-        if (productoDAO.eliminaProducto(2) == true) {
+        if (ProductoDAO.getInstance().eliminaProducto(2) == true) {
             System.out.println("Éxito al eliminar");
         } else {
             System.out.println("Error al eliminar");

@@ -17,8 +17,7 @@ public class GrupoAlta {
         Grupo grupo = new Grupo();
         grupo.setNombre("Grupo001");
         grupo.setNivel("Primaria");
-        GrupoDAO grupoDAO = new GrupoDAO();
-        if (grupoDAO.insertaGrupo(grupo) != 0) {
+        if (GrupoDAO.getInstance().insertaGrupo(grupo) != 0) {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");

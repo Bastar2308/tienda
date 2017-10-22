@@ -20,8 +20,7 @@ public class GrupoModificar {
         grupo.setIdGrupo(6);
         grupo.setNombre("Grupo002");
         grupo.setNivel("Secundaria");
-        GrupoDAO grupoDAO = new GrupoDAO();
-        if (grupoDAO.modificaGrupo(grupo) == true) {
+        if (GrupoDAO.getInstance().modificaGrupo(grupo) == true) {
             System.out.println("Actualizado correctamente");
         } else {
             System.out.println("Error en la actualización");

@@ -14,8 +14,7 @@ import pojo.Marca;
  */
 public class MarcaConsulta {
     public static void main(String[] args) {
-        MarcaDAO marcaDAO = new MarcaDAO();
-        Marca marca = marcaDAO.buscaMarca(2);
+        Marca marca = MarcaDAO.getInstance().buscaMarca(2);
         if (marca != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: "+marca.getIdMarca());

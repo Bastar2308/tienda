@@ -15,8 +15,7 @@ import pojo.Cliente;
  */
 public class ClienteConsulta {
     public static void main(String[] args) {
-        ClienteDAO clienteDAO = new ClienteDAO();
-        Cliente cliente = clienteDAO.buscaCliente(2);
+        Cliente cliente = ClienteDAO.getInstance().buscaCliente(2);
         if (cliente != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: "+cliente.getIdCliente());

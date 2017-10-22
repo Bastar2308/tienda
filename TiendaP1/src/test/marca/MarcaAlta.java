@@ -16,8 +16,7 @@ public class MarcaAlta {
     public static void main(String[] args) {
         Marca marca = new Marca();
         marca.setNombre("Marca001");
-        MarcaDAO marcaDAO = new MarcaDAO();
-        if (marcaDAO.insertaMarca(marca) != 0) {
+        if (MarcaDAO.getInstance().insertaMarca(marca) != 0) {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");

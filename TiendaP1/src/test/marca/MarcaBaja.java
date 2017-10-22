@@ -14,8 +14,7 @@ import dao.MarcaDAO;
  */
 public class MarcaBaja {
     public static void main(String[] args) {
-        MarcaDAO marcaDAO = new MarcaDAO();
-        if (marcaDAO.eliminaMarca(2) == true) {
+        if (MarcaDAO.getInstance().eliminaMarca(2) == true) {
             System.out.println("Éxito al eliminar");
         } else {
             System.out.println("Error al eliminar");

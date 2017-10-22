@@ -43,6 +43,7 @@ public class VentaDAO implements VentaDAOIf{
     public int insertaVenta(Venta pojo) {
         Connection con = null;
         PreparedStatement st = null;
+        ResultSet rs = null;
         int id = 0;
         try {
             con = Conexion.getConnection();
@@ -51,7 +52,10 @@ public class VentaDAO implements VentaDAOIf{
             st.setTimestamp(2, pojo.getFechahora());
             st.setDouble(3, pojo.getTotal());
             st.setInt(4, pojo.getCliente_idCliente());
-            id = st.executeUpdate();
+            st.executeUpdate();
+            rs = st.getGeneratedKeys();
+            rs.next();
+            id = rs.getInt(1);
         } catch (Exception e) {
             System.out.println("Error al insertar venta" + e);
         } finally {
@@ -95,7 +99,7 @@ public class VentaDAO implements VentaDAOIf{
             st.setTimestamp(2, pojo.getFechahora());
             st.setDouble(3, pojo.getTotal());
             st.setInt(4, pojo.getCliente_idCliente());
-            st.setInt(5, pojo.getIdVenta());
+            st.setInt(5, id);
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;

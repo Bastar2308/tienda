@@ -26,8 +26,7 @@ public class ClienteAlta {
         cliente.setCorreo("correo001");
         cliente.setCompras_sin_credencial(5);
         cliente.setLimite_deuda(100);
-        ClienteDAO clienteDAO = new ClienteDAO();
-        if (clienteDAO.insertaCliente(cliente) != 0) {
+        if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");

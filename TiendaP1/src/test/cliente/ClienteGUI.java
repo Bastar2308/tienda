@@ -18,9 +18,8 @@ public class ClienteGUI extends javax.swing.JFrame {
      */
     public ClienteGUI() {
         initComponents();
-        ClienteDAO clienteDAO = new ClienteDAO();
-        jComboBox1.setModel(clienteDAO.cargarCombo());
-        jTable1.setModel(clienteDAO.cargarTabla());
+        jComboBox1.setModel(ClienteDAO.getInstance().cargarCombo());
+        jTable1.setModel(ClienteDAO.getInstance().cargarTabla());
     }
 
     /**

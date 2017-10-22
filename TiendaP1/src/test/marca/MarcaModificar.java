@@ -17,8 +17,7 @@ public class MarcaModificar {
         Marca marca = new Marca();
         marca.setIdMarca(2);
         marca.setNombre("Marca002");
-        MarcaDAO marcaDAO = new MarcaDAO();
-        if (marcaDAO.modificaMarca(marca) == true) {
+        if (MarcaDAO.getInstance().modificaMarca(marca) == true) {
             System.out.println("Actualizado correctamente");
         } else {
             System.out.println("Error en la actualización");

@@ -16,8 +16,7 @@ public class CategoriaAlta {
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
         categoria.setNombre("Categoría001");
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        if (categoriaDAO.insertaCategoria(categoria) != 0) {
+        if (CategoriaDAO.getInstance().insertaCategoria(categoria) != 0) {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");

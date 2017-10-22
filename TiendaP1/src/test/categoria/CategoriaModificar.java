@@ -17,8 +17,7 @@ public class CategoriaModificar {
         Categoria categoria = new Categoria();
         categoria.setIdCategoria(2);
         categoria.setNombre("Categoría002");
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        if (categoriaDAO.modificaCategoria(categoria) == true) {
+        if (CategoriaDAO.getInstance().modificaCategoria(categoria) == true) {
             System.out.println("Actualizado correctamente");
         } else {
             System.out.println("Error en la actualización");

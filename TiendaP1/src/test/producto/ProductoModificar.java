@@ -23,8 +23,7 @@ public class ProductoModificar {
         producto.setCategoria_idCategoria(1);
         producto.setMarca_idMarca(1);
         producto.setCodigo("0000000002");
-        ProductoDAO productoDAO = new ProductoDAO();
-        if (productoDAO.modificaProducto(producto) == true) {
+        if (ProductoDAO.getInstance().modificaProducto(producto) == true) {
             System.out.println("Actualizado correctamente");
         } else {
             System.out.println("Error en la actualización");
