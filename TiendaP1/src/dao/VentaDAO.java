@@ -88,7 +88,7 @@ public class VentaDAO implements VentaDAOIf{
     }
 
     @Override
-    public boolean modificaVenta(Venta pojo, int id) {
+    public boolean modificaVenta(Venta pojo, int idVenta) {
         Connection con = null;
         PreparedStatement st = null;
         try {
@@ -99,7 +99,7 @@ public class VentaDAO implements VentaDAOIf{
             st.setTimestamp(2, pojo.getFechahora());
             st.setDouble(3, pojo.getTotal());
             st.setInt(4, pojo.getCliente_idCliente());
-            st.setInt(5, id);
+            st.setInt(5, idVenta);
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;

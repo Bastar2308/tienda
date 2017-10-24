@@ -19,6 +19,8 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
 
     private static final String TABLE="detalle_venta";
     private static final String SQL_INSERT="INSERT INTO "+TABLE+" (venta_idventa, producto_idproducto, cantidad, subtotal) VALUES (?,?,?,?)";
+    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET cantidad=?, subtotal=? WHERE Venta_idVenta=? and Producto_idProducto=?";
+    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE Venta_idVenta=?";
     
     private Detalle_VentaDAO() {
     }
@@ -50,13 +52,51 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
     }
 
     @Override
-    public boolean eliminaDetalle_Venta(int id, int id2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean eliminaDetalle_Venta(int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_DELETE);
+            st.setInt(1, id);
+            int num = st.executeUpdate();
+            if (num == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar detalle_venta " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override
-    public boolean modificaDetalle_Venta(Detalle_Venta pojo, int id, int id2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean modificaDetalle_Venta(Detalle_Venta pojo) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE);
+            st.setDouble(1, pojo.getCantidad());
+            st.setDouble(2, pojo.getSubtotal());
+            st.setInt(3, pojo.getVenta_idVenta());
+            st.setInt(4, pojo.getProducto_idProducto());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar detalle_venta " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override

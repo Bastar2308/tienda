@@ -15,15 +15,15 @@ import pojo.Producto;
 public class ProductoAlta {
     public static void main(String[] args) {
         Producto producto = new Producto();
-        producto.setNombre("Producto002");
-        producto.setPrecio(100);
-        producto.setStock(10);
-        producto.setDetalles("Detalles002");
+        producto.setNombre("Producto003");
+        producto.setPrecio(300);
+        producto.setStock(30);
+        producto.setDetalles("Detalles003");
         producto.setCategoria_idCategoria(1);
         producto.setMarca_idMarca(1);
-        producto.setCodigo("0000000002");
+        producto.setCodigo("0000000003");
         if (ProductoDAO.getInstance().insertaProducto(producto) != 0) {
-            System.out.println("Insertado correctamente");
+            System.out.println("Insertsado correctamente");
         } else {
             System.out.println("Error en la inserción");
         }   
