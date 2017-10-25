@@ -6,6 +6,7 @@
 package auxiliares;
 
 import gui.JfMenuPrincipal;
+import java.awt.Image;
 import javax.swing.JFrame;
 
 /**
@@ -35,5 +36,64 @@ public class GuiTools {
     public void regresaMenu(JFrame viejo) {
         viejo.dispose();
         JfMenuPrincipal.getInstance().setVisible(true);
+    }
+
+    /**
+     * Inicializa el JFrame con el título brindado
+     *
+     * @param jFrame
+     * @param titulo
+     */
+    public void inicializaJFrame(JFrame jFrame, String titulo) {
+        jFrame.setTitle(titulo);
+    }
+
+    /**
+     * Inicializa el JFrame con el título brindado y puede centrarlo
+     *
+     * @param jFrame
+     * @param titulo
+     * @param centrar
+     */
+    public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar) {
+        jFrame.setTitle(titulo);
+        if (centrar) {
+            jFrame.setLocationRelativeTo(null);
+        }
+    }
+
+    /**
+     * Inicializa el JFrame con el título brindado, puede centrarlo y agrega ícono
+     *
+     * @param jFrame
+     * @param titulo
+     * @param centrar
+     * @param icono
+     */
+    public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono) {
+        jFrame.setTitle(titulo);
+        if (centrar) {
+            jFrame.setLocationRelativeTo(null);
+        }
+        jFrame.setIconImage(icono);
+    }
+
+    /**
+     * Inicializa el JFrame con el título brindado, puede centrarlo, agrega ícono
+     *
+     * @param jFrame
+     * @param titulo
+     * @param centrar
+     * @param icono
+     * @param x
+     * @param y
+     */
+    public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono, int ancho, int alto) {
+        jFrame.setTitle(titulo);
+        if (centrar) {
+            jFrame.setLocationRelativeTo(null);
+        }
+        jFrame.setIconImage(icono);
+        jFrame.setSize(ancho,alto);
     }
 }

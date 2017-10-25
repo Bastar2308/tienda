@@ -36,5 +36,8 @@ public interface JfMenuPrincipalIf {
 
     public abstract JButton getJbMenuProductos();
     public abstract void setJbMenuProductos(JButton jb);    
+    
+    public abstract JButton getJbSalir();
+    public abstract void setJbSalir(JButton jb);    
 
 }
