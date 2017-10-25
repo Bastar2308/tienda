@@ -194,7 +194,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbSalir.setBorderPainted(false);
         jbSalir.setContentAreaFilled(false);
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/ayudamenor.png"))); // NOI18N
+        jbSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/salirmenor.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,11 +207,11 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbAyuda)
                 .addGap(18, 18, 18)
                 .addComponent(jbSalir)
-                .addGap(21, 21, 21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
