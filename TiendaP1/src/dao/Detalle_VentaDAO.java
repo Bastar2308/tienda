@@ -9,10 +9,13 @@ package dao;
 import daoif.Detalle_VentaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Detalle_Venta;
+import pojo.Producto;
 
 
 public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
@@ -20,13 +23,23 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
     private static final String TABLE="detalle_venta";
     private static final String SQL_INSERT="INSERT INTO "+TABLE+" (venta_idventa, producto_idproducto, cantidad, subtotal) VALUES (?,?,?,?)";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET cantidad=?, subtotal=? WHERE Venta_idVenta=? and Producto_idProducto=?";
+    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE venta_idVenta = ? and producto_idproducto = ?";
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE Venta_idVenta=?";
+    private static final String SQL_OBTENER_PRODUCTOS = "SELECT producto.idProducto FROM producto, venta "
+            + "INNER JOIN detalle_venta "
+            + "ON venta.idVenta = detalle_venta.venta_idventa "
+            + "WHERE producto.idProducto = detalle_venta.producto_idProducto and venta.idVenta = ?";
     
     private Detalle_VentaDAO() {
     }
     
     public static Detalle_VentaDAO getInstance() {
         return Detalle_VentaDAOHolder.INSTANCE;
+    }
+    
+    private static class Detalle_VentaDAOHolder {
+
+        private static final Detalle_VentaDAO INSTANCE = new Detalle_VentaDAO();
     }
 
     @Override
@@ -101,12 +114,58 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
 
     @Override
     public Detalle_Venta buscaCategoria(int id, int id2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = null;
+        PreparedStatement st = null;
+        Detalle_Venta pojo = new Detalle_Venta();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY);
+            st.setInt(1, id);
+            st.setInt(2, id2);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                pojo = inflaVenta(rs);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar detalle_venta " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return pojo;
     }
 
     @Override
-    public DefaultTableModel cargarTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public DefaultTableModel cargarTabla(int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Producto", "Cantidad", "Subtotal"};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_OBTENER_PRODUCTOS);
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String id2 = String.valueOf(rs.getInt("producto.idProducto"));
+                Producto producto = ProductoDAO.getInstance().buscaCategoria(Integer.parseInt(id2));
+                Detalle_Venta detalle_Venta = buscaCategoria(id,producto.getIdProducto());
+                Object ob[] = new Object[3];
+                ob[0] = producto.getNombre();
+                ob[1] = detalle_Venta.getCantidad();
+                ob[2] = detalle_Venta.getSubtotal();
+                dt.addRow(ob);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla detalle_venta " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
     }
 
     @Override
@@ -118,12 +177,18 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
     public DefaultListModel<Detalle_Venta> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    private static class Detalle_VentaDAOHolder {
 
-        private static final Detalle_VentaDAO INSTANCE = new Detalle_VentaDAO();
+    @Override
+    public Detalle_Venta inflaVenta(ResultSet rs) {
+        Detalle_Venta pojo = new Detalle_Venta();
+        try {
+            pojo.setVenta_idVenta(rs.getInt("Venta_idVenta"));
+            pojo.setProducto_idProducto(rs.getInt("Producto_idProducto"));
+            pojo.setCantidad(rs.getDouble("cantidad"));
+            pojo.setSubtotal(rs.getDouble("subtotal"));
+        } catch (SQLException ex) {
+            System.out.println("Error al inflar detalle_venta " + ex);
+        }
+        return pojo;
     }
-    
-    
-    
 }

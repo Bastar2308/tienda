@@ -149,7 +149,7 @@ public class VentaDAO implements VentaDAOIf{
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[2];
+                Object ob[] = new Object[5];
                 Venta pojo = inflaVenta(rs);
                 Cliente cliente = ClienteDAO.getInstance().buscaCliente(pojo.getCliente_idCliente());
                 ob[0] = pojo.getIdVenta();
