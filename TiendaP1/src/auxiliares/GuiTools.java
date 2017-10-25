@@ -56,7 +56,7 @@ public class GuiTools {
      * @param centrar
      */
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar) {
-        jFrame.setTitle(titulo);
+        inicializaJFrame(jFrame, titulo);
         if (centrar) {
             jFrame.setLocationRelativeTo(null);
         }
@@ -71,10 +71,7 @@ public class GuiTools {
      * @param icono
      */
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono) {
-        jFrame.setTitle(titulo);
-        if (centrar) {
-            jFrame.setLocationRelativeTo(null);
-        }
+        inicializaJFrame(jFrame, titulo,centrar);
         jFrame.setIconImage(icono);
     }
 
@@ -89,11 +86,7 @@ public class GuiTools {
      * @param y
      */
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono, int ancho, int alto) {
-        jFrame.setTitle(titulo);
-        if (centrar) {
-            jFrame.setLocationRelativeTo(null);
-        }
-        jFrame.setIconImage(icono);
+        inicializaJFrame(jFrame, titulo,centrar,icono);
         jFrame.setSize(ancho,alto);
     }
 }
