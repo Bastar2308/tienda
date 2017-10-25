@@ -110,4 +110,9 @@ public class Cliente {
     public void setLimite_deuda(double limite_deuda) {
         this.limite_deuda = limite_deuda;
     }
+
+    @Override
+    public String toString() {
+        return getNombre();
+    }
 }

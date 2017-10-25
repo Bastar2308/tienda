@@ -35,4 +35,9 @@ public class Grupo {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return getNombre();
+    }
 }
