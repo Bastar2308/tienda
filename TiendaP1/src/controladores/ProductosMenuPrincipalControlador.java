@@ -21,17 +21,16 @@ import java.awt.event.ActionListener;
 public class ProductosMenuPrincipalControlador implements ActionListener {
 
     JfProductosMenuPrincipal vista;
-    ProductoDAO dao;
+    
 
     public ProductosMenuPrincipalControlador(JfProductosMenuPrincipal vista) {
         this.vista = vista;
-        dao = new ProductoDAO();
         addListeners();
         cargarTabla();
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(dao.cargarTabla());
+        vista.getJtDatos().setModel(ProductoDAO.getInstance().cargarTabla());
     }
 
     private void addListeners() {

@@ -20,11 +20,10 @@ import java.awt.event.ActionListener;
 public class ControlDeGruposControlador implements ActionListener {
 
     JfControlDeGrupos vista;
-    GrupoDAO dao;
+    
 
     public ControlDeGruposControlador(JfControlDeGrupos vista) {
         this.vista = vista;
-        dao=new GrupoDAO();
         addListeners();
         cargarTabla();
     }
@@ -41,6 +40,6 @@ public class ControlDeGruposControlador implements ActionListener {
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(dao.cargarTabla());
+        vista.getJtDatos().setModel(GrupoDAO.getInstance().cargarTabla());
     }
 }

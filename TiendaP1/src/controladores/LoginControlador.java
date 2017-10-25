@@ -18,11 +18,10 @@ import gui.JfMenuPrincipal;
 public class LoginControlador implements ActionListener {
 
     private JfLogin vista;
-    private UsuarioDAOIf dao;
-
+   
     public LoginControlador(JfLogin vista) {
         this.vista = vista;
-        dao = new UsuarioDAO();
+       
         cargarListeners();
     }
 
@@ -44,7 +43,7 @@ public class LoginControlador implements ActionListener {
         String usuario = vista.getTfUsuario().getText();
         String password = vista.getTfPassword().getText();
 
-        Usuario pojo = dao.iniciaSesion(usuario, password);
+        Usuario pojo = UsuarioDAO.getInstance().iniciaSesion(usuario, password);
 
         if (pojo.getIdUsuario() != 0) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + pojo.getNombre());
