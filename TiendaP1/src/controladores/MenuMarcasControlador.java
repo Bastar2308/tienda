@@ -19,17 +19,16 @@ import java.awt.event.ActionListener;
 public class MenuMarcasControlador implements ActionListener {
 
     JfMenuMarcas vista;
-    MarcaDAO dao;
+  
 
     public MenuMarcasControlador(JfMenuMarcas vista) {
         this.vista = vista;
-        dao = new MarcaDAO();
         cargarListeners();
         cargarTabla();
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(dao.cargarTabla());
+        vista.getJtDatos().setModel(MarcaDAO.getInstance().cargarTabla());
     }
 
     private void cargarListeners() {

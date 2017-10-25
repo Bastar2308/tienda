@@ -19,17 +19,16 @@ import java.awt.event.ActionListener;
 public class MenuCategoriasControlador implements ActionListener {
 
     JfMenuCategorias vista;
-    CategoriaDAO dao;
-
+    
     public MenuCategoriasControlador(JfMenuCategorias vista) {
         this.vista = vista;
-        dao = new CategoriaDAO();
+        
         addListeners();
         cargarTabla();
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(dao.cargarTabla());
+        vista.getJtDatos().setModel(CategoriaDAO.getInstance().cargarTabla());
     }
 
     public void addListeners() {
