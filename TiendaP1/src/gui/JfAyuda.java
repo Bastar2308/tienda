@@ -5,11 +5,13 @@
  */
 package gui;
 
+import guiif.JfAyudaIf;
+
 /**
  *
  * @author ALUMNO
  */
-public class JfAyuda extends javax.swing.JFrame {
+public class JfAyuda extends javax.swing.JFrame implements JfAyudaIf{
 
     /**
      * Creates new form Ayuda
@@ -21,6 +23,22 @@ public class JfAyuda extends javax.swing.JFrame {
 
     public static JfAyuda getInstance() {
         return JfAyudaHolder.INSTANCE;
+    }
+
+    public javax.swing.JButton getJbManual() {
+        return jbManual;
+    }
+
+    public void setJbManual(javax.swing.JButton jbManual) {
+        this.jbManual = jbManual;
+    }
+
+    public javax.swing.JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(javax.swing.JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
     }
 
     private static class JfAyudaHolder {
@@ -42,6 +60,8 @@ public class JfAyuda extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jbManual = new javax.swing.JButton();
+        jbRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ayuda y contacto");
@@ -61,13 +81,19 @@ public class JfAyuda extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("22 99 00 50 04");
 
+        jbManual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/PDF_20px.png"))); // NOI18N
+        jbManual.setText("Manual de Usuario");
+
+        jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
+        jbRegresar.setText("Regresar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,14 +102,19 @@ public class JfAyuda extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                            .addComponent(jLabel5)))
+                    .addComponent(jbManual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jbRegresar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jbRegresar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -92,7 +123,9 @@ public class JfAyuda extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jbManual)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,5 +173,8 @@ public class JfAyuda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jbManual;
+    private javax.swing.JButton jbRegresar;
     // End of variables declaration//GEN-END:variables
+
 }
