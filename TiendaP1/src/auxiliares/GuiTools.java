@@ -63,7 +63,8 @@ public class GuiTools {
     }
 
     /**
-     * Inicializa el JFrame con el título brindado, puede centrarlo y agrega ícono
+     * Inicializa el JFrame con el título brindado, puede centrarlo y agrega
+     * ícono
      *
      * @param jFrame
      * @param titulo
@@ -71,12 +72,13 @@ public class GuiTools {
      * @param icono
      */
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono) {
-        inicializaJFrame(jFrame, titulo,centrar);
+        inicializaJFrame(jFrame, titulo, centrar);
         jFrame.setIconImage(icono);
     }
 
     /**
-     * Inicializa el JFrame con el título brindado, puede centrarlo, agrega ícono
+     * Inicializa el JFrame con el título brindado, puede centrarlo, agrega
+     * ícono
      *
      * @param jFrame
      * @param titulo
@@ -86,7 +88,7 @@ public class GuiTools {
      * @param y
      */
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono, int ancho, int alto) {
-        inicializaJFrame(jFrame, titulo,centrar,icono);
-        jFrame.setSize(ancho,alto);
+        inicializaJFrame(jFrame, titulo, centrar, icono);
+        jFrame.setSize(ancho, alto);
     }
 }
