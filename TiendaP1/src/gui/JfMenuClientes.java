@@ -6,6 +6,7 @@ package gui;
 import guiif.JfMenuClientesIf;
 import javax.swing.JButton;
 import controladores.MenuClientesControlador;
+import java.awt.Color;
 
 /**
  *
@@ -21,6 +22,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     public JfMenuClientes() {
         initComponents();
         controlador = new MenuClientesControlador(this);
+        getContentPane().setBackground(new Color(51, 51, 51));
         setLocationRelativeTo(null);
     }
 
@@ -85,9 +87,10 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         tfEditarCorreo = new javax.swing.JTextField();
         jsEditarComprasSinCredencial = new javax.swing.JSpinner();
         jbRegresar = new javax.swing.JButton();
+        jbControlDeGrupos = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtDatos = new javax.swing.JTable();
-        jbControlDeGrupos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jbAgregar = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
@@ -325,9 +328,16 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clientes");
+        setResizable(false);
 
+        jbRegresar.setBackground(new java.awt.Color(51, 51, 51));
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
+
+        jbControlDeGrupos.setBackground(new java.awt.Color(51, 51, 51));
+        jbControlDeGrupos.setText("Control de grupos");
+
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         jtDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -342,14 +352,16 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         ));
         jScrollPane1.setViewportView(jtDatos);
 
-        jbControlDeGrupos.setText("Control de grupos");
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
-
+        jbAgregar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregar.setText("Agregar");
 
+        jbEliminar.setBackground(new java.awt.Color(102, 102, 102));
         jbEliminar.setText("Eliminar");
 
+        jbEditar.setBackground(new java.awt.Color(102, 102, 102));
         jbEditar.setText("Editar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -371,8 +383,29 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addComponent(jbAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbEliminar)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -381,17 +414,12 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbControlDeGrupos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 805, Short.MAX_VALUE)
-                        .addComponent(jbRegresar)))
-                .addContainerGap())
+                .addGap(41, 41, 41)
+                .addComponent(jbControlDeGrupos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbRegresar)
+                .addGap(50, 50, 50))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,10 +429,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                     .addComponent(jbRegresar)
                     .addComponent(jbControlDeGrupos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -466,6 +492,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
