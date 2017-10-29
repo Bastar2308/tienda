@@ -5,9 +5,11 @@
  */
 package test.venta;
 
+import dao.Comida_del_diaDAO;
 import dao.Detalle_VentaDAO;
 import dao.ProductoDAO;
 import dao.VentaDAO;
+import pojo.Comida_del_dia;
 import pojo.Detalle_Venta;
 import pojo.Producto;
 import pojo.Venta;
@@ -20,8 +22,8 @@ import pojo.Venta;
 public class VentaAlta {
     public static void main(String[] args) {
         Venta venta = new Venta();
-        venta.setCliente_idCliente(1);
-        venta.setNota("Nota03");
+        venta.setCliente_idCliente(3);
+        venta.setNota("Nota12");
         int idVenta = VentaDAO.getInstance().insertaVenta(venta);
         int object[] = {1,3};
         int total = 0;
@@ -32,8 +34,10 @@ public class VentaAlta {
                 detalle_Venta.setCantidad(2);
                 detalle_Venta.setProducto_idProducto(object[i]);
                 detalle_Venta.setVenta_idVenta(idVenta);
+                detalle_Venta.setComida_del_dia_idComida_del_dia(1);
                 Producto producto = ProductoDAO.getInstance().buscaCategoria(1);
-                detalle_Venta.setSubtotal(producto.getPrecio()*2);
+                Comida_del_dia comida_del_dia = Comida_del_diaDAO.getInstance().buscaComida_del_dia(detalle_Venta.getComida_del_dia_idComida_del_dia());
+                detalle_Venta.setSubtotal((producto.getPrecio()*2) + comida_del_dia.getPrecio());
                 if (Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta) != 0) {
                     System.out.println("Exito en el detalle");
                 } else {

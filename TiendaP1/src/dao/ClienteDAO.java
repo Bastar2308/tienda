@@ -22,11 +22,11 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf{
     
     private static final String TABLE="cliente";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (grupo_idGrupo, nombre, saldo, qr, foto, tutor, telefono, correo, compras_sin_credencial, limite_deuda) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (grupo_idGrupo, nombre, saldo, qr, foto, tutor, telefono, correo, compras_sin_credencial, limite_deuda, vigencia) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idCliente = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCliente=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET grupo_idGrupo=?, nombre=?, saldo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, limite_deuda=? WHERE idCliente=?";
+    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET grupo_idGrupo=?, nombre=?, saldo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, limite_deuda=?, vigencia=? WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -58,6 +58,7 @@ public class ClienteDAO implements ClienteDAOIf{
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getCompras_sin_credencial());
             st.setDouble(10, pojo.getLimite_deuda());
+            st.setDate(11, pojo.getVigencia());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar cliente" + e);
@@ -108,7 +109,8 @@ public class ClienteDAO implements ClienteDAOIf{
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getCompras_sin_credencial());
             st.setDouble(10, pojo.getLimite_deuda());
-            st.setInt(11, pojo.getIdCliente());
+            st.setDate(11, pojo.getVigencia());
+            st.setInt(12, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;

@@ -21,7 +21,7 @@ import pojo.Producto;
 public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
 
     private static final String TABLE="detalle_venta";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (venta_idventa, producto_idproducto, cantidad, subtotal) VALUES (?,?,?,?)";
+    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (venta_idventa, producto_idproducto, comida_del_dia_idcomida_del_dia, cantidad, subtotal) VALUES (?,?,?,?,?)";
     private static final String SQL_UPDATE="UPDATE "+TABLE+" SET cantidad=?, subtotal=? WHERE Venta_idVenta=? and Producto_idProducto=?";
     private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE venta_idVenta = ? and producto_idproducto = ?";
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE Venta_idVenta=?";
@@ -52,8 +52,9 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
             st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             st.setInt(1, pojo.getVenta_idVenta());
             st.setInt(2, pojo.getProducto_idProducto());
-            st.setDouble(3, pojo.getCantidad());
-            st.setDouble(4, pojo.getSubtotal());
+            st.setInt(3, pojo.getComida_del_dia_idComida_del_dia());
+            st.setDouble(4, pojo.getCantidad());
+            st.setDouble(5, pojo.getSubtotal());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar detalle_venta" + e);

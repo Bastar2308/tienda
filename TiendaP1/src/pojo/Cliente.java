@@ -8,6 +8,7 @@ package pojo;
 
 import java.awt.Image;
 import java.sql.Blob;
+import java.sql.Date;
 
 
 public class Cliente {
@@ -22,6 +23,7 @@ public class Cliente {
     private String correo;
     private int compras_sin_credencial;
     private double limite_deuda;
+    private Date vigencia;
 
     public int getIdCliente() {
         return idCliente;
@@ -114,5 +116,13 @@ public class Cliente {
     @Override
     public String toString() {
         return getNombre();
+    }
+
+    public Date getVigencia() {
+        return vigencia;
+    }
+
+    public void setVigencia(Date vigencia) {
+        this.vigencia = vigencia;
     }
 }

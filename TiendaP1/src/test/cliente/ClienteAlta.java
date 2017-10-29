@@ -6,6 +6,7 @@
 package test.cliente;
 
 import dao.ClienteDAO;
+import java.sql.Date;
 import pojo.Cliente;
 
 
@@ -16,16 +17,17 @@ import pojo.Cliente;
 public class ClienteAlta {
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
-        cliente.setNombre("Cliente002");
+        cliente.setNombre("Cliente003");
         cliente.setSaldo(100);
-        cliente.setGrupo_idGrupo(1);
-        cliente.setQr("QR002");
+        cliente.setGrupo_idGrupo(5);
+        cliente.setQr("QR003");
         cliente.setFoto(null);
-        cliente.setTutor("Tutor002");
-        cliente.setTelefono("0000000002");
-        cliente.setCorreo("correo002");
+        cliente.setTutor("Tutor003");
+        cliente.setTelefono("0000000003");
+        cliente.setCorreo("correo003");
         cliente.setCompras_sin_credencial(5);
         cliente.setLimite_deuda(100);
+        cliente.setVigencia(new Date(118, 9, 27));
         if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
             System.out.println("Insertado correctamente");
         } else {

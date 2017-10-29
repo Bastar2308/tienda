@@ -10,6 +10,7 @@ package pojo;
 public class Detalle_Venta {
     private int venta_idVenta;
     private int producto_idProducto;
+    private int comida_del_dia_idComida_del_dia;
     private double cantidad;
     private double subtotal;
 
@@ -43,5 +44,13 @@ public class Detalle_Venta {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public int getComida_del_dia_idComida_del_dia() {
+        return comida_del_dia_idComida_del_dia;
+    }
+
+    public void setComida_del_dia_idComida_del_dia(int comida_del_dia_idComida_del_dia) {
+        this.comida_del_dia_idComida_del_dia = comida_del_dia_idComida_del_dia;
     }
 }
