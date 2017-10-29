@@ -173,6 +173,9 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     public JfMenuCategorias() {
         initComponents();
         getContentPane().setBackground(new Color(51, 51, 51));
+        jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
+        jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
+        jdEliminar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuCategoriasControlador(this);
         setLocationRelativeTo(null);
     }
@@ -187,21 +190,24 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     private void initComponents() {
 
         jdAgregar = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tfAgregarNombre = new javax.swing.JTextField();
         jbAgregarCancelar = new javax.swing.JButton();
         jbAgregarAceptar = new javax.swing.JButton();
         jdEditar = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tfEditarNombre = new javax.swing.JTextField();
         jbEditarCancelar = new javax.swing.JButton();
         jbEditarAceptar = new javax.swing.JButton();
         jdEliminar = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jbEliminarAceptar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jlCategoria = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbEliminarCancelar = new javax.swing.JButton();
-        jbEliminarAceptar = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -213,134 +219,197 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
 
         jdAgregar.setTitle("Agregar categoría");
         jdAgregar.setModal(true);
+        jdAgregar.setResizable(false);
 
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre:");
 
+        jbAgregarCancelar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregarCancelar.setText("Cancelar");
 
+        jbAgregarAceptar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregarAceptar.setText("Aceptar");
 
-        javax.swing.GroupLayout jdAgregarLayout = new javax.swing.GroupLayout(jdAgregar.getContentPane());
-        jdAgregar.getContentPane().setLayout(jdAgregarLayout);
-        jdAgregarLayout.setHorizontalGroup(
-            jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdAgregarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdAgregarLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfAgregarNombre))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdAgregarLayout.createSequentialGroup()
-                        .addGap(0, 190, Short.MAX_VALUE)
+                        .addComponent(tfAgregarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jbAgregarCancelar)
                         .addGap(18, 18, 18)
                         .addComponent(jbAgregarAceptar)))
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
-        jdAgregarLayout.setVerticalGroup(
-            jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdAgregarLayout.createSequentialGroup()
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfAgregarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAgregarAceptar)
                     .addComponent(jbAgregarCancelar))
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout jdAgregarLayout = new javax.swing.GroupLayout(jdAgregar.getContentPane());
+        jdAgregar.getContentPane().setLayout(jdAgregarLayout);
+        jdAgregarLayout.setHorizontalGroup(
+            jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jdAgregarLayout.setVerticalGroup(
+            jdAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdAgregarLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
         jdEditar.setTitle("Editar categoría");
         jdEditar.setModal(true);
+        jdEditar.setResizable(false);
 
+        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
 
+        jbEditarCancelar.setBackground(new java.awt.Color(102, 102, 102));
         jbEditarCancelar.setText("Cancelar");
 
+        jbEditarAceptar.setBackground(new java.awt.Color(102, 102, 102));
         jbEditarAceptar.setText("Aceptar");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEditarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jbEditarCancelar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbEditarAceptar)))
+                .addGap(30, 30, 30))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(tfEditarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbEditarAceptar)
+                    .addComponent(jbEditarCancelar))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jdEditarLayout = new javax.swing.GroupLayout(jdEditar.getContentPane());
         jdEditar.getContentPane().setLayout(jdEditarLayout);
         jdEditarLayout.setHorizontalGroup(
             jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdEditarLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfEditarNombre))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEditarLayout.createSequentialGroup()
-                        .addGap(0, 190, Short.MAX_VALUE)
-                        .addComponent(jbEditarCancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbEditarAceptar)))
-                .addContainerGap())
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jdEditarLayout.setVerticalGroup(
             jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfEditarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbEditarAceptar)
-                    .addComponent(jbEditarCancelar))
-                .addContainerGap())
+                .addGap(30, 30, 30)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jdEliminar.setTitle("Eliminar categoría");
+        jdEliminar.setResizable(false);
 
+        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
+
+        jbEliminarAceptar.setBackground(new java.awt.Color(102, 102, 102));
+        jbEliminarAceptar.setText("Aceptar");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("¿Reálmente desea eliminar");
 
-        jlCategoria.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlCategoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jlCategoria.setForeground(new java.awt.Color(255, 255, 255));
         jlCategoria.setText("<categoria>");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("?");
 
+        jbEliminarCancelar.setBackground(new java.awt.Color(102, 102, 102));
         jbEliminarCancelar.setText("Cancelar");
 
-        jbEliminarAceptar.setText("Aceptar");
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlCategoria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 171, Short.MAX_VALUE)
+                        .addComponent(jbEliminarCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbEliminarAceptar)))
+                .addGap(30, 30, 30))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jlCategoria)))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbEliminarAceptar)
+                    .addComponent(jbEliminarCancelar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jdEliminarLayout = new javax.swing.GroupLayout(jdEliminar.getContentPane());
         jdEliminar.getContentPane().setLayout(jdEliminarLayout);
         jdEliminarLayout.setHorizontalGroup(
             jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEliminarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdEliminarLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addGap(0, 160, Short.MAX_VALUE))
-                    .addGroup(jdEliminarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbEliminarCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbEliminarAceptar)))
-                .addContainerGap())
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jdEliminarLayout.setVerticalGroup(
             jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdEliminarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jlCategoria)))
-                .addGap(35, 35, 35)
-                .addGroup(jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbEliminarAceptar)
-                    .addComponent(jbEliminarCancelar))
-                .addContainerGap())
+                .addGap(30, 30, 30)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -507,6 +576,9 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;

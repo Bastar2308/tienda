@@ -173,7 +173,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         });
         jScrollPane1.setViewportView(jlClientes);
 
-        jbFiltrar.setBackground(new java.awt.Color(51, 51, 51));
+        jbFiltrar.setBackground(new java.awt.Color(102, 102, 102));
         jbFiltrar.setText("Filtrar");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -222,7 +222,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
                 .addGap(15, 15, 15))
         );
 
-        jbRegresar.setBackground(new java.awt.Color(102, 102, 102));
+        jbRegresar.setBackground(new java.awt.Color(51, 51, 51));
         jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
 
