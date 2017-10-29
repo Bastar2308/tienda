@@ -10,13 +10,20 @@ import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 
 
 /**
  *
  * @author Fernando
  */
-public class CredencialGUI extends javax.swing.JFrame {
+public class CredencialGUI extends javax.swing.JFrame implements Printable{
     
     Webcam webcam = Webcam.getDefault();
     WebcamPanel panel = new WebcamPanel(webcam, new Dimension(170, 170), false);
@@ -146,9 +153,7 @@ public class CredencialGUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9))
+                            .addComponent(jLabel9)
                             .addComponent(jLabel11)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
@@ -239,11 +244,26 @@ public class CredencialGUI extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        jButton1.setText("Regresar");
+        jButton1.setText("Tomar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Repetir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Guardar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,6 +302,32 @@ public class CredencialGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        panel.pause();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        panel.resume();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try 
+        {
+        PrinterJob gap= PrinterJob.getPrinterJob();
+        gap.setPrintable(this);
+        boolean top= gap.printDialog();
+            if (top) 
+            {
+            gap.print();    
+            }
+        } catch (PrinterException pex)  {
+            System.out.println("error al guardar foto "+pex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,4 +389,18 @@ public class CredencialGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public int print(Graphics grap, PageFormat pagefor, int index) throws PrinterException {
+        if (index>0) {
+            return NO_SUCH_PAGE;
+        }
+        Graphics2D op=(Graphics2D) grap;
+        
+        op.translate(pagefor.getImageableX()*.5, pagefor.getImageableY()*0.5);
+        op.rotate(1.5708, jPanel1.getWidth()/2, jPanel1.getHeight()/2);
+        op.scale(1, 1);
+        jPanel1.printAll(grap);
+        return PAGE_EXISTS;
+    }
 }
