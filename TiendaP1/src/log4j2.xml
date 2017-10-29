@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<Configuration status = "warn" name = "MyApp" packages = "">
+    <Properties>
+        <!--Aquí le indico donde y con qué nombre quiero crear la carpeta contenedora de 
+        mi archivo de logs-->
+        <Property name = "baseDir">logs</Property>
+    </Properties>
+    <Appenders>
+        <!--Indico el nombre que le voy a asignar a mi archivo de logs-->
+        <RollingFile name = "RollingFile" fileName = "${baseDir}/app.log" 
+                     filePattern = "${baseDir}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}.log.gz">
+                    <!--Indico el formato o patrón con el que quiero que me guarde los distintos logs-->
+            <PatternLayout pattern = "%d %p %c{1.} [%t] %m%n"/>
+            <!--Hora en la que hará el renombreo, en éste caso a las 12:00 am-->
+            <CronTriggeringPolicy schedule = "0 0 0 * * ?"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath = "${baseDir}" maxDepth = "2">
+                    <IfFileName glob ="*/app-*.log.gz"/>
+                    <!--Cuanto tiempo quiero que la computadora mantenga mi log-->
+                    <IfLastModified age = "60d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level = "info">
+            <AppenderRef ref = "RollingFile"/>
+        </Root>
+        <Root level = "debug">
+            <AppenderRef ref = "RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
