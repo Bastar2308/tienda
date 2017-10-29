@@ -52,7 +52,7 @@ public class JfLogin extends javax.swing.JFrame implements JfLoginIf {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Inicio de sesión");
         setResizable(false);
 

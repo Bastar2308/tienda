@@ -64,7 +64,7 @@ public class JfAyuda extends javax.swing.JFrame implements JfAyudaIf{
         jLabel6 = new javax.swing.JLabel();
         jbManual = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Ayuda y contacto");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

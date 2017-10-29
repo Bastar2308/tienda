@@ -102,7 +102,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jdAgregar.setTitle("Agregar producto");
         jdAgregar.setModal(true);
-        jdAgregar.setPreferredSize(new java.awt.Dimension(500, 362));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -421,7 +420,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
 

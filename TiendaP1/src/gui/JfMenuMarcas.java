@@ -273,7 +273,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Menú de marcas");
         setResizable(false);
 

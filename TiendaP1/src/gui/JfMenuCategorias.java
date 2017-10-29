@@ -412,7 +412,7 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Categorías");
         setResizable(false);
 

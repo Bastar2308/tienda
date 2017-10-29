@@ -59,7 +59,7 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
 
         fcSelector.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Generador de credenciales");
         setResizable(false);
 

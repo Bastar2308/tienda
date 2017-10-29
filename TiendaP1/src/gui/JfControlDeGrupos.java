@@ -298,7 +298,7 @@ public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDe
                 .addGap(29, 29, 29))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Control de grupos");
         setResizable(false);
 

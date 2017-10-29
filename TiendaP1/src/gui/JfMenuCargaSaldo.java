@@ -65,7 +65,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         jLabel1 = new javax.swing.JLabel();
         jbRegresar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cargar saldo");
         setResizable(false);
 
