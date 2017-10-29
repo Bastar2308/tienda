@@ -83,6 +83,7 @@ public class JfLogin extends javax.swing.JFrame implements JfLoginIf {
         tfUsuario.setToolTipText("Usuario");
         tfUsuario.setBorder(null);
 
+        jbIngresar.setBackground(new java.awt.Color(51, 51, 51));
         jbIngresar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jbIngresar.setText("Ingresar");
 
