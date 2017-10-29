@@ -10,3 +10,15 @@ java.lang.Exception: null
 2017-10-28 22:55:09,308 ERROR  [main] Log error
 java.lang.Exception: null
 	at test.log.Logs.main(Logs.java:19) [classes/:?]
+2017-10-28 23:01:24,564 DEBUG  [main] Log desde logtools
+java.lang.Exception: null
+	at test.log.Logs.main(Logs.java:16) [classes/:?]
+2017-10-28 23:01:24,564 INFO  [main] Log informativo
+java.lang.Exception: null
+	at test.log.Logs.main(Logs.java:17) [classes/:?]
+2017-10-28 23:01:24,564 WARN  [main] Log warning
+java.lang.Exception: null
+	at test.log.Logs.main(Logs.java:18) [classes/:?]
+2017-10-28 23:01:24,564 ERROR  [main] Log error
+java.lang.Exception: null
+	at test.log.Logs.main(Logs.java:19) [classes/:?]

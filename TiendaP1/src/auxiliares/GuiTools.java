@@ -8,16 +8,12 @@ package auxiliares;
 import gui.JfMenuPrincipal;
 import java.awt.Image;
 import javax.swing.JFrame;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author MAESTROAD
  */
 public class GuiTools {
-    
-    Logger logger = LogManager.getRootLogger();
 
     private GuiTools() {
     }
@@ -94,45 +90,5 @@ public class GuiTools {
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono, int ancho, int alto) {
         inicializaJFrame(jFrame, titulo, centrar, icono);
         jFrame.setSize(ancho, alto);
-    }
-    
-    /**
-     * Crea un registro de debuggeo
-     *
-     * @param mensaje
-     * @param e
-     */
-    public void debugLog(String mensaje, Exception e){
-        logger.debug(mensaje, e);
-    }
-    
-    /**
-     * Crea un registro de información
-     *
-     * @param mensaje
-     * @param e
-     */
-    public void infoLog(String mensaje, Exception e){
-        logger.info(mensaje, e);
-    }
-    
-    /**
-     * Crea un registro de advertencia
-     *
-     * @param mensaje
-     * @param e
-     */
-    public void advertLog(String mensaje, Exception e){
-        logger.warn(mensaje, e);
-    }
-    
-    /**
-     * Crea un registro de error
-     *
-     * @param mensaje
-     * @param e
-     */
-    public void errorLog(String mensaje, Exception e){
-        logger.error(mensaje, e);
     }
 }

@@ -5,7 +5,7 @@
  */
 package test.log;
 
-import auxiliares.GuiTools;
+import auxiliares.LogTools;
 
 /**
  *
@@ -13,9 +13,9 @@ import auxiliares.GuiTools;
  */
 public class Logs {
     public static void main(String[] args) {
-        GuiTools.getInstance().debugLog("Log debug", new Exception());
-        GuiTools.getInstance().infoLog("Log informativo", new Exception());
-        GuiTools.getInstance().advertLog("Log warning", new Exception());
-        GuiTools.getInstance().errorLog("Log error", new Exception());
+        LogTools.getInstance().debugLog("Log desde logtools", new Exception());
+        LogTools.getInstance().infoLog("Log informativo", new Exception());
+        LogTools.getInstance().advertLog("Log warning", new Exception());
+        LogTools.getInstance().errorLog("Log error", new Exception());
     }
 }
