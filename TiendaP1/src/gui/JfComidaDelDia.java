@@ -4,18 +4,24 @@
 package gui;
 
 import controladores.ComidaDelDiaControlador;
+import guiif.JfComidaDelDiaIf;
+import java.awt.Color;
 
 /**
  *
  * @author BurnKill
  */
-public class JfComidaDelDia extends javax.swing.JFrame {
+public class JfComidaDelDia extends javax.swing.JFrame implements JfComidaDelDiaIf{
 private ComidaDelDiaControlador controlador;
     /**
      * Creates new form JfComidaDelDia
      */
     public JfComidaDelDia() {
         initComponents();
+        jdAgregar.getContentPane().setBackground(new Color(51,51,51));
+        jdEditar.getContentPane().setBackground(new Color(51,51,51));
+        jdEliminar.getContentPane().setBackground(new Color(51,51,51));
+        getContentPane().setBackground(new Color(51,51,51));
         controlador=new ComidaDelDiaControlador(this);
     }
 
@@ -65,9 +71,10 @@ private ComidaDelDiaControlador controlador;
         jScrollPane1 = new javax.swing.JScrollPane();
         jtDatos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbAgregar = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbRegresar = new javax.swing.JButton();
 
         jdAgregar.setTitle("Agregar marca");
         jdAgregar.setModal(true);
@@ -384,14 +391,14 @@ private ComidaDelDiaControlador controlador;
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("Agregar");
+        jbAgregar.setBackground(new java.awt.Color(102, 102, 102));
+        jbAgregar.setText("Agregar");
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setText("Editar");
+        jbEditar.setBackground(new java.awt.Color(102, 102, 102));
+        jbEditar.setText("Editar");
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setText("Eliminar");
+        jbEliminar.setBackground(new java.awt.Color(102, 102, 102));
+        jbEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -400,20 +407,20 @@ private ComidaDelDiaControlador controlador;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jbAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jbEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jbEliminar)
                 .addContainerGap())
         );
 
@@ -434,20 +441,30 @@ private ComidaDelDiaControlador controlador;
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jbRegresar.setBackground(new java.awt.Color(51, 51, 51));
+        jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
+        jbRegresar.setText("Regresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbRegresar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
+                .addComponent(jbRegresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
@@ -491,9 +508,6 @@ private ComidaDelDiaControlador controlador;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -512,12 +526,16 @@ private ComidaDelDiaControlador controlador;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
     private javax.swing.JButton jbCancelarCancelar;
+    private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbEditarAceptar;
+    private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbEliminarAceptar;
     private javax.swing.JButton jbEliminarCancelar;
+    private javax.swing.JButton jbRegresar;
     private javax.swing.JDialog jdAgregar;
     private com.toedter.calendar.JDateChooser jdAgregarFecha;
     private javax.swing.JDialog jdEditar;
@@ -532,4 +550,189 @@ private ComidaDelDiaControlador controlador;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getJbAgregar() {
+        return jbAgregar;
+    }
+
+    public void setJbAgregar(javax.swing.JButton jbAgregar) {
+        this.jbAgregar = jbAgregar;
+    }
+
+    public javax.swing.JButton getJbAgregarAceptar() {
+        return jbAgregarAceptar;
+    }
+
+    public void setJbAgregarAceptar(javax.swing.JButton jbAgregarAceptar) {
+        this.jbAgregarAceptar = jbAgregarAceptar;
+    }
+
+    public javax.swing.JButton getJbAgregarCancelar() {
+        return jbAgregarCancelar;
+    }
+
+    public void setJbAgregarCancelar(javax.swing.JButton jbAgregarCancelar) {
+        this.jbAgregarCancelar = jbAgregarCancelar;
+    }
+
+    public javax.swing.JButton getJbCancelarCancelar() {
+        return jbCancelarCancelar;
+    }
+
+    public void setJbCancelarCancelar(javax.swing.JButton jbCancelarCancelar) {
+        this.jbCancelarCancelar = jbCancelarCancelar;
+    }
+
+    public javax.swing.JButton getJbEditar() {
+        return jbEditar;
+    }
+
+    public void setJbEditar(javax.swing.JButton jbEditar) {
+        this.jbEditar = jbEditar;
+    }
+
+    public javax.swing.JButton getJbEditarAceptar() {
+        return jbEditarAceptar;
+    }
+
+    public void setJbEditarAceptar(javax.swing.JButton jbEditarAceptar) {
+        this.jbEditarAceptar = jbEditarAceptar;
+    }
+
+    public javax.swing.JButton getJbEliminar() {
+        return jbEliminar;
+    }
+
+    public void setJbEliminar(javax.swing.JButton jbEliminar) {
+        this.jbEliminar = jbEliminar;
+    }
+
+    public javax.swing.JButton getJbEliminarAceptar() {
+        return jbEliminarAceptar;
+    }
+
+    public void setJbEliminarAceptar(javax.swing.JButton jbEliminarAceptar) {
+        this.jbEliminarAceptar = jbEliminarAceptar;
+    }
+
+    public javax.swing.JButton getJbEliminarCancelar() {
+        return jbEliminarCancelar;
+    }
+
+    public void setJbEliminarCancelar(javax.swing.JButton jbEliminarCancelar) {
+        this.jbEliminarCancelar = jbEliminarCancelar;
+    }
+
+    public javax.swing.JButton getJbRegresar() {
+        return jbRegresar;
+    }
+
+    public void setJbRegresar(javax.swing.JButton jbRegresar) {
+        this.jbRegresar = jbRegresar;
+    }
+
+    public javax.swing.JDialog getJdAgregar() {
+        return jdAgregar;
+    }
+
+    public void setJdAgregar(javax.swing.JDialog jdAgregar) {
+        this.jdAgregar = jdAgregar;
+    }
+
+    public com.toedter.calendar.JDateChooser getJdAgregarFecha() {
+        return jdAgregarFecha;
+    }
+
+    public void setJdAgregarFecha(com.toedter.calendar.JDateChooser jdAgregarFecha) {
+        this.jdAgregarFecha = jdAgregarFecha;
+    }
+
+    public javax.swing.JDialog getJdEditar() {
+        return jdEditar;
+    }
+
+    public void setJdEditar(javax.swing.JDialog jdEditar) {
+        this.jdEditar = jdEditar;
+    }
+
+    public com.toedter.calendar.JDateChooser getJdEditarFecha() {
+        return jdEditarFecha;
+    }
+
+    public void setJdEditarFecha(com.toedter.calendar.JDateChooser jdEditarFecha) {
+        this.jdEditarFecha = jdEditarFecha;
+    }
+
+    public javax.swing.JDialog getJdEliminar() {
+        return jdEliminar;
+    }
+
+    public void setJdEliminar(javax.swing.JDialog jdEliminar) {
+        this.jdEliminar = jdEliminar;
+    }
+
+    public javax.swing.JLabel getJlAlimento() {
+        return jlAlimento;
+    }
+
+    public void setJlAlimento(javax.swing.JLabel jlAlimento) {
+        this.jlAlimento = jlAlimento;
+    }
+
+    public javax.swing.JSpinner getJsAgregarPrecio() {
+        return jsAgregarPrecio;
+    }
+
+    public void setJsAgregarPrecio(javax.swing.JSpinner jsAgregarPrecio) {
+        this.jsAgregarPrecio = jsAgregarPrecio;
+    }
+
+    public javax.swing.JSpinner getJsEditarPrecio() {
+        return jsEditarPrecio;
+    }
+
+    public void setJsEditarPrecio(javax.swing.JSpinner jsEditarPrecio) {
+        this.jsEditarPrecio = jsEditarPrecio;
+    }
+
+    public javax.swing.JTable getJtDatos() {
+        return jtDatos;
+    }
+
+    public void setJtDatos(javax.swing.JTable jtDatos) {
+        this.jtDatos = jtDatos;
+    }
+
+    public javax.swing.JTextArea getJtaAgregarDescripcion() {
+        return jtaAgregarDescripcion;
+    }
+
+    public void setJtaAgregarDescripcion(javax.swing.JTextArea jtaAgregarDescripcion) {
+        this.jtaAgregarDescripcion = jtaAgregarDescripcion;
+    }
+
+    public javax.swing.JTextArea getJtaEditarDescripcion() {
+        return jtaEditarDescripcion;
+    }
+
+    public void setJtaEditarDescripcion(javax.swing.JTextArea jtaEditarDescripcion) {
+        this.jtaEditarDescripcion = jtaEditarDescripcion;
+    }
+
+    public javax.swing.JTextField getTfAgregarNombre() {
+        return tfAgregarNombre;
+    }
+
+    public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
+        this.tfAgregarNombre = tfAgregarNombre;
+    }
+
+    public javax.swing.JTextField getTfEditarNombre() {
+        return tfEditarNombre;
+    }
+
+    public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
+        this.tfEditarNombre = tfEditarNombre;
+    }
+
 }
