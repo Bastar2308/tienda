@@ -96,6 +96,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbAgregar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         jdAgregar.setTitle("Agregar producto");
         jdAgregar.setModal(true);
@@ -446,16 +447,22 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Menú de productos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel15)
+                .addGap(88, 88, 88)
                 .addComponent(jbControlDeCategorias)
                 .addGap(18, 18, 18)
                 .addComponent(jbControlDeMarcas)
@@ -471,7 +478,8 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbControlDeCategorias)
                     .addComponent(jbControlDeMarcas)
-                    .addComponent(jbRegresar))
+                    .addComponent(jbRegresar)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
@@ -522,6 +530,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
