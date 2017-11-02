@@ -22,6 +22,9 @@ public interface JfMenuPrincipalIf {
     public abstract JButton getJbCargarSaldo();
     public abstract void setJbCargarSaldo(JButton jb);
     
+    public abstract JButton getJbComidaDelDia();
+    public abstract void setJbComidaDelDia(JButton jb);
+    
     public abstract JButton getJbFinanzas();
     public abstract void setJbFinanzas(JButton jb);
     
