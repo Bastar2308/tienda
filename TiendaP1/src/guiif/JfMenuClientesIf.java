@@ -110,4 +110,40 @@ public abstract void setJbEditarCancelar(JButton x);
 
 public abstract JButton getJbEditarAceptar();
 public abstract void setJbEditarAceptar(JButton x);
+
+public abstract JButton getJbVer();
+public abstract void setJbVer(JButton x);
+
+public abstract JTextField getTfVerNombre();
+public abstract void setTfVerNombre(JTextField x);
+
+public abstract JComboBox<pojo.Grupo> getJcbVerGrupo();
+public abstract void setJcbVerGrupo(JComboBox<pojo.Grupo> x);
+
+public abstract JSpinner getJsVerSaldo();
+public abstract void setJsVerSaldo(JSpinner x);
+
+public abstract JTextField getTfVerQr();
+public abstract void setTfVerQr(JTextField x);
+
+public abstract JLabel getJlVerImagen();
+public abstract void setJlVerImagen(JLabel x);
+
+public abstract JTextField getTfVerTutor();
+public abstract void setTfVerTutor(JTextField x);
+
+public abstract JTextField getTfVerTelefono();
+public abstract void setTfVerTelefono(JTextField x);
+
+public abstract JTextField getTfVerCorreo();
+public abstract void setTfVerCorreo(JTextField x);
+
+public abstract JSpinner getJsVerComprasSinCredencial();
+public abstract void setJsVerComprasSinCredencial(JSpinner x);
+
+public abstract JButton getJbVerCancelar();
+public abstract void setJbVerCancelar(JButton x);
+
+public abstract JButton getJbVerAceptar();
+public abstract void setJbVerAceptar(JButton x);
 }

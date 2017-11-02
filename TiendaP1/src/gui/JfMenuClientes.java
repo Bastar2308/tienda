@@ -32,6 +32,110 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         return JfMenuClientesHolder.INSTANCE;
     }
 
+    public javax.swing.JButton getJbVer() {
+        return jbVer;
+    }
+
+    public void setJbVer(javax.swing.JButton jbVer) {
+        this.jbVer = jbVer;
+    }
+
+    public javax.swing.JButton getJbVerAceptar() {
+        return jbVerAceptar;
+    }
+
+    public void setJbVerAceptar(javax.swing.JButton jbVerAceptar) {
+        this.jbVerAceptar = jbVerAceptar;
+    }
+
+    public javax.swing.JButton getJbVerCancelar() {
+        return jbVerCancelar;
+    }
+
+    public void setJbVerCancelar(javax.swing.JButton jbVerCancelar) {
+        this.jbVerCancelar = jbVerCancelar;
+    }
+
+    public javax.swing.JComboBox<pojo.Grupo> getJcbVerGrupo() {
+        return jcbVerGrupo;
+    }
+
+    public void setJcbVerGrupo(javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo) {
+        this.jcbVerGrupo = jcbVerGrupo;
+    }
+
+    public javax.swing.JDialog getJdVer() {
+        return jdVer;
+    }
+
+    public void setJdVer(javax.swing.JDialog jdVer) {
+        this.jdVer = jdVer;
+    }
+
+    public javax.swing.JLabel getJlVerImagen() {
+        return jlVerImagen;
+    }
+
+    public void setJlVerImagen(javax.swing.JLabel jlVerImagen) {
+        this.jlVerImagen = jlVerImagen;
+    }
+
+    public javax.swing.JSpinner getJsVerComprasSinCredencial() {
+        return jsVerComprasSinCredencial;
+    }
+
+    public void setJsVerComprasSinCredencial(javax.swing.JSpinner jsVerComprasSinCredencial) {
+        this.jsVerComprasSinCredencial = jsVerComprasSinCredencial;
+    }
+
+    public javax.swing.JSpinner getJsVerSaldo() {
+        return jsVerSaldo;
+    }
+
+    public void setJsVerSaldo(javax.swing.JSpinner jsVerSaldo) {
+        this.jsVerSaldo = jsVerSaldo;
+    }
+
+    public javax.swing.JTextField getTfVerCorreo() {
+        return tfVerCorreo;
+    }
+
+    public void setTfVerCorreo(javax.swing.JTextField tfVerCorreo) {
+        this.tfVerCorreo = tfVerCorreo;
+    }
+
+    public javax.swing.JTextField getTfVerNombre() {
+        return tfVerNombre;
+    }
+
+    public void setTfVerNombre(javax.swing.JTextField tfVerNombre) {
+        this.tfVerNombre = tfVerNombre;
+    }
+
+    public javax.swing.JTextField getTfVerQr() {
+        return tfVerQr;
+    }
+
+    public void setTfVerQr(javax.swing.JTextField tfVerQr) {
+        this.tfVerQr = tfVerQr;
+    }
+
+    public javax.swing.JTextField getTfVerTelefono() {
+        return tfVerTelefono;
+    }
+
+    public void setTfVerTelefono(javax.swing.JTextField tfVerTelefono) {
+        this.tfVerTelefono = tfVerTelefono;
+    }
+
+    public javax.swing.JTextField getTfVerTutor() {
+        return tfVerTutor;
+    }
+
+    public void setTfVerTutor(javax.swing.JTextField tfVerTutor) {
+        this.tfVerTutor = tfVerTutor;
+    }
+
     private static class JfMenuClientesHolder {
 
         private static final JfMenuClientes INSTANCE = new JfMenuClientes();
@@ -90,6 +194,27 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel20 = new javax.swing.JLabel();
         tfEditarNombre = new javax.swing.JTextField();
         jlEditarImagen = new javax.swing.JLabel();
+        jdVer = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        tfVerQr = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jcbVerGrupo = new javax.swing.JComboBox<>();
+        jsVerComprasSinCredencial = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        tfVerCorreo = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jbVerAceptar = new javax.swing.JButton();
+        tfVerTelefono = new javax.swing.JTextField();
+        jbVerCancelar = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jsVerSaldo = new javax.swing.JSpinner();
+        tfVerTutor = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tfVerNombre = new javax.swing.JTextField();
+        jlVerImagen = new javax.swing.JLabel();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -99,6 +224,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jbAgregar = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
+        jbVer = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         jdAgregar.setTitle("Agregar producto");
@@ -421,6 +547,176 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
+        jdVer.setTitle("Agregar producto");
+        jdVer.setModal(true);
+
+        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre:");
+
+        tfVerQr.setEnabled(false);
+
+        jLabel23.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("QR:");
+
+        jcbVerGrupo.setEnabled(false);
+
+        jsVerComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jsVerComprasSinCredencial.setEnabled(false);
+
+        jLabel11.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Grupo:");
+
+        tfVerCorreo.setEnabled(false);
+
+        jLabel24.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Correo:");
+
+        jLabel12.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Compras sin credencial:");
+
+        jbVerAceptar.setBackground(new java.awt.Color(102, 102, 102));
+        jbVerAceptar.setText("Aceptar");
+
+        tfVerTelefono.setEnabled(false);
+
+        jbVerCancelar.setBackground(new java.awt.Color(102, 102, 102));
+        jbVerCancelar.setText("Cancelar");
+
+        jLabel25.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Teléfono:");
+
+        jsVerSaldo.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
+        jsVerSaldo.setEnabled(false);
+
+        tfVerTutor.setEnabled(false);
+
+        jLabel13.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Saldo:");
+
+        jLabel26.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Tutor:");
+
+        tfVerNombre.setEnabled(false);
+
+        jlVerImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbVerCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbVerAceptar)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel24))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jsVerSaldo)
+                            .addComponent(tfVerNombre)
+                            .addComponent(jcbVerGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfVerTelefono, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tfVerCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jsVerComprasSinCredencial)
+                                    .addComponent(tfVerTutor)
+                                    .addComponent(jlVerImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)))
+                            .addComponent(tfVerQr, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(40, 40, 40))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tfVerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jcbVerGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jsVerSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(tfVerQr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88)
+                .addComponent(jlVerImagen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(tfVerTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(tfVerTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(tfVerCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel12))
+                    .addComponent(jsVerComprasSinCredencial, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 38, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbVerAceptar)
+                    .addComponent(jbVerCancelar))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jdVerLayout = new javax.swing.GroupLayout(jdVer.getContentPane());
+        jdVer.getContentPane().setLayout(jdVerLayout);
+        jdVerLayout.setHorizontalGroup(
+            jdVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jdVerLayout.setVerticalGroup(
+            jdVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdVerLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
@@ -459,6 +755,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jbEditar.setBackground(new java.awt.Color(102, 102, 102));
         jbEditar.setText("Editar");
 
+        jbVer.setBackground(new java.awt.Color(102, 102, 102));
+        jbVer.setText("Ver");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -468,7 +767,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -478,7 +778,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addComponent(jbAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbVer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbEliminar)
                 .addContainerGap())
         );
@@ -578,6 +880,10 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -587,6 +893,10 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -598,6 +908,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
@@ -610,16 +921,24 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JButton jbEditarTomarFoto;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbRegresar;
+    private javax.swing.JButton jbVer;
+    private javax.swing.JButton jbVerAceptar;
+    private javax.swing.JButton jbVerCancelar;
     private javax.swing.JComboBox<pojo.Grupo> jcbAgregarGrupo;
     private javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo;
+    private javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
+    private javax.swing.JDialog jdVer;
     private javax.swing.JLabel jlAgregarImagen;
     private javax.swing.JLabel jlEditarImagen;
+    private javax.swing.JLabel jlVerImagen;
     private javax.swing.JSpinner jsAgregarComprasSinCredencial;
     private javax.swing.JSpinner jsAgregarSaldo;
     private javax.swing.JSpinner jsEditarComprasSinCredencial;
     private javax.swing.JSpinner jsEditarSaldo;
+    private javax.swing.JSpinner jsVerComprasSinCredencial;
+    private javax.swing.JSpinner jsVerSaldo;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarCorreo;
     private javax.swing.JTextField tfAgregarNombre;
@@ -631,6 +950,11 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JTextField tfEditarQr;
     private javax.swing.JTextField tfEditarTelefono;
     private javax.swing.JTextField tfEditarTutor;
+    private javax.swing.JTextField tfVerCorreo;
+    private javax.swing.JTextField tfVerNombre;
+    private javax.swing.JTextField tfVerQr;
+    private javax.swing.JTextField tfVerTelefono;
+    private javax.swing.JTextField tfVerTutor;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -890,4 +1214,5 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     public void setTfEditarTutor(javax.swing.JTextField tfEditarTutor) {
         this.tfEditarTutor = tfEditarTutor;
     }
+
 }
