@@ -85,7 +85,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jbPuntoDeVista.setBackground(new java.awt.Color(204, 204, 204));
+        jbPuntoDeVista.setBackground(new java.awt.Color(102, 102, 102));
         jbPuntoDeVista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbPuntoDeVista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/puntoDeVenta.png"))); // NOI18N
         jbPuntoDeVista.setText("Punto de Venta");
@@ -95,7 +95,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbPuntoDeVista.setMargin(new java.awt.Insets(30, 20, 30, 20));
         jbPuntoDeVista.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbCargarSaldo.setBackground(new java.awt.Color(204, 204, 204));
+        jbCargarSaldo.setBackground(new java.awt.Color(102, 102, 102));
         jbCargarSaldo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbCargarSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregarSaldo.png"))); // NOI18N
         jbCargarSaldo.setText("Cargar Saldo");
@@ -106,7 +106,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbCargarSaldo.setMargin(new java.awt.Insets(30, 90, 10, 80));
         jbCargarSaldo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbGeneradorDeCredenciales.setBackground(new java.awt.Color(204, 204, 204));
+        jbGeneradorDeCredenciales.setBackground(new java.awt.Color(102, 102, 102));
         jbGeneradorDeCredenciales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbGeneradorDeCredenciales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/generador.png"))); // NOI18N
         jbGeneradorDeCredenciales.setText("Generador de credenciales");
@@ -116,7 +116,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbGeneradorDeCredenciales.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbGeneradorDeCredenciales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbFinanzas.setBackground(new java.awt.Color(204, 204, 204));
+        jbFinanzas.setBackground(new java.awt.Color(102, 102, 102));
         jbFinanzas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/finanzas.png"))); // NOI18N
         jbFinanzas.setText("Finanzas");
@@ -126,7 +126,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbFinanzas.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbFinanzas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbClientes.setBackground(new java.awt.Color(204, 204, 204));
+        jbClientes.setBackground(new java.awt.Color(102, 102, 102));
         jbClientes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/clientes.png"))); // NOI18N
         jbClientes.setText("Clientes");
@@ -136,7 +136,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbClientes.setMargin(new java.awt.Insets(30, 10, 30, 10));
         jbClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jbMenuProductos.setBackground(new java.awt.Color(204, 204, 204));
+        jbMenuProductos.setBackground(new java.awt.Color(102, 102, 102));
         jbMenuProductos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbMenuProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/productos.png"))); // NOI18N
         jbMenuProductos.setText("Menu Productos");
@@ -145,7 +145,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbMenuProductos.setIconTextGap(15);
         jbMenuProductos.setMargin(new java.awt.Insets(0, 20, 0, 20));
 
-        jbComidaDelDia.setBackground(new java.awt.Color(204, 204, 204));
+        jbComidaDelDia.setBackground(new java.awt.Color(102, 102, 102));
         jbComidaDelDia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jbComidaDelDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comida.png"))); // NOI18N
         jbComidaDelDia.setText("Comida del día");
