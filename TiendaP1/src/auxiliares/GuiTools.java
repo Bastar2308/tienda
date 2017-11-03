@@ -7,6 +7,7 @@ package auxiliares;
 
 import gui.JfMenuPrincipal;
 import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -25,6 +26,10 @@ public class GuiTools {
     private static class GuiToolesHolder {
 
         private static final GuiTools INSTANCE = new GuiTools();
+    }
+
+    public void config(JFrame jFrame) {
+        jFrame.setIconImage(new ImageIcon(this.getClass().getResource("/recursos/iconocbb.png")).getImage());
     }
 
     public void abre(JFrame viejo, JFrame nuevo) {
