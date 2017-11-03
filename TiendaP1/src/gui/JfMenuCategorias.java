@@ -178,6 +178,7 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
         jdEliminar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuCategoriasControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     /**

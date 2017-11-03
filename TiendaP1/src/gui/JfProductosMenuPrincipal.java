@@ -28,6 +28,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new ProductosMenuPrincipalControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfProductosMenuPrincipal getInstance() {

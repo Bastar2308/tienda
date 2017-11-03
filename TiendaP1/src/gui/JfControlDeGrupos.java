@@ -26,6 +26,7 @@ public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDe
         jdEliminar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new ControlDeGruposControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfControlDeGrupos getInstance() {

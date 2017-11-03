@@ -26,6 +26,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
         jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuClientes getInstance() {

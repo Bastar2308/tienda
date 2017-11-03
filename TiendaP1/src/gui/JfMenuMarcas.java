@@ -29,6 +29,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuMarcasControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuMarcas getInstance() {

@@ -24,6 +24,7 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuGeneradorCredencialesControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuGeneradorCredenciales getInstance() {

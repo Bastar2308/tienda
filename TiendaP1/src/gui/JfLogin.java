@@ -21,6 +21,7 @@ public class JfLogin extends javax.swing.JFrame implements JfLoginIf {
         initComponents();
         setLocationRelativeTo(null);
         controlador = new LoginControlador(this);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfLogin getInstance() {

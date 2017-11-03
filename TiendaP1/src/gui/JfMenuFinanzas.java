@@ -24,6 +24,7 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuFinanzasControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuFinanzas getInstance() {

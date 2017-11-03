@@ -24,6 +24,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuPrincipalControlador(this);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuPrincipal getInstance() {

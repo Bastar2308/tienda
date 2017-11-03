@@ -24,6 +24,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new PuntoDeVentaControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfPuntoDeVenta getInstance() {

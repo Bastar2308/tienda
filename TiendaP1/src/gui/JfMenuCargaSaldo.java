@@ -24,6 +24,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuCargaSaldoControlador(this);
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuCargaSaldo getInstance() {

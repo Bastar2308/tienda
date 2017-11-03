@@ -23,6 +23,7 @@ private ComidaDelDiaControlador controlador;
         jdEliminar.getContentPane().setBackground(new Color(51,51,51));
         getContentPane().setBackground(new Color(51,51,51));
         controlador=new ComidaDelDiaControlador(this);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     /**

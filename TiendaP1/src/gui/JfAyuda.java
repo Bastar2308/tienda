@@ -19,6 +19,7 @@ public class JfAyuda extends javax.swing.JFrame implements JfAyudaIf{
     public JfAyuda() {
         initComponents();
         setLocationRelativeTo(null);
+        auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfAyuda getInstance() {
