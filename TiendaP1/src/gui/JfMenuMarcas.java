@@ -319,7 +319,7 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         jtDatos.setColumnSelectionAllowed(true);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
-        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtDatos.getColumnModel().getColumnCount() > 0) {
             jtDatos.getColumnModel().getColumn(0).setMinWidth(30);
             jtDatos.getColumnModel().getColumn(0).setPreferredWidth(50);

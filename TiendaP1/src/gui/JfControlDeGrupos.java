@@ -375,7 +375,7 @@ public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDe
         jtDatos.setColumnSelectionAllowed(true);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
-        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

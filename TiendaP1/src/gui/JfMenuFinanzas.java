@@ -78,7 +78,9 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtResultados.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jtResultados);
+        jtResultados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jbConsultar.setBackground(new java.awt.Color(102, 102, 102));
         jbConsultar.setText("Consultar");
