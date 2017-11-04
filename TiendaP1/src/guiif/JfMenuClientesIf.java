@@ -140,10 +140,4 @@ public abstract void setTfVerCorreo(JTextField x);
 
 public abstract JSpinner getJsVerComprasSinCredencial();
 public abstract void setJsVerComprasSinCredencial(JSpinner x);
-
-public abstract JButton getJbVerCancelar();
-public abstract void setJbVerCancelar(JButton x);
-
-public abstract JButton getJbVerAceptar();
-public abstract void setJbVerAceptar(JButton x);
 }

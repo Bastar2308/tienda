@@ -41,22 +41,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.jbVer = jbVer;
     }
 
-    public javax.swing.JButton getJbVerAceptar() {
-        return jbVerAceptar;
-    }
-
-    public void setJbVerAceptar(javax.swing.JButton jbVerAceptar) {
-        this.jbVerAceptar = jbVerAceptar;
-    }
-
-    public javax.swing.JButton getJbVerCancelar() {
-        return jbVerCancelar;
-    }
-
-    public void setJbVerCancelar(javax.swing.JButton jbVerCancelar) {
-        this.jbVerCancelar = jbVerCancelar;
-    }
-
     public javax.swing.JComboBox<pojo.Grupo> getJcbVerGrupo() {
         return jcbVerGrupo;
     }
@@ -206,9 +190,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         tfVerCorreo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jbVerAceptar = new javax.swing.JButton();
         tfVerTelefono = new javax.swing.JTextField();
-        jbVerCancelar = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jsVerSaldo = new javax.swing.JSpinner();
         tfVerTutor = new javax.swing.JTextField();
@@ -587,13 +569,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Compras sin credencial:");
 
-        jbVerAceptar.setBackground(new java.awt.Color(102, 102, 102));
-        jbVerAceptar.setText("Aceptar");
-
         tfVerTelefono.setEnabled(false);
-
-        jbVerCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        jbVerCancelar.setText("Cancelar");
 
         jLabel25.setBackground(new java.awt.Color(102, 102, 102));
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -626,36 +602,28 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jsVerSaldo)
+                    .addComponent(tfVerNombre)
+                    .addComponent(jcbVerGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbVerCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbVerAceptar)
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jsVerSaldo)
-                            .addComponent(tfVerNombre)
-                            .addComponent(jcbVerGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfVerTelefono, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tfVerCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jsVerComprasSinCredencial)
-                                    .addComponent(tfVerTutor)
-                                    .addComponent(jlVerImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)))
-                            .addComponent(tfVerQr, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(tfVerTelefono, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfVerCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jsVerComprasSinCredencial)
+                            .addComponent(tfVerTutor)
+                            .addComponent(jlVerImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)))
+                    .addComponent(tfVerQr, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(40, 40, 40))
         );
         jPanel5Layout.setVerticalGroup(
@@ -697,11 +665,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                         .addGap(3, 3, 3)
                         .addComponent(jLabel12))
                     .addComponent(jsVerComprasSinCredencial, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 38, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbVerAceptar)
-                    .addComponent(jbVerCancelar))
-                .addContainerGap())
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdVerLayout = new javax.swing.GroupLayout(jdVer.getContentPane());
@@ -733,15 +697,31 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jtDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Grupo", "Nombre", "Saldo", "Tutor", "Teléfono", "Vigencia"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -923,8 +903,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JButton jbVer;
-    private javax.swing.JButton jbVerAceptar;
-    private javax.swing.JButton jbVerCancelar;
     private javax.swing.JComboBox<pojo.Grupo> jcbAgregarGrupo;
     private javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo;
     private javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo;
