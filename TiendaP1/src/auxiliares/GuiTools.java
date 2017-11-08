@@ -8,6 +8,7 @@ package auxiliares;
 import gui.JfMenuPrincipal;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /**
@@ -94,5 +95,11 @@ public class GuiTools {
     public void inicializaJFrame(JFrame jFrame, String titulo, boolean centrar, Image icono, int ancho, int alto) {
         inicializaJFrame(jFrame, titulo, centrar, icono);
         jFrame.setSize(ancho, alto);
+    }
+
+    public void abreDialogo(JDialog dialogo, int largo, int alto) {
+        dialogo.setSize(largo, alto);
+        dialogo.setLocationRelativeTo(null);
+        dialogo.setVisible(true);
     }
 }

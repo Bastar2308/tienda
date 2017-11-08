@@ -30,19 +30,24 @@ public class MenuMarcasControlador implements ActionListener {
     }
 
     private void cargarTabla() {
-
         vista.getJtDatos().setModel(MarcaDAO.getInstance().cargarTabla());
-
     }
 
     private void cargarListeners() {
         vista.getJbRegresar().addActionListener(this);
+        vista.getJbAgregar().addActionListener(this);
+        vista.getJbEditar().addActionListener(this);
+        vista.getJbEliminar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
+        } else if (e.getSource().equals(vista.getJbAgregar())) {
+            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 652, 153);
+        } else if (e.getSource().equals(vista.getJbEditar())) {
+            GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 652, 153);
         }
     }
 }
