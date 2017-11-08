@@ -56,12 +56,12 @@ public class MenuMarcasControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbAgregar())) {
             GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 652, 153);
         } else if (e.getSource().equals(vista.getJbEditar())) {
-            if (yaSeleccioneUnaFila()) {
+            if (ControladorTools.getInstance().yaSeleccioneUnaFila(vista.getJtDatos())) {
                 vista.getTfEditarNombre().setText(obtenerMarcaSeleccionada());
                 GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 652, 161);
             }
         } else if (e.getSource().equals(vista.getJbEliminar())) {
-            if (yaSeleccioneUnaFila()) {
+            if (ControladorTools.getInstance().yaSeleccioneUnaFila(vista.getJtDatos())) {
                 vista.getJlMarca().setText(obtenerMarcaSeleccionada());
                 GuiTools.getInstance().abreDialogo(vista.getJdEliminar(), 350, 161);
             }
@@ -94,17 +94,7 @@ public class MenuMarcasControlador implements ActionListener {
 
     private void apagaDialogoEliminar() {
         vista.getJdEliminar().dispose();
-    }
-
-    private boolean yaSeleccioneUnaFila() {
-        int fs = vista.getJtDatos().getSelectedRow();
-        if (fs == -1) {
-            DialogoTools.getInstance().mensajeError("Primero selecciona una fila");
-            return false;
-        } else {
-            return true;
-        }
-    }
+    }    
 
     private String obtenerMarcaSeleccionada() {
         return vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString();

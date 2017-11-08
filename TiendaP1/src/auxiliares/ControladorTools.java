@@ -30,4 +30,13 @@ public class ControladorTools {
         return Integer.parseInt(tabla.getValueAt(tabla.getSelectedRow(), 0).toString());
     }
 
+    public boolean yaSeleccioneUnaFila(JTable tabla) {
+        int fs = tabla.getSelectedRow();
+        if (fs == -1) {
+            DialogoTools.getInstance().mensajeError("Primero selecciona una fila");
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
