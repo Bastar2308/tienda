@@ -29,4 +29,8 @@ public class DialogoTools {
         JOptionPane.showMessageDialog(null, texto, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
+    public void mensajeInformacion(String texto) {
+        JOptionPane.showMessageDialog(null, texto);
+    }
+
 }
