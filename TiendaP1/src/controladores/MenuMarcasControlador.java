@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pojo.Marca;
 
 /**
  *
@@ -55,30 +56,105 @@ public class MenuMarcasControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbAgregar())) {
             GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 652, 153);
         } else if (e.getSource().equals(vista.getJbEditar())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 652, 153);
+            if (yaSeleccioneUnaFila()) {
+                vista.getTfEditarNombre().setText(obtenerMarcaSeleccionada());
+                GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 652, 161);
+            }
         } else if (e.getSource().equals(vista.getJbEliminar())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdEliminar(), 350, 101);
-        }else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
-            vista.getJdAgregar().dispose();
-        }else if (e.getSource().equals(vista.getJbEditarCancelar())) {
-            vista.getJdEditar().dispose();
-        }else if (e.getSource().equals(vista.getJbEliminarCancelar())) {
-            vista.getJdEliminar().dispose();
+            if (yaSeleccioneUnaFila()) {
+                vista.getJlMarca().setText(obtenerMarcaSeleccionada());
+                GuiTools.getInstance().abreDialogo(vista.getJdEliminar(), 350, 161);
+            }
+        } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
+            apagaYLimpiaDialogoAlta();
+        } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
+            apagaYLimpiaDialogoEditar();
+        } else if (e.getSource().equals(vista.getJbEliminarCancelar())) {
+            apagaDialogoEliminar();
+        } else if (e.getSource().equals(vista.getJbEliminarAceptar())) {
+            eliminar();
+        } else if (e.getSource().equals(vista.getJbAgregarAceptar())) {
+            agregar();
+        } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
+            apagaYLimpiaDialogoEditar();
+        } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
+            editar();
         }
     }
 
-    private void eliminar() {
+    private void apagaYLimpiaDialogoAlta() {
+        vista.getJdAgregar().dispose();
+        limpiaDialogoAlta();
+    }
+
+    private void apagaYLimpiaDialogoEditar() {
+        vista.getJdEditar().dispose();
+        limpiaDialogoEditar();
+    }
+
+    private void apagaDialogoEliminar() {
+        vista.getJdEliminar().dispose();
+    }
+
+    private boolean yaSeleccioneUnaFila() {
         int fs = vista.getJtDatos().getSelectedRow();
         if (fs == -1) {
             DialogoTools.getInstance().mensajeError("Primero selecciona una fila");
+            return false;
         } else {
-            int id = ControladorTools.getInstance().idFilaSeleccionada(vista.getJtDatos());
-            if (MarcaDAO.getInstance().eliminaMarca(id)) {
-                DialogoTools.getInstance().mensajeInformacion("Éxito al eliminar");
-                cargarTabla();
-            } else {
-                DialogoTools.getInstance().mensajeError("Error al eliminar");
-            }
+            return true;
         }
     }
+
+    private String obtenerMarcaSeleccionada() {
+        return vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString();
+    }
+
+    private void eliminar() {
+        int id = ControladorTools.getInstance().idFilaSeleccionada(vista.getJtDatos());
+        if (MarcaDAO.getInstance().eliminaMarca(id)) {
+            DialogoTools.getInstance().mensajeInformacion("Éxito al eliminar");
+            cargarTabla();
+            apagaDialogoEliminar();
+        } else {
+            DialogoTools.getInstance().mensajeError("Error al eliminar");
+        }
+    }
+
+    private void editar() {
+        String nombre = vista.getTfEditarNombre().getText().trim();
+        Marca marca = new Marca();
+        marca.setNombre(nombre);
+        int id = ControladorTools.getInstance().idFilaSeleccionada(vista.getJtDatos());
+        marca.setIdMarca(id);
+        if (MarcaDAO.getInstance().modificaMarca(marca)) {
+            DialogoTools.getInstance().mensajeInformacion("Éxito al modificar");
+            cargarTabla();
+            apagaYLimpiaDialogoEditar();
+        } else {
+            DialogoTools.getInstance().mensajeError("Error al eliminar");
+        }
+    }
+
+    private void agregar() {
+        String nombre = vista.getTfAgregarNombre().getText().trim();
+        Marca marca = new Marca();
+        marca.setNombre(nombre);
+        if (MarcaDAO.getInstance().insertaMarca(marca) != 0) {
+            cargarTabla();
+            DialogoTools.getInstance().mensajeInformacion("Éxito al insertar");
+            apagaYLimpiaDialogoAlta();
+        } else {
+            DialogoTools.getInstance().mensajeError("Error al insertar");
+        }
+    }
+
+    private void limpiaDialogoAlta() {
+        vista.getTfAgregarNombre().setText("");
+    }
+
+    private void limpiaDialogoEditar() {
+        vista.getTfEditarNombre().setText("");
+    }
+
 }
