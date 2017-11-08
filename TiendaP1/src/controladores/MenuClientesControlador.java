@@ -41,7 +41,7 @@ public class MenuClientesControlador implements ActionListener {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
         } else if (e.getSource().equals(vista.getJbControlDeGrupos())) {
-            GuiTools.getInstance().abre(vista, new JfControlDeGrupos());
+            GuiTools.getInstance().abre(vista, JfControlDeGrupos.getInstance());
         }
     }
 }

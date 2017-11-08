@@ -33,7 +33,6 @@ public class GuiTools {
     }
 
     public void abre(JFrame viejo, JFrame nuevo) {
-
         viejo.dispose();
         nuevo.setVisible(true);
     }

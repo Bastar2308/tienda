@@ -35,7 +35,7 @@ public class ControlDeGruposControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfMenuClientes());
+            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
         }
     }
 

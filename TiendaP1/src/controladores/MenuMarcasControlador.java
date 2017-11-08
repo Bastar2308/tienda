@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class MenuMarcasControlador implements ActionListener {
 
     JfMenuMarcas vista;
-  
 
     public MenuMarcasControlador(JfMenuMarcas vista) {
         this.vista = vista;
@@ -30,26 +29,12 @@ public class MenuMarcasControlador implements ActionListener {
         cargarTabla();
     }
 
-    private  void cargarTabla() {
+    private void cargarTabla() {
 
-        try {
-            DefaultTableModel datos = MarcaDAO.getInstance().cargarTabla();
-            DefaultTableModel tm = (DefaultTableModel) vista.getJtDatos().getModel();
-            tm.setRowCount(0);
+        vista.getJtDatos().setModel(MarcaDAO.getInstance().cargarTabla());
 
-            for (int filas = 0; filas < datos.getRowCount(); filas++) {
-                tm.addRow(new Object[]{null, null, null, null});
-                for (int columnas = 0; columnas < 2; columnas++) {
-                    tm.setValueAt(datos.getValueAt(filas, columnas), filas, columnas + 1);
-                    vista.getJtDatos().setModel(tm);
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error cargando tabla: ui.abc.Categoria", "Error", JOptionPane.ERROR_MESSAGE);
-            System.out.println("Error cargando tabla ui.abc.Categoria: " + e);
-        }
-        
     }
+
     private void cargarListeners() {
         vista.getJbRegresar().addActionListener(this);
     }
@@ -57,7 +42,7 @@ public class MenuMarcasControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
+            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
         }
     }
 }

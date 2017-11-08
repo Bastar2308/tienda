@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import gui.JfComidaDelDia;
 import gui.JfMenuCargaSaldo;
 import gui.JfMenuClientes;
 import gui.JfMenuFinanzas;
@@ -37,27 +38,27 @@ public class MenuPrincipalControlador implements ActionListener {
         vista.getJbGeneradorDeCredenciales().addActionListener(this);
         vista.getJbPuntoDeVentas().addActionListener(this);
         vista.getJbMenuProductos().addActionListener(this);
+        vista.getJbComidaDelDia().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbAyuda())) {
+            //No hay ayuda aún
         } else if (e.getSource().equals(vista.getJbCargarSaldo())) {
-
-            GuiTools.getInstance().abre(vista, new JfMenuCargaSaldo());
+            GuiTools.getInstance().abre(vista, JfMenuCargaSaldo.getInstance());
         } else if (e.getSource().equals(vista.getJbClientes())) {
-
-            GuiTools.getInstance().abre(vista, new JfMenuClientes());
+            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
         } else if (e.getSource().equals(vista.getJbFinanzas())) {
-
-            GuiTools.getInstance().abre(vista, new JfMenuFinanzas());
+            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
-
-            GuiTools.getInstance().abre(vista, new JfMenuGeneradorCredenciales());
+            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
-            GuiTools.getInstance().abre(vista, new JfPuntoDeVenta());
+            GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
-            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
+            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
+        } else if (e.getSource().equals(vista.getJbComidaDelDia())) {
+        //    GuiTools.getInstance().abre(vista, JfComidaDelDia.getInstance());
         }
     }
 }

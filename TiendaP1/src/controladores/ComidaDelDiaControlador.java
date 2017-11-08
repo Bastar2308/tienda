@@ -9,6 +9,7 @@ package controladores;
 import auxiliares.GuiTools;
 import dao.Comida_del_diaDAO;
 import gui.JfComidaDelDia;
+import gui.JfMenuPrincipal;
 import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +37,7 @@ public class ComidaDelDiaControlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
+            GuiTools.getInstance().regresaMenu(vista);
         }
     }
 

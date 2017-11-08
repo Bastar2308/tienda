@@ -22,7 +22,6 @@ public class MenuCategoriasControlador implements ActionListener {
     
     public MenuCategoriasControlador(JfMenuCategorias vista) {
         this.vista = vista;
-        
         addListeners();
         cargarTabla();
     }
@@ -38,7 +37,7 @@ public class MenuCategoriasControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
-            GuiTools.getInstance().abre(vista, new JfProductosMenuPrincipal());
+            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
         }
     }
 }
