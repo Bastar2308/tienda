@@ -25,7 +25,14 @@ private ComidaDelDiaControlador controlador;
         controlador=new ComidaDelDiaControlador(this);
         auxiliares.GuiTools.getInstance().config(this);
     }
+    public static JfComidaDelDia getInstance() {
+        return JfComidaDelDiaHolder.INSTANCE;
+    }
 
+    private static class JfComidaDelDiaHolder{
+
+        private static final JfComidaDelDia INSTANCE = new JfComidaDelDia();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
