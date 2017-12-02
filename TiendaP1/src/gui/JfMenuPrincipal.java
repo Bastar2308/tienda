@@ -39,14 +39,6 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         this.jbSalir = jbSalir;
     }
 
-    public javax.swing.JButton getJbComidaDelDia() {
-        return jbComidaDelDia;
-    }
-
-    public void setJbComidaDelDia(javax.swing.JButton jbComidaDelDia) {
-        this.jbComidaDelDia = jbComidaDelDia;
-    }
-
     private static class JfMenuPrincipalHolder {
 
         private static final JfMenuPrincipal INSTANCE = new JfMenuPrincipal();
@@ -69,7 +61,6 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbFinanzas = new javax.swing.JButton();
         jbClientes = new javax.swing.JButton();
         jbMenuProductos = new javax.swing.JButton();
-        jbComidaDelDia = new javax.swing.JButton();
         jbAyuda = new javax.swing.JButton();
         jlUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -146,15 +137,6 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
         jbMenuProductos.setIconTextGap(15);
         jbMenuProductos.setMargin(new java.awt.Insets(0, 20, 0, 20));
 
-        jbComidaDelDia.setBackground(new java.awt.Color(102, 102, 102));
-        jbComidaDelDia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jbComidaDelDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comida.png"))); // NOI18N
-        jbComidaDelDia.setText("Comida del día");
-        jbComidaDelDia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbComidaDelDia.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jbComidaDelDia.setIconTextGap(15);
-        jbComidaDelDia.setMargin(new java.awt.Insets(0, 20, 0, 20));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -167,9 +149,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jbMenuProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbComidaDelDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jbMenuProductos)
                         .addGap(0, 54, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,12 +164,9 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCargarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbFinanzas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbMenuProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbComidaDelDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jbMenuProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbGeneradorDeCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,7 +241,6 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
     private javax.swing.JButton jbAyuda;
     private javax.swing.JButton jbCargarSaldo;
     private javax.swing.JButton jbClientes;
-    private javax.swing.JButton jbComidaDelDia;
     private javax.swing.JButton jbFinanzas;
     private javax.swing.JButton jbGeneradorDeCredenciales;
     private javax.swing.JButton jbMenuProductos;
