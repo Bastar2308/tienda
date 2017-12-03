@@ -6,7 +6,6 @@
 package controladores;
 
 import auxiliares.GuiTools;
-import gui.JfComidaDelDia;
 import gui.JfMenuCargaSaldo;
 import gui.JfMenuClientes;
 import gui.JfMenuFinanzas;
@@ -38,7 +37,6 @@ public class MenuPrincipalControlador implements ActionListener {
         vista.getJbGeneradorDeCredenciales().addActionListener(this);
         vista.getJbPuntoDeVentas().addActionListener(this);
         vista.getJbMenuProductos().addActionListener(this);
-        vista.getJbComidaDelDia().addActionListener(this);
     }
 
     @Override
@@ -57,8 +55,6 @@ public class MenuPrincipalControlador implements ActionListener {
             GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
             GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
-        } else if (e.getSource().equals(vista.getJbComidaDelDia())) {
-        //    GuiTools.getInstance().abre(vista, JfComidaDelDia.getInstance());
         }
     }
 }
