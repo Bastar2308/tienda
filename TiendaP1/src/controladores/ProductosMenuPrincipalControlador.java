@@ -37,9 +37,9 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
             tm.setRowCount(0);
 
             for (int filas = 0; filas < datos.getRowCount(); filas++) {
-                tm.addRow(new Object[]{null, null, null, null});
-                for (int columnas = 0; columnas < 3; columnas++) {
-                    tm.setValueAt(datos.getValueAt(filas, columnas), filas, columnas + 1);
+                tm.addRow(new Object[]{null, null, null, null, null, null, null, null});
+                for (int columnas = 0; columnas < 8; columnas++) {
+                    tm.setValueAt(datos.getValueAt(filas, columnas), filas, columnas);
                     vista.getJtDatos().setModel(tm);
                 }
             }
