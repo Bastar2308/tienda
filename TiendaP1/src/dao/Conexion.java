@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 
 public class Conexion {
-    private static final String JDBC_HOST = "201.150.40.222";
+    private static final String JDBC_HOST = "201.150.40.236";
 
     private static final String JDBC_USER = "root";
 
