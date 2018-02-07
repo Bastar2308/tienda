@@ -5,6 +5,7 @@
  */
 package test.credencial;
 
+import auxiliares.MailTools;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.activation.FileDataSource;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -289,10 +291,19 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        File outputfile = new File("C:/Users/aaron/Desktop/imagen.png");
+        File outputfile = new File("C:/Users/aaron/Desktop/imagen0.png");
+        int n = 0;
+        do{
+            n++;
+            outputfile = new File("C:/Users/aaron/Desktop/imagen0"+n+".png");
+        } while(outputfile.isFile());
+        
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
             System.out.println("Éxito al guardar");
+            MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
+                "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB", 
+                new FileDataSource(outputfile));
         } catch (IOException ex) {
             System.out.println("Error "+ex);
         }
