@@ -289,18 +289,6 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-//        try 
-//        {
-//        PrinterJob gap= PrinterJob.getPrinterJob();
-//        gap.setPrintable(this);
-//        boolean top= gap.printDialog();
-//            if (top) 
-//            {
-//            gap.print();    
-//            }
-//        } catch (PrinterException pex)  {
-//            System.out.println("error al guardar foto "+pex);
-//        }
         File outputfile = new File("C:/Users/aaron/Desktop/imagen.png");
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
