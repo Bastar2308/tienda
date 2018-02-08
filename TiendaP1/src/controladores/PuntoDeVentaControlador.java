@@ -31,6 +31,7 @@ public class PuntoDeVentaControlador implements ActionListener {
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
         vista.getJbAgregar().addActionListener(this);
+        vista.getJbEliminar().addActionListener(this);
     }
 
     @Override
@@ -39,6 +40,8 @@ public class PuntoDeVentaControlador implements ActionListener {
             GuiTools.getInstance().regresaMenu(vista);
         } else if (e.getSource().equals(vista.getJbAgregar())) {
             agrega();
+        } else if (e.getSource().equals(vista.getJbEliminar())) {
+            eliminar();
         }
     }
 
@@ -93,6 +96,12 @@ public class PuntoDeVentaControlador implements ActionListener {
                 }
             }
 
+        }
+    }
+
+    private void eliminar() {
+        if (vista.getJtProductosSeleccionados().getSelectedRow()!=-1) {
+            ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).removeRow(vista.getJtProductosSeleccionados().getSelectedRow());
         }
     }
 
