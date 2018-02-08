@@ -51,6 +51,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbLimpiar())) {
             limpiar();
         }
+        actualizaTotales();
     }
 
     private void cargaTabla() {
@@ -136,5 +137,18 @@ public class PuntoDeVentaControlador implements ActionListener {
 
             vista.getJcbNombres().addItem(cliente);
         }
+    }
+
+    private void actualizaTotales() {
+        double total=0;
+        int cantidad=0;
+        for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
+            total+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 2).toString())
+                    *
+                    Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
+            cantidad+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
+        }
+        vista.getJlTotal().setText(""+total);
+        vista.getJlProductos().setText(""+cantidad);
     }
 }
