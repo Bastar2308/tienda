@@ -11,6 +11,7 @@ import gui.JfMenuPrincipal;
 import gui.JfPuntoDeVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,12 +30,15 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
+        vista.getJbAgregar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
+        } else if (e.getSource().equals(vista.getJbAgregar())) {
+            agrega();
         }
     }
 
@@ -44,6 +48,51 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel datos=ProductoDAO.getInstance().cargarTabla();
         for (int i=0; i<datos.getRowCount(); i++) {
             original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 4), datos.getValueAt(i, 5), datos.getValueAt(i, 6), datos.getValueAt(i, 7)});
+        }
+    }
+
+    private void agrega() {
+        if (vista.getJtProductos().getSelectedRow()!=-1) {
+            int cantidad=-1;
+            try {
+                cantidad=Integer.parseInt((String) JOptionPane.showInputDialog(null, "¿Qué cantidad agregar?", "Cantidad", JOptionPane.QUESTION_MESSAGE, null, null, "1"));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ingrese un valor válido", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            if (cantidad>0) {
+                boolean yaAgregado=false;
+                int idDelProductoYaAgregado=-1;
+                for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
+                    if (vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0)
+                            ==vista.getJtProductosSeleccionados().getValueAt(i, 0)) {
+                        yaAgregado=true;
+                        idDelProductoYaAgregado=(int) vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0);
+                    }
+                }
+                if (yaAgregado) {
+                    for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
+                        if ((int) vista.getJtProductosSeleccionados().getValueAt(i, 0)==idDelProductoYaAgregado) {
+                            DefaultTableModel modelo=(DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
+                            int cantidadAntigua=(int) vista.getJtProductosSeleccionados().getValueAt(i, 6);
+                            modelo.setValueAt(cantidadAntigua+cantidad, i, 6);
+                        }
+                    }
+                } else {
+                    DefaultTableModel productosSeleccionados=(DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
+                    productosSeleccionados.addRow(
+                            new Object[]{
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0),
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 1),
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 2),
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 4),
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 5),
+                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 6),
+                                cantidad
+                            });
+
+                }
+            }
+
         }
     }
 
