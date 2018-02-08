@@ -26,7 +26,6 @@ public class ClienteAlta {
         cliente.setTelefono("0000000003");
         cliente.setCorreo("correo003");
         cliente.setCompras_sin_credencial(5);
-        cliente.setLimite_deuda(100);
         cliente.setVigencia(new Date(118, 9, 27));
         if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
             System.out.println("Insertado correctamente");

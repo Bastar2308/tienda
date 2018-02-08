@@ -27,7 +27,6 @@ public class ClienteModificar {
         cliente.setTelefono("0000000001");
         cliente.setCorreo("correo001");
         cliente.setCompras_sin_credencial(10);
-        cliente.setLimite_deuda(200);
         cliente.setVigencia(new Date(118, 9, 27));
         if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
             System.out.println("Actualizado correctamente");

@@ -22,7 +22,6 @@ public class Cliente {
     private String telefono;
     private String correo;
     private int compras_sin_credencial;
-    private double limite_deuda;
     private Date vigencia;
 
     public int getIdCliente() {
@@ -103,14 +102,6 @@ public class Cliente {
 
     public void setCompras_sin_credencial(int compras_sin_credencial) {
         this.compras_sin_credencial = compras_sin_credencial;
-    }
-
-    public double getLimite_deuda() {
-        return limite_deuda;
-    }
-
-    public void setLimite_deuda(double limite_deuda) {
-        this.limite_deuda = limite_deuda;
     }
 
     @Override
