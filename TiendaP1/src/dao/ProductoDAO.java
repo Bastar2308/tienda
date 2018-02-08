@@ -144,7 +144,7 @@ public class ProductoDAO implements ProductoDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nombre", "Precio", "Stock", "Detalles", "Categoría", "Marca", "Codigox"};
+        String encabezados[] = {"Id","Nombre", "Precio", "Stock", "Detalles", "Categoría", "Marca", "Codigo"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
