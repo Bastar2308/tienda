@@ -21,7 +21,7 @@ import pojo.Venta;
 public class VentaDAO implements VentaDAOIf{
 
     private static final String TABLE="venta";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nota, fechahora, total, cliente_idCliente) VALUES (?,?,?,?)";
+    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nota, total, cliente_idCliente) VALUES (?,?,?)";
     private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idVenta = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idVenta=?";
@@ -49,9 +49,8 @@ public class VentaDAO implements VentaDAOIf{
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             st.setString(1, pojo.getNota());
-            st.setTimestamp(2, pojo.getFechahora());
-            st.setDouble(3, pojo.getTotal());
-            st.setInt(4, pojo.getCliente_idCliente());
+            st.setDouble(2, pojo.getTotal());
+            st.setInt(3, pojo.getCliente_idCliente());
             st.executeUpdate();
             rs = st.getGeneratedKeys();
             rs.next();
