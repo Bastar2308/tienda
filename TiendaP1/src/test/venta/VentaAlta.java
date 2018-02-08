@@ -32,7 +32,6 @@ public class VentaAlta {
                 detalle_Venta.setCantidad(2);
                 detalle_Venta.setProducto_idProducto(object[i]);
                 detalle_Venta.setVenta_idVenta(idVenta);
-                detalle_Venta.setComida_del_dia_idComida_del_dia(1);
                 Producto producto = ProductoDAO.getInstance().buscaCategoria(1);
                 detalle_Venta.setSubtotal((producto.getPrecio()*2));
                 if (Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta) != 0) {
