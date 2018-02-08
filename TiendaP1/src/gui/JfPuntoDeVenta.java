@@ -142,6 +142,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jlTotal = new javax.swing.JLabel();
         jlProductos = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jlTotal1 = new javax.swing.JLabel();
         jbConfirmaVenta = new javax.swing.JButton();
         tfFiltrar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -213,6 +214,10 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Productos:");
 
+        jlTotal1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlTotal1.setForeground(new java.awt.Color(255, 255, 255));
+        jlTotal1.setText("$");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -220,9 +225,12 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addComponent(jlTotal1))
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -233,7 +241,8 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jlTotal))
+                    .addComponent(jlTotal)
+                    .addComponent(jlTotal1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -387,7 +396,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 .addGap(73, 73, 73))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,6 +467,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     private javax.swing.JComboBox<Object> jcbNombres;
     private javax.swing.JLabel jlProductos;
     private javax.swing.JLabel jlTotal;
+    private javax.swing.JLabel jlTotal1;
     private javax.swing.JTable jtProductos;
     private javax.swing.JTable jtProductosSeleccionados;
     private javax.swing.JTextField tfFiltrar;
