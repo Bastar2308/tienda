@@ -7,7 +7,9 @@ package controladores;
 
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
+import dao.Detalle_VentaDAO;
 import dao.ProductoDAO;
+import dao.VentaDAO;
 import gui.JfMenuPrincipal;
 import gui.JfPuntoDeVenta;
 import java.awt.event.ActionEvent;
@@ -17,6 +19,8 @@ import java.sql.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
+import pojo.Detalle_Venta;
+import pojo.Venta;
 
 /**
  *
@@ -38,6 +42,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJbAgregar().addActionListener(this);
         vista.getJbEliminar().addActionListener(this);
         vista.getJbLimpiar().addActionListener(this);
+        vista.getJbConfirmaVenta().addActionListener(this);
     }
 
     @Override
@@ -50,6 +55,8 @@ public class PuntoDeVentaControlador implements ActionListener {
             eliminar();
         } else if (e.getSource().equals(vista.getJbLimpiar())) {
             limpiar();
+        } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
+            confirmaVenta();
         }
         actualizaTotales();
     }
@@ -144,11 +151,37 @@ public class PuntoDeVentaControlador implements ActionListener {
         int cantidad=0;
         for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
             total+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 2).toString())
-                    *
-                    Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
+                    *Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
             cantidad+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
         }
         vista.getJlTotal().setText(""+total);
         vista.getJlProductos().setText(""+cantidad);
+    }
+
+    private void confirmaVenta() {
+        if (vista.getJtProductosSeleccionados().getRowCount()>0) {
+            Venta venta=new Venta();
+
+            venta.setCliente_idCliente(((Cliente) vista.getJcbNombres().getSelectedItem()).getIdCliente());
+            venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
+            venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
+            int idVenta=VentaDAO.getInstance().insertaVenta(venta);
+
+            for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
+                Detalle_Venta detalle_Venta=new Detalle_Venta();
+
+                detalle_Venta.setVenta_idVenta(idVenta);
+                detalle_Venta.setCantidad(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 6).toString())));
+                detalle_Venta.setSubtotal(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 6).toString()))
+                        *Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 2)).toString()));
+                detalle_Venta.setProducto_idProducto((int) (vista.getJtProductosSeleccionados().getValueAt(i, 0)));
+
+                Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta);
+            }
+            JOptionPane.showMessageDialog(null, "Venta agregada correctmente","Éxito",JOptionPane.INFORMATION_MESSAGE);
+            ((DefaultTableModel)vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
+            vista.getJlTotal().setText("0.0");
+            vista.getJlProductos().setText("0");
+        }
     }
 }
