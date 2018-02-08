@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.Detalle_VentaDAOIf;
@@ -17,26 +16,25 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Detalle_Venta;
 import pojo.Producto;
 
+public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
 
-public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
-
-    private static final String TABLE="detalle_venta";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (venta_idventa, producto_idproducto, comida_del_dia_idcomida_del_dia, cantidad, subtotal) VALUES (?,?,?,?,?)";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET cantidad=?, subtotal=? WHERE Venta_idVenta=? and Producto_idProducto=?";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE venta_idVenta = ? and producto_idproducto = ?";
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE Venta_idVenta=?";
+    private static final String TABLE = "detalle_venta";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (venta_idventa, producto_idproducto,cantidad, subtotal) VALUES (?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET cantidad=?, subtotal=? WHERE Venta_idVenta=? and Producto_idProducto=?";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE venta_idVenta = ? and producto_idproducto = ?";
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE Venta_idVenta=?";
     private static final String SQL_OBTENER_PRODUCTOS = "SELECT producto.idProducto FROM producto, venta "
             + "INNER JOIN detalle_venta "
             + "ON venta.idVenta = detalle_venta.venta_idventa "
             + "WHERE producto.idProducto = detalle_venta.producto_idProducto and venta.idVenta = ?";
-    
+
     private Detalle_VentaDAO() {
     }
-    
+
     public static Detalle_VentaDAO getInstance() {
         return Detalle_VentaDAOHolder.INSTANCE;
     }
-    
+
     private static class Detalle_VentaDAOHolder {
 
         private static final Detalle_VentaDAO INSTANCE = new Detalle_VentaDAO();
@@ -52,9 +50,8 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
             st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             st.setInt(1, pojo.getVenta_idVenta());
             st.setInt(2, pojo.getProducto_idProducto());
-            st.setInt(3, pojo.getComida_del_dia_idComida_del_dia());
-            st.setDouble(4, pojo.getCantidad());
-            st.setDouble(5, pojo.getSubtotal());
+            st.setDouble(3, pojo.getCantidad());
+            st.setDouble(4, pojo.getSubtotal());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar detalle_venta" + e);
@@ -152,7 +149,7 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf{
             while (rs.next()) {
                 String id2 = String.valueOf(rs.getInt("producto.idProducto"));
                 Producto producto = ProductoDAO.getInstance().buscaCategoria(Integer.parseInt(id2));
-                Detalle_Venta detalle_Venta = buscaCategoria(id,producto.getIdProducto());
+                Detalle_Venta detalle_Venta = buscaCategoria(id, producto.getIdProducto());
                 Object ob[] = new Object[3];
                 ob[0] = producto.getNombre();
                 ob[1] = detalle_Venta.getCantidad();
