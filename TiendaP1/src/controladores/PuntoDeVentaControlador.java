@@ -6,13 +6,17 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.ClienteDAO;
 import dao.ProductoDAO;
 import gui.JfMenuPrincipal;
 import gui.JfPuntoDeVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Blob;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pojo.Cliente;
 
 /**
  *
@@ -26,6 +30,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         this.vista=vista;
         addListeners();
         cargaTabla();
+        cargaClientes();
     }
 
     private void addListeners() {
@@ -110,5 +115,26 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void limpiar() {
         ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
+    }
+
+    private void cargaClientes() {
+        DefaultTableModel datos=ClienteDAO.getInstance().cargarClientes();
+        for (int i=0; i<datos.getRowCount(); i++) {
+            Cliente cliente=new Cliente();
+
+            cliente.setIdCliente((int) datos.getValueAt(i, 0));
+            cliente.setNombre((String) datos.getValueAt(i, 1));
+            cliente.setSaldo((double) datos.getValueAt(i, 2));
+            cliente.setGrupo_idGrupo((int) datos.getValueAt(i, 3));
+            cliente.setQr((String) datos.getValueAt(i, 4));
+            cliente.setFoto((Blob) datos.getValueAt(i, 5));
+            cliente.setTutor((String) datos.getValueAt(i, 6));
+            cliente.setTelefono((String) datos.getValueAt(i, 7));
+            cliente.setCorreo((String) datos.getValueAt(i, 8));
+            cliente.setCompras_sin_credencial((int) datos.getValueAt(i, 9));
+            cliente.setVigencia((Date) datos.getValueAt(i, 10));
+
+            vista.getJcbNombres().addItem(cliente);
+        }
     }
 }
