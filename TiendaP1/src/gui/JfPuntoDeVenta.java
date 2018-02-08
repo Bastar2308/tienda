@@ -39,14 +39,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         this.jbAgregar=jbAgregar;
     }
 
-    public javax.swing.JButton getJbClientes() {
-        return jbClientes;
-    }
-
-    public void setJbClientes(javax.swing.JButton jbClientes) {
-        this.jbClientes=jbClientes;
-    }
-
     public javax.swing.JButton getJbEliminar() {
         return jbEliminar;
     }
@@ -119,6 +111,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         this.jcbNombres=jcbNombres;
     }
 
+    public javax.swing.JButton getJbConfirmaVenta() {
+        return jbConfirmaVenta;
+    }
+
+    public void setJbConfirmaVenta(javax.swing.JButton jbConfirmaVenta) {
+        this.jbConfirmaVenta=jbConfirmaVenta;
+    }
+
     private static class JfPuntoDeVentaHolder {
 
         private static final JfPuntoDeVenta INSTANCE = new JfPuntoDeVenta();
@@ -142,7 +142,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jlTotal = new javax.swing.JLabel();
         jlProductos = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jbClientes = new javax.swing.JButton();
+        jbConfirmaVenta = new javax.swing.JButton();
         tfFiltrar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -241,8 +241,8 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jbClientes.setBackground(new java.awt.Color(102, 102, 102));
-        jbClientes.setText("Confirmar venta");
+        jbConfirmaVenta.setBackground(new java.awt.Color(102, 102, 102));
+        jbConfirmaVenta.setText("Confirmar venta");
 
         tfFiltrar.setToolTipText("Filtrar...");
 
@@ -340,7 +340,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGap(59, 59, 59)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jbClientes))
+                    .addComponent(jbConfirmaVenta))
                 .addGap(0, 43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -367,7 +367,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbClientes)
+                .addComponent(jbConfirmaVenta)
                 .addGap(18, 18, 18))
         );
 
@@ -451,7 +451,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbAgregar;
-    private javax.swing.JButton jbClientes;
+    private javax.swing.JButton jbConfirmaVenta;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbRegresar;

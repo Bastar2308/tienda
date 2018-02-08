@@ -39,6 +39,6 @@ public abstract void setTfFiltrar(JTextField x);
 public abstract JComboBox<Object> getJcbNombres();
 public abstract void setJcbNombres(JComboBox<Object> x);
 
-public abstract JButton getJbClientes();
-public abstract void setJbClientes(JButton x);
+public abstract JButton getJbConfirmaVenta();
+public abstract void setJbConfirmaVenta(JButton x);
 }
