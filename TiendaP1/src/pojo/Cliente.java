@@ -6,7 +6,6 @@
 
 package pojo;
 
-import java.awt.Image;
 import java.sql.Blob;
 import java.sql.Date;
 
@@ -17,8 +16,10 @@ public class Cliente {
     private String nombre;
     private double saldo;
     private String qr;
+    private String ruta;
     private Blob foto;
     private String tutor;
+    private String grado;
     private String telefono;
     private String correo;
     private int compras_sin_credencial;
@@ -115,5 +116,21 @@ public class Cliente {
 
     public void setVigencia(Date vigencia) {
         this.vigencia = vigencia;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public String getGrado() {
+        return grado;
+    }
+
+    public void setGrado(String grado) {
+        this.grado = grado;
     }
 }

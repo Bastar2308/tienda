@@ -6,6 +6,8 @@
 package dao;
 
 import daoif.ClienteDAOIf;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,11 +22,11 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE="cliente";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, compras_sin_credencial, vigencia) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, compras_sin_credencial, vigencia, grado) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY="SELECT * FROM "+TABLE+" WHERE idCliente = ?";
     private static final String SQL_QUERY_ALL="Select * from "+TABLE;
     private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCliente=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, saldo=?, grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, vigencia=? WHERE idCliente=?";
+    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, saldo=?, grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, vigencia=?, grado=?,WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -50,15 +52,15 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setBlob(5, (Blob) pojo.getFoto());
-            st.setString(6, pojo.getTutor());
-            st.setString(7, pojo.getTelefono());
-            st.setString(8, pojo.getCorreo());
-            st.setInt(9, pojo.getCompras_sin_credencial());
-            st.setDate(10, pojo.getVigencia());
+            st.setString(5, pojo.getTutor());
+            st.setString(6, pojo.getTelefono());
+            st.setString(7, pojo.getCorreo());
+            st.setInt(8, pojo.getCompras_sin_credencial());
+            st.setDate(9, pojo.getVigencia());
+            st.setString(10, pojo.getGrado());
             id=st.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error al insertar cliente"+e);
+            System.out.println("Error al insertar cliente: "+e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -100,13 +102,14 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setBlob(5, pojo.getFoto());
+            st.setBinaryStream(5, new FileInputStream(new File(pojo.getRuta())), (int) new File(pojo.getRuta()).length());
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getCompras_sin_credencial());
             st.setDate(10, pojo.getVigencia());
-            st.setInt(11, pojo.getIdCliente());
+            st.setString(11, pojo.getGrado());
+            st.setInt(12, pojo.getIdCliente());
             int x=st.executeUpdate();
             if (x==0) {
                 return false;
@@ -268,6 +271,7 @@ public class ClienteDAO implements ClienteDAOIf {
             pojo.setCorreo(rs.getString("correo"));
             pojo.setCompras_sin_credencial(rs.getInt("compras_sin_credencial"));
             pojo.setVigencia(rs.getDate("vigencia"));
+            pojo.setGrado(rs.getString("grado"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar cliente "+ex);
         }

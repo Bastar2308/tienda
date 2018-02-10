@@ -51,8 +51,9 @@ public class MailTools {
      */
     public Session iniciarSesion(final String correo, final String password){
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.auth", true);
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.ssl.trust", "smtp.live.com");
 //        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.host", "smtp.live.com");
         props.put("mail.smtp.port", "587");
@@ -112,7 +113,7 @@ public class MailTools {
             
             BodyPart adjunto = new MimeBodyPart();
             adjunto.setDataHandler(new DataHandler(archivo));
-            adjunto.setFileName("imagen.png");
+            adjunto.setFileName("credencial.png");
             
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);

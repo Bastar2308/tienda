@@ -6,26 +6,30 @@
 package test.credencial;
 
 import auxiliares.MailTools;
+import auxiliares.QrTools;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
+import dao.ClienteDAO;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.FileDataSource;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import pojo.Cliente;
 
 
 /**
@@ -42,11 +46,20 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
      */
     public CredencialGUI() {
         initComponents();
+        
+    }
+    
+    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula){
+        initComponents();
         jLabel8.setOpaque(true);
-        jLabel1.setText("Aarón Lagunas Ramos");
+        jLabel1.setText(nombre);
         jLabel2.setText("Secundaria");
-        jLabel3.setText("3° A");
-        jLabel4.setText("Octubre 2018");
+        jLabel3.setText(gradoGrupo);
+        jLabel4.setText(vigencia);
+        jLabel14.setText(matricula);
+        ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR(matricula, null, null));
+        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), Image.SCALE_DEFAULT));
+        jLabel9.setIcon(icono);
         webcam.setViewSize(WebcamResolution.VGA.getSize());
         panel.setFillArea(true);
         jPanel2.removeAll();
@@ -81,6 +94,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -127,8 +141,6 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("TARJETA RECARGABLE");
 
-        jLabel9.setText("jLabel9");
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("www.softwarebastar.com");
 
@@ -139,6 +151,9 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("2299 005004");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Matrícula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,7 +169,8 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel14))
                                 .addGap(25, 25, 25))
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -170,7 +186,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))))
+                        .addGap(36, 36, 36))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,15 +218,17 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14))
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,12 +318,12 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
         
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
-            System.out.println("Éxito al guardar");
+            System.out.println("Éxito al guardar credencial");
             MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
-                "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB", 
-                new FileDataSource(outputfile));
+            "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB", 
+            new FileDataSource(outputfile));
         } catch (IOException ex) {
-            System.out.println("Error "+ex);
+            System.out.println("Error al guardar: "+ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -362,6 +380,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
