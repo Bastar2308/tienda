@@ -1,0 +1,8 @@
+modeificar db de acuerdo a la foto
+
+quitar categoria y marca
+dos decimales
+eliminar stock del sistema
+que filtre por nombre o código
+
+peestaña para cliente y seleccionar
