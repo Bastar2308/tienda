@@ -12,7 +12,8 @@ import javax.swing.JButton;
  * @author Profesor Bastar
  */
 public interface FrameRegresable {
-    
+
     public abstract JButton getJbRegresar();
+
     public abstract void setJbRegresar(JButton jb);
 }

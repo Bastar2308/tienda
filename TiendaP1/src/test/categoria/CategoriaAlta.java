@@ -13,6 +13,7 @@ import pojo.Categoria;
  * @author Fernando
  */
 public class CategoriaAlta {
+
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
         categoria.setNombre("Categoría001");
@@ -20,6 +21,6 @@ public class CategoriaAlta {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");
-        }   
+        }
     }
 }

@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
-
 public class Categoria {
+
     private int idCategoria;
     private String nombre;
 
@@ -26,9 +25,9 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     @Override
-    public String toString(){
-        return getNombre();    
+    public String toString() {
+        return getNombre();
     }
 }

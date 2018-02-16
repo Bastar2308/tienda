@@ -13,6 +13,7 @@ import dao.Alimento_Prohibido_ClienteDAO;
  * @author Fernando
  */
 public class VentaBaja {
+
     public static void main(String[] args) {
         if (Alimento_Prohibido_ClienteDAO.getInstance().eliminaAlimento_Prohibido_Cliente(1, 3) == true) {
             System.out.println("Éxito al eliminar");

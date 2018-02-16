@@ -12,6 +12,7 @@ import dao.ProductoDAO;
  * @author Fernando
  */
 public class ProductoBaja {
+
     public static void main(String[] args) {
         if (ProductoDAO.getInstance().eliminaProducto(2) == true) {
             System.out.println("Éxito al eliminar");

@@ -13,6 +13,7 @@ import pojo.Producto;
  * @author Fernando
  */
 public class ProductoModificar {
+
     public static void main(String[] args) {
         Producto producto = new Producto();
         producto.setIdProducto(2);

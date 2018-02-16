@@ -8,8 +8,6 @@ package test.venta;
 import dao.Detalle_VentaDAO;
 import dao.VentaDAO;
 
-
-
 /**
  *
  * @author Fernando

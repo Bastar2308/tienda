@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import java.sql.Connection;
@@ -13,8 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class Conexion {
+
     private static final String JDBC_HOST = "localhost";
 
     private static final String JDBC_USER = "root";
@@ -28,8 +27,6 @@ public class Conexion {
     private static final String JDBC_URL = "jdbc:mysql://" + JDBC_HOST + "/" + JDBC_BD;
 
     private static Driver controlador = null;
-
-
 
     public static synchronized Connection getConnection() throws SQLException {
 
@@ -55,8 +52,6 @@ public class Conexion {
 
     }
 
-
-
     public static void close(Connection rs) {
 
         try {
@@ -74,8 +69,6 @@ public class Conexion {
         }
 
     }
-
-
 
     public static void close(ResultSet rs) {
 
@@ -95,8 +88,6 @@ public class Conexion {
 
     }
 
-
-
     public static void close(PreparedStatement rs) {
 
         try {
@@ -115,8 +106,6 @@ public class Conexion {
 
     }
 
-
-
     public static void main(String[] args) {
 
         try {
@@ -132,5 +121,5 @@ public class Conexion {
         }
 
     }
-    
+
 }

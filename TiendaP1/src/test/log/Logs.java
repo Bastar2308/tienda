@@ -12,6 +12,7 @@ import auxiliares.LogTools;
  * @author Fernando
  */
 public class Logs {
+
     public static void main(String[] args) {
         LogTools.getInstance().debugLog("Log desde logtools", new Exception());
         LogTools.getInstance().infoLog("Log informativo", new Exception());

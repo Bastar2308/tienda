@@ -7,12 +7,12 @@ package test.marca;
 
 import dao.MarcaDAO;
 
-
 /**
  *
  * @author Fernando
  */
 public class MarcaBaja {
+
     public static void main(String[] args) {
         if (MarcaDAO.getInstance().eliminaMarca(2) == true) {
             System.out.println("Éxito al eliminar");

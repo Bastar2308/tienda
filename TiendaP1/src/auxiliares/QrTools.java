@@ -13,20 +13,20 @@ import java.awt.image.BufferedImage;
  * @author Fernando
  */
 public class QrTools {
-    
+
     private QrTools() {
     }
-    
+
     public static QrTools getInstance() {
         return QrToolsHolder.INSTANCE;
     }
-    
+
     private static class QrToolsHolder {
 
         private static final QrTools INSTANCE = new QrTools();
     }
-    
-    public BufferedImage generarQR(String contenido, String nombreArchivo, String ruta){
+
+    public BufferedImage generarQR(String contenido, String nombreArchivo, String ruta) {
         BufferedImage bf;
         try {
             QRCode qrCode = new QRCode();
@@ -38,7 +38,7 @@ public class QrTools {
             bf = qrCode.renderBarcode();
             return bf;
         } catch (Exception e) {
-            System.out.println("Error al generar QR: "+e);
+            System.out.println("Error al generar QR: " + e);
             return null;
         }
     }

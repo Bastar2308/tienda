@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
 import java.sql.Timestamp;
 
-
 public class Venta {
+
     private int idVenta;
     private String nota;
     private Timestamp fechahora;

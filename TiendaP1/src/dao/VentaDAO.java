@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.VentaDAOIf;
@@ -17,28 +16,27 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
 import pojo.Venta;
 
+public class VentaDAO implements VentaDAOIf {
 
-public class VentaDAO implements VentaDAOIf{
-
-    private static final String TABLE="venta";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nota, total, cliente_idCliente) VALUES (?,?,?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idVenta = ?";
+    private static final String TABLE = "venta";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nota, total, cliente_idCliente) VALUES (?,?,?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idVenta = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idVenta=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nota=?, fechahora=?, total=?, cliente_idCliente=? WHERE idVenta=?";
-    
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idVenta=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nota=?, fechahora=?, total=?, cliente_idCliente=? WHERE idVenta=?";
+
     private VentaDAO() {
     }
-    
+
     public static VentaDAO getInstance() {
         return VentaDAOHolder.INSTANCE;
     }
-    
+
     private static class VentaDAOHolder {
 
         private static final VentaDAO INSTANCE = new VentaDAO();
     }
-    
+
     @Override
     public int insertaVenta(Venta pojo) {
         Connection con = null;
@@ -140,7 +138,7 @@ public class VentaDAO implements VentaDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nota","Fecha/Hora","Total","Cliente"};
+        String encabezados[] = {"Id", "Nota", "Fecha/Hora", "Total", "Cliente"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);

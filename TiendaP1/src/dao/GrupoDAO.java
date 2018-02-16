@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.GrupoDAOIf;
@@ -16,28 +15,27 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Grupo;
 
+public class GrupoDAO implements GrupoDAOIf {
 
-public class GrupoDAO implements GrupoDAOIf{
-
-    private static final String TABLE="grupo";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre, nivel) VALUES (?,?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idGrupo = ?";
+    private static final String TABLE = "grupo";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, nivel) VALUES (?,?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idGrupo = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idGrupo=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, nivel=? WHERE idGrupo=?";
-    
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idGrupo=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, nivel=? WHERE idGrupo=?";
+
     private GrupoDAO() {
     }
-    
+
     public static GrupoDAO getInstance() {
         return GrupoDAOHolder.INSTANCE;
     }
-    
+
     private static class GrupoDAOHolder {
 
         private static final GrupoDAO INSTANCE = new GrupoDAO();
     }
-    
+
     @Override
     public int insertaGrupo(Grupo pojo) {
         Connection con = null;
@@ -132,7 +130,7 @@ public class GrupoDAO implements GrupoDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nombre","Nivel"};
+        String encabezados[] = {"Id", "Nombre", "Nivel"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);

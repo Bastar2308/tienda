@@ -29,16 +29,16 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
         cargarTabla();
     }
 
-    private  void cargarTabla() {
+    private void cargarTabla() {
 
         try {
             DefaultTableModel datos = ProductoDAO.getInstance().cargarTabla();
             DefaultTableModel tm = (DefaultTableModel) vista.getJtDatos().getModel();
             tm.setRowCount(0);
 
-            for (int filas = 0; filas < datos.getRowCount(); filas++) {
+            for (int filas = 0; filas < datos.getRowCount(); filas ++) {
                 tm.addRow(new Object[]{null, null, null, null, null, null, null, null});
-                for (int columnas = 0; columnas < 8; columnas++) {
+                for (int columnas = 0; columnas < 8; columnas ++) {
                     tm.setValueAt(datos.getValueAt(filas, columnas), filas, columnas);
                     vista.getJtDatos().setModel(tm);
                 }
@@ -47,7 +47,7 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
             JOptionPane.showMessageDialog(null, "Error cargando tabla: ui.abc.Categoria", "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error cargando tabla ui.abc.Categoria: " + e);
         }
-        
+
     }
 
     private void addListeners() {

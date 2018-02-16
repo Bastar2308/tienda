@@ -20,9 +20,10 @@ import java.awt.event.ActionListener;
 public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
+
     public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
-        
+
         addListeners();
         cargarTabla();
     }

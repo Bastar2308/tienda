@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.CategoriaDAOIf;
@@ -16,28 +15,27 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Categoria;
 
+public class CategoriaDAO implements CategoriaDAOIf {
 
-public class CategoriaDAO implements CategoriaDAOIf{
-
-    private static final String TABLE="categoria";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre) VALUES (?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idCategoria = ?";
+    private static final String TABLE = "categoria";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre) VALUES (?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCategoria = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCategoria=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=? WHERE idCategoria=?";
-    
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCategoria=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=? WHERE idCategoria=?";
+
     CategoriaDAO() {
     }
-    
+
     public static CategoriaDAO getInstance() {
         return CategoriaDAOHolder.INSTANCE;
     }
-    
+
     private static class CategoriaDAOHolder {
 
         private static final CategoriaDAO INSTANCE = new CategoriaDAO();
     }
-    
+
     @Override
     public int insertaCategoria(Categoria pojo) {
         Connection con = null;
@@ -130,7 +128,7 @@ public class CategoriaDAO implements CategoriaDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nombre"};
+        String encabezados[] = {"Id", "Nombre"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);

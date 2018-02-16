@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.UsuarioDAOIf;
@@ -14,37 +13,36 @@ import java.sql.SQLException;
 import pojo.Categoria;
 import pojo.Usuario;
 
+public class UsuarioDAO implements UsuarioDAOIf {
 
-public class UsuarioDAO implements UsuarioDAOIf{
-    
     private UsuarioDAO() {
     }
-    
+
     public static UsuarioDAO getInstance() {
         return UsuarioDAOHolder.INSTANCE;
     }
-    
+
     private static class UsuarioDAOHolder {
 
         private static final UsuarioDAO INSTANCE = new UsuarioDAO();
     }
-    
+
     @Override
     public Usuario iniciaSesion(String usuario, String password) {
         Usuario pojo = new Usuario();
         Connection con = null;
         int id = 0;
         try {
-            String consult = "SELECT * FROM usuario WHERE usuario = '"+usuario+"' and password = '"+password+"'";
-         
+            String consult = "SELECT * FROM usuario WHERE usuario = '" + usuario + "' and password = '" + password + "'";
+
             con = Conexion.getConnection();
             PreparedStatement st = con.prepareStatement(consult);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 pojo = inflaUsuario(rs);
             }
         } catch (Exception e) {
-            System.out.println("Error en login "+e);
+            System.out.println("Error en login " + e);
         }
         return pojo;
     }

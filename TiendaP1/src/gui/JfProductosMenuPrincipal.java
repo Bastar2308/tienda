@@ -815,5 +815,5 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
         this.tfEditarNombre = tfEditarNombre;
     }
-    
+
 }

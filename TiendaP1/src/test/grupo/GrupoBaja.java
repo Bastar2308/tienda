@@ -12,6 +12,7 @@ import dao.GrupoDAO;
  * @author Fernando
  */
 public class GrupoBaja {
+
     public static void main(String[] args) {
         if (GrupoDAO.getInstance().eliminaGrupo(6) == true) {
             System.out.println("Éxito al eliminar");

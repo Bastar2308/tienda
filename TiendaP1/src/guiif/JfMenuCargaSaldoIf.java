@@ -16,37 +16,48 @@ import javax.swing.JTextField;
  * @author Profesor Bastar
  */
 public interface JfMenuCargaSaldoIf extends FrameRegresable {
-    
+
     public abstract JTextField getTfBuscar();
+
     public abstract void setTfBuscar(JTextField x);
-    
+
     public abstract JButton getJbFiltrar();
+
     public abstract void setJbFiltrar(JButton x);
-    
+
     public abstract JList getJlClientes();
+
     public abstract void setJlClientes(JList x);
-    
+
     public abstract JRadioButton getRb20();
+
     public abstract void setRb20(JRadioButton x);
-    
+
     public abstract JRadioButton getRb50();
+
     public abstract void setRb50(JRadioButton x);
-    
+
     public abstract JRadioButton getRb100();
+
     public abstract void setRb100(JRadioButton x);
-    
+
     public abstract JRadioButton getRb200();
+
     public abstract void setRb200(JRadioButton x);
-    
+
     public abstract JRadioButton getRb500();
+
     public abstract void setRb500(JRadioButton x);
-    
+
     public abstract JRadioButton getRb1000();
+
     public abstract void setRb1000(JRadioButton x);
-    
+
     public abstract JRadioButton getRbOtra();
+
     public abstract void setRbOtra(JRadioButton x);
-    
+
     public abstract JSpinner getJsOtra();
+
     public abstract void setJsOtra(JSpinner x);
 }

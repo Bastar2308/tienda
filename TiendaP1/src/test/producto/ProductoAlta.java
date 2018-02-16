@@ -13,6 +13,7 @@ import pojo.Producto;
  * @author Fernando
  */
 public class ProductoAlta {
+
     public static void main(String[] args) {
         Producto producto = new Producto();
         producto.setNombre("Producto003");
@@ -26,6 +27,6 @@ public class ProductoAlta {
             System.out.println("Insertsado correctamente");
         } else {
             System.out.println("Error en la inserción");
-        }   
+        }
     }
 }

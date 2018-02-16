@@ -9,12 +9,12 @@ import dao.ClienteDAO;
 import java.sql.Date;
 import pojo.Cliente;
 
-
 /**
  *
  * @author Fernando
  */
 public class ClienteAlta {
+
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
         cliente.setNombre("Cliente003");
@@ -31,6 +31,6 @@ public class ClienteAlta {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");
-        }   
+        }
     }
 }

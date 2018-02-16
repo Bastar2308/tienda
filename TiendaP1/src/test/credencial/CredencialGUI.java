@@ -31,25 +31,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import pojo.Cliente;
 
-
 /**
  *
  * @author Fernando
  */
-public class CredencialGUI extends javax.swing.JFrame implements Printable{
-    
+public class CredencialGUI extends javax.swing.JFrame implements Printable {
+
     Webcam webcam = Webcam.getDefault();
     WebcamPanel panel = new WebcamPanel(webcam, new Dimension(130, 130), false);
-    
+
     /**
      * Creates new form CredencialGUI
      */
     public CredencialGUI() {
         initComponents();
-        
+
     }
-    
-    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula){
+
+    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula) {
         initComponents();
         jLabel8.setOpaque(true);
         jLabel1.setText(nombre);
@@ -311,19 +310,19 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
         // TODO add your handling code here:
         File outputfile = new File("C:/Users/aaron/Desktop/imagen0.png");
         int n = 0;
-        do{
-            n++;
-            outputfile = new File("C:/Users/aaron/Desktop/imagen0"+n+".png");
-        } while(outputfile.isFile());
-        
+        do {
+            n ++;
+            outputfile = new File("C:/Users/aaron/Desktop/imagen0" + n + ".png");
+        }while (outputfile.isFile());
+
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
             System.out.println("Éxito al guardar credencial");
-            MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
-            "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB", 
-            new FileDataSource(outputfile));
+            MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+                    "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB",
+                    new FileDataSource(outputfile));
         } catch (IOException ex) {
-            System.out.println("Error al guardar: "+ex);
+            System.out.println("Error al guardar: " + ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -335,7 +334,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
         panel.paint(g);
         return bi;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -395,13 +394,13 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable{
 
     @Override
     public int print(Graphics grap, PageFormat pagefor, int index) throws PrinterException {
-        if (index>0) {
+        if (index > 0) {
             return NO_SUCH_PAGE;
         }
-        Graphics2D op=(Graphics2D) grap;
-        
-        op.translate(pagefor.getImageableX()*.5, pagefor.getImageableY()*0.5);
-        op.rotate(1.5708, jPanel1.getWidth()/4, jPanel1.getHeight()/2);
+        Graphics2D op = (Graphics2D) grap;
+
+        op.translate(pagefor.getImageableX() * .5, pagefor.getImageableY() * 0.5);
+        op.rotate(1.5708, jPanel1.getWidth() / 4, jPanel1.getHeight() / 2);
         op.scale(.4204, .4169);
         jPanel1.printAll(grap);
         return PAGE_EXISTS;

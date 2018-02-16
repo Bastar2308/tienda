@@ -21,12 +21,12 @@ import pojo.Grupo;
 
 public class ClienteDAO implements ClienteDAOIf {
 
-    private static final String TABLE="cliente";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, compras_sin_credencial, vigencia, grado) VALUES (?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+" WHERE idCliente = ?";
-    private static final String SQL_QUERY_ALL="Select * from "+TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idCliente=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, saldo=?, grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, vigencia=?, grado=?,WHERE idCliente=?";
+    private static final String TABLE = "cliente";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, compras_sin_credencial, vigencia, grado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
+    private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, vigencia=?, grado=?,WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -37,17 +37,17 @@ public class ClienteDAO implements ClienteDAOIf {
 
     private static class ClienteDAOHolder {
 
-        private static final ClienteDAO INSTANCE=new ClienteDAO();
+        private static final ClienteDAO INSTANCE = new ClienteDAO();
     }
 
     @Override
     public int insertaCliente(Cliente pojo) {
-        Connection con=null;
-        PreparedStatement st=null;
-        int id=0;
+        Connection con = null;
+        PreparedStatement st = null;
+        int id = 0;
         try {
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
@@ -58,9 +58,9 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setInt(8, pojo.getCompras_sin_credencial());
             st.setDate(9, pojo.getVigencia());
             st.setString(10, pojo.getGrado());
-            id=st.executeUpdate();
+            id = st.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error al insertar cliente: "+e);
+            System.out.println("Error al insertar cliente: " + e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -70,18 +70,18 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public boolean eliminaCliente(int id) {
-        Connection con=null;
-        PreparedStatement st=null;
+        Connection con = null;
+        PreparedStatement st = null;
         try {
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_DELETE);
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_DELETE);
             st.setInt(1, id);
-            int num=st.executeUpdate();
-            if (num==0) {
+            int num = st.executeUpdate();
+            if (num == 0) {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Error al eliminar cliente "+e);
+            System.out.println("Error al eliminar cliente " + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -92,12 +92,12 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public boolean modificaCliente(Cliente pojo) {
-        Connection con=null;
-        PreparedStatement st=null;
+        Connection con = null;
+        PreparedStatement st = null;
         try {
-            con=Conexion.getConnection();
+            con = Conexion.getConnection();
             //Recuerden que el últmo es el id
-            st=con.prepareStatement(SQL_UPDATE);
+            st = con.prepareStatement(SQL_UPDATE);
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
@@ -110,12 +110,12 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDate(10, pojo.getVigencia());
             st.setString(11, pojo.getGrado());
             st.setInt(12, pojo.getIdCliente());
-            int x=st.executeUpdate();
-            if (x==0) {
+            int x = st.executeUpdate();
+            if (x == 0) {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Error al actualizar cliente"+e);
+            System.out.println("Error al actualizar cliente" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -126,19 +126,19 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public Cliente buscaCliente(int id) {
-        Connection con=null;
-        PreparedStatement st=null;
-        Cliente pojo=new Cliente();
+        Connection con = null;
+        PreparedStatement st = null;
+        Cliente pojo = new Cliente();
         try {
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_QUERY);
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY);
             st.setInt(1, id);
-            ResultSet rs=st.executeQuery();
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                pojo=inflaCliente(rs);
+                pojo = inflaCliente(rs);
             }
         } catch (Exception e) {
-            System.out.println("Error al consultar cliente "+e);
+            System.out.println("Error al consultar cliente " + e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -148,35 +148,35 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public DefaultTableModel cargarClientes() {
-        Connection con=null;
-        PreparedStatement st=null;
-        DefaultTableModel dt=null;
-        String encabezados[]={"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Compras sin credencial", "Vigencia"};
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Compras sin credencial", "Vigencia"};
         try {
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_QUERY_ALL);
-            dt=new DefaultTableModel();
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            dt = new DefaultTableModel();
             dt.setColumnIdentifiers(encabezados);
-            ResultSet rs=st.executeQuery();
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[]=new Object[11];
-                Cliente pojo=inflaCliente(rs);
-                ob[0]=pojo.getIdCliente();
-                ob[1]=pojo.getNombre();
-                ob[2]=pojo.getSaldo();
-                ob[3]=pojo.getGrupo_idGrupo();
-                ob[4]=pojo.getQr();
-                ob[5]=pojo.getFoto();
-                ob[6]=pojo.getTutor();
-                ob[7]=pojo.getTelefono();
-                ob[8]=pojo.getCorreo();
-                ob[9]=pojo.getCompras_sin_credencial();
-                ob[10]=pojo.getVigencia();
+                Object ob[] = new Object[11];
+                Cliente pojo = inflaCliente(rs);
+                ob[0] = pojo.getIdCliente();
+                ob[1] = pojo.getNombre();
+                ob[2] = pojo.getSaldo();
+                ob[3] = pojo.getGrupo_idGrupo();
+                ob[4] = pojo.getQr();
+                ob[5] = pojo.getFoto();
+                ob[6] = pojo.getTutor();
+                ob[7] = pojo.getTelefono();
+                ob[8] = pojo.getCorreo();
+                ob[9] = pojo.getCompras_sin_credencial();
+                ob[10] = pojo.getVigencia();
                 dt.addRow(ob);
             }
             rs.close();
         } catch (Exception e) {
-            System.out.println("Error al cargar la tabla cliente "+e);
+            System.out.println("Error al cargar la tabla cliente " + e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -186,36 +186,36 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public DefaultTableModel cargarTabla() {
-        Connection con=null;
-        PreparedStatement st=null;
-        DefaultTableModel dt=null;
-        String encabezados[]={"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Compras sin credencial", "Vigencia"};
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Compras sin credencial", "Vigencia"};
         try {
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_QUERY_ALL);
-            dt=new DefaultTableModel();
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            dt = new DefaultTableModel();
             dt.setColumnIdentifiers(encabezados);
-            ResultSet rs=st.executeQuery();
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[]=new Object[11];
-                Cliente pojo=inflaCliente(rs);
-                Grupo grupo=GrupoDAO.getInstance().buscaGrupo(pojo.getGrupo_idGrupo());
-                ob[0]=pojo.getIdCliente();
-                ob[1]=pojo.getNombre();
-                ob[2]=pojo.getSaldo();
-                ob[3]=grupo.getNombre();
-                ob[4]=pojo.getQr();
-                ob[5]=pojo.getFoto();
-                ob[6]=pojo.getTutor();
-                ob[7]=pojo.getTelefono();
-                ob[8]=pojo.getCorreo();
-                ob[9]=pojo.getCompras_sin_credencial();
-                ob[10]=pojo.getVigencia();
+                Object ob[] = new Object[11];
+                Cliente pojo = inflaCliente(rs);
+                Grupo grupo = GrupoDAO.getInstance().buscaGrupo(pojo.getGrupo_idGrupo());
+                ob[0] = pojo.getIdCliente();
+                ob[1] = pojo.getNombre();
+                ob[2] = pojo.getSaldo();
+                ob[3] = grupo.getNombre();
+                ob[4] = pojo.getQr();
+                ob[5] = pojo.getFoto();
+                ob[6] = pojo.getTutor();
+                ob[7] = pojo.getTelefono();
+                ob[8] = pojo.getCorreo();
+                ob[9] = pojo.getCompras_sin_credencial();
+                ob[10] = pojo.getVigencia();
                 dt.addRow(ob);
             }
             rs.close();
         } catch (Exception e) {
-            System.out.println("Error al cargar la tabla cliente "+e);
+            System.out.println("Error al cargar la tabla cliente " + e);
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -225,17 +225,17 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public DefaultComboBoxModel<Cliente> cargarCombo() {
-        Connection con=null;
-        PreparedStatement st=null;
-        DefaultComboBoxModel combo=null;
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultComboBoxModel combo = null;
         try {
-            combo=new DefaultComboBoxModel();
-            con=Conexion.getConnection();
-            st=con.prepareStatement(SQL_QUERY_ALL);
-            ResultSet rs=st.executeQuery();
+            combo = new DefaultComboBoxModel();
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            ResultSet rs = st.executeQuery();
             combo.addElement("Seleccionar cliente");
             while (rs.next()) {
-                Cliente cliente=inflaCliente(rs);
+                Cliente cliente = inflaCliente(rs);
                 combo.addElement(cliente);
             }
         } catch (Exception e) {
@@ -258,7 +258,7 @@ public class ClienteDAO implements ClienteDAOIf {
 
     @Override
     public Cliente inflaCliente(ResultSet rs) {
-        Cliente pojo=new Cliente();
+        Cliente pojo = new Cliente();
         try {
             pojo.setIdCliente(rs.getInt("idCliente"));
             pojo.setNombre(rs.getString("nombre"));
@@ -273,7 +273,7 @@ public class ClienteDAO implements ClienteDAOIf {
             pojo.setVigencia(rs.getDate("vigencia"));
             pojo.setGrado(rs.getString("grado"));
         } catch (SQLException ex) {
-            System.out.println("Error al inflar cliente "+ex);
+            System.out.println("Error al inflar cliente " + ex);
         }
         return pojo;
     }

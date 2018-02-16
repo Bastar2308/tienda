@@ -7,12 +7,12 @@ package test.cliente;
 
 import dao.ClienteDAO;
 
-
 /**
  *
  * @author Fernando
  */
 public class ClienteBaja {
+
     public static void main(String[] args) {
         if (ClienteDAO.getInstance().eliminaCliente(2) == true) {
             System.out.println("Éxito al eliminar");

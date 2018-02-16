@@ -13,6 +13,7 @@ import pojo.Categoria;
  * @author Fernando
  */
 public class CategoriaModificar {
+
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
         categoria.setIdCategoria(2);

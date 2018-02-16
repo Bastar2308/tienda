@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 public class MenuCategoriasControlador implements ActionListener {
 
     JfMenuCategorias vista;
-    
+
     public MenuCategoriasControlador(JfMenuCategorias vista) {
         this.vista = vista;
         addListeners();

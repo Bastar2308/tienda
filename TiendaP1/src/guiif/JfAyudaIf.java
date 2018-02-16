@@ -12,8 +12,10 @@ import javax.swing.JButton;
 public interface JfAyudaIf {
 
     public abstract JButton getJbManual();
+
     public abstract void setJbManual(JButton x);
-    
+
     public abstract JButton getJbRegresar();
+
     public abstract void setJbRegresar(JButton x);
 }

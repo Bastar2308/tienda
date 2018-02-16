@@ -13,6 +13,7 @@ import pojo.Marca;
  * @author Fernando
  */
 public class MarcaAlta {
+
     public static void main(String[] args) {
         Marca marca = new Marca();
         marca.setNombre("Marca001");
@@ -20,6 +21,6 @@ public class MarcaAlta {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");
-        }   
+        }
     }
 }

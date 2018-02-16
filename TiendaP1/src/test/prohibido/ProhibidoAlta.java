@@ -14,6 +14,7 @@ import pojo.Alimento_Prohibido_Cliente;
  * @author Fernando
  */
 public class ProhibidoAlta {
+
     public static void main(String[] args) {
         Alimento_Prohibido_Cliente alimento_Prohibido_Cliente = new Alimento_Prohibido_Cliente();
         alimento_Prohibido_Cliente.setCliente_idCliente(1);
@@ -21,8 +22,8 @@ public class ProhibidoAlta {
         alimento_Prohibido_Cliente.setFecha_inicio(new Date(2017, 10, 21));
         alimento_Prohibido_Cliente.setFecha_fin(new Date(2017, 11, 21));
         alimento_Prohibido_Cliente.setDescripcion("Porque síX2");
-        
-        if (Alimento_Prohibido_ClienteDAO.getInstance().insertaAlimento_Prohibido_Cliente(alimento_Prohibido_Cliente) !=0) {
+
+        if (Alimento_Prohibido_ClienteDAO.getInstance().insertaAlimento_Prohibido_Cliente(alimento_Prohibido_Cliente) != 0) {
             System.out.println("Exito al prohibir");
         } else {
             System.out.println("Error al prohibir");

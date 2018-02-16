@@ -14,22 +14,29 @@ import javax.swing.JTextField;
  *
  * @author Profesor Bastar
  */
-public interface JfMenuGeneradorCredencialesIf extends FrameRegresable{
+public interface JfMenuGeneradorCredencialesIf extends FrameRegresable {
+
     public abstract JButton getJbSeleccionar();
-public abstract void setJbSeleccionar(JButton x);
 
-public abstract JButton getJbFiltrar();
-public abstract void setJbFiltrar(JButton x);
+    public abstract void setJbSeleccionar(JButton x);
 
-public abstract JTextField getTfRuta();
-public abstract void setTfRuta(JTextField x);
+    public abstract JButton getJbFiltrar();
 
-public abstract JButton getJbGenerar();
-public abstract void setJbGenerar(JButton x);
+    public abstract void setJbFiltrar(JButton x);
 
-public abstract JList getJlLista();
-public abstract void setJlLista(JList x);
+    public abstract JTextField getTfRuta();
 
-public abstract JFileChooser getFcSelector();
-public abstract void setFcSelector(JFileChooser x);
+    public abstract void setTfRuta(JTextField x);
+
+    public abstract JButton getJbGenerar();
+
+    public abstract void setJbGenerar(JButton x);
+
+    public abstract JList getJlLista();
+
+    public abstract void setJlLista(JList x);
+
+    public abstract JFileChooser getFcSelector();
+
+    public abstract void setFcSelector(JFileChooser x);
 }

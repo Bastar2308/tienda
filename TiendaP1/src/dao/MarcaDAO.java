@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.MarcaDAOIf;
@@ -16,28 +15,27 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Marca;
 
+public class MarcaDAO implements MarcaDAOIf {
 
-public class MarcaDAO implements MarcaDAOIf{
-
-    private static final String TABLE="marca";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre) VALUES (?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idMarca = ?";
+    private static final String TABLE = "marca";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre) VALUES (?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idMarca = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idMarca=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=? WHERE idMarca=?";
-    
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idMarca=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=? WHERE idMarca=?";
+
     private MarcaDAO() {
     }
-    
+
     public static MarcaDAO getInstance() {
         return MarcaDAOHolder.INSTANCE;
     }
-    
+
     private static class MarcaDAOHolder {
 
         private static final MarcaDAO INSTANCE = new MarcaDAO();
     }
-    
+
     @Override
     public int insertaMarca(Marca pojo) {
         Connection con = null;
@@ -130,7 +128,7 @@ public class MarcaDAO implements MarcaDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nombre"};
+        String encabezados[] = {"Id", "Nombre"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);

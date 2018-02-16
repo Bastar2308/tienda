@@ -16,12 +16,20 @@ import pojo.Marca;
  * @author Fernando
  */
 public interface MarcaDAOIf {
+
     public abstract int insertaMarca(Marca pojo);
+
     public abstract boolean eliminaMarca(int id);
+
     public abstract boolean modificaMarca(Marca pojo);
+
     public abstract Marca buscaMarca(int id);
+
     public abstract DefaultTableModel cargarTabla();
+
     public abstract DefaultComboBoxModel<Marca> cargarCombo();
+
     public abstract DefaultListModel<Marca> cargarLista();
+
     public abstract Marca inflaMarca(ResultSet rs);
 }

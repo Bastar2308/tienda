@@ -9,7 +9,6 @@ import dao.Alimento_Prohibido_ClienteDAO;
 import dao.ClienteDAO;
 import pojo.Alimento_Prohibido_Cliente;
 
-
 /**
  *
  * @author Fernando
@@ -104,7 +103,7 @@ public class ProhibidoGUI extends javax.swing.JFrame {
 
     private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
         // TODO add your handling code here:
-        int id = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(),0).toString());
+        int id = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
         jTable2.setModel(Alimento_Prohibido_ClienteDAO.getInstance().cargarTabla(id));
     }//GEN-LAST:event_jTable1MouseReleased
 

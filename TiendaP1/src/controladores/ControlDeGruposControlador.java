@@ -20,7 +20,6 @@ import java.awt.event.ActionListener;
 public class ControlDeGruposControlador implements ActionListener {
 
     JfControlDeGrupos vista;
-    
 
     public ControlDeGruposControlador(JfControlDeGrupos vista) {
         this.vista = vista;

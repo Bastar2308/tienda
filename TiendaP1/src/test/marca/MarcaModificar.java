@@ -13,6 +13,7 @@ import pojo.Marca;
  * @author Fernando
  */
 public class MarcaModificar {
+
     public static void main(String[] args) {
         Marca marca = new Marca();
         marca.setIdMarca(2);

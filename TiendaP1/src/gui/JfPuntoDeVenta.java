@@ -36,7 +36,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJbAgregar(javax.swing.JButton jbAgregar) {
-        this.jbAgregar=jbAgregar;
+        this.jbAgregar = jbAgregar;
     }
 
     public javax.swing.JButton getJbEliminar() {
@@ -44,7 +44,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJbEliminar(javax.swing.JButton jbEliminar) {
-        this.jbEliminar=jbEliminar;
+        this.jbEliminar = jbEliminar;
     }
 
     public javax.swing.JButton getJbLimpiar() {
@@ -52,7 +52,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJbLimpiar(javax.swing.JButton jbLimpiar) {
-        this.jbLimpiar=jbLimpiar;
+        this.jbLimpiar = jbLimpiar;
     }
 
     public javax.swing.JButton getJbRegresar() {
@@ -60,7 +60,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJbRegresar(javax.swing.JButton jbRegresar) {
-        this.jbRegresar=jbRegresar;
+        this.jbRegresar = jbRegresar;
     }
 
     public javax.swing.JLabel getJlProductos() {
@@ -68,7 +68,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJlProductos(javax.swing.JLabel jlProductos) {
-        this.jlProductos=jlProductos;
+        this.jlProductos = jlProductos;
     }
 
     public javax.swing.JLabel getJlTotal() {
@@ -76,7 +76,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJlTotal(javax.swing.JLabel jlTotal) {
-        this.jlTotal=jlTotal;
+        this.jlTotal = jlTotal;
     }
 
     public javax.swing.JTable getJtProductos() {
@@ -84,7 +84,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJtProductos(javax.swing.JTable jtProductos) {
-        this.jtProductos=jtProductos;
+        this.jtProductos = jtProductos;
     }
 
     public javax.swing.JTable getJtProductosSeleccionados() {
@@ -92,7 +92,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJtProductosSeleccionados(javax.swing.JTable jtProductosSeleccionados) {
-        this.jtProductosSeleccionados=jtProductosSeleccionados;
+        this.jtProductosSeleccionados = jtProductosSeleccionados;
     }
 
     public javax.swing.JTextField getTfFiltrar() {
@@ -100,7 +100,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setTfFiltrar(javax.swing.JTextField tfFiltrar) {
-        this.tfFiltrar=tfFiltrar;
+        this.tfFiltrar = tfFiltrar;
     }
 
     public javax.swing.JComboBox<Object> getJcbNombres() {
@@ -108,7 +108,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJcbNombres(javax.swing.JComboBox<Object> jcbNombres) {
-        this.jcbNombres=jcbNombres;
+        this.jcbNombres = jcbNombres;
     }
 
     public javax.swing.JButton getJbConfirmaVenta() {
@@ -116,7 +116,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     }
 
     public void setJbConfirmaVenta(javax.swing.JButton jbConfirmaVenta) {
-        this.jbConfirmaVenta=jbConfirmaVenta;
+        this.jbConfirmaVenta = jbConfirmaVenta;
     }
 
     private static class JfPuntoDeVentaHolder {
@@ -472,6 +472,5 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     private javax.swing.JTable jtProductosSeleccionados;
     private javax.swing.JTextField tfFiltrar;
     // End of variables declaration//GEN-END:variables
-
 
 }

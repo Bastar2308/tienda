@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
-
 public class Marca {
+
     private int idMarca;
     private String nombre;
 

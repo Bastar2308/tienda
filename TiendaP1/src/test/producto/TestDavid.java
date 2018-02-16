@@ -9,9 +9,8 @@ import gui.JfProductosMenuPrincipal;
 
 public class TestDavid {
 
-    
-        public static void main(String[] args) {
-            new JfProductosMenuPrincipal().setVisible(true);
-        }
-    
+    public static void main(String[] args) {
+        new JfProductosMenuPrincipal().setVisible(true);
+    }
+
 }

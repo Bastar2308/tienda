@@ -9,12 +9,12 @@ import dao.ClienteDAO;
 import java.sql.Date;
 import pojo.Cliente;
 
-
 /**
  *
  * @author Fernando
  */
 public class ClienteModificar {
+
     public static void main(String[] args) {
         Cliente cliente = new Cliente();
         cliente.setIdCliente(1);

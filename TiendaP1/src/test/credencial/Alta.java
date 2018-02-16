@@ -21,8 +21,8 @@ public class Alta extends javax.swing.JFrame {
     public Alta() {
         initComponents();
     }
-    
-    public void ingresar(){
+
+    public void ingresar() {
         Cliente cliente = new Cliente();
         cliente.setNombre(jTextField1.getText());
         cliente.setSaldo(Integer.parseInt(jTextField2.getText()));

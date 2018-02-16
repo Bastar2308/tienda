@@ -15,21 +15,24 @@ import java.awt.event.ActionListener;
  *
  * @author MAESTROAD
  */
-public class MenuCargaSaldoControlador implements ActionListener{
+public class MenuCargaSaldoControlador implements ActionListener {
+
     JfMenuCargaSaldo vista;
 
     public MenuCargaSaldoControlador(JfMenuCargaSaldo vista) {
         this.vista = vista;
         addListeners();
     }
-    public void addListeners(){
+
+    public void addListeners() {
         vista.getJbRegresar().addActionListener(this);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
         }
     }
-    
+
 }

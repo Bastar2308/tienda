@@ -31,7 +31,7 @@ public class PuntoDeVentaControlador implements ActionListener {
     JfPuntoDeVenta vista;
 
     public PuntoDeVentaControlador(JfPuntoDeVenta vista) {
-        this.vista=vista;
+        this.vista = vista;
         addListeners();
         cargaTabla();
         cargaClientes();
@@ -62,42 +62,42 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void cargaTabla() {
-        DefaultTableModel original=(DefaultTableModel) vista.getJtProductos().getModel();
+        DefaultTableModel original = (DefaultTableModel) vista.getJtProductos().getModel();
         original.setRowCount(0);
-        DefaultTableModel datos=ProductoDAO.getInstance().cargarTabla();
-        for (int i=0; i<datos.getRowCount(); i++) {
+        DefaultTableModel datos = ProductoDAO.getInstance().cargarTabla();
+        for (int i = 0; i < datos.getRowCount(); i ++) {
             original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 4), datos.getValueAt(i, 5), datos.getValueAt(i, 6), datos.getValueAt(i, 7)});
         }
     }
 
     private void agrega() {
-        if (vista.getJtProductos().getSelectedRow()!=-1) {
-            int cantidad=-1;
+        if (vista.getJtProductos().getSelectedRow() != -1) {
+            int cantidad = -1;
             try {
-                cantidad=Integer.parseInt((String) JOptionPane.showInputDialog(null, "¿Qué cantidad agregar?", "Cantidad", JOptionPane.QUESTION_MESSAGE, null, null, "1"));
+                cantidad = Integer.parseInt((String) JOptionPane.showInputDialog(null, "¿Qué cantidad agregar?", "Cantidad", JOptionPane.QUESTION_MESSAGE, null, null, "1"));
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor válido", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            if (cantidad>0) {
-                boolean yaAgregado=false;
-                int idDelProductoYaAgregado=-1;
-                for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
+            if (cantidad > 0) {
+                boolean yaAgregado = false;
+                int idDelProductoYaAgregado = -1;
+                for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
                     if (vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0)
-                            ==vista.getJtProductosSeleccionados().getValueAt(i, 0)) {
-                        yaAgregado=true;
-                        idDelProductoYaAgregado=(int) vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0);
+                            == vista.getJtProductosSeleccionados().getValueAt(i, 0)) {
+                        yaAgregado = true;
+                        idDelProductoYaAgregado = (int) vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0);
                     }
                 }
                 if (yaAgregado) {
-                    for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
-                        if ((int) vista.getJtProductosSeleccionados().getValueAt(i, 0)==idDelProductoYaAgregado) {
-                            DefaultTableModel modelo=(DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
-                            int cantidadAntigua=(int) vista.getJtProductosSeleccionados().getValueAt(i, 6);
-                            modelo.setValueAt(cantidadAntigua+cantidad, i, 6);
+                    for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+                        if ((int) vista.getJtProductosSeleccionados().getValueAt(i, 0) == idDelProductoYaAgregado) {
+                            DefaultTableModel modelo = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
+                            int cantidadAntigua = (int) vista.getJtProductosSeleccionados().getValueAt(i, 6);
+                            modelo.setValueAt(cantidadAntigua + cantidad, i, 6);
                         }
                     }
                 } else {
-                    DefaultTableModel productosSeleccionados=(DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
+                    DefaultTableModel productosSeleccionados = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
                     productosSeleccionados.addRow(
                             new Object[]{
                                 vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0),
@@ -116,7 +116,7 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void eliminar() {
-        if (vista.getJtProductosSeleccionados().getSelectedRow()!=-1) {
+        if (vista.getJtProductosSeleccionados().getSelectedRow() != -1) {
             ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).removeRow(vista.getJtProductosSeleccionados().getSelectedRow());
         }
     }
@@ -126,9 +126,9 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void cargaClientes() {
-        DefaultTableModel datos=ClienteDAO.getInstance().cargarClientes();
-        for (int i=0; i<datos.getRowCount(); i++) {
-            Cliente cliente=new Cliente();
+        DefaultTableModel datos = ClienteDAO.getInstance().cargarClientes();
+        for (int i = 0; i < datos.getRowCount(); i ++) {
+            Cliente cliente = new Cliente();
 
             cliente.setIdCliente((int) datos.getValueAt(i, 0));
             cliente.setNombre((String) datos.getValueAt(i, 1));
@@ -147,39 +147,39 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void actualizaTotales() {
-        double total=0;
-        int cantidad=0;
-        for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
-            total+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 2).toString())
-                    *Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
-            cantidad+=Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
+        double total = 0;
+        int cantidad = 0;
+        for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+            total += Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 2).toString())
+                    * Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
+            cantidad += Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 6).toString());
         }
-        vista.getJlTotal().setText(""+total);
-        vista.getJlProductos().setText(""+cantidad);
+        vista.getJlTotal().setText("" + total);
+        vista.getJlProductos().setText("" + cantidad);
     }
 
     private void confirmaVenta() {
-        if (vista.getJtProductosSeleccionados().getRowCount()>0) {
-            Venta venta=new Venta();
+        if (vista.getJtProductosSeleccionados().getRowCount() > 0) {
+            Venta venta = new Venta();
 
             venta.setCliente_idCliente(((Cliente) vista.getJcbNombres().getSelectedItem()).getIdCliente());
             venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
             venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
-            int idVenta=VentaDAO.getInstance().insertaVenta(venta);
+            int idVenta = VentaDAO.getInstance().insertaVenta(venta);
 
-            for (int i=0; i<vista.getJtProductosSeleccionados().getRowCount(); i++) {
-                Detalle_Venta detalle_Venta=new Detalle_Venta();
+            for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+                Detalle_Venta detalle_Venta = new Detalle_Venta();
 
                 detalle_Venta.setVenta_idVenta(idVenta);
                 detalle_Venta.setCantidad(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 6).toString())));
                 detalle_Venta.setSubtotal(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 6).toString()))
-                        *Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 2)).toString()));
+                        * Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 2)).toString()));
                 detalle_Venta.setProducto_idProducto((int) (vista.getJtProductosSeleccionados().getValueAt(i, 0)));
 
                 Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta);
             }
-            JOptionPane.showMessageDialog(null, "Venta agregada correctmente","Éxito",JOptionPane.INFORMATION_MESSAGE);
-            ((DefaultTableModel)vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
+            JOptionPane.showMessageDialog(null, "Venta agregada correctmente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
             vista.getJlTotal().setText("0.0");
             vista.getJlProductos().setText("0");
         }

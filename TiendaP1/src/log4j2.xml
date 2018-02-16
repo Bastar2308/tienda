@@ -14,7 +14,7 @@ and open the template in the editor.
         <!--Indico el nombre que le voy a asignar a mi archivo de logs-->
         <RollingFile name = "RollingFile" fileName = "${baseDir}/app.log" 
                      filePattern = "${baseDir}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}.log.gz">
-                    <!--Indico el formato o patrón con el que quiero que me guarde los distintos logs-->
+            <!--Indico el formato o patrón con el que quiero que me guarde los distintos logs-->
             <PatternLayout pattern = "%d %p %c{1.} [%t] %m%n"/>
             <!--Hora en la que hará el renombreo, en éste caso a las 12:00 am-->
             <CronTriggeringPolicy schedule = "0 0 0 * * ?"/>

@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
 import java.sql.Blob;
 import java.sql.Date;
 
-
 public class Cliente {
+
     private int idCliente;
     private int grupo_idGrupo;
     private String nombre;

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
 import java.sql.Date;
 
 public class Alimento_Prohibido_Cliente {
+
     private int cliente_idCliente;
     private int producto_idProducto;
     private Date fecha_inicio;

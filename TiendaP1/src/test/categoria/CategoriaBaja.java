@@ -12,6 +12,7 @@ import dao.CategoriaDAO;
  * @author Fernando
  */
 public class CategoriaBaja {
+
     public static void main(String[] args) {
         if (CategoriaDAO.getInstance().eliminaCategoria(2) == true) {
             System.out.println("Éxito al eliminar");

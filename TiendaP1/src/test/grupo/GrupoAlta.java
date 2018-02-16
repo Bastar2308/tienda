@@ -13,6 +13,7 @@ import pojo.Grupo;
  * @author Fernando
  */
 public class GrupoAlta {
+
     public static void main(String[] args) {
         Grupo grupo = new Grupo();
         grupo.setNombre("Grupo001");
@@ -21,6 +22,6 @@ public class GrupoAlta {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");
-        }   
+        }
     }
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import daoif.ProductoDAOIf;
@@ -18,23 +17,22 @@ import pojo.Categoria;
 import pojo.Marca;
 import pojo.Producto;
 
+public class ProductoDAO implements ProductoDAOIf {
 
-public class ProductoDAO implements ProductoDAOIf{
-    
-    private static final String TABLE="producto";
-    private static final String SQL_INSERT="INSERT INTO "+TABLE+" (nombre, precio, stock, detalles, categoria_idCategoria, marca_idMarca, codigo) VALUES (?,?,?,?,?,?,?)";
-    private static final String SQL_QUERY="SELECT * FROM "+TABLE+ " WHERE idProducto = ?";
+    private static final String TABLE = "producto";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, precio, stock, detalles, categoria_idCategoria, marca_idMarca, codigo) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idProducto = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
-    private static final String SQL_DELETE="DELETE FROM "+TABLE+" WHERE idProducto=?";
-    private static final String SQL_UPDATE="UPDATE "+TABLE+" SET nombre=?, precio=?, stock=?, detalles=?, categoria_idCategoria=?, marca_idMarca=?, codigo=? WHERE idProducto=?";
-    
+    private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idProducto=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, precio=?, stock=?, detalles=?, categoria_idCategoria=?, marca_idMarca=?, codigo=? WHERE idProducto=?";
+
     private ProductoDAO() {
     }
-    
+
     public static ProductoDAO getInstance() {
         return ProductoDAOHolder.INSTANCE;
     }
-    
+
     private static class ProductoDAOHolder {
 
         private static final ProductoDAO INSTANCE = new ProductoDAO();
@@ -144,7 +142,7 @@ public class ProductoDAO implements ProductoDAOIf{
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id","Nombre", "Precio", "Stock", "Detalles", "Categoría", "Marca", "Codigo"};
+        String encabezados[] = {"Id", "Nombre", "Precio", "Stock", "Detalles", "Categoría", "Marca", "Codigo"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);

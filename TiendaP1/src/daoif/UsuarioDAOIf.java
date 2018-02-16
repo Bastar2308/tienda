@@ -13,9 +13,9 @@ import pojo.Usuario;
  * @author Profesor Bastar
  */
 public interface UsuarioDAOIf {
-    
-    public abstract Usuario iniciaSesion(String usuario,String password);
+
+    public abstract Usuario iniciaSesion(String usuario, String password);
+
     public abstract Usuario inflaUsuario(ResultSet rs);
-    
 
 }

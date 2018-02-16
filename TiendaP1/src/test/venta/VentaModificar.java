@@ -17,6 +17,7 @@ import pojo.Venta;
  * @author Fernando
  */
 public class VentaModificar {
+
     public static void main(String[] args) {
         Venta venta = new Venta();
         venta.setCliente_idCliente(2);
@@ -27,7 +28,7 @@ public class VentaModificar {
         detalle_venta.setCantidad(3);
         detalle_venta.setProducto_idProducto(3);
         Producto producto = ProductoDAO.getInstance().buscaCategoria(3);
-        detalle_venta.setSubtotal(3*producto.getPrecio());
+        detalle_venta.setSubtotal(3 * producto.getPrecio());
         detalle_venta.setVenta_idVenta(venta.getIdVenta());
         if (Detalle_VentaDAO.getInstance().eliminaDetalle_Venta(venta.getIdVenta())) {
             System.out.println("Detalle eliminado correctamente");

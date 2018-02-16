@@ -15,12 +15,13 @@ import java.awt.event.ActionListener;
  *
  * @author MAESTROAD
  */
-public class MenuGeneradorCredencialesControlador implements ActionListener{
+public class MenuGeneradorCredencialesControlador implements ActionListener {
+
     JfMenuGeneradorCredenciales vista;
 
     public MenuGeneradorCredencialesControlador(JfMenuGeneradorCredenciales vista) {
         this.vista = vista;
-            addListeners();
+        addListeners();
     }
 
     private void addListeners() {
@@ -33,5 +34,5 @@ public class MenuGeneradorCredencialesControlador implements ActionListener{
             GuiTools.getInstance().regresaMenu(vista);
         }
     }
-    
+
 }

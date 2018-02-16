@@ -1,14 +1,10 @@
 package test.correo;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import auxiliares.MailTools;
 import java.util.Properties;
 import javax.activation.FileDataSource;
@@ -25,6 +21,7 @@ import javax.mail.internet.MimeMessage;
  * @author Fernando
  */
 public class EnviarCorreo {
+
     public static void main(String[] args) {
         /*Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -56,8 +53,8 @@ public class EnviarCorreo {
             System.out.println("Error en el envío");
             throw new RuntimeException(e);
         }*/
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
-                "aaronlr160399@hotmail.com", "Funciona", "Mensaje enviado desde STCBB", 
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+                "aaronlr160399@hotmail.com", "Funciona", "Mensaje enviado desde STCBB",
                 new FileDataSource("C:/Users/aaron/Desktop/0001.jpg"));
     }
 }

@@ -94,7 +94,7 @@ public class MenuMarcasControlador implements ActionListener {
 
     private void apagaDialogoEliminar() {
         vista.getJdEliminar().dispose();
-    }    
+    }
 
     private String obtenerMarcaSeleccionada() {
         return vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString();

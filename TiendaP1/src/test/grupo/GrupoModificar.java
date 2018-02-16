@@ -9,12 +9,12 @@ import dao.CategoriaDAO;
 import dao.GrupoDAO;
 import pojo.Grupo;
 
-
 /**
  *
  * @author Fernando
  */
 public class GrupoModificar {
+
     public static void main(String[] args) {
         Grupo grupo = new Grupo();
         grupo.setIdGrupo(6);

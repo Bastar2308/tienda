@@ -21,7 +21,7 @@ public class MensajeNormal extends javax.swing.JFrame {
         Image image;
         image = new ImageIcon(this.getClass().getResource("/recursos/iconocbb.png")).getImage();
         GuiTools.getInstance().inicializaJFrame(this, "Información", true, image);
-        getContentPane().setBackground(new Color(102,102,102));
+        getContentPane().setBackground(new Color(102, 102, 102));
     }
 
     /**

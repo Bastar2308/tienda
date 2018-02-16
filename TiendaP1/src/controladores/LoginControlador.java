@@ -18,10 +18,10 @@ import gui.JfMenuPrincipal;
 public class LoginControlador implements ActionListener {
 
     private JfLogin vista;
-   
+
     public LoginControlador(JfLogin vista) {
         this.vista = vista;
-       
+
         cargarListeners();
     }
 

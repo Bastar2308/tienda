@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pojo;
 
-
 public class Detalle_Venta {
+
     private int venta_idVenta;
     private int producto_idProducto;
     private double cantidad;
@@ -18,7 +17,7 @@ public class Detalle_Venta {
     }
 
     public void setVenta_idVenta(int venta_idVenta) {
-        this.venta_idVenta=venta_idVenta;
+        this.venta_idVenta = venta_idVenta;
     }
 
     public int getProducto_idProducto() {
@@ -26,7 +25,7 @@ public class Detalle_Venta {
     }
 
     public void setProducto_idProducto(int producto_idProducto) {
-        this.producto_idProducto=producto_idProducto;
+        this.producto_idProducto = producto_idProducto;
     }
 
     public double getCantidad() {
@@ -34,7 +33,7 @@ public class Detalle_Venta {
     }
 
     public void setCantidad(double cantidad) {
-        this.cantidad=cantidad;
+        this.cantidad = cantidad;
     }
 
     public double getSubtotal() {
@@ -42,6 +41,6 @@ public class Detalle_Venta {
     }
 
     public void setSubtotal(double subtotal) {
-        this.subtotal=subtotal;
+        this.subtotal = subtotal;
     }
 }

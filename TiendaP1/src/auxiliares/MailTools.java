@@ -5,8 +5,6 @@ package auxiliares;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
@@ -30,26 +28,27 @@ import javax.mail.internet.MimeMultipart;
  *
  * @author Fernando
  */
-public class MailTools {    
-    
+public class MailTools {
+
     private MailTools() {
     }
-    
+
     public static MailTools getInstance() {
         return LogToolsHolder.INSTANCE;
     }
-    
+
     private static class LogToolsHolder {
 
         private static final MailTools INSTANCE = new MailTools();
     }
-    
+
     /**
      * Inicia sesión en una cuenta de correo existente
+     *
      * @param correo
      * @param password
      */
-    public Session iniciarSesion(final String correo, final String password){
+    public Session iniciarSesion(final String correo, final String password) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);
         props.put("mail.smtp.starttls.enable", "true");
@@ -60,13 +59,13 @@ public class MailTools {
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(correo, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(correo, password);
+            }
+        });
         return session;
     }
-    
+
     /**
      * Envía un correo desde una sesión iniciada
      *
@@ -74,10 +73,9 @@ public class MailTools {
      * @param destinatario
      * @param asunto
      * @param mensaje
-     * 
+     *
      */
-    
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje){
+    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
@@ -91,11 +89,11 @@ public class MailTools {
             return true;
 
         } catch (MessagingException e) {
-            System.out.println("Error en el envío "+e);
+            System.out.println("Error en el envío " + e);
             return false;
         }
     }
-    
+
     /**
      * Envía un correo desde una sesión iniciada adjuntando un archivo
      *
@@ -104,21 +102,21 @@ public class MailTools {
      * @param asunto
      * @param mensaje
      * @param archivo
-     * 
+     *
      */
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, FileDataSource archivo){
+    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, FileDataSource archivo) {
         try {
             BodyPart texto = new MimeBodyPart();
             texto.setText(mensaje);
-            
+
             BodyPart adjunto = new MimeBodyPart();
             adjunto.setDataHandler(new DataHandler(archivo));
             adjunto.setFileName("credencial.png");
-            
+
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
             multiParte.addBodyPart(adjunto);
-            
+
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
@@ -131,7 +129,7 @@ public class MailTools {
             return true;
 
         } catch (MessagingException e) {
-            System.out.println("Error en el envío "+e);
+            System.out.println("Error en el envío " + e);
             return false;
         }
     }
@@ -141,5 +139,5 @@ public class MailTools {
      * @param mensaje
      * @param e
      */
-    
+
 }
