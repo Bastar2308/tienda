@@ -10,7 +10,6 @@ public class Producto {
     private int idProducto;
     private String nombre;
     private double precio;
-    private int stock;
     private String detalles;
     private int categoria_idCategoria;
     private int marca_idMarca;
@@ -38,14 +37,6 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     public String getDetalles() {

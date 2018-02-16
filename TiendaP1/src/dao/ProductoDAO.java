@@ -20,11 +20,11 @@ import pojo.Producto;
 public class ProductoDAO implements ProductoDAOIf {
 
     private static final String TABLE = "producto";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, precio, stock, detalles, categoria_idCategoria, marca_idMarca, codigo) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, precio, detalles, categoria_idCategoria, marca_idMarca, codigo) VALUES (?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idProducto = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idProducto=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, precio=?, stock=?, detalles=?, categoria_idCategoria=?, marca_idMarca=?, codigo=? WHERE idProducto=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, precio=?, detalles=?, categoria_idCategoria=?, marca_idMarca=?, codigo=? WHERE idProducto=?";
 
     private ProductoDAO() {
     }
@@ -48,11 +48,10 @@ public class ProductoDAO implements ProductoDAOIf {
             st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getPrecio());
-            st.setInt(3, pojo.getStock());
-            st.setString(4, pojo.getDetalles());
-            st.setInt(5, pojo.getCategoria_idCategoria());
-            st.setInt(6, pojo.getMarca_idMarca());
-            st.setString(7, pojo.getCodigo());
+            st.setString(3, pojo.getDetalles());
+            st.setInt(4, pojo.getCategoria_idCategoria());
+            st.setInt(5, pojo.getMarca_idMarca());
+            st.setString(6, pojo.getCodigo());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar producto" + e);
@@ -95,12 +94,11 @@ public class ProductoDAO implements ProductoDAOIf {
             st = con.prepareStatement(SQL_UPDATE);
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getPrecio());
-            st.setInt(3, pojo.getStock());
-            st.setString(4, pojo.getDetalles());
-            st.setInt(5, pojo.getCategoria_idCategoria());
-            st.setInt(6, pojo.getMarca_idMarca());
-            st.setString(7, pojo.getCodigo());
-            st.setInt(8, pojo.getIdProducto());
+            st.setString(3, pojo.getDetalles());
+            st.setInt(4, pojo.getCategoria_idCategoria());
+            st.setInt(5, pojo.getMarca_idMarca());
+            st.setString(6, pojo.getCodigo());
+            st.setInt(7, pojo.getIdProducto());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -142,7 +140,7 @@ public class ProductoDAO implements ProductoDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Precio", "Stock", "Detalles", "Categoría", "Marca", "Codigo"};
+        String encabezados[] = {"Id", "Nombre", "Precio", "Detalles", "Categoría", "Marca", "Codigo"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -157,11 +155,10 @@ public class ProductoDAO implements ProductoDAOIf {
                 ob[0] = pojo.getIdProducto();
                 ob[1] = pojo.getNombre();
                 ob[2] = pojo.getPrecio();
-                ob[3] = pojo.getStock();
-                ob[4] = pojo.getDetalles();
-                ob[5] = categoria.getNombre();
-                ob[6] = marca.getNombre();
-                ob[7] = pojo.getCodigo();
+                ob[3] = pojo.getDetalles();
+                ob[4] = categoria.getNombre();
+                ob[5] = marca.getNombre();
+                ob[6] = pojo.getCodigo();
                 dt.addRow(ob);
             }
             rs.close();
@@ -214,7 +211,6 @@ public class ProductoDAO implements ProductoDAOIf {
             pojo.setIdProducto(rs.getInt("idProducto"));
             pojo.setNombre(rs.getString("nombre"));
             pojo.setPrecio(rs.getDouble("precio"));
-            pojo.setStock(rs.getInt("stock"));
             pojo.setDetalles(rs.getString("detalles"));
             pojo.setCategoria_idCategoria(rs.getInt("categoria_idCategoria"));
             pojo.setMarca_idMarca(rs.getInt("marca_idMarca"));
