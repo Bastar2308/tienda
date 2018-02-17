@@ -18,11 +18,12 @@ import pojo.Grupo;
 public class GrupoDAO implements GrupoDAOIf {
 
     private static final String TABLE = "grupo";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, nivel) VALUES (?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nivel, grado, grupo) VALUES (?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nivel=?, grado=?, grupo=? WHERE idGrupo=?";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idGrupo = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idGrupo=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, nivel=? WHERE idGrupo=?";
+    
 
     private GrupoDAO() {
     }
@@ -44,8 +45,9 @@ public class GrupoDAO implements GrupoDAOIf {
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
-            st.setString(1, pojo.getNombre());
-            st.setString(2, pojo.getNivel());
+            st.setString(1, pojo.getNivel());
+            st.setString(2, pojo.getGrado());
+            st.setString(3, pojo.getGrupo());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar grupo" + e);
@@ -86,9 +88,10 @@ public class GrupoDAO implements GrupoDAOIf {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
             st = con.prepareStatement(SQL_UPDATE);
-            st.setString(1, pojo.getNombre());
-            st.setString(2, pojo.getNivel());
-            st.setInt(3, pojo.getIdGrupo());
+            st.setString(1, pojo.getNivel());
+            st.setString(2, pojo.getGrado());
+            st.setString(3, pojo.getGrupo());
+            st.setInt(4, pojo.getIdGrupo());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -138,11 +141,12 @@ public class GrupoDAO implements GrupoDAOIf {
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[3];
+                Object ob[] = new Object[4];
                 Grupo pojo = inflaGrupo(rs);
                 ob[0] = pojo.getIdGrupo();
-                ob[1] = pojo.getNombre();
-                ob[2] = pojo.getNivel();
+                ob[1] = pojo.getGrado();
+                ob[2] = pojo.getGrupo();
+                ob[3] = pojo.getNivel();
                 dt.addRow(ob);
             }
             rs.close();
@@ -193,7 +197,8 @@ public class GrupoDAO implements GrupoDAOIf {
         Grupo pojo = new Grupo();
         try {
             pojo.setIdGrupo(rs.getInt("idGrupo"));
-            pojo.setNombre(rs.getString("nombre"));
+            pojo.setGrado(rs.getString("grado"));
+            pojo.setGrupo(rs.getString("grupo"));
             pojo.setNivel(rs.getString("nivel"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar grupo " + ex);

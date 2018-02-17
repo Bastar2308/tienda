@@ -8,8 +8,9 @@ package pojo;
 public class Grupo {
 
     private int idGrupo;
-    private String nombre;
     private String nivel;
+    private String grado;
+    private String grupo;
 
     public int getIdGrupo() {
         return idGrupo;
@@ -17,14 +18,6 @@ public class Grupo {
 
     public void setIdGrupo(int idGrupo) {
         this.idGrupo = idGrupo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getNivel() {
@@ -35,8 +28,24 @@ public class Grupo {
         this.nivel = nivel;
     }
 
+    public String getGrado() {
+        return grado;
+    }
+
+    public void setGrado(String grado) {
+        this.grado = grado;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
     @Override
     public String toString() {
-        return getNombre();
+        return getGrado()+" "+getGrupo()+"-"+getNivel();
     }
 }
