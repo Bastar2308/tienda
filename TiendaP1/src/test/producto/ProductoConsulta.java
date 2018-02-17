@@ -21,7 +21,6 @@ public class ProductoConsulta {
             System.out.println("ID: " + producto.getIdProducto());
             System.out.println("Nombre: " + producto.getNombre());
             System.out.println("Precio: " + producto.getPrecio());
-            System.out.println("Stock: " + producto.getStock());
             System.out.println("Detalles: " + producto.getDetalles());
             System.out.println("Categoría: " + producto.getCategoria_idCategoria());
             System.out.println("Marca: " + producto.getMarca_idMarca());

@@ -27,13 +27,11 @@ public class Alta extends javax.swing.JFrame {
         cliente.setNombre(jTextField1.getText());
         cliente.setSaldo(Integer.parseInt(jTextField2.getText()));
         cliente.setGrupo_idGrupo(Integer.parseInt(jTextField11.getText()));
-        cliente.setGrado(jTextField4.getText());
         cliente.setQr(jTextField3.getText());
         cliente.setFoto(null);
         cliente.setTutor(jTextField5.getText());
         cliente.setTelefono(jTextField6.getText());
         cliente.setCorreo(jTextField7.getText());
-        cliente.setCompras_sin_credencial(Integer.parseInt(jTextField8.getText()));
         cliente.setVigencia(new Date(118, 9, 27));
         if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
             System.out.println("Insertado correctamente");

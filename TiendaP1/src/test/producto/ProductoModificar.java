@@ -19,7 +19,6 @@ public class ProductoModificar {
         producto.setIdProducto(2);
         producto.setNombre("Producto002");
         producto.setPrecio(200);
-        producto.setStock(20);
         producto.setDetalles("Detalles002");
         producto.setCategoria_idCategoria(1);
         producto.setMarca_idMarca(1);

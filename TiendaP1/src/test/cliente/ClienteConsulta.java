@@ -27,7 +27,6 @@ public class ClienteConsulta {
             System.out.println("Tutor: " + cliente.getTutor());
             System.out.println("Teléfono: " + cliente.getTelefono());
             System.out.println("Correo: " + cliente.getCorreo());
-            System.out.println("Compras sin credencial: " + cliente.getCompras_sin_credencial());
         } else {
             System.out.println("Error en la consulta");
         }

@@ -18,7 +18,6 @@ public class ProductoAlta {
         Producto producto = new Producto();
         producto.setNombre("Producto003");
         producto.setPrecio(300);
-        producto.setStock(30);
         producto.setDetalles("Detalles003");
         producto.setCategoria_idCategoria(1);
         producto.setMarca_idMarca(1);
