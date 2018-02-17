@@ -22,11 +22,11 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, compras_sin_credencial, vigencia, grado) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, vigencia) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, compras_sin_credencial=?, vigencia=?, grado=?,WHERE idCliente=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, vigencia=?";
 
     private ClienteDAO() {
     }
@@ -52,12 +52,11 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setString(5, pojo.getTutor());
-            st.setString(6, pojo.getTelefono());
-            st.setString(7, pojo.getCorreo());
-            st.setInt(8, pojo.getCompras_sin_credencial());
+            st.setBlob(5, pojo.getFoto());
+            st.setString(6, pojo.getTutor());
+            st.setString(7, pojo.getTelefono());
+            st.setString(8, pojo.getCorreo());
             st.setDate(9, pojo.getVigencia());
-            st.setString(10, pojo.getGrado());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -102,14 +101,12 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setBinaryStream(5, new FileInputStream(new File(pojo.getRuta())), (int) new File(pojo.getRuta()).length());
+            st.setBlob(5, pojo.getFoto());
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
-            st.setInt(9, pojo.getCompras_sin_credencial());
-            st.setDate(10, pojo.getVigencia());
-            st.setString(11, pojo.getGrado());
-            st.setInt(12, pojo.getIdCliente());
+            st.setDate(9, pojo.getVigencia());
+            st.setInt(10, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -170,8 +167,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 ob[6] = pojo.getTutor();
                 ob[7] = pojo.getTelefono();
                 ob[8] = pojo.getCorreo();
-                ob[9] = pojo.getCompras_sin_credencial();
-                ob[10] = pojo.getVigencia();
+                ob[9] = pojo.getVigencia();
                 dt.addRow(ob);
             }
             rs.close();
@@ -189,7 +185,7 @@ public class ClienteDAO implements ClienteDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Compras sin credencial", "Vigencia"};
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -204,12 +200,12 @@ public class ClienteDAO implements ClienteDAOIf {
                 ob[1] = pojo.getNombre();
                 ob[2] = pojo.getSaldo();
                 ob[3] = grupo.getNombre();
-                ob[4] = pojo.getQr();
-                ob[5] = pojo.getFoto();
-                ob[6] = pojo.getTutor();
-                ob[7] = pojo.getTelefono();
-                ob[8] = pojo.getCorreo();
-                ob[9] = pojo.getCompras_sin_credencial();
+                ob[4] = grupo.getIdGrupo();
+                ob[5] = pojo.getQr();
+                ob[6] = pojo.getFoto();
+                ob[7] = pojo.getTutor();
+                ob[8] = pojo.getTelefono();
+                ob[9] = pojo.getCorreo();
                 ob[10] = pojo.getVigencia();
                 dt.addRow(ob);
             }
@@ -269,9 +265,7 @@ public class ClienteDAO implements ClienteDAOIf {
             pojo.setTutor(rs.getString("tutor"));
             pojo.setTelefono(rs.getString("telefono"));
             pojo.setCorreo(rs.getString("correo"));
-            pojo.setCompras_sin_credencial(rs.getInt("compras_sin_credencial"));
             pojo.setVigencia(rs.getDate("vigencia"));
-            pojo.setGrado(rs.getString("grado"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar cliente " + ex);
         }

@@ -11,17 +11,14 @@ import java.sql.Date;
 public class Cliente {
 
     private int idCliente;
-    private int grupo_idGrupo;
     private String nombre;
     private double saldo;
+    private int grupo_idGrupo;
     private String qr;
-    private String ruta;
     private Blob foto;
     private String tutor;
-    private String grado;
     private String telefono;
     private String correo;
-    private int compras_sin_credencial;
     private Date vigencia;
 
     public int getIdCliente() {
@@ -96,14 +93,6 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public int getCompras_sin_credencial() {
-        return compras_sin_credencial;
-    }
-
-    public void setCompras_sin_credencial(int compras_sin_credencial) {
-        this.compras_sin_credencial = compras_sin_credencial;
-    }
-
     @Override
     public String toString() {
         return getNombre();
@@ -117,19 +106,4 @@ public class Cliente {
         this.vigencia = vigencia;
     }
 
-    public String getRuta() {
-        return ruta;
-    }
-
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
-    }
-
-    public String getGrado() {
-        return grado;
-    }
-
-    public void setGrado(String grado) {
-        this.grado = grado;
-    }
 }
