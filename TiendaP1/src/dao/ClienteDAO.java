@@ -193,20 +193,19 @@ public class ClienteDAO implements ClienteDAOIf {
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[11];
+                Object ob[] = new Object[10];
                 Cliente pojo = inflaCliente(rs);
                 Grupo grupo = GrupoDAO.getInstance().buscaGrupo(pojo.getGrupo_idGrupo());
                 ob[0] = pojo.getIdCliente();
                 ob[1] = pojo.getNombre();
                 ob[2] = pojo.getSaldo();
-                ob[3] = grupo.getNombre();
-                ob[4] = grupo.getIdGrupo();
-                ob[5] = pojo.getQr();
-                ob[6] = pojo.getFoto();
-                ob[7] = pojo.getTutor();
-                ob[8] = pojo.getTelefono();
-                ob[9] = pojo.getCorreo();
-                ob[10] = pojo.getVigencia();
+                ob[3] = grupo.getIdGrupo();
+                ob[4] = pojo.getQr();
+                ob[5] = pojo.getFoto();
+                ob[6] = pojo.getTutor();
+                ob[7] = pojo.getTelefono();
+                ob[8] = pojo.getCorreo();
+                ob[9] = pojo.getVigencia();
                 dt.addRow(ob);
             }
             rs.close();

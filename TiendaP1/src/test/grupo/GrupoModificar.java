@@ -18,7 +18,8 @@ public class GrupoModificar {
     public static void main(String[] args) {
         Grupo grupo = new Grupo();
         grupo.setIdGrupo(6);
-        grupo.setNombre("Grupo002");
+        grupo.setGrado("2");
+        grupo.setGrupo("B");
         grupo.setNivel("Secundaria");
         if (GrupoDAO.getInstance().modificaGrupo(grupo) == true) {
             System.out.println("Actualizado correctamente");

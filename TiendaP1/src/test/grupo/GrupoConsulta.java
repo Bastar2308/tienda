@@ -19,7 +19,8 @@ public class GrupoConsulta {
         if (grupo != null) {
             System.out.println("Consultado correctamente");
             System.out.println("ID: " + grupo.getIdGrupo());
-            System.out.println("Nombre: " + grupo.getNombre());
+            System.out.println("Grado: " + grupo.getGrado());
+            System.out.println("Grupo: " + grupo.getGrupo());
             System.out.println("Nivel: " + grupo.getNivel());
         } else {
             System.out.println("Error en la consulta");
