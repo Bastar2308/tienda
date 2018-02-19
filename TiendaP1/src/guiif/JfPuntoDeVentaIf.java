@@ -18,6 +18,37 @@ import javax.swing.JTextField;
  */
 public interface JfPuntoDeVentaIf extends FrameRegresable {
 
+    public abstract JLabel getJlVigencia();
+
+    public abstract void setJlVigencia(JLabel x);
+    public abstract JLabel getJlId();
+
+    public abstract void setJlId(JLabel x);
+
+    public abstract JLabel getJlNombre();
+
+    public abstract void setJlNombre(JLabel x);
+
+    public abstract JLabel getJlSaldo();
+
+    public abstract void setJlSaldo(JLabel x);
+
+    public abstract JLabel getJlGrupo();
+
+    public abstract void setJlGrupo(JLabel x);
+
+    public abstract JTextField getTfFiltrarClientes();
+
+    public abstract void setTfFiltrarClientes(JTextField x);
+
+    public abstract JLabel getJlFoto();
+
+    public abstract void setJlFoto(JLabel x);
+
+    public abstract JTable getJtClientes();
+
+    public abstract void setJtClientes(JTable x);
+
     public abstract JTable getJtProductos();
 
     public abstract void setJtProductos(JTable x);
@@ -38,13 +69,13 @@ public interface JfPuntoDeVentaIf extends FrameRegresable {
 
     public abstract void setJbRegresar(JButton x);
 
+    public abstract JButton getJbSeleccionaCliente();
+
+    public abstract void setJbSeleccionaCliente(JButton x);
+
     public abstract JTextField getTfFiltrar();
 
     public abstract void setTfFiltrar(JTextField x);
-
-    public abstract JComboBox<Object> getJcbNombres();
-
-    public abstract void setJcbNombres(JComboBox<Object> x);
 
     public abstract JButton getJbConfirmaVenta();
 

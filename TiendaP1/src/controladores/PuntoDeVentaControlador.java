@@ -10,15 +10,21 @@ import dao.ClienteDAO;
 import dao.Detalle_VentaDAO;
 import dao.ProductoDAO;
 import dao.VentaDAO;
-import gui.JfMenuPrincipal;
 import gui.JfPuntoDeVenta;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Blob;
-import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import pojo.Cliente;
 import pojo.Detalle_Venta;
 import pojo.Venta;
 
@@ -35,6 +41,8 @@ public class PuntoDeVentaControlador implements ActionListener {
         addListeners();
         cargaTabla();
         cargaClientes();
+        vista.getJtClientes().setRowSelectionInterval(0, 0);
+        seleccionaCliente(0);
     }
 
     private void addListeners() {
@@ -124,21 +132,9 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void cargaClientes() {
         DefaultTableModel datos = ClienteDAO.getInstance().cargarClientes();
+        DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         for (int i = 0; i < datos.getRowCount(); i ++) {
-            Cliente cliente = new Cliente();
-
-            cliente.setIdCliente((int) datos.getValueAt(i, 0));
-            cliente.setNombre((String) datos.getValueAt(i, 1));
-            cliente.setSaldo((double) datos.getValueAt(i, 2));
-            cliente.setGrupo_idGrupo((int) datos.getValueAt(i, 3));
-            cliente.setQr((String) datos.getValueAt(i, 4));
-            cliente.setFoto((Blob) datos.getValueAt(i, 5));
-            cliente.setTutor((String) datos.getValueAt(i, 6));
-            cliente.setTelefono((String) datos.getValueAt(i, 7));
-            cliente.setCorreo((String) datos.getValueAt(i, 8));
-            cliente.setVigencia((Date) datos.getValueAt(i, 9));
-
-            vista.getJcbNombres().addItem(cliente);
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 9)});
         }
     }
 
@@ -158,7 +154,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         if (vista.getJtProductosSeleccionados().getRowCount() > 0) {
             Venta venta = new Venta();
 
-            venta.setCliente_idCliente(((Cliente) vista.getJcbNombres().getSelectedItem()).getIdCliente());
+            venta.setCliente_idCliente((Integer.parseInt(vista.getJlId().getText())));
             venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
             venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
             int idVenta = VentaDAO.getInstance().insertaVenta(venta);
@@ -179,5 +175,28 @@ public class PuntoDeVentaControlador implements ActionListener {
             vista.getJlTotal().setText("0.00");
             vista.getJlProductos().setText("0");
         }
+    }
+
+    private void seleccionaCliente(int id) {
+        Blob imagen = ClienteDAO.getInstance().buscaCliente(
+                (int) vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0)
+        ).getFoto();
+
+        try {
+            InputStream is = imagen.getBinaryStream(1, imagen.length());
+            BufferedImage imag = ImageIO.read(is);
+            Image image = imag;
+            ImageIcon icon = new ImageIcon(image);
+            vista.getJlFoto().setIcon(icon);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error cargando imagen de cliente: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        vista.getJlId().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString());
+        vista.getJlNombre().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 1).toString());
+        vista.getJlSaldo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 2).toString());
+        vista.getJlGrupo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 3).toString());
+        vista.getJlVigencia().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 4).toString());
     }
 }
