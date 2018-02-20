@@ -35,6 +35,27 @@ public class ClienteDAO implements ClienteDAOIf {
         return ClienteDAOHolder.INSTANCE;
     }
 
+    @Override
+    public boolean restaSaldo(String idClienteint, String cantidadARestar) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("UPDATE Cliente set saldo=saldo-"+cantidadARestar+" WHERE idCliente="+idClienteint);
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+
     private static class ClienteDAOHolder {
 
         private static final ClienteDAO INSTANCE = new ClienteDAO();
@@ -199,7 +220,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 ob[0] = pojo.getIdCliente();
                 ob[1] = pojo.getNombre();
                 ob[2] = pojo.getSaldo();
-                ob[3] = grupo.getIdGrupo();
+                ob[3] = grupo.getNivel() + " " + grupo.getGrado() + " " + grupo.getGrupo();
                 ob[4] = pojo.getQr();
                 ob[5] = pojo.getFoto();
                 ob[6] = pojo.getTutor();

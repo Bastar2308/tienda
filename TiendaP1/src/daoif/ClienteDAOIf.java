@@ -17,6 +17,8 @@ import pojo.Cliente;
  */
 public interface ClienteDAOIf {
 
+    public abstract boolean restaSaldo(String idClienteint, String cantidadARestar);
+
     public abstract int insertaCliente(Cliente pojo);
 
     public abstract boolean eliminaCliente(int id);
