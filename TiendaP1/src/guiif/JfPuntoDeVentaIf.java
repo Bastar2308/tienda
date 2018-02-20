@@ -21,6 +21,7 @@ public interface JfPuntoDeVentaIf extends FrameRegresable {
     public abstract JLabel getJlVigencia();
 
     public abstract void setJlVigencia(JLabel x);
+
     public abstract JLabel getJlId();
 
     public abstract void setJlId(JLabel x);
