@@ -14,6 +14,8 @@ import gui.JfPuntoDeVenta;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +26,9 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import pojo.Detalle_Venta;
 import pojo.Venta;
 
@@ -52,6 +56,22 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJbLimpiar().addActionListener(this);
         vista.getJbConfirmaVenta().addActionListener(this);
         vista.getJbSeleccionaCliente().addActionListener(this);
+        vista.getTfFiltrarClientes().addKeyListener(
+                new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                filtraClientes();
+            }
+        }
+        );
+        vista.getTfFiltrarProductos().addKeyListener(
+                new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                filtraProductos();
+            }
+        }
+        );
     }
 
     @Override
@@ -220,5 +240,19 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJlSaldo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 2).toString());
         vista.getJlGrupo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 3).toString());
         vista.getJlVigencia().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 4).toString());
+    }
+
+    void filtraClientes() {
+        DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtClientes().getModel();
+        TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
+        vista.getJtClientes().setRowSorter(tableRowSorter);
+        tableRowSorter.setRowFilter(RowFilter.regexFilter(vista.getTfFiltrarClientes().getText()));
+    }
+
+    void filtraProductos() {
+        DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtProductos().getModel();
+        TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
+        vista.getJtProductos().setRowSorter(tableRowSorter);
+        tableRowSorter.setRowFilter(RowFilter.regexFilter(vista.getTfFiltrarProductos().getText()));
     }
 }
