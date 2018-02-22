@@ -148,7 +148,7 @@ public class ProductoDAO implements ProductoDAOIf {
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[8];
+                Object ob[] = new Object[7];
                 Producto pojo = inflaProducto(rs);
                 Categoria categoria = CategoriaDAO.getInstance().buscaCategoria(pojo.getCategoria_idCategoria());
                 Marca marca = MarcaDAO.getInstance().buscaMarca(pojo.getMarca_idMarca());
