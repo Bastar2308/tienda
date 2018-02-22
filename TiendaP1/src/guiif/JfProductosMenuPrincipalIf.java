@@ -54,10 +54,6 @@ public interface JfProductosMenuPrincipalIf extends FrameRegresable {
 
     public abstract void setJsAgregarPrecio(JSpinner x);
 
-    public abstract JSpinner getJsAgregarStock();
-
-    public abstract void setJsAgregarStock(JSpinner x);
-
     public abstract JTextArea getJtaAgregarDetalles();
 
     public abstract void setJtaAgregarDetalles(JTextArea x);
@@ -89,10 +85,6 @@ public interface JfProductosMenuPrincipalIf extends FrameRegresable {
     public abstract JSpinner getJsEditarPrecio();
 
     public abstract void setJsEditarPrecio(JSpinner x);
-
-    public abstract JSpinner getJsEditarStock();
-
-    public abstract void setJsEditarStock(JSpinner x);
 
     public abstract JTextArea getJtaEditarDetalles();
 
