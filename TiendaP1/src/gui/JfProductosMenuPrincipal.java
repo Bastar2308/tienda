@@ -63,9 +63,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbAgregarCancelar = new javax.swing.JButton();
         jsAgregarPrecio = new javax.swing.JSpinner();
         jbAgregarAceptar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jsAgregarStock = new javax.swing.JSpinner();
         tfAgregarCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jdEditar = new javax.swing.JDialog();
@@ -82,9 +80,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbEditarCancelar = new javax.swing.JButton();
         jsEditarPrecio = new javax.swing.JSpinner();
         jbEditarAceptar = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jsEditarStock = new javax.swing.JSpinner();
         tfEditarCodigo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jbControlDeCategorias = new javax.swing.JButton();
@@ -133,15 +129,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbAgregarAceptar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregarAceptar.setText("Aceptar");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Stock:");
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Código:");
-
-        jsAgregarStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +151,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                         .addComponent(jbAgregarAceptar))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
@@ -174,7 +163,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                             .addComponent(jsAgregarPrecio)
                             .addComponent(jcbAgregarCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
-                            .addComponent(jsAgregarStock)
                             .addComponent(jcbAgregarMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfAgregarCodigo))))
                 .addGap(42, 42, 42))
@@ -190,10 +178,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jsAgregarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jsAgregarStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -230,7 +214,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
             .addGroup(jdAgregarLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jdEditar.setTitle("Agregar producto");
@@ -267,15 +251,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jbEditarAceptar.setBackground(new java.awt.Color(102, 102, 102));
         jbEditarAceptar.setText("Aceptar");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Stock:");
-
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Código:");
-
-        jsEditarStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,7 +273,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
@@ -308,7 +285,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                             .addComponent(jsEditarPrecio)
                             .addComponent(jcbEditarCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                            .addComponent(jsEditarStock)
                             .addComponent(jcbEditarMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfEditarCodigo))))
                 .addGap(42, 42, 42))
@@ -324,10 +300,6 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jsEditarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jsEditarStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
@@ -362,7 +334,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
             .addGroup(jdEditarLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -546,14 +518,12 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -584,9 +554,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JSpinner jsAgregarPrecio;
-    private javax.swing.JSpinner jsAgregarStock;
     private javax.swing.JSpinner jsEditarPrecio;
-    private javax.swing.JSpinner jsEditarStock;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextArea jtaAgregarDetalles;
     private javax.swing.JTextArea jtaEditarDetalles;
@@ -740,28 +708,12 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         this.jsAgregarPrecio = jsAgregarPrecio;
     }
 
-    public javax.swing.JSpinner getJsAgregarStock() {
-        return jsAgregarStock;
-    }
-
-    public void setJsAgregarStock(javax.swing.JSpinner jsAgregarStock) {
-        this.jsAgregarStock = jsAgregarStock;
-    }
-
     public javax.swing.JSpinner getJsEditarPrecio() {
         return jsEditarPrecio;
     }
 
     public void setJsEditarPrecio(javax.swing.JSpinner jsEditarPrecio) {
         this.jsEditarPrecio = jsEditarPrecio;
-    }
-
-    public javax.swing.JSpinner getJsEditarStock() {
-        return jsEditarStock;
-    }
-
-    public void setJsEditarStock(javax.swing.JSpinner jsEditarStock) {
-        this.jsEditarStock = jsEditarStock;
     }
 
     public javax.swing.JTable getJtDatos() {
