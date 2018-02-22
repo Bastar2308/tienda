@@ -383,20 +383,20 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
 
         jtDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Precio", "Stock", "Detalles", "Categoria", "Marca", "Código"
+                "ID", "Nombre", "Precio", "Detalles", "Categoria", "Marca", "Código"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -409,6 +409,10 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         });
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
+        if (jtDatos.getColumnModel().getColumnCount() > 0) {
+            jtDatos.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jtDatos.getColumnModel().getColumn(2).setPreferredWidth(20);
+        }
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
