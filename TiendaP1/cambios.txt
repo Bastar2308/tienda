@@ -1,8 +1,17 @@
-modeificar db de acuerdo a la foto
-
-quitar categoria y marca
-dos decimales
-eliminar stock del sistema
 que filtre por nombre o código
+guardar foto en bd
+Dar de alta correctamente a los clientes cuando se saquen una credencial
+renovar credencial
+cargar saldo y programarla
 
-peestaña para cliente y seleccionar
+Falta el módulo de finanzas:
+-Ventas del día de hoy
+
+-Personas con adeudos
+
+-Ventas en un periodo determinado (entre fecha 1 y fecha 2)
+
+-Producto más vendido
+
+Falta el módulo de generación de credenciales (está en test no?) Hay que pasar la gui a limpio y luego programarla
+abc de clientes
