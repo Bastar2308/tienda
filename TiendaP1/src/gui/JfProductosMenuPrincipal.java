@@ -102,6 +102,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
         jtaAgregarDetalles.setColumns(20);
+        jtaAgregarDetalles.setLineWrap(true);
         jtaAgregarDetalles.setRows(5);
         jScrollPane2.setViewportView(jtaAgregarDetalles);
 
@@ -224,6 +225,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
         jtaEditarDetalles.setColumns(20);
+        jtaEditarDetalles.setLineWrap(true);
         jtaEditarDetalles.setRows(5);
         jScrollPane3.setViewportView(jtaEditarDetalles);
 

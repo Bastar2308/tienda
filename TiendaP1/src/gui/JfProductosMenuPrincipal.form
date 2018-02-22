@@ -126,6 +126,7 @@
                 <Component class="javax.swing.JTextArea" name="jtaAgregarDetalles">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
                 </Component>
@@ -370,6 +371,7 @@
                 <Component class="javax.swing.JTextArea" name="jtaEditarDetalles">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
                 </Component>
