@@ -381,8 +381,10 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 return canEdit [columnIndex];
             }
         });
+        jtDatos.setColumnSelectionAllowed(true);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
+        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtDatos.getColumnModel().getColumnCount() > 0) {
             jtDatos.getColumnModel().getColumn(0).setPreferredWidth(20);
             jtDatos.getColumnModel().getColumn(2).setPreferredWidth(20);
