@@ -1,10 +1,6 @@
-que filtre por nombre o código
+Aarón
 guardar foto en bd
 Dar de alta correctamente a los clientes cuando se saquen una credencial
-renovar credencial
-cargar saldo y programarla
-
-Falta el módulo de finanzas:
 -Ventas del día de hoy
 
 -Personas con adeudos
@@ -13,5 +9,10 @@ Falta el módulo de finanzas:
 
 -Producto más vendido
 
+David:
+que filtre por nombre o código
+renovar credencial
+cargar saldo y programarla
+programar finanzas
 Falta el módulo de generación de credenciales (está en test no?) Hay que pasar la gui a limpio y luego programarla
 abc de clientes
