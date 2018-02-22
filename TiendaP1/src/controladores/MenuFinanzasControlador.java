@@ -26,13 +26,20 @@ public class MenuFinanzasControlador implements ActionListener {
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
+        vista.getJbConsultar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
+        } else if (e.getSource().equals(vista.getJbConsultar())) {
+            consulta(vista.getJcbConsultas().getSelectedIndex());
         }
+    }
+
+    private void consulta(int selectedIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
