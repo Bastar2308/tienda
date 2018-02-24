@@ -35,6 +35,14 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         return JfProductosMenuPrincipalHolder.INSTANCE;
     }
 
+    public javax.swing.JCheckBox getJchCodigoPersonalizado() {
+        return jchCodigoPersonalizado;
+    }
+
+    public void setJchCodigoPersonalizado(javax.swing.JCheckBox jchCodigoPersonalizado) {
+        this.jchCodigoPersonalizado = jchCodigoPersonalizado;
+    }
+
     private static class JfProductosMenuPrincipalHolder {
 
         private static final JfProductosMenuPrincipal INSTANCE = new JfProductosMenuPrincipal();
@@ -66,6 +74,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jLabel7 = new javax.swing.JLabel();
         tfAgregarCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jchCodigoPersonalizado = new javax.swing.JCheckBox();
         jdEditar = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -138,19 +147,24 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Detalles:");
 
+        jchCodigoPersonalizado.setBackground(new java.awt.Color(102, 102, 102));
+        jchCodigoPersonalizado.setForeground(new java.awt.Color(255, 255, 255));
+        jchCodigoPersonalizado.setText("Código personalizado");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jchCodigoPersonalizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbAgregarCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbAgregarAceptar))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
@@ -191,6 +205,8 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbAgregarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addComponent(jchCodigoPersonalizado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -215,7 +231,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
             .addGroup(jdAgregarLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jdEditar.setTitle("Agregar producto");
@@ -555,6 +571,7 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
     private javax.swing.JComboBox<pojo.Marca> jcbAgregarMarca;
     private javax.swing.JComboBox<pojo.Categoria> jcbEditarCategoria;
     private javax.swing.JComboBox<pojo.Marca> jcbEditarMarca;
+    private javax.swing.JCheckBox jchCodigoPersonalizado;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JSpinner jsAgregarPrecio;

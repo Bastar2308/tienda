@@ -6,6 +6,7 @@
 package guiif;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JSpinner;
@@ -17,6 +18,10 @@ import javax.swing.JTextField;
  * @author ALUMNO
  */
 public interface JfProductosMenuPrincipalIf extends FrameRegresable {
+
+    public abstract JCheckBox getJchCodigoPersonalizado();
+
+    public abstract void setJchCodigoPersonalizado(JCheckBox x);
 
     public abstract JButton getJbControlDeCategorias();
 
