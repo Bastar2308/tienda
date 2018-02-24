@@ -162,7 +162,6 @@ public class MarcaDAO implements MarcaDAOIf {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
             ResultSet rs = st.executeQuery();
-            combo.addElement("Seleccionar marca");
             while (rs.next()) {
                 Marca marca = inflaMarca(rs);
                 combo.addElement(marca);
