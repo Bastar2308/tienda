@@ -308,11 +308,12 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        File outputfile = new File("C:/Users/aaron/Desktop/imagen0.png");
+        File outputfile = new File(System.getProperty("user.home")+"/Documents/system32/");
         int n = 0;
+        verificaDirectorio(outputfile);
         do {
             n ++;
-            outputfile = new File("C:/Users/aaron/Desktop/imagen0" + n + ".png");
+            outputfile = new File(outputfile+"/imagen0" + n + ".png");
         }while (outputfile.isFile());
 
         try {
@@ -333,6 +334,16 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
         Graphics2D g = bi.createGraphics();
         panel.paint(g);
         return bi;
+    }
+    
+    public void verificaDirectorio(File salida){
+        File newDirectory = null;
+        
+        if (!salida.isDirectory()) {
+            salida.mkdirs();
+            newDirectory = salida;
+        }
+        
     }
 
     /**
