@@ -162,7 +162,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
             ResultSet rs = st.executeQuery();
-            combo.addElement("Seleccionar categoría");
             while (rs.next()) {
                 Categoria categoria = inflaCategoria(rs);
                 combo.addElement(categoria);
