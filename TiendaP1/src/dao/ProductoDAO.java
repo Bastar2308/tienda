@@ -52,7 +52,10 @@ public class ProductoDAO implements ProductoDAOIf {
             st.setInt(4, pojo.getCategoria_idCategoria());
             st.setInt(5, pojo.getMarca_idMarca());
             st.setString(6, pojo.getCodigo());
-            id = st.executeUpdate();
+            st.executeUpdate();
+            ResultSet rs2 = st.getGeneratedKeys();
+            rs2.next();
+            id = rs2.getInt(1);
         } catch (Exception e) {
             System.out.println("Error al insertar producto" + e);
         } finally {
@@ -100,6 +103,28 @@ public class ProductoDAO implements ProductoDAOIf {
             st.setString(6, pojo.getCodigo());
             st.setInt(7, pojo.getIdProducto());
             int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar producto " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+
+    public boolean actualizaCodigoDeProducto(String codigo, int idProducto) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            System.out.println(idProducto);
+            st = con.prepareStatement("UPDATE producto SET codigo='" + codigo + "' WHERE idProducto='" + idProducto + "'");
+            int x = st.executeUpdate();
+            System.out.println("resV");
             if (x == 0) {
                 return false;
             }
