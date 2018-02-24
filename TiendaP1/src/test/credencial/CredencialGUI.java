@@ -131,7 +131,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
         jLabel5.setText("SISTEMA");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel6.setText("RAQUETIENDA");
+        jLabel6.setText("CAFETERÍA");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("BÁLTICO");
