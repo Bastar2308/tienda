@@ -26,7 +26,7 @@ public class ClienteDAO implements ClienteDAOIf {
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, vigencia=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, vigencia=? WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -54,6 +54,31 @@ public class ClienteDAO implements ClienteDAOIf {
             Conexion.close(st);
         }
         return true;
+    }
+
+    @Override
+    public int obtenerRecienInsertado() {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int id = 0;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("SELECT * FROM cliente");
+            rs = st.executeQuery();
+            rs.last();
+            Cliente clientePOJO = new Cliente();
+            clientePOJO = inflaCliente(rs);
+            id = clientePOJO.getIdCliente();
+            System.out.println(id);
+        } catch (Exception e) {
+            System.out.println("Error al obtener el último " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+            Conexion.close(rs);
+        }
+        return id;
     }
 
     private static class ClienteDAOHolder {
@@ -111,7 +136,7 @@ public class ClienteDAO implements ClienteDAOIf {
     }
 
     @Override
-    public boolean modificaCliente(Cliente pojo) {
+    public boolean modificaCliente(Cliente pojo, String path) {
         Connection con = null;
         PreparedStatement st = null;
         try {
@@ -122,7 +147,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setBlob(5, pojo.getFoto());
+            st.setBinaryStream(5, new FileInputStream(new File(path)), (int) new File(path).length());
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());

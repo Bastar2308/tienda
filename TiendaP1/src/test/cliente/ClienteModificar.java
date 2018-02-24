@@ -27,10 +27,10 @@ public class ClienteModificar {
         cliente.setTelefono("0000000001");
         cliente.setCorreo("correo001");
         cliente.setVigencia(new Date(118, 9, 27));
-        if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
-            System.out.println("Actualizado correctamente");
-        } else {
-            System.out.println("Error en la actualización");
-        }
+//        if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
+//            System.out.println("Actualizado correctamente");
+//        } else {
+//            System.out.println("Error en la actualización");
+//        }
     }
 }

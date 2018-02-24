@@ -23,7 +23,7 @@ public interface ClienteDAOIf {
 
     public abstract boolean eliminaCliente(int id);
 
-    public abstract boolean modificaCliente(Cliente pojo);
+    public abstract boolean modificaCliente(Cliente pojo, String path);
 
     public abstract Cliente buscaCliente(int id);
 
@@ -36,4 +36,6 @@ public interface ClienteDAOIf {
     public abstract DefaultListModel<Cliente> cargarLista();
 
     public abstract Cliente inflaCliente(ResultSet rs);
+    
+    public abstract int obtenerRecienInsertado();
 }

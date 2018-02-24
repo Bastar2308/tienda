@@ -15,6 +15,7 @@ import pojo.Cliente;
  */
 public class Alta extends javax.swing.JFrame {
 
+    Cliente cliente = new Cliente();
     /**
      * Creates new form Alta
      */
@@ -23,7 +24,6 @@ public class Alta extends javax.swing.JFrame {
     }
 
     public void ingresar() {
-        Cliente cliente = new Cliente();
         cliente.setNombre(jTextField1.getText());
         cliente.setSaldo(Integer.parseInt(jTextField2.getText()));
         cliente.setGrupo_idGrupo(Integer.parseInt(jTextField4.getText()));
@@ -33,8 +33,10 @@ public class Alta extends javax.swing.JFrame {
         cliente.setTelefono(jTextField6.getText());
         cliente.setCorreo(jTextField7.getText());
         cliente.setVigencia(new Date(118, 9, 27));
+        
         if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
             System.out.println("Insertado correctamente");
+            cliente.setIdCliente(ClienteDAO.getInstance().obtenerRecienInsertado());
         } else {
             System.out.println("Error en la inserción");
         }
@@ -222,7 +224,7 @@ public class Alta extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ingresar();
-        CredencialGUI credencialGUI = new CredencialGUI(jTextField1.getText(), jTextField4.getText(), jTextField9.getText(), jTextField3.getText());
+        CredencialGUI credencialGUI = new CredencialGUI(jTextField1.getText(), jTextField4.getText(), jTextField9.getText(), jTextField3.getText(), cliente);
         this.dispose();
         credencialGUI.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

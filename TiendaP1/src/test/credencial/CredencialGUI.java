@@ -20,8 +20,11 @@ import java.awt.image.BufferedImage;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.FileDataSource;
@@ -39,6 +42,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
 
     Webcam webcam = Webcam.getDefault();
     WebcamPanel panel = new WebcamPanel(webcam, new Dimension(130, 130), false);
+    Cliente cliente;
 
     /**
      * Creates new form CredencialGUI
@@ -48,7 +52,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
 
     }
 
-    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula) {
+    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
         initComponents();
         jLabel8.setOpaque(true);
         jLabel1.setText(nombre);
@@ -67,6 +71,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
         jPanel2.revalidate();
         jPanel2.repaint();
         panel.start();
+        this.cliente = cliente;
     }
 
     /**
@@ -309,12 +314,8 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         File outputfile = new File(System.getProperty("user.home")+"/Documents/system32/");
-        int n = 0;
         verificaDirectorio(outputfile);
-        do {
-            n ++;
-            outputfile = new File(outputfile+"/imagen0" + n + ".png");
-        }while (outputfile.isFile());
+        outputfile = nombraImagenes(outputfile, "");
 
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
@@ -325,8 +326,25 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
         } catch (IOException ex) {
             System.out.println("Error al guardar: " + ex);
         }
+        
+        try {
+            actualizarCliente(cliente,outputfile);
+        } catch (IOException ex) {
+            Logger.getLogger(CredencialGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CredencialGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    public File nombraImagenes(File outputfile, String carpeta){
+        int n = 0;
+        do {
+            n ++;
+            outputfile = new File(System.getProperty("user.home")+"/Documents/system32/"+carpeta+"/imagen0" + n + ".png");
+        }while (outputfile.isFile());
+        return outputfile;
+    }
+    
     public BufferedImage createImage(JPanel panel) {
         int w = panel.getWidth();
         int h = panel.getHeight();
@@ -344,6 +362,20 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable {
             newDirectory = salida;
         }
         
+    }
+    
+    public boolean actualizarCliente(Cliente cliente, File outFile) throws IOException, SQLException{
+        File salida = new File(System.getProperty("user.home")+"/Documents/system32/Alumnos");
+        verificaDirectorio(salida);
+        salida = nombraImagenes(salida, "Alumnos");
+        ImageIO.write(createImage(jPanel2), "png", salida);
+        if (ClienteDAO.getInstance().modificaCliente(cliente, outFile.getAbsolutePath()) == true) {
+            System.out.println("Actualizado correctamente");
+            return true;
+        } else {
+            System.out.println("Error en la actualización");
+            return true;
+        }
     }
 
     /**
