@@ -32,6 +32,39 @@ public class VentaDAO implements VentaDAOIf {
         return VentaDAOHolder.INSTANCE;
     }
 
+    @Override
+    public DefaultTableModel cargarTabla(String fecha1, String fecha2) {
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"Id", "Nota", "Fecha/Hora", "Total", "Cliente"};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("SELECT * FROM " + TABLE + " WHERE fechahora >= "+fecha1+" and fechahora <= "+fecha2);
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Object ob[] = new Object[5];
+                Venta pojo = inflaVenta(rs);
+                Cliente cliente = ClienteDAO.getInstance().buscaCliente(pojo.getCliente_idCliente());
+                ob[0] = pojo.getIdVenta();
+                ob[1] = pojo.getNota();
+                ob[2] = pojo.getFechahora();
+                ob[3] = pojo.getTotal();
+                ob[4] = cliente.getIdCliente();
+                dt.addRow(ob);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla venta entre periodos " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
+    }
+
     private static class VentaDAOHolder {
 
         private static final VentaDAO INSTANCE = new VentaDAO();

@@ -26,6 +26,8 @@ public interface VentaDAOIf {
     public abstract Venta buscaVenta(int id);
 
     public abstract DefaultTableModel cargarTabla();
+    
+    public abstract DefaultTableModel cargarTabla(String fecha1, String fecha2);
 
     public abstract DefaultComboBoxModel<Venta> cargarCombo();
 
