@@ -38,4 +38,6 @@ public interface ClienteDAOIf {
     public abstract Cliente inflaCliente(ResultSet rs);
     
     public abstract int obtenerRecienInsertado();
+    
+    public abstract Cliente obtenerClienteConAdeudos();
 }

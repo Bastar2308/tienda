@@ -24,6 +24,7 @@ public class ClienteDAO implements ClienteDAOIf {
     private static final String TABLE = "cliente";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, vigencia) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
+    private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
     private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, vigencia=? WHERE idCliente=?";
@@ -79,6 +80,27 @@ public class ClienteDAO implements ClienteDAOIf {
             Conexion.close(rs);
         }
         return id;
+    }
+
+    @Override
+    public Cliente obtenerClienteConAdeudos() {
+        Connection con = null;
+        PreparedStatement st = null;
+        Cliente pojo = new Cliente();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_ADEUDOS);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                pojo = inflaCliente(rs);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar cliente con adeudos" + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return pojo;
     }
 
     private static class ClienteDAOHolder {
