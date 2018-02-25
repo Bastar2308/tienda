@@ -143,6 +143,8 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Código:");
 
+        tfAgregarCodigo.setEnabled(false);
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Detalles:");
