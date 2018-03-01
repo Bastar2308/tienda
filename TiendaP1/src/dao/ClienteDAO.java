@@ -42,7 +42,27 @@ public class ClienteDAO implements ClienteDAOIf {
         PreparedStatement st = null;
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("UPDATE Cliente set saldo=saldo-"+cantidadARestar+" WHERE idCliente="+idClienteint);
+            st = con.prepareStatement("UPDATE Cliente set saldo=saldo-" + cantidadARestar + " WHERE idCliente=" + idClienteint);
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+
+    public boolean agregaSaldo(String idClienteint, String cantidadARestar) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("UPDATE Cliente set saldo=saldo+" + cantidadARestar + " WHERE idCliente=" + idClienteint);
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
