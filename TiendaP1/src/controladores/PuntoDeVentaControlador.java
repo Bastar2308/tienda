@@ -231,7 +231,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             ImageIcon icon = new ImageIcon(image);
             vista.getJlFoto().setIcon(icon);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error cargando imagen de cliente: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "Error cargando imagen de cliente: " + e, "Error", JOptionPane.ERROR_MESSAGE);
             vista.getJlFoto().setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_User_64px_1.png")));
         }
 
