@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -21,13 +22,9 @@ public interface JfMenuCargaSaldoIf extends FrameRegresable {
 
     public abstract void setTfBuscar(JTextField x);
 
-    public abstract JButton getJbFiltrar();
+    public abstract JTable getJtClientes();
 
-    public abstract void setJbFiltrar(JButton x);
-
-    public abstract JList getJlClientes();
-
-    public abstract void setJlClientes(JList x);
+    public abstract void setJtClientes(JTable x);
 
     public abstract JRadioButton getRb20();
 
