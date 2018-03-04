@@ -204,6 +204,10 @@ public class PuntoDeVentaControlador implements ActionListener {
             cargaClientes();
             vista.getJtClientes().setRowSelectionInterval(0, 0);
             seleccionaCliente(1);
+            vista.getTfFiltrarClientes().setText(null);
+            vista.getTfFiltrarProductos().setText(null);
+            filtraClientes();
+            filtraProductos();
 
             ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
             vista.getJlTotal().setText("0.00");
