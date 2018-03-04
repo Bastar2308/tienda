@@ -178,43 +178,37 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void confirmaVenta() {
         if (vista.getJtProductosSeleccionados().getRowCount() > 0) {
-            if ("1".equals(vista.getJlId().getText())
-                    || (int) (Double.parseDouble(vista.getJlSaldo().getText()))
-                    >= (int) Double.parseDouble(vista.getJlTotal().getText())) {
-                Venta venta = new Venta();
+            Venta venta = new Venta();
 
-                venta.setCliente_idCliente((Integer.parseInt(vista.getJlId().getText())));
+            venta.setCliente_idCliente((Integer.parseInt(vista.getJlId().getText())));
 //                venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
-                venta.setNota("");
-                venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
-                int idVenta = VentaDAO.getInstance().insertaVenta(venta);
+            venta.setNota("");
+            venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
+            int idVenta = VentaDAO.getInstance().insertaVenta(venta);
 
-                for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
-                    Detalle_Venta detalle_Venta = new Detalle_Venta();
+            for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+                Detalle_Venta detalle_Venta = new Detalle_Venta();
 
-                    detalle_Venta.setVenta_idVenta(idVenta);
-                    detalle_Venta.setCantidad(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 3).toString())));
-                    detalle_Venta.setSubtotal(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 2).toString()))
-                            * Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 3)).toString()));
-                    detalle_Venta.setProducto_idProducto((int) (vista.getJtProductosSeleccionados().getValueAt(i, 0)));
+                detalle_Venta.setVenta_idVenta(idVenta);
+                detalle_Venta.setCantidad(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 3).toString())));
+                detalle_Venta.setSubtotal(Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 2).toString()))
+                        * Double.parseDouble((vista.getJtProductosSeleccionados().getValueAt(i, 3)).toString()));
+                detalle_Venta.setProducto_idProducto((int) (vista.getJtProductosSeleccionados().getValueAt(i, 0)));
 
-                    Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta);
-                }
-                if ( ! "1".equals(vista.getJlId().getText())) {
-                    ClienteDAO.getInstance().restaSaldo(vista.getJlId().getText(), vista.getJlTotal().getText());
-                }
-
-                cargaClientes();
-                vista.getJtClientes().setRowSelectionInterval(0, 0);
-                seleccionaCliente(1);
-
-                ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
-                vista.getJlTotal().setText("0.00");
-                vista.getJlProductos().setText("0");
-                JOptionPane.showMessageDialog(null, "Venta agregada correctmente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Saldo insuficiente", "Error", JOptionPane.ERROR_MESSAGE);
+                Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta);
             }
+            if ( ! "1".equals(vista.getJlId().getText())) {
+                ClienteDAO.getInstance().restaSaldo(vista.getJlId().getText(), vista.getJlTotal().getText());
+            }
+
+            cargaClientes();
+            vista.getJtClientes().setRowSelectionInterval(0, 0);
+            seleccionaCliente(1);
+
+            ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
+            vista.getJlTotal().setText("0.00");
+            vista.getJlProductos().setText("0");
+            JOptionPane.showMessageDialog(null, "Venta agregada correctmente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
         }
