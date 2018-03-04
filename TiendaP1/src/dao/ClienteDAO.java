@@ -366,7 +366,7 @@ public class ClienteDAO implements ClienteDAOIf {
         String encabezados[] = {"", "", "", "", "",};
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia from cliente,grupo WHERE cliente.idCliente=grupo.idGrupo");
+            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo ORDER BY `cliente`.`idCliente` ASC");
             dt = new DefaultTableModel();
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
