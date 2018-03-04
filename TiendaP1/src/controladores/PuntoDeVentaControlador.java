@@ -241,13 +241,13 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtClientes().getModel();
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
         vista.getJtClientes().setRowSorter(tableRowSorter);
-        tableRowSorter.setRowFilter(RowFilter.regexFilter(vista.getTfFiltrarClientes().getText()));
+        tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getTfFiltrarClientes().getText()));
     }
 
     void filtraProductos() {
         DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtProductos().getModel();
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
         vista.getJtProductos().setRowSorter(tableRowSorter);
-        tableRowSorter.setRowFilter(RowFilter.regexFilter(vista.getTfFiltrarProductos().getText()));
+        tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getTfFiltrarProductos().getText()));
     }
 }
