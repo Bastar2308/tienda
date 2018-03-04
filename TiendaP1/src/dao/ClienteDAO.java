@@ -359,4 +359,32 @@ public class ClienteDAO implements ClienteDAOIf {
         return pojo;
     }
 
+    public DefaultTableModel cargarTablaPuntoDeVenta() {
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"", "", "", "", "",};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia from cliente,grupo WHERE cliente.idCliente=grupo.idGrupo");
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                dt.addRow(new Object[]{rs.getInt(1),
+                    rs.getString(2),
+                    rs.getInt(3),
+                    rs.getString(4),
+                    rs.getDate(5)
+                });
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla cliente " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
+    }
 }
