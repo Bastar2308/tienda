@@ -159,6 +159,7 @@ public class PuntoDeVentaControlador implements ActionListener {
 
         DefaultTableModel datos = ClienteDAO.getInstance().cargarTabla();
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
+        original.setRowCount(0);
         for (int i = 0; i < datos.getRowCount(); i ++) {
             original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 9)});
         }
@@ -203,8 +204,8 @@ public class PuntoDeVentaControlador implements ActionListener {
                     ClienteDAO.getInstance().restaSaldo(vista.getJlId().getText(), vista.getJlTotal().getText());
                 }
 
-                //No hace esto
                 cargaClientes();
+                vista.getJtClientes().setRowSelectionInterval(0, 0);
                 seleccionaCliente(1);
 
                 ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
