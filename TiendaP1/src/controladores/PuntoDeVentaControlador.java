@@ -185,7 +185,8 @@ public class PuntoDeVentaControlador implements ActionListener {
                 Venta venta = new Venta();
 
                 venta.setCliente_idCliente((Integer.parseInt(vista.getJlId().getText())));
-                venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
+//                venta.setNota(JOptionPane.showInputDialog(null, "Notas opcionales sobre la venta:", "Notas,", JOptionPane.QUESTION_MESSAGE));
+                venta.setNota("");
                 venta.setTotal(Double.parseDouble(vista.getJlTotal().getText()));
                 int idVenta = VentaDAO.getInstance().insertaVenta(venta);
 
