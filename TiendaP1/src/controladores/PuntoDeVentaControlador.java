@@ -156,9 +156,7 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void cargaClientes() {
-        JOptionPane.showConfirmDialog(null, "");
         DefaultTableModel datos = ClienteDAO.getInstance().cargarTablaPuntoDeVenta();
-        JOptionPane.showConfirmDialog(null, "");
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
         for (int i = 0; i < datos.getRowCount(); i ++) {
