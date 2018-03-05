@@ -164,8 +164,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         });
         jPanel3.add(rbOtra);
 
-        jsOtra.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10000, 10));
-        jsOtra.setEnabled(false);
+        jsOtra.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 10));
         jPanel3.add(jsOtra);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
