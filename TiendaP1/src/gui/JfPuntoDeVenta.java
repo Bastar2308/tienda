@@ -247,6 +247,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
+        jtProductos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -341,6 +342,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Productos");
 
+        jtProductosSeleccionados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jtProductosSeleccionados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
