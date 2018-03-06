@@ -14,6 +14,8 @@ import gui.JfPuntoDeVenta;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -47,6 +49,13 @@ public class PuntoDeVentaControlador implements ActionListener {
         cargaClientes();
         vista.getJtClientes().setRowSelectionInterval(0, 0);
         seleccionaCliente(0);
+        vista.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                cargaTabla();
+                cargaClientes();
+            }
+        });
     }
 
     private void addListeners() {
