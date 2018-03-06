@@ -183,14 +183,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         this.jlSaldo = jlSaldo;
     }
 
-    public javax.swing.JLabel getJlVigencia() {
-        return jlVigencia;
-    }
-
-    public void setJlVigencia(javax.swing.JLabel jlVigencia) {
-        this.jlVigencia = jlVigencia;
-    }
-
     private static class JfPuntoDeVentaHolder {
 
         private static final JfPuntoDeVenta INSTANCE = new JfPuntoDeVenta();
@@ -236,8 +228,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jlGrupo = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jlVigencia = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jbRegresar = new javax.swing.JButton();
 
@@ -253,14 +243,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
 
             },
             new String [] {
-                "ID", "Nombre", "Precio", "Detalles", "Categoría", "Marca"
+                "ID", "Nombre", "Precio", "Detalles"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -271,13 +261,13 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 return canEdit [columnIndex];
             }
         });
-        jtProductos.setColumnSelectionAllowed(true);
+        jtProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtProductos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtProductos);
-        jtProductos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtProductos.getColumnModel().getColumnCount() > 0) {
             jtProductos.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jtProductos.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jtProductos.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jtProductos.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -342,7 +332,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Productos");
 
-        jtProductosSeleccionados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jtProductosSeleccionados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtProductosSeleccionados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -366,10 +356,9 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 return canEdit [columnIndex];
             }
         });
-        jtProductosSeleccionados.setColumnSelectionAllowed(true);
+        jtProductosSeleccionados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtProductosSeleccionados.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtProductosSeleccionados);
-        jtProductosSeleccionados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtProductosSeleccionados.getColumnModel().getColumnCount() > 0) {
             jtProductosSeleccionados.getColumnModel().getColumn(0).setPreferredWidth(30);
             jtProductosSeleccionados.getColumnModel().getColumn(1).setPreferredWidth(240);
@@ -387,19 +376,20 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
+        jtClientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nombre", "Saldo", "Grupo", "Vigencia"
+                "ID", "Nombre", "Saldo", "Grupo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -410,16 +400,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 return canEdit [columnIndex];
             }
         });
-        jtClientes.setColumnSelectionAllowed(true);
+        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jtClientes);
-        jtClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtClientes.getColumnModel().getColumnCount() > 0) {
             jtClientes.getColumnModel().getColumn(0).setPreferredWidth(30);
             jtClientes.getColumnModel().getColumn(1).setPreferredWidth(250);
             jtClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
             jtClientes.getColumnModel().getColumn(3).setPreferredWidth(130);
-            jtClientes.getColumnModel().getColumn(4).setPreferredWidth(90);
         }
 
         jlFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -456,13 +444,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         jlGrupo.setForeground(new java.awt.Color(255, 255, 255));
         jlGrupo.setText("999");
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Vigencia:");
-
-        jlVigencia.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jlVigencia.setForeground(new java.awt.Color(255, 255, 255));
-        jlVigencia.setText("999");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -480,9 +461,8 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel12))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel3))
+                        .addGap(0, 421, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -490,8 +470,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                             .addComponent(jlId, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                             .addComponent(jlNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jlSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlVigencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jlGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -519,11 +498,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jlGrupo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jlVigencia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jbSeleccionaCliente)
                 .addContainerGap())
         );
@@ -660,7 +635,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -686,7 +660,6 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
     private javax.swing.JLabel jlSaldo;
     private javax.swing.JLabel jlTotal;
     private javax.swing.JLabel jlTotal1;
-    private javax.swing.JLabel jlVigencia;
     private javax.swing.JTable jtClientes;
     private javax.swing.JTable jtProductos;
     private javax.swing.JTable jtProductosSeleccionados;
