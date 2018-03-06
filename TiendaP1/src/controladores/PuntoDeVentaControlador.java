@@ -233,7 +233,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             vista.getJlTotal().setText("0.00");
             vista.getJlProductos().setText("0");
 
-            JOptionPane.showMessageDialog(null, "Venta agregada correctmente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
         }
