@@ -10,8 +10,11 @@ import dao.ClienteDAO;
 import gui.JfMenuCargaSaldo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 import java.util.Enumeration;
 import java.util.Iterator;
 import javax.swing.AbstractButton;
@@ -20,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import org.apache.logging.log4j.core.config.builder.api.Component;
 
 /**
  *
@@ -33,6 +37,12 @@ public class MenuCargaSaldoControlador implements ActionListener {
         this.vista = vista;
         addListeners();
         cargaTabla();
+        vista.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                cargaTabla();
+            }
+        });
     }
 
     public void addListeners() {
