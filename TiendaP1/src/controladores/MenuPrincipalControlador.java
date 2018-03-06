@@ -15,6 +15,7 @@ import gui.JfProductosMenuPrincipal;
 import gui.JfPuntoDeVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,19 +43,23 @@ public class MenuPrincipalControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbAyuda())) {
-            //No hay ayuda aún
+            JOptionPane.showMessageDialog(null, "Múdulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource().equals(vista.getJbCargarSaldo())) {
             GuiTools.getInstance().abre(vista, JfMenuCargaSaldo.getInstance());
         } else if (e.getSource().equals(vista.getJbClientes())) {
-            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
+            JOptionPane.showMessageDialog(null, "Múdulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
         } else if (e.getSource().equals(vista.getJbFinanzas())) {
-            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
+            JOptionPane.showMessageDialog(null, "Múdulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
-            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
+            JOptionPane.showMessageDialog(null, "Múdulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
             GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
-            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
+            JOptionPane.showMessageDialog(null, "Múdulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
         }
     }
 }
