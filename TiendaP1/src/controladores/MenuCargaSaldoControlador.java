@@ -86,7 +86,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
         DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtClientes().getModel();
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
         vista.getJtClientes().setRowSorter(tableRowSorter);
-        tableRowSorter.setRowFilter(RowFilter.regexFilter(vista.getTfBuscar().getText()));
+        tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getTfBuscar().getText()));
     }
 
     private void cargaTabla() {
