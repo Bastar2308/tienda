@@ -118,7 +118,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             try {
                 cantidad = Integer.parseInt((String) JOptionPane.showInputDialog(null, "¿Qué cantidad agregar?", "Cantidad", JOptionPane.QUESTION_MESSAGE, null, null, "1"));
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ingrese un valor válido", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ingrese un valor válido", "Cancelado", JOptionPane.ERROR_MESSAGE);
             }
             if (cantidad > 0) {
                 boolean yaAgregado = false;
@@ -150,7 +150,8 @@ public class PuntoDeVentaControlador implements ActionListener {
 
                 }
             }
-
+            vista.getTfFiltrarProductos().setText(null);
+            filtraProductos();
         }
     }
 
