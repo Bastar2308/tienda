@@ -19,15 +19,13 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -56,6 +54,15 @@ public class PuntoDeVentaControlador implements ActionListener {
                 cargaClientes();
             }
         });
+
+        vista.getJtProductos().getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter");
+        vista.getJtProductos().getActionMap().put("enter", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                agrega();
+                actualizaTotales();
+            }
+        });
+
     }
 
     private void addListeners() {
