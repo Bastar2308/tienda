@@ -38,6 +38,7 @@ public class MenuPrincipalControlador implements ActionListener {
         vista.getJbGeneradorDeCredenciales().addActionListener(this);
         vista.getJbPuntoDeVentas().addActionListener(this);
         vista.getJbMenuProductos().addActionListener(this);
+        vista.getJbSalir().addActionListener(this);
     }
 
     @Override
