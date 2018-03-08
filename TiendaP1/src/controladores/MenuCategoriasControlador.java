@@ -11,7 +11,9 @@ import gui.JfMenuCategorias;
 import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pojo.Categoria;
 
 /**
  *
@@ -42,8 +44,6 @@ public class MenuCategoriasControlador implements ActionListener {
         vista.getJbAgregar().addActionListener(this);
         vista.getJbEditar().addActionListener(this);
         vista.getJbEliminar().addActionListener(this);
-        vista.getJbEliminarAceptar().addActionListener(this);
-        vista.getJbEliminarCancelar().addActionListener(this);
 
         vista.getJbAgregarAceptar().addActionListener(this);
         vista.getJbAgregarCancelar().addActionListener(this);
@@ -61,11 +61,7 @@ public class MenuCategoriasControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbEditar())) {
             abreEditar();
         } else if (e.getSource().equals(vista.getJbEliminar())) {
-            abreEliminar();
-        } else if (e.getSource().equals(vista.getJbEliminarAceptar())) {
             elimina();
-        } else if (e.getSource().equals(vista.getJbEliminarCancelar())) {
-            vista.getJdEliminar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbAgregarAceptar())) {
             agrega();
         } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
@@ -82,28 +78,53 @@ public class MenuCategoriasControlador implements ActionListener {
     }
 
     private void abreEditar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void abreEliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            vista.getTfEditarNombre().setText((String) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1));
+            vista.getJdEditar().setVisible(true);
+        }
     }
 
     private void elimina() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            if (CategoriaDAO.getInstance().eliminaCategoria((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0))) {
+                JOptionPane.showMessageDialog(null, "Categoría eliminada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                cargarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error eliminando categoría", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 
     private void agrega() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Categoria categoria = new Categoria();
+        categoria.setNombre(vista.getTfAgregarNombre().getText());
+        int exito = CategoriaDAO.getInstance().insertaCategoria(categoria);
+        if (exito > 0) {
+            JOptionPane.showMessageDialog(null, "Categoría agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            cargarTabla();
+            vista.getJdAgregar().setVisible(false);
+            vista.getTfAgregarNombre().setText(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error agregando categorías", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void edita() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Categoria categoria = new Categoria();
+        categoria.setIdCategoria((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+        categoria.setNombre(vista.getTfEditarNombre().getText());
+        if (CategoriaDAO.getInstance().modificaCategoria(categoria)) {
+            JOptionPane.showMessageDialog(null, "Categoría modificada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            cargarTabla();
+            vista.getJdEditar().setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error modificando categoría", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void configuraJDialogs() {
-        vista.getJdAgregar().setSize(vista.getJdAgregar().getPreferredSize().width,vista.getJdAgregar().getPreferredSize().height+30);
-        vista.getJdEditar().setSize(vista.getJdEditar().getPreferredSize().width,vista.getJdEditar().getPreferredSize().height+30);
+        vista.getJdAgregar().setSize(vista.getJdAgregar().getPreferredSize().width, vista.getJdAgregar().getPreferredSize().height + 30);
+        vista.getJdEditar().setSize(vista.getJdEditar().getPreferredSize().width, vista.getJdEditar().getPreferredSize().height + 30);
         vista.getJdEditar().setLocationRelativeTo(null);
         vista.getJdAgregar().setLocationRelativeTo(null);
     }
