@@ -39,10 +39,6 @@ public interface JMenuCategoriasIf extends FrameRegresable {
     public abstract JDialog getJdEditar();
 
     public abstract void setJdEditar(JDialog x);
-
-    public abstract JDialog getJdEliminar();
-
-    public abstract void setJdEliminar(JDialog x);
 //agregar
 
     public abstract JTextField getTfAgregarNombre();
@@ -69,17 +65,4 @@ public interface JMenuCategoriasIf extends FrameRegresable {
     public abstract JButton getJbEditarAceptar();
 
     public abstract void setJbEditarAceptar(JButton x);
-//eliminar
-
-    public abstract JLabel getJlCategoria();
-
-    public abstract void setJlCategoria(JLabel x);
-
-    public abstract JButton getJbEliminarCancelar();
-
-    public abstract void setJbEliminarCancelar(JButton x);
-
-    public abstract JButton getJbEliminarAceptar();
-
-    public abstract void setJbEliminarAceptar(JButton x);
 }
