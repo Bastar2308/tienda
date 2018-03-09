@@ -10,6 +10,7 @@ import dao.CategoriaDAO;
 import dao.MarcaDAO;
 import dao.ProductoDAO;
 import gui.JfMenuCategorias;
+import gui.JfMenuMarcas;
 import gui.JfProductosMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -157,7 +158,7 @@ public class ProductosMenuPrincipalControlador implements ActionListener {
     }
 
     private void abreControlDeMarcas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        GuiTools.getInstance().abre(vista, JfMenuMarcas.getInstance());
     }
 
     private void agregaProducto() {
