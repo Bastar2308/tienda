@@ -29,11 +29,17 @@ public class MenuMarcasControlador implements ActionListener {
     public MenuMarcasControlador(JfMenuMarcas vista) {
         this.vista = vista;
         cargarListeners();
+        configuraJDialogs();
         cargarTabla();
     }
 
-    private void cargarTabla() {
-        vista.getJtDatos().setModel(MarcaDAO.getInstance().cargarTabla());
+    public void cargarTabla() {
+        DefaultTableModel datos = MarcaDAO.getInstance().cargarTabla();
+        DefaultTableModel original = (DefaultTableModel) vista.getJtDatos().getModel();
+        original.setRowCount(0);
+        for (int i = 0; i < datos.getRowCount(); i ++) {
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1)});
+        }
     }
 
     private void cargarListeners() {
@@ -45,8 +51,6 @@ public class MenuMarcasControlador implements ActionListener {
         vista.getJbAgregarCancelar().addActionListener(this);
         vista.getJbEditarAceptar().addActionListener(this);
         vista.getJbEditarCancelar().addActionListener(this);
-        vista.getJbEliminarAceptar().addActionListener(this);
-        vista.getJbEliminarCancelar().addActionListener(this);
     }
 
     @Override
@@ -54,97 +58,75 @@ public class MenuMarcasControlador implements ActionListener {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
         } else if (e.getSource().equals(vista.getJbAgregar())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 652, 153);
+            abreAgregar();
         } else if (e.getSource().equals(vista.getJbEditar())) {
-            if (ControladorTools.getInstance().yaSeleccioneUnaFila(vista.getJtDatos())) {
-                vista.getTfEditarNombre().setText(obtenerMarcaSeleccionada());
-                GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 652, 161);
-            }
+            abreEditar();
         } else if (e.getSource().equals(vista.getJbEliminar())) {
-            if (ControladorTools.getInstance().yaSeleccioneUnaFila(vista.getJtDatos())) {
-                vista.getJlMarca().setText(obtenerMarcaSeleccionada());
-                GuiTools.getInstance().abreDialogo(vista.getJdEliminar(), 350, 161);
-            }
-        } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
-            apagaYLimpiaDialogoAlta();
-        } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
-            apagaYLimpiaDialogoEditar();
-        } else if (e.getSource().equals(vista.getJbEliminarCancelar())) {
-            apagaDialogoEliminar();
-        } else if (e.getSource().equals(vista.getJbEliminarAceptar())) {
             eliminar();
+        } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
+            vista.getJdAgregar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbAgregarAceptar())) {
             agregar();
         } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
-            apagaYLimpiaDialogoEditar();
+            vista.getJdEditar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             editar();
         }
     }
 
-    private void apagaYLimpiaDialogoAlta() {
-        vista.getJdAgregar().dispose();
-        limpiaDialogoAlta();
-    }
-
-    private void apagaYLimpiaDialogoEditar() {
-        vista.getJdEditar().dispose();
-        limpiaDialogoEditar();
-    }
-
-    private void apagaDialogoEliminar() {
-        vista.getJdEliminar().dispose();
-    }
-
-    private String obtenerMarcaSeleccionada() {
-        return vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString();
-    }
-
     private void eliminar() {
-        int id = ControladorTools.getInstance().idFilaSeleccionada(vista.getJtDatos());
-        if (MarcaDAO.getInstance().eliminaMarca(id)) {
-            DialogoTools.getInstance().mensajeInformacion("Éxito al eliminar");
-            cargarTabla();
-            apagaDialogoEliminar();
-        } else {
-            DialogoTools.getInstance().mensajeError("Error al eliminar");
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            if (MarcaDAO.getInstance().eliminaMarca((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0))) {
+                JOptionPane.showMessageDialog(null, "Marca eliminada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                cargarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error eliminando marca", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
     private void editar() {
-        String nombre = vista.getTfEditarNombre().getText().trim();
         Marca marca = new Marca();
-        marca.setNombre(nombre);
-        int id = ControladorTools.getInstance().idFilaSeleccionada(vista.getJtDatos());
-        marca.setIdMarca(id);
+        marca.setIdMarca((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+        marca.setNombre(vista.getTfEditarNombre().getText());
         if (MarcaDAO.getInstance().modificaMarca(marca)) {
-            DialogoTools.getInstance().mensajeInformacion("Éxito al modificar");
+            JOptionPane.showMessageDialog(null, "Marca modificada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             cargarTabla();
-            apagaYLimpiaDialogoEditar();
+            vista.getJdEditar().setVisible(false);
         } else {
-            DialogoTools.getInstance().mensajeError("Error al eliminar");
+            JOptionPane.showMessageDialog(null, "Error modificando marca", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void agregar() {
-        String nombre = vista.getTfAgregarNombre().getText().trim();
         Marca marca = new Marca();
-        marca.setNombre(nombre);
-        if (MarcaDAO.getInstance().insertaMarca(marca) != 0) {
+        marca.setNombre(vista.getTfAgregarNombre().getText());
+        int exito = MarcaDAO.getInstance().insertaMarca(marca);
+        if (exito > 0) {
+            JOptionPane.showMessageDialog(null, "Marca agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             cargarTabla();
-            DialogoTools.getInstance().mensajeInformacion("Éxito al insertar");
-            apagaYLimpiaDialogoAlta();
+            vista.getJdAgregar().setVisible(false);
+            vista.getTfAgregarNombre().setText(null);
         } else {
-            DialogoTools.getInstance().mensajeError("Error al insertar");
+            JOptionPane.showMessageDialog(null, "Error agregando marca", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void limpiaDialogoAlta() {
-        vista.getTfAgregarNombre().setText("");
+    private void abreAgregar() {
+        vista.getJdAgregar().setVisible(true);
     }
 
-    private void limpiaDialogoEditar() {
-        vista.getTfEditarNombre().setText("");
+    private void abreEditar() {
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            vista.getTfEditarNombre().setText((String) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1));
+            vista.getJdEditar().setVisible(true);
+        }
     }
 
+    private void configuraJDialogs() {
+        vista.getJdAgregar().setSize(vista.getJdAgregar().getPreferredSize().width, vista.getJdAgregar().getPreferredSize().height + 30);
+        vista.getJdEditar().setSize(vista.getJdEditar().getPreferredSize().width, vista.getJdEditar().getPreferredSize().height + 30);
+        vista.getJdEditar().setLocationRelativeTo(null);
+        vista.getJdAgregar().setLocationRelativeTo(null);
+    }
 }
