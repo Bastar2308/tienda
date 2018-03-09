@@ -27,6 +27,8 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     public JfMenuMarcas() {
         initComponents();
         getContentPane().setBackground(new Color(51, 51, 51));
+        jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
+        jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuMarcasControlador(this);
         setLocationRelativeTo(null);
         auxiliares.GuiTools.getInstance().config(this);
@@ -62,13 +64,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
         tfEditarNombre = new javax.swing.JTextField();
         jbEditarCancelar = new javax.swing.JButton();
         jbEditarAceptar = new javax.swing.JButton();
-        jdEliminar = new javax.swing.JDialog();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jlMarca = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jbEliminarCancelar = new javax.swing.JButton();
-        jbEliminarAceptar = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -202,79 +197,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jdEliminar.setTitle("Eliminar marca");
-        jdEliminar.setResizable(false);
-
-        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("¿Reálmente desea eliminar");
-
-        jlMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlMarca.setForeground(new java.awt.Color(255, 255, 255));
-        jlMarca.setText("<marca>");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("?");
-
-        jbEliminarCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        jbEliminarCancelar.setText("Cancelar");
-
-        jbEliminarAceptar.setBackground(new java.awt.Color(102, 102, 102));
-        jbEliminarAceptar.setText("Aceptar");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlMarca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 118, Short.MAX_VALUE)
-                        .addComponent(jbEliminarCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbEliminarAceptar)))
-                .addGap(30, 30, 30))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jlMarca)))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbEliminarAceptar)
-                    .addComponent(jbEliminarCancelar))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jdEliminarLayout = new javax.swing.GroupLayout(jdEliminar.getContentPane());
-        jdEliminar.getContentPane().setLayout(jdEliminarLayout);
-        jdEliminarLayout.setHorizontalGroup(
-            jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jdEliminarLayout.setVerticalGroup(
-            jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEliminarLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Menú de marcas");
         setResizable(false);
@@ -316,10 +238,9 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
                 return canEdit [columnIndex];
             }
         });
-        jtDatos.setColumnSelectionAllowed(true);
+        jtDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
-        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtDatos.getColumnModel().getColumnCount() > 0) {
             jtDatos.getColumnModel().getColumn(0).setMinWidth(30);
             jtDatos.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -457,14 +378,11 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
@@ -473,13 +391,9 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     private javax.swing.JButton jbEditarAceptar;
     private javax.swing.JButton jbEditarCancelar;
     private javax.swing.JButton jbEliminar;
-    private javax.swing.JButton jbEliminarAceptar;
-    private javax.swing.JButton jbEliminarCancelar;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
-    private javax.swing.JDialog jdEliminar;
-    private javax.swing.JLabel jlMarca;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;
@@ -521,11 +435,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     }
 
     @Override
-    public JDialog getJdEliminar() {
-        return jdEliminar;
-    }
-
-    @Override
     public JTextField getTfAgregarNombre() {
         return tfAgregarNombre;
     }
@@ -553,16 +462,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     @Override
     public JButton getJbEditarAceptar() {
         return jbEditarAceptar;
-    }
-
-    @Override
-    public JButton getJbEliminarCancelar() {
-        return jbEliminarCancelar;
-    }
-
-    @Override
-    public JButton getJbEliminarAceptar() {
-        return jbEliminarAceptar;
     }
 
     @Override
@@ -601,11 +500,6 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     }
 
     @Override
-    public void setJdEliminar(JDialog x) {
-        this.jdEliminar = x;
-    }
-
-    @Override
     public void setTfAgregarNombre(JTextField x) {
         this.tfAgregarNombre = x;
     }
@@ -634,23 +528,4 @@ public class JfMenuMarcas extends javax.swing.JFrame implements JfMenuMarcasIf {
     public void setJbEditarAceptar(JButton x) {
         this.jbEditarAceptar = x;
     }
-
-    @Override
-    public void setJbEliminarCancelar(JButton x) {
-        this.jbEliminarCancelar = x;
-    }
-
-    @Override
-    public void setJbEliminarAceptar(JButton x) {
-        this.jbEliminarAceptar = x;
-    }
-
-    public javax.swing.JLabel getJlMarca() {
-        return jlMarca;
-    }
-
-    public void setJlMarca(javax.swing.JLabel jlMarca) {
-        this.jlMarca = jlMarca;
-    }
-
 }
