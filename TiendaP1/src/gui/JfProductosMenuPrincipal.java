@@ -143,6 +143,8 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Código:");
 
+        tfAgregarCodigo.setEnabled(false);
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Detalles:");
@@ -397,10 +399,9 @@ public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfPr
                 return canEdit [columnIndex];
             }
         });
-        jtDatos.setColumnSelectionAllowed(true);
+        jtDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
-        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jtDatos.getColumnModel().getColumnCount() > 0) {
             jtDatos.getColumnModel().getColumn(0).setPreferredWidth(20);
             jtDatos.getColumnModel().getColumn(2).setPreferredWidth(20);

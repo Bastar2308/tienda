@@ -76,22 +76,6 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
         this.jbEditarCancelar = jbEditarCancelar;
     }
 
-    public JButton getJbEliminarAceptar() {
-        return jbEliminarAceptar;
-    }
-
-    public void setJbEliminarAceptar(JButton jbEliminarAceptar) {
-        this.jbEliminarAceptar = jbEliminarAceptar;
-    }
-
-    public JButton getJbEliminarCancelar() {
-        return jbEliminarCancelar;
-    }
-
-    public void setJbEliminarCancelar(JButton jbEliminarCancelar) {
-        this.jbEliminarCancelar = jbEliminarCancelar;
-    }
-
     public JButton getJbRegresar() {
         return jbRegresar;
     }
@@ -114,22 +98,6 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
 
     public void setJdEditar(JDialog jdEditar) {
         this.jdEditar = jdEditar;
-    }
-
-    public JDialog getJdEliminar() {
-        return jdEliminar;
-    }
-
-    public void setJdEliminar(JDialog jdEliminar) {
-        this.jdEliminar = jdEliminar;
-    }
-
-    public JLabel getJlCategoria() {
-        return jlCategoria;
-    }
-
-    public void setJlCategoria(JLabel jlCategoria) {
-        this.jlCategoria = jlCategoria;
     }
 
     public JTable getJtDatos() {
@@ -175,7 +143,6 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
         getContentPane().setBackground(new Color(51, 51, 51));
         jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
         jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
-        jdEliminar.getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuCategoriasControlador(this);
         setLocationRelativeTo(null);
         auxiliares.GuiTools.getInstance().config(this);
@@ -202,13 +169,6 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
         tfEditarNombre = new javax.swing.JTextField();
         jbEditarCancelar = new javax.swing.JButton();
         jbEditarAceptar = new javax.swing.JButton();
-        jdEliminar = new javax.swing.JDialog();
-        jPanel6 = new javax.swing.JPanel();
-        jbEliminarAceptar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jlCategoria = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jbEliminarCancelar = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -341,79 +301,6 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jdEliminar.setTitle("Eliminar categoría");
-        jdEliminar.setResizable(false);
-
-        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
-
-        jbEliminarAceptar.setBackground(new java.awt.Color(102, 102, 102));
-        jbEliminarAceptar.setText("Aceptar");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("¿Reálmente desea eliminar");
-
-        jlCategoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jlCategoria.setForeground(new java.awt.Color(255, 255, 255));
-        jlCategoria.setText("<categoria>");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("?");
-
-        jbEliminarCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        jbEliminarCancelar.setText("Cancelar");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 171, Short.MAX_VALUE)
-                        .addComponent(jbEliminarCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbEliminarAceptar)))
-                .addGap(30, 30, 30))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jlCategoria)))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbEliminarAceptar)
-                    .addComponent(jbEliminarCancelar))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jdEliminarLayout = new javax.swing.GroupLayout(jdEliminar.getContentPane());
-        jdEliminar.getContentPane().setLayout(jdEliminarLayout);
-        jdEliminarLayout.setHorizontalGroup(
-            jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jdEliminarLayout.setVerticalGroup(
-            jdEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdEliminarLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Categorías");
         setResizable(false);
@@ -450,10 +337,9 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
                 return canEdit [columnIndex];
             }
         });
-        jtDatos.setColumnSelectionAllowed(true);
+        jtDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
-        jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -582,14 +468,11 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     private javax.swing.JButton JbEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
@@ -597,13 +480,9 @@ public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategor
     private javax.swing.JButton jbEditar;
     private javax.swing.JButton jbEditarAceptar;
     private javax.swing.JButton jbEditarCancelar;
-    private javax.swing.JButton jbEliminarAceptar;
-    private javax.swing.JButton jbEliminarCancelar;
     private javax.swing.JButton jbRegresar;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
-    private javax.swing.JDialog jdEliminar;
-    private javax.swing.JLabel jlCategoria;
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfEditarNombre;

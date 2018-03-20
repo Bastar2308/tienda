@@ -121,10 +121,8 @@ public class ProductoDAO implements ProductoDAOIf {
         PreparedStatement st = null;
         try {
             con = Conexion.getConnection();
-            System.out.println(idProducto);
             st = con.prepareStatement("UPDATE producto SET codigo='" + codigo + "' WHERE idProducto='" + idProducto + "'");
             int x = st.executeUpdate();
-            System.out.println("resV");
             if (x == 0) {
                 return false;
             }

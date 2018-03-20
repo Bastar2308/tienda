@@ -42,7 +42,27 @@ public class ClienteDAO implements ClienteDAOIf {
         PreparedStatement st = null;
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("UPDATE Cliente set saldo=saldo-"+cantidadARestar+" WHERE idCliente="+idClienteint);
+            st = con.prepareStatement("UPDATE Cliente set saldo=saldo-" + cantidadARestar + " WHERE idCliente=" + idClienteint);
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+
+    public boolean agregaSaldo(String idClienteint, String cantidadARestar) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("UPDATE Cliente set saldo=saldo+" + cantidadARestar + " WHERE idCliente=" + idClienteint);
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -339,4 +359,32 @@ public class ClienteDAO implements ClienteDAOIf {
         return pojo;
     }
 
+    public DefaultTableModel cargarTablaPuntoDeVenta() {
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = null;
+        String encabezados[] = {"", "", "", "", "",};
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo ORDER BY `cliente`.`idCliente` ASC");
+            dt = new DefaultTableModel();
+            dt.setColumnIdentifiers(encabezados);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                dt.addRow(new Object[]{rs.getInt(1),
+                    rs.getString(2),
+                    rs.getInt(3),
+                    rs.getString(4),
+                    rs.getDate(5)
+                });
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla cliente " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
+    }
 }
