@@ -115,7 +115,6 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -466,7 +465,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
 
 		//setTitle("Java Webcam Capture POC");
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                setSize(800, 400);	
+//                setSize(800, 400);	
                 setLayout(new BorderLayout());
                 
 
@@ -488,7 +487,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
 		panel = new WebcamPanel(webcam, new Dimension(130, 130),false);
 		panel.setFPSDisplayed(false);
 
-		add(picker, BorderLayout.CENTER);
+		add(picker, BorderLayout.NORTH);
                 //add(jPanel1, BorderLayout.CENTER);
 		jPanel2.removeAll();
 		jPanel2.setLayout(new FlowLayout());
