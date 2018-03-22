@@ -9,6 +9,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pojo.Cliente;
 
 /**
  *
@@ -56,8 +57,16 @@ public interface JfGeneradorCredencialIf {
 
     public abstract void setJpCamara(JPanel pn);
     
+    public abstract JPanel getJpCredencial();
+
+    public abstract void setJpCredencial(JPanel pn);
+    
     public abstract WebcamPanel getWcPanel();
 
     public abstract void setWcPanel(WebcamPanel wp);
+    
+    public abstract Cliente getCliente();
+
+    public abstract void setCliente(Cliente cl);
     
 }

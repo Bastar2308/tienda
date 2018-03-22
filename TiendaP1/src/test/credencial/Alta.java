@@ -6,6 +6,7 @@
 package test.credencial;
 
 import dao.ClienteDAO;
+import gui.JfGeneradorCredencial;
 import java.sql.Date;
 import pojo.Cliente;
 
@@ -224,9 +225,7 @@ public class Alta extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ingresar();
-        CredencialGUI credencialGUI = new CredencialGUI(jTextField1.getText(), jTextField4.getText(), jTextField9.getText(), jTextField3.getText(), cliente);
         this.dispose();
-        credencialGUI.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

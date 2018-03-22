@@ -366,12 +366,10 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
     
     public void verificaDirectorio(File salida){
         File newDirectory = null;
-        
         if (!salida.isDirectory()) {
             salida.mkdirs();
             newDirectory = salida;
-        }
-        
+        }  
     }
     
     public boolean actualizarCliente(Cliente cliente, File outFile) throws IOException, SQLException{

@@ -14,6 +14,7 @@ import com.github.sarxos.webcam.WebcamListener;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamPicker;
 import com.github.sarxos.webcam.WebcamResolution;
+import controladores.GeneradorCrendencialControlador;
 import guiif.JfGeneradorCredencialIf;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -33,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pojo.Cliente;
 import test.credencial.CredencialGUI;
 
 /**
@@ -44,33 +46,28 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     Webcam webcam = Webcam.getDefault();
     WebcamPanel wCpanel = new WebcamPanel(webcam, new Dimension(130, 130), false);
     private WebcamPicker picker = null;
-    
+    private GeneradorCrendencialControlador controlador;
+    private Cliente cl;
     /**
      * Creates new form JfGeneradorCredencial
      */
     public JfGeneradorCredencial() {
         initComponents();
         setSize(700, 400);
+    }
+    public JfGeneradorCredencial(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
+        initComponents();
+        setSize(700, 400);
         add(jpContenedorBotones, BorderLayout.WEST);
-        add(jPanel1, BorderLayout.CENTER);
+        add(jpCredencial, BorderLayout.CENTER);
         ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR("2724899", null, null));
         Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(jlQr.getWidth(), jlQr.getHeight(), Image.SCALE_DEFAULT));
         jlQr.setIcon(icono);
+        controlador = new GeneradorCrendencialControlador(this);
+        cl = cliente;
 //        webcam.setViewSize(WebcamResolution.VGA.getSize());
         run();
     }
-    
-//    public JfGeneradorCredencial(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
-//        initComponents();
-//        setSize(700, 400);
-//        add(jpContenedorBotones, BorderLayout.WEST);
-//        add(jPanel1, BorderLayout.CENTER);
-//        ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR(matricula, null, null));
-//        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(jlQr.getWidth(), jlQr.getHeight(), Image.SCALE_DEFAULT));
-//        jlQr.setIcon(icono);
-//        webcam.setViewSize(WebcamResolution.VGA.getSize());
-//        wCpanel.setFillArea(true);
-//    }
     
     public static JfGeneradorCredencial getInstance() {
         return JfGeneradorCredencialHolder.INSTANCE;
@@ -347,6 +344,26 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         this.wCpanel = wp;
     }
 
+    @Override
+    public JPanel getJpCredencial() {
+        return jpCredencial;
+    }
+
+    @Override
+    public void setJpCredencial(JPanel pn) {
+        this.jpCredencial = pn;
+    }
+
+    @Override
+    public Cliente getCliente() {
+        return cl;
+    }
+
+    @Override
+    public void setCliente(Cliente cl) {
+        this.cl = cl;
+    }
+
     private static class JfGeneradorCredencialHolder {
 
         private static final JfGeneradorCredencial INSTANCE = new JfGeneradorCredencial();
@@ -364,7 +381,7 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         jbTomar = new javax.swing.JButton();
         jbRepetir = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jpCredencial = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jlNombre = new javax.swing.JLabel();
         jlNivel = new javax.swing.JLabel();
@@ -388,18 +405,18 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
 
         jpContenedorBotones.setLayout(new java.awt.GridLayout(3, 1));
 
-        jbTomar.setText("jButton1");
+        jbTomar.setText("Tomar");
         jpContenedorBotones.add(jbTomar);
 
-        jbRepetir.setText("jButton2");
+        jbRepetir.setText("Repetir");
         jpContenedorBotones.add(jbRepetir);
 
-        jbGuardar.setText("jButton3");
+        jbGuardar.setText("Guardar");
         jpContenedorBotones.add(jbGuardar);
 
         getContentPane().add(jpContenedorBotones, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jpCredencial.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -529,25 +546,25 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
             .addGap(0, 29, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpCredencialLayout = new javax.swing.GroupLayout(jpCredencial);
+        jpCredencial.setLayout(jpCredencialLayout);
+        jpCredencialLayout.setHorizontalGroup(
+            jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpCredencialLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
+                                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5))
@@ -557,24 +574,24 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jpCredencialLayout.setVerticalGroup(
+            jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpCredencialLayout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpCredencialLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -584,7 +601,7 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jpCredencial, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -633,7 +650,6 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -648,5 +664,6 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     private javax.swing.JLabel jlVigencia;
     private javax.swing.JPanel jpCamara;
     private javax.swing.JPanel jpContenedorBotones;
+    private javax.swing.JPanel jpCredencial;
     // End of variables declaration//GEN-END:variables
 }
