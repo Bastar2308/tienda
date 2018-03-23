@@ -7,6 +7,7 @@ import controladores.MenuFinanzasControlador;
 import guiif.JfMenuFinanzasIf;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -31,6 +32,30 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
         return JfMenuFinanzasHolder.INSTANCE;
     }
 
+    public JLabel getJlMarcaMasVendida() {
+        return JlMarcaMasVendida;
+    }
+
+    public void setJlMarcaMasVendida(JLabel JlMarcaMasVendida) {
+        this.JlMarcaMasVendida = JlMarcaMasVendida;
+    }
+
+    public javax.swing.JLabel getJlCategoriaMasVendida() {
+        return JlCategoriaMasVendida;
+    }
+
+    public void setJlCategoriaMasVendida(javax.swing.JLabel JlCategoriaMasVendida) {
+        this.JlCategoriaMasVendida = JlCategoriaMasVendida;
+    }
+
+    public javax.swing.JLabel getJlProductoMasVendido() {
+        return JlProductoMasVendido;
+    }
+
+    public void setJlProductoMasVendido(javax.swing.JLabel JlProductoMasVendido) {
+        this.JlProductoMasVendido = JlProductoMasVendido;
+    }
+
     private static class JfMenuFinanzasHolder {
 
         private static final JfMenuFinanzas INSTANCE = new JfMenuFinanzas();
@@ -47,10 +72,12 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jcbConsultas = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtResultados = new javax.swing.JTable();
-        jbConsultar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        JlProductoMasVendido = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        JlCategoriaMasVendida = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        JlMarcaMasVendida = new javax.swing.JLabel();
         jbRegresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -62,56 +89,75 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Consultas predefinidas:");
+        jLabel1.setText("Consultas predefinidas");
 
-        jcbConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        jcbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Producto más vendido:");
 
-        jtResultados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jtResultados.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jtResultados);
-        jtResultados.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        JlProductoMasVendido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        JlProductoMasVendido.setForeground(new java.awt.Color(255, 255, 255));
+        JlProductoMasVendido.setText("qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm");
 
-        jbConsultar.setBackground(new java.awt.Color(102, 102, 102));
-        jbConsultar.setText("Consultar");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Categoría más vendida:");
+
+        JlCategoriaMasVendida.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        JlCategoriaMasVendida.setForeground(new java.awt.Color(255, 255, 255));
+        JlCategoriaMasVendida.setText("qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Marca más vendida:");
+
+        JlMarcaMasVendida.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        JlMarcaMasVendida.setForeground(new java.awt.Color(255, 255, 255));
+        JlMarcaMasVendida.setText("qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm qwertyuiopñlkjhgfdsazxcvbnm");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGap(153, 153, 153)
+                        .addComponent(JlCategoriaMasVendida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jcbConsultas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JlProductoMasVendido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbConsultar)))
-                .addGap(43, 43, 43))
+                        .addComponent(JlMarcaMasVendida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jcbConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbConsultar))
+                    .addComponent(jLabel3)
+                    .addComponent(JlProductoMasVendido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(JlCategoriaMasVendida))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(JlMarcaMasVendida))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         jbRegresar.setBackground(new java.awt.Color(51, 51, 51));
@@ -130,7 +176,7 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 727, Short.MAX_VALUE)
                 .addComponent(jbRegresar)
                 .addGap(42, 42, 42))
         );
@@ -186,23 +232,17 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JlCategoriaMasVendida;
+    private javax.swing.JLabel JlMarcaMasVendida;
+    private javax.swing.JLabel JlProductoMasVendido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbRegresar;
-    private javax.swing.JComboBox<String> jcbConsultas;
-    private javax.swing.JTable jtResultados;
     // End of variables declaration//GEN-END:variables
-
-    public javax.swing.JButton getJbConsultar() {
-        return jbConsultar;
-    }
-
-    public void setJbConsultar(javax.swing.JButton jbConsultar) {
-        this.jbConsultar = jbConsultar;
-    }
 
     public javax.swing.JButton getJbRegresar() {
         return jbRegresar;
@@ -210,22 +250,6 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
 
     public void setJbRegresar(javax.swing.JButton jbRegresar) {
         this.jbRegresar = jbRegresar;
-    }
-
-    public javax.swing.JComboBox<String> getJcbConsultas() {
-        return jcbConsultas;
-    }
-
-    public void setJcbConsultas(javax.swing.JComboBox jcbConsultas) {
-        this.jcbConsultas = jcbConsultas;
-    }
-
-    public javax.swing.JTable getJtResultados() {
-        return jtResultados;
-    }
-
-    public void setJtResultados(javax.swing.JTable jtResultados) {
-        this.jtResultados = jtResultados;
     }
 
 }
