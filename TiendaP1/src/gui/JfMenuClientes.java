@@ -139,7 +139,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jPanel3 = new javax.swing.JPanel();
         jlAgregarImagen = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jcbAgregarGrupo = new javax.swing.JComboBox<>();
+        jcbAgregarGrupo = new javax.swing.JComboBox<pojo.Grupo>();
         jsAgregarComprasSinCredencial = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         tfAgregarCorreo = new javax.swing.JTextField();
@@ -163,7 +163,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jbEditarTomarFoto = new javax.swing.JButton();
         tfEditarQr = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jcbEditarGrupo = new javax.swing.JComboBox<>();
+        jcbEditarGrupo = new javax.swing.JComboBox<pojo.Grupo>();
         jsEditarComprasSinCredencial = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         tfEditarCorreo = new javax.swing.JTextField();
@@ -184,7 +184,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel10 = new javax.swing.JLabel();
         tfVerQr = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jcbVerGrupo = new javax.swing.JComboBox<>();
+        jcbVerGrupo = new javax.swing.JComboBox<pojo.Grupo>();
         jsVerComprasSinCredencial = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         tfVerCorreo = new javax.swing.JTextField();
@@ -198,6 +198,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel26 = new javax.swing.JLabel();
         tfVerNombre = new javax.swing.JTextField();
         jlVerImagen = new javax.swing.JLabel();
+        jdCamara = new javax.swing.JDialog();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -222,7 +223,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("QR:");
 
-        jsAgregarComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jsAgregarComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -250,7 +251,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Teléfono:");
 
-        jsAgregarSaldo.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
+        jsAgregarSaldo.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -386,7 +387,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("QR:");
 
-        jsEditarComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jsEditarComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -414,7 +415,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Teléfono:");
 
-        jsEditarSaldo.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
+        jsEditarSaldo.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -549,7 +550,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jcbVerGrupo.setEnabled(false);
 
-        jsVerComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jsVerComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         jsVerComprasSinCredencial.setEnabled(false);
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
@@ -576,7 +577,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Teléfono:");
 
-        jsVerSaldo.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
+        jsVerSaldo.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
         jsVerSaldo.setEnabled(false);
 
         tfVerTutor.setEnabled(false);
@@ -682,6 +683,17 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
+        javax.swing.GroupLayout jdCamaraLayout = new javax.swing.GroupLayout(jdCamara.getContentPane());
+        jdCamara.getContentPane().setLayout(jdCamaraLayout);
+        jdCamaraLayout.setHorizontalGroup(
+            jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jdCamaraLayout.setVerticalGroup(
+            jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
@@ -725,7 +737,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jScrollPane1.setViewportView(jtDatos);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 255, 255)));
 
         jbAgregar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregar.setText("Agregar");
@@ -907,6 +919,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo;
     private javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo;
     private javax.swing.JDialog jdAgregar;
+    private javax.swing.JDialog jdCamara;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdVer;
     private javax.swing.JLabel jlAgregarImagen;
