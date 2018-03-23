@@ -5,74 +5,33 @@
  */
 package gui;
 
-import auxiliares.QrTools;
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamDiscoveryEvent;
-import com.github.sarxos.webcam.WebcamDiscoveryListener;
-import com.github.sarxos.webcam.WebcamEvent;
-import com.github.sarxos.webcam.WebcamListener;
-import com.github.sarxos.webcam.WebcamPanel;
-import com.github.sarxos.webcam.WebcamPicker;
-import com.github.sarxos.webcam.WebcamResolution;
+import auxiliares.CameraTools;
 import controladores.GeneradorCrendencialControlador;
 import guiif.JfGeneradorCredencialIf;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import pojo.Cliente;
-import test.credencial.CredencialGUI;
 
 /**
  *
  * @author Fernando
  */
-public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGeneradorCredencialIf, Runnable, WebcamListener, WindowListener, Thread.UncaughtExceptionHandler, ItemListener, WebcamDiscoveryListener{
-    
-    Webcam webcam = Webcam.getDefault();
-    WebcamPanel wCpanel = new WebcamPanel(webcam, new Dimension(130, 130), false);
-    private WebcamPicker picker = null;
+public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGeneradorCredencialIf{
     private GeneradorCrendencialControlador controlador;
     private Cliente cl;
     /**
      * Creates new form JfGeneradorCredencial
      */
+    
     public JfGeneradorCredencial() {
         initComponents();
-        setSize(700, 400);
+        setSize(715, 450);
         add(jpContenedorBotones, BorderLayout.WEST);
         add(jpCredencial, BorderLayout.CENTER);
-        controlador = new GeneradorCrendencialControlador(this);
-//        webcam.setViewSize(WebcamResolution.VGA.getSize());
-        run();
-    }
-    public JfGeneradorCredencial(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
-        initComponents();
-        setSize(700, 400);
-        add(jpContenedorBotones, BorderLayout.WEST);
-        add(jpCredencial, BorderLayout.CENTER);
-        ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR("2724899", null, null));
-        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(jlQr.getWidth(), jlQr.getHeight(), Image.SCALE_DEFAULT));
-        jlQr.setIcon(icono);
-        controlador = new GeneradorCrendencialControlador(this);
-        cl = cliente;
-//        webcam.setViewSize(WebcamResolution.VGA.getSize());
-        run();
+        controlador = new GeneradorCrendencialControlador(this, CameraTools.getInstance(130, 130, jpCamara, this));
     }
     
     public static JfGeneradorCredencial getInstance() {
@@ -197,177 +156,6 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     @Override
     public void setJpCamara(JPanel pn) {
         this.jpCamara = pn;
-    }
-
-    @Override
-    public void run() {
-        Webcam.addDiscoveryListener(this);
-
-		//setTitle("Java Webcam Capture POC");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-//                setLayout(new BorderLayout());
-                
-
-		addWindowListener(this);
-
-		picker = new WebcamPicker();
-		picker.addItemListener(this);
-
-		webcam = picker.getSelectedWebcam();
-//
-//		if (webcam == null) {
-//			System.out.println("No webcams found...");
-//			System.exit(1);
-//		}
-
-//		webcam.setViewSize(WebcamResolution.VGA.getSize());
-		webcam.addWebcamListener(JfGeneradorCredencial.this);
-
-		wCpanel = new WebcamPanel(webcam, new Dimension(130, 130),false);
-		wCpanel.setFPSDisplayed(false);
-                wCpanel.setFillArea(true);
-
-		this.add(picker, BorderLayout.NORTH);
-                //add(jPanel1, BorderLayout.CENTER);
-		jpCamara.removeAll();
-		jpCamara.setLayout(new BorderLayout());
-                jpCamara.add(wCpanel, BorderLayout.CENTER);
-
-		pack();
-		setVisible(true);
-
-		Thread t = new Thread() {
-
-			@Override
-			public void run() {
-				//wCpanel.start();
-			}
-		};
-		t.setName("example-starter");
-		t.setDaemon(true);
-		t.setUncaughtExceptionHandler(this);
-		t.start();
-    }
-
-    @Override
-    public void webcamOpen(WebcamEvent we) {
-        
-    }
-
-    @Override
-    public void webcamClosed(WebcamEvent we) {
-        
-    }
-
-    @Override
-    public void webcamDisposed(WebcamEvent we) {
-        
-    }
-
-    @Override
-    public void webcamImageObtained(WebcamEvent we) {
-        
-    }
-
-    @Override
-    public void windowOpened(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowClosing(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowClosed(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowIconified(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowActivated(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent we) {
-        
-    }
-
-    @Override
-    public void uncaughtException(Thread thread, Throwable thrwbl) {
-        
-    }
-
-    @Override
-    public void itemStateChanged(ItemEvent ie) {
-        if (ie.getItem() != webcam) {
-			if (webcam != null) {
-
-				wCpanel.stop();
-
-				remove(wCpanel);
-
-				webcam.removeWebcamListener(this);
-				webcam.close();
-
-				webcam = (Webcam) ie.getItem();
-//				webcam.setViewSize(WebcamResolution.VGA.getSize());
-				webcam.addWebcamListener(this);
-
-				System.out.println("selected " + webcam.getName());
-
-				wCpanel = new WebcamPanel(webcam, new Dimension(130, 130) ,true);
-				wCpanel.setFPSDisplayed(false);
-
-				jpCamara.removeAll();
-				jpCamara.add(wCpanel, BorderLayout.CENTER);
-                                wCpanel.setFillArea(true);
-				pack();
-
-				Thread t = new Thread() {
-
-					@Override
-					public void run() {
-						wCpanel.start();
-					}
-				};
-				t.setName("example-stoper");
-				t.setDaemon(true);
-				t.setUncaughtExceptionHandler(this);
-				t.start();
-                        }
-        }
-    }
-
-    @Override
-    public void webcamFound(WebcamDiscoveryEvent wde) {
-        
-    }
-
-    @Override
-    public void webcamGone(WebcamDiscoveryEvent wde) {
-        
-    }
-
-    @Override
-    public WebcamPanel getWcPanel() {
-        return wCpanel;
-    }
-
-    @Override
-    public void setWcPanel(WebcamPanel wp) {
-        this.wCpanel = wp;
     }
 
     @Override
@@ -564,6 +352,8 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
                 .addContainerGap())
         );
 
+        jpCamara.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jpCamaraLayout = new javax.swing.GroupLayout(jpCamara);
         jpCamara.setLayout(jpCamaraLayout);
         jpCamaraLayout.setHorizontalGroup(
@@ -685,6 +475,9 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JfGeneradorCredencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import auxiliares.CameraTools;
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
 import gui.JfControlDeGrupos;
@@ -15,6 +16,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import pojo.Cliente;
 import pojo.Grupo;
+import test.credencial.JcCameraToolsIf;
 
 /**
  *
@@ -23,9 +25,11 @@ import pojo.Grupo;
 public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
+    CameraTools vista2;
 
-    public MenuClientesControlador(JfMenuClientes vista) {
+    public MenuClientesControlador(JfMenuClientes vista, CameraTools vista2) {
         this.vista = vista;
+        this.vista2 = vista2;
 
         addListeners();
         cargarTabla();

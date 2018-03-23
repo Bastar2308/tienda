@@ -5,6 +5,7 @@
  */
 package test.credencial;
 
+import auxiliares.CameraTools;
 import auxiliares.MailTools;
 import auxiliares.QrTools;
 import com.github.sarxos.webcam.Webcam;

@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import auxiliares.CameraTools;
 import auxiliares.MailTools;
 import auxiliares.QrTools;
 import dao.ClienteDAO;
@@ -33,9 +34,11 @@ import pojo.Cliente;
  */
 public class GeneradorCrendencialControlador implements ActionListener{
     private JfGeneradorCredencial vista;
+    private CameraTools vista2;
 
-    public GeneradorCrendencialControlador(JfGeneradorCredencial vista) {
+    public GeneradorCrendencialControlador(JfGeneradorCredencial vista, CameraTools ct) {
         this.vista = vista;
+        this.vista2 = ct;
         cargarListeners();
     }
 
@@ -48,9 +51,9 @@ public class GeneradorCrendencialControlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbTomar())) {
-            vista.getWcPanel().pause();
+            vista2.getJpPanel().pause();
         } else if (e.getSource().equals(vista.getJbRepetir())) {
-            vista.getWcPanel().resume();
+            vista2.getJpPanel().resume();
         } else if (e.getSource().equals(vista.getJbGuardar())) {
             colocarQr(vista.getJtMatricula().getText());
             File outputfile = new File(System.getProperty("user.home")+"/Documents/system32/");

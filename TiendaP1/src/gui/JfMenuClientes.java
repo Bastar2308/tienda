@@ -3,6 +3,7 @@
  */
 package gui;
 
+import auxiliares.CameraTools;
 import guiif.JfMenuClientesIf;
 import javax.swing.JButton;
 import controladores.MenuClientesControlador;
@@ -21,7 +22,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
      */
     public JfMenuClientes() {
         initComponents();
-        controlador = new MenuClientesControlador(this);
+        controlador = new MenuClientesControlador(this, CameraTools.getInstance(350, 350, jpCamara, jdCamara));
         getContentPane().setBackground(new Color(51, 51, 51));
         jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
         jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
@@ -199,6 +200,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         tfVerNombre = new javax.swing.JTextField();
         jlVerImagen = new javax.swing.JLabel();
         jdCamara = new javax.swing.JDialog();
+        jpCamara = new javax.swing.JPanel();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -683,15 +685,34 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
+        jpCamara.setPreferredSize(new java.awt.Dimension(350, 350));
+
+        javax.swing.GroupLayout jpCamaraLayout = new javax.swing.GroupLayout(jpCamara);
+        jpCamara.setLayout(jpCamaraLayout);
+        jpCamaraLayout.setHorizontalGroup(
+            jpCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+        jpCamaraLayout.setVerticalGroup(
+            jpCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jdCamaraLayout = new javax.swing.GroupLayout(jdCamara.getContentPane());
         jdCamara.getContentPane().setLayout(jdCamaraLayout);
         jdCamaraLayout.setHorizontalGroup(
             jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jdCamaraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jdCamaraLayout.setVerticalGroup(
             jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdCamaraLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -925,6 +946,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jlAgregarImagen;
     private javax.swing.JLabel jlEditarImagen;
     private javax.swing.JLabel jlVerImagen;
+    private javax.swing.JPanel jpCamara;
     private javax.swing.JSpinner jsAgregarComprasSinCredencial;
     private javax.swing.JSpinner jsAgregarSaldo;
     private javax.swing.JSpinner jsEditarComprasSinCredencial;
