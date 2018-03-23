@@ -26,7 +26,7 @@ public class ClienteAlta {
         cliente.setTelefono("0000000003");
         cliente.setCorreo("correo003");
         cliente.setVigencia(new Date(118, 9, 27));
-        if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
+        if (ClienteDAO.getInstance().insertaCliente(cliente, "") != 0) {
             System.out.println("Insertado correctamente");
         } else {
             System.out.println("Error en la inserción");
