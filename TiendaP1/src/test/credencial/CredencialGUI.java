@@ -16,6 +16,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamPicker;
 import com.github.sarxos.webcam.WebcamResolution;
 import dao.ClienteDAO;
+import dao.GrupoDAO;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -34,6 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,28 +57,18 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
     Cliente cliente;
     private WebcamPicker picker = null;
 
-    /**
-     * Creates new form CredencialGUI
-     */
-    public CredencialGUI() {
-        setLocationRelativeTo(null);
-        initComponents();
-        run();
-
-    }
-
-    public CredencialGUI(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
+    public CredencialGUI(Cliente cliente) {
         setSize(800, 400);
         setLocationRelativeTo(null);
         initComponents();
         run();
         jLabel8.setOpaque(true);
-        jLabel1.setText(nombre);
+        jLabel1.setText(cliente.getNombre());
         jLabel2.setText("Secundaria");
-        jLabel3.setText(gradoGrupo);
-        jLabel4.setText(vigencia);
-        jLabel14.setText(matricula);
-        ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR(matricula, null, null));
+        jLabel3.setText(GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()).toString());
+        jLabel4.setText(cliente.getVigencia().toString());
+        jLabel14.setText(cliente.getQr());
+        ImageIcon imagen3 = new ImageIcon(QrTools.getInstance().generarQR(cliente.getQr(), null, null));
         Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), Image.SCALE_DEFAULT));
         jLabel9.setIcon(icono);
         webcam.setViewSize(WebcamResolution.VGA.getSize());
@@ -323,7 +315,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        File outputfile = new File(System.getProperty("user.home")+"/Documents/system32/");
+        File outputfile = new File(System.getProperty("user.home") + "/Documents/system32/");
         verificaDirectorio(outputfile);
         outputfile = nombraImagenes(outputfile, "");
 
@@ -336,9 +328,9 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         } catch (IOException ex) {
             System.out.println("Error al guardar: " + ex);
         }
-        
+
         try {
-            actualizarCliente(cliente,outputfile);
+            actualizarCliente(cliente, outputfile);
         } catch (IOException ex) {
             Logger.getLogger(CredencialGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -346,15 +338,15 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public File nombraImagenes(File outputfile, String carpeta){
+    public File nombraImagenes(File outputfile, String carpeta) {
         int n = 0;
         do {
             n ++;
-            outputfile = new File(System.getProperty("user.home")+"/Documents/system32/"+carpeta+"/imagen0" + n + ".png");
+            outputfile = new File(System.getProperty("user.home") + "/Documents/system32/" + carpeta + "/imagen0" + n + ".png");
         }while (outputfile.isFile());
         return outputfile;
     }
-    
+
     public BufferedImage createImage(JPanel panel) {
         int w = panel.getWidth();
         int h = panel.getHeight();
@@ -363,17 +355,17 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         panel.paint(g);
         return bi;
     }
-    
-    public void verificaDirectorio(File salida){
+
+    public void verificaDirectorio(File salida) {
         File newDirectory = null;
-        if (!salida.isDirectory()) {
+        if ( ! salida.isDirectory()) {
             salida.mkdirs();
             newDirectory = salida;
-        }  
+        }
     }
-    
-    public boolean actualizarCliente(Cliente cliente, File outFile) throws IOException, SQLException{
-        File salida = new File(System.getProperty("user.home")+"/Documents/system32/Alumnos");
+
+    public boolean actualizarCliente(Cliente cliente, File outFile) throws IOException, SQLException {
+        File salida = new File(System.getProperty("user.home") + "/Documents/system32/Alumnos");
         verificaDirectorio(salida);
         salida = nombraImagenes(salida, "Alumnos");
         ImageIO.write(createImage(jPanel2), "png", salida);
@@ -416,7 +408,38 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CredencialGUI().setVisible(true);
+                new CredencialGUI(new Cliente() {
+                    @Override
+                    public String getNombre() {
+                        return "ESTE ES MI NOMBRE";
+                    }
+
+                    @Override
+                    public int getIdCliente() {
+                        return 34;
+                    }
+
+                    @Override
+                    public double getSaldo() {
+                        return 852.9;
+                    }
+
+                    @Override
+                    public int getGrupo_idGrupo() {
+                        return 5;
+                    }
+
+                    @Override
+                    public String getQr() {
+                        return "QR PROOO";
+                    }
+
+                    @Override
+                    public Date getVigencia() {
+                        return new Date(System.currentTimeMillis());
+                    }
+
+                }).setVisible(true);
             }
         });
     }
@@ -461,16 +484,15 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
     public void run() {
         Webcam.addDiscoveryListener(this);
 
-		//setTitle("Java Webcam Capture POC");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setTitle("Java Webcam Capture POC");
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                setSize(800, 400);	
-                setLayout(new BorderLayout());
-                
+        setLayout(new BorderLayout());
 
-		addWindowListener(this);
+        addWindowListener(this);
 
-		picker = new WebcamPicker();
-		picker.addItemListener(this);
+        picker = new WebcamPicker();
+        picker.addItemListener(this);
 
 //		webcam = picker.getSelectedWebcam();
 //
@@ -478,142 +500,141 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
 //			System.out.println("No webcams found...");
 //			System.exit(1);
 //		}
+        webcam.setViewSize(WebcamResolution.VGA.getSize());
+        webcam.addWebcamListener(CredencialGUI.this);
 
-		webcam.setViewSize(WebcamResolution.VGA.getSize());
-		webcam.addWebcamListener(CredencialGUI.this);
+        panel = new WebcamPanel(webcam, new Dimension(130, 130), false);
+        panel.setFPSDisplayed(false);
 
-		panel = new WebcamPanel(webcam, new Dimension(130, 130),false);
-		panel.setFPSDisplayed(false);
+        add(picker, BorderLayout.NORTH);
+        //add(jPanel1, BorderLayout.CENTER);
+        jPanel2.removeAll();
+        jPanel2.setLayout(new FlowLayout());
+        jPanel2.add(panel, BorderLayout.CENTER);
 
-		add(picker, BorderLayout.NORTH);
-                //add(jPanel1, BorderLayout.CENTER);
-		jPanel2.removeAll();
-		jPanel2.setLayout(new FlowLayout());
-                jPanel2.add(panel, BorderLayout.CENTER);
+        pack();
+        setVisible(true);
 
-		pack();
-		setVisible(true);
+        Thread t = new Thread() {
 
-		Thread t = new Thread() {
-
-			@Override
-			public void run() {
-				//panel.start();
-			}
-		};
-		t.setName("example-starter");
-		t.setDaemon(true);
-		t.setUncaughtExceptionHandler(this);
-		t.start();
+            @Override
+            public void run() {
+                //panel.start();
+            }
+        };
+        t.setName("example-starter");
+        t.setDaemon(true);
+        t.setUncaughtExceptionHandler(this);
+        t.start();
     }
 
     @Override
     public void webcamOpen(WebcamEvent we) {
-        
+
     }
 
     @Override
     public void webcamClosed(WebcamEvent we) {
-        
+
     }
 
     @Override
     public void webcamDisposed(WebcamEvent we) {
-        
+
     }
 
     @Override
     public void webcamImageObtained(WebcamEvent we) {
-        
+
     }
 
     @Override
     public void windowOpened(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowClosing(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowClosed(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowIconified(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowDeiconified(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowActivated(WindowEvent we) {
-        
+
     }
 
     @Override
     public void windowDeactivated(WindowEvent we) {
-        
+
     }
 
     @Override
     public void uncaughtException(Thread thread, Throwable thrwbl) {
-        
+
     }
 
     @Override
     public void itemStateChanged(ItemEvent ie) {
         if (ie.getItem() != webcam) {
-			if (webcam != null) {
+            if (webcam != null) {
 
-				panel.stop();
+                panel.stop();
 
-				remove(panel);
+                remove(panel);
 
-				webcam.removeWebcamListener(this);
-				webcam.close();
+                webcam.removeWebcamListener(this);
+                webcam.close();
 
-				webcam = (Webcam) ie.getItem();
-				webcam.setViewSize(WebcamResolution.VGA.getSize());
-				webcam.addWebcamListener(this);
+                webcam = (Webcam) ie.getItem();
+                webcam.setViewSize(WebcamResolution.VGA.getSize());
+                webcam.addWebcamListener(this);
 
-				System.out.println("selected " + webcam.getName());
+                System.out.println("selected " + webcam.getName());
 
-				panel = new WebcamPanel(webcam, new Dimension(130, 130) ,false);
-				panel.setFPSDisplayed(false);
+                panel = new WebcamPanel(webcam, new Dimension(130, 130), false);
+                panel.setFPSDisplayed(false);
 
-				jPanel2.removeAll();
-				jPanel2.add(panel, BorderLayout.CENTER);
-				pack();
+                jPanel2.removeAll();
+                jPanel2.add(panel, BorderLayout.CENTER);
+                pack();
 
-				Thread t = new Thread() {
+                Thread t = new Thread() {
 
-					@Override
-					public void run() {
-						panel.start();
-					}
-				};
-				t.setName("example-stoper");
-				t.setDaemon(true);
-				t.setUncaughtExceptionHandler(this);
-				t.start();
-    }
+                    @Override
+                    public void run() {
+                        panel.start();
+                    }
+                };
+                t.setName("example-stoper");
+                t.setDaemon(true);
+                t.setUncaughtExceptionHandler(this);
+                t.start();
+            }
         }
     }
 
     @Override
     public void webcamFound(WebcamDiscoveryEvent wde) {
-        
+
     }
 
     @Override
     public void webcamGone(WebcamDiscoveryEvent wde) {
-        
+
     }
 }
