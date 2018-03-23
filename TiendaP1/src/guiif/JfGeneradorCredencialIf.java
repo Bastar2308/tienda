@@ -9,6 +9,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import pojo.Cliente;
 
 /**
@@ -29,25 +30,33 @@ public interface JfGeneradorCredencialIf {
 
     public abstract void setJbguardar(JButton bt);
     
-    public abstract JLabel getJlNombre();
+    public abstract JTextField getJtNombre();
 
-    public abstract void setJlNombre(JLabel lb);
+    public abstract void setJtNombre(JTextField tf);
     
-    public abstract JLabel getJlNivel();
+    public abstract JTextField getJtNivel();
 
-    public abstract void setJlnivel(JLabel lb);
+    public abstract void setJtNivel(JTextField tf);
     
-    public abstract JLabel getJlGradoGrupo();
+    public abstract JTextField getJtGradoGrupo();
 
-    public abstract void setJlGradoGrupo(JLabel lb);
+    public abstract void setJtGradoGrupo(JTextField tf);
     
-    public abstract JLabel getJlVigencia();
+    public abstract JTextField getJtVigenciaDD();
 
-    public abstract void setJlVigencia(JLabel lb);
+    public abstract void setJtVigenciaDD(JTextField tf);
     
-    public abstract JLabel getJlMatricula();
+    public abstract JTextField getJtVigenciaMM();
 
-    public abstract void setJlMatricula(JLabel lb);
+    public abstract void setJtVigenciaMM(JTextField tf);
+    
+    public abstract JTextField getJtVigenciaAA();
+
+    public abstract void setJtVigenciaAA(JTextField tf);
+    
+    public abstract JTextField getJtMatricula();
+
+    public abstract void setJtMatricula(JTextField tf);
     
     public abstract JLabel getJlQr();
 

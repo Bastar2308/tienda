@@ -129,7 +129,7 @@ public class ClienteDAO implements ClienteDAOIf {
     }
 
     @Override
-    public int insertaCliente(Cliente pojo) {
+    public int insertaCliente(Cliente pojo, String foto) {
         Connection con = null;
         PreparedStatement st = null;
         int id = 0;
@@ -140,7 +140,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
             st.setString(4, pojo.getQr());
-            st.setBlob(5, pojo.getFoto());
+            st.setBinaryStream(5, new FileInputStream(new File(foto)), (int) new File(foto).length());
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());

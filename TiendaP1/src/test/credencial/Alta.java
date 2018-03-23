@@ -35,7 +35,7 @@ public class Alta extends javax.swing.JFrame {
         cliente.setCorreo(jTextField7.getText());
         cliente.setVigencia(new Date(118, 9, 27));
         
-        if (ClienteDAO.getInstance().insertaCliente(cliente) != 0) {
+        if (ClienteDAO.getInstance().insertaCliente(cliente, "") != 0) {
             System.out.println("Insertado correctamente");
             cliente.setIdCliente(ClienteDAO.getInstance().obtenerRecienInsertado());
         } else {

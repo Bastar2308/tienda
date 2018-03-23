@@ -34,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import pojo.Cliente;
 import test.credencial.CredencialGUI;
 
@@ -54,6 +55,11 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     public JfGeneradorCredencial() {
         initComponents();
         setSize(700, 400);
+        add(jpContenedorBotones, BorderLayout.WEST);
+        add(jpCredencial, BorderLayout.CENTER);
+        controlador = new GeneradorCrendencialControlador(this);
+//        webcam.setViewSize(WebcamResolution.VGA.getSize());
+        run();
     }
     public JfGeneradorCredencial(String nombre, String gradoGrupo, String vigencia, String matricula, Cliente cliente) {
         initComponents();
@@ -104,53 +110,73 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     }
 
     @Override
-    public JLabel getJlNombre() {
-        return jlNombre;
+    public JTextField getJtNombre() {
+        return jtNombre;
     }
 
     @Override
-    public void setJlNombre(JLabel lb) {
-        this.jlNombre = lb;
+    public void setJtNombre(JTextField tf) {
+        this.jtNombre = tf;
     }
 
     @Override
-    public JLabel getJlNivel() {
-        return jlNivel;
+    public JTextField getJtNivel() {
+        return jtNivel;
     }
 
     @Override
-    public void setJlnivel(JLabel lb) {
-        this.jlNivel = lb;
+    public void setJtNivel(JTextField tf) {
+        this.jtNivel = tf;
     }
 
     @Override
-    public JLabel getJlGradoGrupo() {
-        return jlGradogrupo;
+    public JTextField getJtGradoGrupo() {
+        return jtGradoGrupo;
     }
 
     @Override
-    public void setJlGradoGrupo(JLabel lb) {
-        this.jlGradogrupo = lb;
+    public void setJtGradoGrupo(JTextField tf) {
+        this.jtGradoGrupo = tf;
     }
 
     @Override
-    public JLabel getJlVigencia() {
-        return jlVigencia;
+    public JTextField getJtVigenciaDD() {
+        return jtVigenciaDD;
     }
 
     @Override
-    public void setJlVigencia(JLabel lb) {
-        this.jlVigencia = lb;
+    public void setJtVigenciaDD(JTextField tf) {
+        this.jtVigenciaDD = tf;
     }
 
     @Override
-    public JLabel getJlMatricula() {
-        return jlMatricula;
+    public JTextField getJtVigenciaMM() {
+        return jtVigenciaMM;
     }
 
     @Override
-    public void setJlMatricula(JLabel lb) {
-        this.jlMatricula = lb;
+    public void setJtVigenciaMM(JTextField tf) {
+        this.jtVigenciaMM = tf;
+    }
+
+    @Override
+    public JTextField getJtVigenciaAA() {
+        return jtVigenciaAA;
+    }
+
+    @Override
+    public void setJtVigenciaAA(JTextField tf) {
+        this.jtVigenciaAA = tf;
+    }
+
+    @Override
+    public JTextField getJtMatricula() {
+        return jtMatricula;
+    }
+
+    @Override
+    public void setJtMatricula(JTextField tf) {
+        this.jtMatricula = tf;
     }
 
     @Override
@@ -383,11 +409,14 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         jbGuardar = new javax.swing.JButton();
         jpCredencial = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jlNombre = new javax.swing.JLabel();
-        jlNivel = new javax.swing.JLabel();
-        jlGradogrupo = new javax.swing.JLabel();
-        jlVigencia = new javax.swing.JLabel();
-        jlMatricula = new javax.swing.JLabel();
+        jtNombre = new javax.swing.JTextField();
+        jtNivel = new javax.swing.JTextField();
+        jtGradoGrupo = new javax.swing.JTextField();
+        jtVigencia = new javax.swing.JTextField();
+        jtMatricula = new javax.swing.JTextField();
+        jtVigenciaDD = new javax.swing.JTextField();
+        jtVigenciaMM = new javax.swing.JTextField();
+        jtVigenciaAA = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -420,47 +449,73 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jlNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlNombre.setText("Nombre");
+        jtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtNombre.setText("Nombre");
+        jtNombre.setBorder(null);
 
-        jlNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlNivel.setText("Nivel:");
+        jtNivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtNivel.setText("Nivel");
+        jtNivel.setBorder(null);
 
-        jlGradogrupo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlGradogrupo.setText("Grado y grupo");
+        jtGradoGrupo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtGradoGrupo.setText("Grado y grupo");
+        jtGradoGrupo.setBorder(null);
 
-        jlVigencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlVigencia.setText("Vigencia");
+        jtVigencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtVigencia.setText("Vigencia:");
+        jtVigencia.setBorder(null);
 
-        jlMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlMatricula.setText("Matrícula");
+        jtMatricula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtMatricula.setText("Matrícula");
+        jtMatricula.setBorder(null);
+
+        jtVigenciaDD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtVigenciaDD.setText("DD");
+        jtVigenciaDD.setBorder(null);
+
+        jtVigenciaMM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtVigenciaMM.setText("MM");
+        jtVigenciaMM.setBorder(null);
+
+        jtVigenciaAA.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtVigenciaAA.setText("AAAA");
+        jtVigenciaAA.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jtNombre)
+            .addComponent(jtNivel)
+            .addComponent(jtGradoGrupo)
+            .addComponent(jtMatricula)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlGradogrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlVigencia)
-                    .addComponent(jlMatricula))
-                .addGap(0, 68, Short.MAX_VALUE))
+                .addComponent(jtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtVigenciaDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtVigenciaMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtVigenciaAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jlNombre)
+                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlNivel)
+                .addComponent(jtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlGradogrupo)
+                .addComponent(jtGradoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlVigencia)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtVigenciaDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtVigenciaMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtVigenciaAA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlMatricula)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addComponent(jtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -553,25 +608,22 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
             .addGroup(jpCredencialLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
-                                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addGap(96, 96, 96)
-                                .addComponent(jLabel8)
-                                .addContainerGap())
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)))
+                        .addGap(10, 10, 10))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpCredencialLayout.setVerticalGroup(
@@ -582,19 +634,21 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
                     .addComponent(jLabel5)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpCredencialLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(jLabel6)
                         .addGroup(jpCredencialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpCredencialLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(41, 41, 41)
                                 .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpCredencialLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpCredencialLayout.createSequentialGroup()
+                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addComponent(jlQr, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
@@ -656,14 +710,17 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbRepetir;
     private javax.swing.JButton jbTomar;
-    private javax.swing.JLabel jlGradogrupo;
-    private javax.swing.JLabel jlMatricula;
-    private javax.swing.JLabel jlNivel;
-    private javax.swing.JLabel jlNombre;
     private javax.swing.JLabel jlQr;
-    private javax.swing.JLabel jlVigencia;
     private javax.swing.JPanel jpCamara;
     private javax.swing.JPanel jpContenedorBotones;
     private javax.swing.JPanel jpCredencial;
+    private javax.swing.JTextField jtGradoGrupo;
+    private javax.swing.JTextField jtMatricula;
+    private javax.swing.JTextField jtNivel;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtVigencia;
+    private javax.swing.JTextField jtVigenciaAA;
+    private javax.swing.JTextField jtVigenciaDD;
+    private javax.swing.JTextField jtVigenciaMM;
     // End of variables declaration//GEN-END:variables
 }
