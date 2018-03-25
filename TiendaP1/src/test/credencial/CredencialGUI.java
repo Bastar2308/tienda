@@ -6,6 +6,7 @@
 package test.credencial;
 
 import auxiliares.CameraTools;
+import auxiliares.FileTools;
 import auxiliares.MailTools;
 import auxiliares.QrTools;
 import com.github.sarxos.webcam.Webcam;
@@ -317,8 +318,8 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         File outputfile = new File(System.getProperty("user.home") + "/Documents/system32/");
-        verificaDirectorio(outputfile);
-        outputfile = nombraImagenes(outputfile, "");
+        FileTools.getInstance().verificaDirectorio(outputfile);
+        outputfile = FileTools.getInstance().nombraImagenes(outputfile, "");
 
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
@@ -339,15 +340,6 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public File nombraImagenes(File outputfile, String carpeta) {
-        int n = 0;
-        do {
-            n ++;
-            outputfile = new File(System.getProperty("user.home") + "/Documents/system32/" + carpeta + "/imagen0" + n + ".png");
-        }while (outputfile.isFile());
-        return outputfile;
-    }
-
     public BufferedImage createImage(JPanel panel) {
         int w = panel.getWidth();
         int h = panel.getHeight();
@@ -357,18 +349,10 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         return bi;
     }
 
-    public void verificaDirectorio(File salida) {
-        File newDirectory = null;
-        if ( ! salida.isDirectory()) {
-            salida.mkdirs();
-            newDirectory = salida;
-        }
-    }
-
     public boolean actualizarCliente(Cliente cliente, File outFile) throws IOException, SQLException {
         File salida = new File(System.getProperty("user.home") + "/Documents/system32/Alumnos");
-        verificaDirectorio(salida);
-        salida = nombraImagenes(salida, "Alumnos");
+        FileTools.getInstance().verificaDirectorio(salida);
+        salida = FileTools.getInstance().nombraImagenes(salida, "Alumnos");
         ImageIO.write(createImage(jPanel2), "png", salida);
         if (ClienteDAO.getInstance().modificaCliente(cliente, outFile.getAbsolutePath()) == true) {
             System.out.println("Actualizado correctamente");

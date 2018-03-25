@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.CameraTools;
+import auxiliares.FileTools;
 import auxiliares.MailTools;
 import auxiliares.QrTools;
 import dao.ClienteDAO;
@@ -57,8 +58,8 @@ public class GeneradorCrendencialControlador implements ActionListener{
         } else if (e.getSource().equals(vista.getJbGuardar())) {
             colocarQr(vista.getJtMatricula().getText());
             File outputfile = new File(System.getProperty("user.home")+"/Documents/system32/");
-            verificaDirectorio(outputfile);
-            outputfile = nombraImagenes(outputfile, "");
+            FileTools.getInstance().verificaDirectorio(outputfile);
+            outputfile = FileTools.getInstance().nombraImagenes(outputfile, "");
             try {
                 guardarImagen(outputfile);
             } catch (IOException ex) {
@@ -80,15 +81,6 @@ public class GeneradorCrendencialControlador implements ActionListener{
         } 
     }
     
-    public File nombraImagenes(File outputfile, String carpeta){
-        int n = 0;
-        do {
-            n ++;
-            outputfile = new File(System.getProperty("user.home")+"/Documents/system32/"+carpeta+"/imagen0" + n + ".png");
-        }while (outputfile.isFile());
-        return outputfile;
-    }
-    
     public BufferedImage createImage(JPanel panel) {
         int w = panel.getWidth();
         int h = panel.getHeight();
@@ -98,18 +90,10 @@ public class GeneradorCrendencialControlador implements ActionListener{
         return bi;
     }
     
-    public void verificaDirectorio(File salida){
-        File newDirectory = null;
-        if (!salida.isDirectory()) {
-            salida.mkdirs();
-            newDirectory = salida;
-        }  
-    }
-    
     public boolean guardarCliente(Cliente cliente, File outFile) throws IOException, SQLException{
         File salida = new File(System.getProperty("user.home")+"/Documents/system32/Alumnos");
-        verificaDirectorio(salida);
-        salida = nombraImagenes(salida, "Alumnos");
+        FileTools.getInstance().verificaDirectorio(salida);
+        salida = FileTools.getInstance().nombraImagenes(salida, "Alumnos");
         ImageIO.write(createImage(vista.getJpCamara()), "png", salida);
         if (ClienteDAO.getInstance().insertaCliente(cliente, outFile.getAbsolutePath()) != 0) {
             System.out.println("Ingresado correctamente");
@@ -125,6 +109,7 @@ public class GeneradorCrendencialControlador implements ActionListener{
         vista.getJlQr().setIcon(icono);
         System.out.println("Dimensiones: "+vista.getJlQr().getWidth());
     }
+    
     void guardarImagen(File outputfile) throws IOException{
         ImageIO.write(createImage(vista.getJpCredencial()), "png", outputfile);
         System.out.println("Éxito al guardar credencial");
