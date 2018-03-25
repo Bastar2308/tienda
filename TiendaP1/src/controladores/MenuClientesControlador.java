@@ -56,6 +56,8 @@ public class MenuClientesControlador implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Error al guardar cliente", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } else if (e.getSource().equals(vista.getJbEditar())) {
+            GuiTools.getInstance().abre(vista, JfControlDeGrupos.getInstance());
         }
     }
     
