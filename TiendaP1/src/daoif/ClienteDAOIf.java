@@ -20,10 +20,14 @@ public interface ClienteDAOIf {
     public abstract boolean restaSaldo(String idClienteint, String cantidadARestar);
 
     public abstract int insertaCliente(Cliente pojo, String foto);
+    
+    public abstract int insertaCliente(Cliente pojo);
 
     public abstract boolean eliminaCliente(int id);
 
     public abstract boolean modificaCliente(Cliente pojo, String path);
+    
+    public abstract boolean modificaCliente(Cliente pojo);
 
     public abstract Cliente buscaCliente(int id);
 

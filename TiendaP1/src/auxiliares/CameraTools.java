@@ -36,7 +36,6 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
     private WebcamPicker picker = null;
     static JPanel contenedor;
     static JFrame ventana;
-    static JDialog ventana2;
     static int width;
     static int height;
     
@@ -49,13 +48,6 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
         height = y;
         contenedor = panel;
         ventana = frame;
-        return CameraToolsHolder.INSTANCE;
-    }
-    public static CameraTools getInstance(int x, int y, JPanel panel, JDialog frame) {
-        width = x;
-        height = y;
-        contenedor = panel;
-        ventana2 = frame;
         return CameraToolsHolder.INSTANCE;
     }
 
@@ -87,11 +79,7 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
         wPanel.setFPSDisplayed(false);
         wPanel.setFillArea(true);
         
-        try {
-            ventana.add(picker, BorderLayout.NORTH);
-        } catch (Exception e) {
-            ventana2.add(picker, BorderLayout.NORTH);
-        }
+        ventana.add(picker, BorderLayout.NORTH);
         
         contenedor.removeAll();
         contenedor.setLayout(new FlowLayout());
@@ -138,7 +126,7 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
 
     @Override
     public void windowClosing(WindowEvent we) {
-        
+        wPanel.stop();
     }
 
     @Override

@@ -10,10 +10,9 @@ import auxiliares.FileTools;
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
 import dao.GrupoDAO;
-import daoif.GrupoDAOIf;
+import gui.JfCamaraPortatil;
 import gui.JfControlDeGrupos;
 import gui.JfMenuClientes;
-import gui.JfMenuPrincipal;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -30,10 +29,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import pojo.Cliente;
 import pojo.Grupo;
-import test.credencial.JcCameraToolsIf;
 
 /**
  *
@@ -42,25 +39,38 @@ import test.credencial.JcCameraToolsIf;
 public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
-    CameraTools vista2;
     Cliente cliente;
 
-    public MenuClientesControlador(JfMenuClientes vista, CameraTools vista2) {
+    public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
-        this.vista2 = vista2;
-        cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString()));
 
+        
         addListeners();
         cargarTabla();
+        cargarCombos();
     }
 
     public void cargarTabla() {
         vista.getJtDatos().setModel(ClienteDAO.getInstance().cargarTabla());
     }
+    
+    public void cargarCombos() {
+        vista.getJcbAgregarGrupo().setModel(GrupoDAO.getInstance().cargarCombo());
+        vista.getJcbEditarGrupo().setModel(GrupoDAO.getInstance().cargarCombo());
+        vista.getJcbVerGrupo().setModel(GrupoDAO.getInstance().cargarCombo());
+    }
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
         vista.getJbControlDeGrupos().addActionListener(this);
+        vista.getJbAgregar().addActionListener(this);
+        vista.getJbAgregarAceptar().addActionListener(this);
+        vista.getJbAgregarTomarFoto().addActionListener(this);
+        vista.getJbEditar().addActionListener(this);
+        vista.getJbEditarAceptar().addActionListener(this);
+        vista.getJbEditarTomarFoto().addActionListener(this);
+        vista.getJbVer().addActionListener(this);
+        vista.getJbEliminar().addActionListener(this);
     }
 
     @Override
@@ -69,69 +79,115 @@ public class MenuClientesControlador implements ActionListener {
             GuiTools.getInstance().regresaMenu(vista);
         } else if (e.getSource().equals(vista.getJbControlDeGrupos())) {
             GuiTools.getInstance().abre(vista, JfControlDeGrupos.getInstance());
-        } else if(e.getSource().equals(vista.getJbAgregar())){
-            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 500, 558);
+        } else if (e.getSource().equals(vista.getJbAgregar())){
+            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 500, 588);
         } else if  (e.getSource().equals(vista.getJbAgregarAceptar())) {
             if (agregarCliente() != 0) {
                 JOptionPane.showMessageDialog(null, "Cliente guardado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                vista.getJdAgregar().dispose();
+                cargarTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al guardar cliente", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
             GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
+            cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
             try {
                 cargarDatos();
-            } catch (IOException ex) {
-                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             try {
                 actualizarDatos();
                 actualizarCliente();
-            } catch (IOException ex) {
-                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (e.getSource().equals(vista.getJbEliminar())) {
-            ClienteDAO.getInstance().eliminaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 1).toString()));
+        } else if (e.getSource().equals(vista.getJbEditarTomarFoto())) {
+            vista.getJdEditar().setVisible(false);
+            JfCamaraPortatil.getInstance(vista.getJlEditarImagen(), vista.getJdEditar(), vista).setVisible(true);
+        }else if (e.getSource().equals(vista.getJbEliminar())) {
+            if (ClienteDAO.getInstance().eliminaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString())) == true) {
+                JOptionPane.showMessageDialog(null, "Cliente eliminado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                cargarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar cliente", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } else if (e.getSource().equals(vista.getJbVer())) {
+            GuiTools.getInstance().abreDialogo(vista.getJdVer(), 469, 546);
+            cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
+            try {
+                cargarDatosVer();
+            } catch (IOException | SQLException ex) {
+                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (e.getSource().equals(vista.getJbAgregarTomarFoto())) {
+            vista.getJdAgregar().setVisible(false);
+            JfCamaraPortatil.getInstance(vista.getJlAgregarImagen(), vista.getJdAgregar(), vista).setVisible(true);
         }
     }
     
     int agregarCliente(){
-        Cliente cliente = new Cliente();
+        Cliente clienteA = new Cliente();
         Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
-        cliente.setNombre(vista.getTfAgregarNombre().getText());
-        cliente.setGrupo_idGrupo(grupo.getIdGrupo());
-        cliente.setSaldo((Double)vista.getJsAgregarSaldo().getValue());
-        cliente.setQr(vista.getTfAgregarQr().getText());
-        cliente.setTutor(vista.getTfAgregarTutor().getText());
-        cliente.setTelefono(vista.getTfAgregarTelefono().getText());
-        cliente.setCorreo(vista.getTfAgregarCorreo().getText());
-        if (ClienteDAO.getInstance().insertaCliente(cliente, "") != 0) {
-            System.out.println("Insertado correctamente");
-            return 1;
+        clienteA.setNombre(vista.getTfAgregarNombre().getText());
+        clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
+        clienteA.setSaldo((Double)vista.getJsAgregarSaldo().getValue());
+        clienteA.setQr(vista.getTfAgregarQr().getText());
+        clienteA.setTutor(vista.getTfAgregarTutor().getText());
+        clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
+        clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
+        if (vista.getSRuta() == null) {
+            if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
+                System.out.println("Insertado correctamente");
+                return 1;
+            } else {
+                System.out.println("Error en la inserción");
+                return 0;
+            }
         } else {
-            System.out.println("Error en la inserción");
-            return 0;
+            if (ClienteDAO.getInstance().insertaCliente(clienteA, vista.getSRuta()) != 0) {
+                System.out.println("Insertado correctamente");
+                vista.setSRuta(null);
+                return 1;
+            } else {
+                System.out.println("Error en la inserción");
+                return 0;
+            }
         }
     }
     
     void cargarDatos() throws IOException, SQLException{
         vista.getTfEditarNombre().setText(cliente.getNombre());
-        vista.getJcbEditarGrupo().setSelectedItem(GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
+        vista.getJcbEditarGrupo().setSelectedItem((Grupo)GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
+        System.out.println(vista.getJcbEditarGrupo().getSelectedItem());
         vista.getJsEditarSaldo().setValue(cliente.getSaldo());
         vista.getTfEditarQr().setText(cliente.getQr());
         InputStream in = cliente.getFoto().getBinaryStream();  
         BufferedImage image = ImageIO.read(in);
         ImageIcon imagen3 = new ImageIcon(image);
-        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(vista.getJlEditarImagen().getWidth(), vista.getJlEditarImagen().getHeight(), Image.SCALE_DEFAULT));
+        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
         vista.getJlEditarImagen().setIcon(icono);
         vista.getTfEditarTutor().setText(cliente.getTutor());
         vista.getTfEditarTelefono().setText(cliente.getTelefono());
         vista.getTfEditarCorreo().setText(cliente.getCorreo());
+    }
+    
+    void cargarDatosVer() throws IOException, SQLException{
+        vista.getTfVerNombre().setText(cliente.getNombre());
+        vista.getJcbVerGrupo().setSelectedItem((Object)GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
+        vista.getJsVerSaldo().setValue(cliente.getSaldo());
+        vista.getTfVerQr().setText(cliente.getQr());
+        InputStream in = cliente.getFoto().getBinaryStream();  
+        BufferedImage image = ImageIO.read(in);
+        ImageIcon imagen3 = new ImageIcon(image);
+        Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+        vista.getJlVerImagen().setIcon(icono);
+        vista.getTfVerTutor().setText(cliente.getTutor());
+        vista.getTfVerTelefono().setText(cliente.getTelefono());
+        vista.getTfVerCorreo().setText(cliente.getCorreo());
     }
     
     void actualizarDatos() throws IOException, SQLException{ 
@@ -145,17 +201,25 @@ public class MenuClientesControlador implements ActionListener {
         cliente.setCorreo(vista.getTfEditarCorreo().getText());
     }
     
-    int actualizarCliente() throws IOException{
-        File salida = new File(System.getProperty("user.home")+"/Documents/system32/Alumnos");
-        FileTools.getInstance().verificaDirectorio(salida);
-        salida = FileTools.getInstance().nombraImagenes(salida, "Alumnos");
-        ImageIO.write(createImage(vista.getJlEditarImagen()), "png", salida);
-        if (ClienteDAO.getInstance().modificaCliente(cliente, salida.getAbsolutePath())== true) {
-            System.out.println("Actualizado correctamente");
-            return 1;
+    void actualizarCliente() throws IOException{
+        if (vista.getSRuta()==null) {
+            if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
+                JOptionPane.showMessageDialog(null, "Cliente actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                vista.setSRuta(null);
+                cargarTabla();
+                vista.getJdEditar().dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar cliente", "Error", JOptionPane.ERROR_MESSAGE);
+            } 
         } else {
-            System.out.println("Error en la actualización");
-            return 0;
+            if (ClienteDAO.getInstance().modificaCliente(cliente, vista.getSRuta())== true) {
+                JOptionPane.showMessageDialog(null, "Cliente actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                vista.setSRuta(null);
+                cargarTabla();
+                vista.getJdEditar().dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar cliente", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     

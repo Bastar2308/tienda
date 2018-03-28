@@ -8,6 +8,7 @@ import guiif.JfMenuClientesIf;
 import javax.swing.JButton;
 import controladores.MenuClientesControlador;
 import java.awt.Color;
+import javax.swing.JDialog;
 
 /**
  *
@@ -16,13 +17,14 @@ import java.awt.Color;
 public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientesIf {
 
     MenuClientesControlador controlador;
+    String ruta = null;
 
     /**
      * Creates new form MenuClientes
      */
     public JfMenuClientes() {
         initComponents();
-        controlador = new MenuClientesControlador(this, CameraTools.getInstance(350, 350, jpCamara, jdCamara));
+        controlador = new MenuClientesControlador(this);
         getContentPane().setBackground(new Color(51, 51, 51));
         jdAgregar.getContentPane().setBackground(new Color(51, 51, 51));
         jdEditar.getContentPane().setBackground(new Color(51, 51, 51));
@@ -34,18 +36,22 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         return JfMenuClientesHolder.INSTANCE;
     }
 
+    @Override
     public javax.swing.JButton getJbVer() {
         return jbVer;
     }
 
+    @Override
     public void setJbVer(javax.swing.JButton jbVer) {
         this.jbVer = jbVer;
     }
 
+    @Override
     public javax.swing.JComboBox<pojo.Grupo> getJcbVerGrupo() {
         return jcbVerGrupo;
     }
 
+    @Override
     public void setJcbVerGrupo(javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo) {
         this.jcbVerGrupo = jcbVerGrupo;
     }
@@ -58,68 +64,94 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.jdVer = jdVer;
     }
 
+    @Override
     public javax.swing.JLabel getJlVerImagen() {
         return jlVerImagen;
     }
 
+    @Override
     public void setJlVerImagen(javax.swing.JLabel jlVerImagen) {
         this.jlVerImagen = jlVerImagen;
     }
 
+    @Override
     public javax.swing.JSpinner getJsVerComprasSinCredencial() {
         return jsVerComprasSinCredencial;
     }
 
+    @Override
     public void setJsVerComprasSinCredencial(javax.swing.JSpinner jsVerComprasSinCredencial) {
         this.jsVerComprasSinCredencial = jsVerComprasSinCredencial;
     }
 
+    @Override
     public javax.swing.JSpinner getJsVerSaldo() {
         return jsVerSaldo;
     }
 
+    @Override
     public void setJsVerSaldo(javax.swing.JSpinner jsVerSaldo) {
         this.jsVerSaldo = jsVerSaldo;
     }
 
+    @Override
     public javax.swing.JTextField getTfVerCorreo() {
         return tfVerCorreo;
     }
 
+    @Override
     public void setTfVerCorreo(javax.swing.JTextField tfVerCorreo) {
         this.tfVerCorreo = tfVerCorreo;
     }
 
+    @Override
     public javax.swing.JTextField getTfVerNombre() {
         return tfVerNombre;
     }
 
+    @Override
     public void setTfVerNombre(javax.swing.JTextField tfVerNombre) {
         this.tfVerNombre = tfVerNombre;
     }
 
+    @Override
     public javax.swing.JTextField getTfVerQr() {
         return tfVerQr;
     }
 
+    @Override
     public void setTfVerQr(javax.swing.JTextField tfVerQr) {
         this.tfVerQr = tfVerQr;
     }
 
+    @Override
     public javax.swing.JTextField getTfVerTelefono() {
         return tfVerTelefono;
     }
 
+    @Override
     public void setTfVerTelefono(javax.swing.JTextField tfVerTelefono) {
         this.tfVerTelefono = tfVerTelefono;
     }
 
+    @Override
     public javax.swing.JTextField getTfVerTutor() {
         return tfVerTutor;
     }
 
+    @Override
     public void setTfVerTutor(javax.swing.JTextField tfVerTutor) {
         this.tfVerTutor = tfVerTutor;
+    }
+
+    @Override
+    public String getSRuta() {
+        return ruta;
+    }
+
+    @Override
+    public void setSRuta(String ruta) {
+        this.ruta = ruta;
     }
 
     private static class JfMenuClientesHolder {
@@ -199,8 +231,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel26 = new javax.swing.JLabel();
         tfVerNombre = new javax.swing.JTextField();
         jlVerImagen = new javax.swing.JLabel();
-        jdCamara = new javax.swing.JDialog();
-        jpCamara = new javax.swing.JPanel();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -685,36 +715,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
-        jpCamara.setPreferredSize(new java.awt.Dimension(350, 350));
-
-        javax.swing.GroupLayout jpCamaraLayout = new javax.swing.GroupLayout(jpCamara);
-        jpCamara.setLayout(jpCamaraLayout);
-        jpCamaraLayout.setHorizontalGroup(
-            jpCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-        jpCamaraLayout.setVerticalGroup(
-            jpCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jdCamaraLayout = new javax.swing.GroupLayout(jdCamara.getContentPane());
-        jdCamara.getContentPane().setLayout(jdCamaraLayout);
-        jdCamaraLayout.setHorizontalGroup(
-            jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdCamaraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jdCamaraLayout.setVerticalGroup(
-            jdCamaraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdCamaraLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jpCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
@@ -886,6 +886,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JfMenuClientes().setVisible(true);
             }
@@ -940,13 +941,11 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo;
     private javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo;
     private javax.swing.JDialog jdAgregar;
-    private javax.swing.JDialog jdCamara;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdVer;
     private javax.swing.JLabel jlAgregarImagen;
     private javax.swing.JLabel jlEditarImagen;
     private javax.swing.JLabel jlVerImagen;
-    private javax.swing.JPanel jpCamara;
     private javax.swing.JSpinner jsAgregarComprasSinCredencial;
     private javax.swing.JSpinner jsAgregarSaldo;
     private javax.swing.JSpinner jsEditarComprasSinCredencial;
@@ -981,250 +980,312 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.jbRegresar = jb;
     }
 
+    @Override
     public javax.swing.JButton getJbAgregar() {
         return jbAgregar;
     }
 
+    @Override
     public void setJbAgregar(javax.swing.JButton jbAgregar) {
         this.jbAgregar = jbAgregar;
     }
 
+    @Override
     public javax.swing.JButton getJbAgregarAceptar() {
         return jbAgregarAceptar;
     }
 
+    @Override
     public void setJbAgregarAceptar(javax.swing.JButton jbAgregarAceptar) {
         this.jbAgregarAceptar = jbAgregarAceptar;
     }
 
+    @Override
     public javax.swing.JButton getJbAgregarCancelar() {
         return jbAgregarCancelar;
     }
 
+    @Override
     public void setJbAgregarCancelar(javax.swing.JButton jbAgregarCancelar) {
         this.jbAgregarCancelar = jbAgregarCancelar;
     }
 
+    @Override
     public javax.swing.JButton getJbAgregarTomarFoto() {
         return jbAgregarTomarFoto;
     }
 
+    @Override
     public void setJbAgregarTomarFoto(javax.swing.JButton jbAgregarTomarFoto) {
         this.jbAgregarTomarFoto = jbAgregarTomarFoto;
     }
 
+    @Override
     public javax.swing.JButton getJbControlDeGrupos() {
         return jbControlDeGrupos;
     }
 
+    @Override
     public void setJbControlDeGrupos(javax.swing.JButton jbControlDeGrupos) {
         this.jbControlDeGrupos = jbControlDeGrupos;
     }
 
+    @Override
     public javax.swing.JButton getJbEditar() {
         return jbEditar;
     }
 
+    @Override
     public void setJbEditar(javax.swing.JButton jbEditar) {
         this.jbEditar = jbEditar;
     }
 
+    @Override
     public javax.swing.JButton getJbEditarAceptar() {
         return jbEditarAceptar;
     }
 
+    @Override
     public void setJbEditarAceptar(javax.swing.JButton jbEditarAceptar) {
         this.jbEditarAceptar = jbEditarAceptar;
     }
 
+    @Override
     public javax.swing.JButton getJbEditarCancelar() {
         return jbEditarCancelar;
     }
 
+    @Override
     public void setJbEditarCancelar(javax.swing.JButton jbEditarCancelar) {
         this.jbEditarCancelar = jbEditarCancelar;
     }
 
+    @Override
     public javax.swing.JButton getJbEditarTomarFoto() {
         return jbEditarTomarFoto;
     }
 
+    @Override
     public void setJbEditarTomarFoto(javax.swing.JButton jbEditarTomarFoto) {
         this.jbEditarTomarFoto = jbEditarTomarFoto;
     }
 
+    @Override
     public javax.swing.JButton getJbEliminar() {
         return jbEliminar;
     }
 
+    @Override
     public void setJbEliminar(javax.swing.JButton jbEliminar) {
         this.jbEliminar = jbEliminar;
     }
 
+    @Override
     public javax.swing.JComboBox<pojo.Grupo> getJcbAgregarGrupo() {
         return jcbAgregarGrupo;
     }
 
+    @Override
     public void setJcbAgregarGrupo(javax.swing.JComboBox<pojo.Grupo> jcbAgregarGrupo) {
         this.jcbAgregarGrupo = jcbAgregarGrupo;
     }
 
+    @Override
     public javax.swing.JComboBox<pojo.Grupo> getJcbEditarGrupo() {
         return jcbEditarGrupo;
     }
 
+    @Override
     public void setJcbEditarGrupo(javax.swing.JComboBox<pojo.Grupo> jcbEditarGrupo) {
         this.jcbEditarGrupo = jcbEditarGrupo;
     }
 
+    @Override
     public javax.swing.JDialog getJdAgregar() {
         return jdAgregar;
     }
 
+    @Override
     public void setJdAgregar(javax.swing.JDialog jdAgregar) {
         this.jdAgregar = jdAgregar;
     }
 
+    @Override
     public javax.swing.JDialog getJdEditar() {
         return jdEditar;
     }
 
+    @Override
     public void setJdEditar(javax.swing.JDialog jdEditar) {
         this.jdEditar = jdEditar;
     }
 
+    @Override
     public javax.swing.JLabel getJlAgregarImagen() {
         return jlAgregarImagen;
     }
 
+    @Override
     public void setJlAgregarImagen(javax.swing.JLabel jlAgregarImagen) {
         this.jlAgregarImagen = jlAgregarImagen;
     }
 
+    @Override
     public javax.swing.JLabel getJlEditarImagen() {
         return jlEditarImagen;
     }
 
+    @Override
     public void setJlEditarImagen(javax.swing.JLabel jlEditarImagen) {
         this.jlEditarImagen = jlEditarImagen;
     }
 
+    @Override
     public javax.swing.JSpinner getJsAgregarComprasSinCredencial() {
         return jsAgregarComprasSinCredencial;
     }
 
+    @Override
     public void setJsAgregarComprasSinCredencial(javax.swing.JSpinner jsAgregarComprasSinCredencial) {
         this.jsAgregarComprasSinCredencial = jsAgregarComprasSinCredencial;
     }
 
+    @Override
     public javax.swing.JSpinner getJsAgregarSaldo() {
         return jsAgregarSaldo;
     }
 
+    @Override
     public void setJsAgregarSaldo(javax.swing.JSpinner jsAgregarSaldo) {
         this.jsAgregarSaldo = jsAgregarSaldo;
     }
 
+    @Override
     public javax.swing.JSpinner getJsEditarComprasSinCredencial() {
         return jsEditarComprasSinCredencial;
     }
 
+    @Override
     public void setJsEditarComprasSinCredencial(javax.swing.JSpinner jsEditarComprasSinCredencial) {
         this.jsEditarComprasSinCredencial = jsEditarComprasSinCredencial;
     }
 
+    @Override
     public javax.swing.JSpinner getJsEditarSaldo() {
         return jsEditarSaldo;
     }
 
+    @Override
     public void setJsEditarSaldo(javax.swing.JSpinner jsEditarSaldo) {
         this.jsEditarSaldo = jsEditarSaldo;
     }
 
+    @Override
     public javax.swing.JTable getJtDatos() {
         return jtDatos;
     }
 
+    @Override
     public void setJtDatos(javax.swing.JTable jtDatos) {
         this.jtDatos = jtDatos;
     }
 
+    @Override
     public javax.swing.JTextField getTfAgregarCorreo() {
         return tfAgregarCorreo;
     }
 
+    @Override
     public void setTfAgregarCorreo(javax.swing.JTextField tfAgregarCorreo) {
         this.tfAgregarCorreo = tfAgregarCorreo;
     }
 
+    @Override
     public javax.swing.JTextField getTfAgregarNombre() {
         return tfAgregarNombre;
     }
 
+    @Override
     public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
         this.tfAgregarNombre = tfAgregarNombre;
     }
 
+    @Override
     public javax.swing.JTextField getTfAgregarQr() {
         return tfAgregarQr;
     }
 
+    @Override
     public void setTfAgregarQr(javax.swing.JTextField tfAgregarQr) {
         this.tfAgregarQr = tfAgregarQr;
     }
 
+    @Override
     public javax.swing.JTextField getTfAgregarTelefono() {
         return tfAgregarTelefono;
     }
 
+    @Override
     public void setTfAgregarTelefono(javax.swing.JTextField tfAgregarTelefono) {
         this.tfAgregarTelefono = tfAgregarTelefono;
     }
 
+    @Override
     public javax.swing.JTextField getTfAgregarTutor() {
         return tfAgregarTutor;
     }
 
+    @Override
     public void setTfAgregarTutor(javax.swing.JTextField tfAgregarTutor) {
         this.tfAgregarTutor = tfAgregarTutor;
     }
 
+    @Override
     public javax.swing.JTextField getTfEditarCorreo() {
         return tfEditarCorreo;
     }
 
+    @Override
     public void setTfEditarCorreo(javax.swing.JTextField tfEditarCorreo) {
         this.tfEditarCorreo = tfEditarCorreo;
     }
 
+    @Override
     public javax.swing.JTextField getTfEditarNombre() {
         return tfEditarNombre;
     }
 
+    @Override
     public void setTfEditarNombre(javax.swing.JTextField tfEditarNombre) {
         this.tfEditarNombre = tfEditarNombre;
     }
 
+    @Override
     public javax.swing.JTextField getTfEditarQr() {
         return tfEditarQr;
     }
 
+    @Override
     public void setTfEditarQr(javax.swing.JTextField tfEditarQr) {
         this.tfEditarQr = tfEditarQr;
     }
 
+    @Override
     public javax.swing.JTextField getTfEditarTelefono() {
         return tfEditarTelefono;
     }
 
+    @Override
     public void setTfEditarTelefono(javax.swing.JTextField tfEditarTelefono) {
         this.tfEditarTelefono = tfEditarTelefono;
     }
 
+    @Override
     public javax.swing.JTextField getTfEditarTutor() {
         return tfEditarTutor;
     }
 
+    @Override
     public void setTfEditarTutor(javax.swing.JTextField tfEditarTutor) {
         this.tfEditarTutor = tfEditarTutor;
     }

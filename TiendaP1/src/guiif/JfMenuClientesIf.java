@@ -34,6 +34,10 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JButton getJbControlDeGrupos();
 
     public abstract void setJbControlDeGrupos(JButton x);
+    
+    public abstract JButton getJbRegresar();
+
+    public abstract void setJbRegresar(JButton x);
 
     public abstract JButton getJbAgregar();
 
@@ -182,4 +186,8 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JSpinner getJsVerComprasSinCredencial();
 
     public abstract void setJsVerComprasSinCredencial(JSpinner x);
+    
+    public abstract String getSRuta();
+
+    public abstract void setSRuta(String x);
 }

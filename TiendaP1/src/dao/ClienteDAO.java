@@ -8,6 +8,7 @@ package dao;
 import daoif.ClienteDAOIf;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,12 +23,13 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, vigencia) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, vigencia=? WHERE idCliente=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=? WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -144,7 +146,31 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
-            st.setDate(9, pojo.getVigencia());
+            id = st.executeUpdate();
+        } catch (SQLException | FileNotFoundException e) {
+            System.out.println("Error al insertar cliente: " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return id;
+    }
+    
+    @Override
+    public int insertaCliente(Cliente pojo) {
+        Connection con = null;
+        PreparedStatement st = null;
+        int id = 0;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_INSERT2, PreparedStatement.RETURN_GENERATED_KEYS);
+            st.setString(1, pojo.getNombre());
+            st.setDouble(2, pojo.getSaldo());
+            st.setInt(3, pojo.getGrupo_idGrupo());
+            st.setString(4, pojo.getQr());
+            st.setString(5, pojo.getTutor());
+            st.setString(6, pojo.getTelefono());
+            st.setString(7, pojo.getCorreo());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -178,6 +204,37 @@ public class ClienteDAO implements ClienteDAOIf {
     }
 
     @Override
+    public boolean modificaCliente(Cliente pojo) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE);
+            st.setString(1, pojo.getNombre());
+            st.setDouble(2, pojo.getSaldo());
+            st.setInt(3, pojo.getGrupo_idGrupo());
+            st.setString(4, pojo.getQr());
+            st.setBlob(5, pojo.getFoto());
+            st.setString(6, pojo.getTutor());
+            st.setString(7, pojo.getTelefono());
+            st.setString(8, pojo.getCorreo());
+            st.setInt(9, pojo.getIdCliente());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+    
+    @Override
     public boolean modificaCliente(Cliente pojo, String path) {
         Connection con = null;
         PreparedStatement st = null;
@@ -193,8 +250,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
-            st.setDate(9, pojo.getVigencia());
-            st.setInt(10, pojo.getIdCliente());
+            st.setInt(9, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
