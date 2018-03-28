@@ -6,8 +6,8 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import dao.ConsultasDAO;
 import gui.JfMenuFinanzas;
-import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,24 +22,28 @@ public class MenuFinanzasControlador implements ActionListener {
     public MenuFinanzasControlador(JfMenuFinanzas vista) {
         this.vista = vista;
         addListeners();
+        cargaConsultas();
     }
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
-        vista.getJbConsultar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
-        } else if (e.getSource().equals(vista.getJbConsultar())) {
-            consulta(vista.getJcbConsultas().getSelectedIndex());
+        }else if (e.getSource().equals(vista.getJbConsultar())) {
+            cargaConsultas();
         }
     }
 
-    private void consulta(int selectedIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void cargaConsultas() {
+        switch (vista.getJcbConsultas().getSelectedIndex()) {
+            case 0: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_CATEGORIA));break;
+            case 1: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_MARCA));break;
+            case 2: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_PRODUCTO));break;
+            default:throw new AssertionError();
+        }
     }
-
 }
