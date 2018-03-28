@@ -7,9 +7,15 @@ package auxiliares;
 
 import gui.JfMenuPrincipal;
 import java.awt.Image;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -102,4 +108,28 @@ public class GuiTools {
         dialogo.setLocationRelativeTo(null);
         dialogo.setVisible(true);
     }
+
+    public DefaultTableModel resultSetToDefaultTableModel(ResultSet source) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            ResultSetMetaData meta = source.getMetaData();
+            for (int i = 0; i < meta.getColumnCount(); i ++) {
+                modelo.addColumn(meta.getColumnLabel(i));
+            }
+            while (source.next()) {
+                Object[] fila = new Object[meta.getColumnCount()];
+                for (int i = 0; i < meta.getColumnCount(); i ++) {
+                    fila[i] = source.getObject(i + 1);
+                }
+                modelo.addRow(fila);
+            }
+            source.close();
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(GuiTools.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+        }
+    }
+
 }
