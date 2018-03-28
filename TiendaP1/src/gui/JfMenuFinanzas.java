@@ -65,7 +65,7 @@ public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzas
         jLabel1.setText("Consultas predefinidas:");
 
         jcbConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        jcbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbConsultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas totales por categoría", "Ventas totales por marca", "Ventas totales por producto" }));
 
         jtResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
