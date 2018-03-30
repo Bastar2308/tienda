@@ -106,6 +106,10 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jtClientes);
+        if (jtClientes.getColumnModel().getColumnCount() > 0) {
+            jtClientes.getColumnModel().getColumn(0).setMaxWidth(80);
+            jtClientes.getColumnModel().getColumn(2).setMaxWidth(300);
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
