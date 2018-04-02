@@ -52,7 +52,7 @@ public class MenuGeneradorCredencialesControlador implements ActionListener {
         DefaultTableModel datos = ClienteDAO.getInstance().cargarTablaPuntoDeVenta();
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
-        for (int i = 0; i < datos.getRowCount(); i ++) {
+        for (int i = 1; i < datos.getRowCount(); i ++) {
             original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
         }
     }
