@@ -52,8 +52,7 @@ public class MenuPrincipalControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbFinanzas())) {
             GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
-            JOptionPane.showMessageDialog(null, "Módulo en contrucción", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
+            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
             GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
