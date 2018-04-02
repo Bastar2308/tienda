@@ -30,6 +30,8 @@ public class ClienteDAO implements ClienteDAOIf {
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
     private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=? WHERE idCliente=?";
+    private static final String SQL_UPDATE_CREDENCIAL = "UPDATE " + TABLE + " SET vigencia=? WHERE idCliente=?";
+    private static final String SQL_UPDATE_CREDENCIAL2 = "UPDATE " + TABLE + " SET vigencia=?, foto=? WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -235,6 +237,55 @@ public class ClienteDAO implements ClienteDAOIf {
     }
     
     @Override
+    public boolean modificaClienteCredencial(Cliente pojo) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE_CREDENCIAL);
+            st.setDate(1, pojo.getVigencia());
+            st.setInt(2, pojo.getIdCliente());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+    
+    @Override
+    public boolean modificaClienteCredencial(Cliente pojo, String foto) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE_CREDENCIAL2);
+            st.setDate(1, pojo.getVigencia());
+            st.setBinaryStream(2, new FileInputStream(new File(foto)), (int) new File(foto).length());
+            st.setInt(3, pojo.getIdCliente());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (SQLException | FileNotFoundException e) {
+            System.out.println("Error al actualizar cliente" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+    
+    @Override
     public boolean modificaCliente(Cliente pojo, String path) {
         Connection con = null;
         PreparedStatement st = null;
@@ -242,15 +293,9 @@ public class ClienteDAO implements ClienteDAOIf {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
             st = con.prepareStatement(SQL_UPDATE);
-            st.setString(1, pojo.getNombre());
-            st.setDouble(2, pojo.getSaldo());
-            st.setInt(3, pojo.getGrupo_idGrupo());
-            st.setString(4, pojo.getQr());
-            st.setBinaryStream(5, new FileInputStream(new File(path)), (int) new File(path).length());
-            st.setString(6, pojo.getTutor());
-            st.setString(7, pojo.getTelefono());
-            st.setString(8, pojo.getCorreo());
-            st.setInt(9, pojo.getIdCliente());
+            st.setDate(1, pojo.getVigencia());
+            st.setBinaryStream(2, new FileInputStream(new File(path)), (int) new File(path).length());
+            st.setInt(3, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;

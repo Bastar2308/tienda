@@ -90,7 +90,7 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
 
             @Override
             public void run() {
-                //panel.start();
+                wPanel.start();
             }
         };
         t.setName("example-starter");

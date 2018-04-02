@@ -28,6 +28,10 @@ public interface ClienteDAOIf {
     public abstract boolean modificaCliente(Cliente pojo, String path);
     
     public abstract boolean modificaCliente(Cliente pojo);
+    
+    public abstract boolean modificaClienteCredencial(Cliente pojo);
+    
+    public abstract boolean modificaClienteCredencial(Cliente pojo, String foto);
 
     public abstract Cliente buscaCliente(int id);
 

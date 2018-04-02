@@ -15,6 +15,7 @@ import javax.swing.JButton;
 public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements JfMenuGeneradorCredencialesIf {
 
     MenuGeneradorCredencialesControlador controlador;
+    int id;
 
     /**
      * Creates new form JfMenuGeneradorCredenciales
@@ -24,7 +25,7 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         getContentPane().setBackground(new Color(51, 51, 51));
         controlador = new MenuGeneradorCredencialesControlador(this);
         setLocationRelativeTo(null);
-        auxiliares.GuiTools.getInstance().config(this);
+        //auxiliares.GuiTools.getInstance().config(this);
     }
 
     public static JfMenuGeneradorCredenciales getInstance() {
@@ -37,6 +38,16 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
 
     public void setJtClientes(javax.swing.JTable jtClientes) {
         this.jtClientes = jtClientes;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 
     private static class JfMenuGeneradorCredencialesHolder {

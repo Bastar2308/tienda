@@ -22,4 +22,7 @@ public interface JfMenuGeneradorCredencialesIf extends FrameRegresable {
 
     public abstract JButton getJbGenerar();
     public abstract void setJbGenerar(JButton x);
+    
+    public abstract int getId();
+    public abstract void setId(int x);
 }

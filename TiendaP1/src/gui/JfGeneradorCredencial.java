@@ -7,6 +7,7 @@ package gui;
 
 import auxiliares.CameraTools;
 import controladores.GeneradorCrendencialControlador;
+import dao.ClienteDAO;
 import guiif.JfGeneradorCredencialIf;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -20,8 +21,8 @@ import pojo.Cliente;
  * @author Fernando
  */
 public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGeneradorCredencialIf{
-    private GeneradorCrendencialControlador controlador;
-    private Cliente cl;
+    private final GeneradorCrendencialControlador controlador;
+    private static Cliente cl;
     /**
      * Creates new form JfGeneradorCredencial
      */
@@ -34,7 +35,9 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         controlador = new GeneradorCrendencialControlador(this, CameraTools.getInstance(130, 130, jpCamara, this));
     }
     
-    public static JfGeneradorCredencial getInstance() {
+    public static JfGeneradorCredencial getInstance(int id) {
+        cl = ClienteDAO.getInstance().buscaCliente(id);
+        System.out.println(cl);
         return JfGeneradorCredencialHolder.INSTANCE;
     }
 
