@@ -90,13 +90,13 @@ public class MenuClientesControlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Error al guardar cliente", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
             cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
             try {
                 cargarDatos();
             } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
+            GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             try {
                 actualizarDatos();
@@ -116,13 +116,7 @@ public class MenuClientesControlador implements ActionListener {
             }
             
         } else if (e.getSource().equals(vista.getJbVer())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdVer(), 469, 546);
-            cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
-            try {
-                cargarDatosVer();
-            } catch (IOException | SQLException ex) {
-                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ver();
         } else if (e.getSource().equals(vista.getJbAgregarTomarFoto())) {
             vista.getJdAgregar().setVisible(false);
             JfCamaraPortatil.getInstance(vista.getJlAgregarImagen(), vista.getJdAgregar(), vista).setVisible(true);
@@ -230,6 +224,16 @@ public class MenuClientesControlador implements ActionListener {
         Graphics2D g = bi.createGraphics();
         label.paint(g);
         return bi;
+    }
+
+    private void ver() {
+        cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
+            try {
+                cargarDatosVer();
+            } catch (IOException | SQLException ex) {
+                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            GuiTools.getInstance().abreDialogo(vista.getJdVer(), 469, 546);
     }
     
 }
