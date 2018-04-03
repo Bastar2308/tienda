@@ -46,7 +46,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         cargaTabla();
         cargaClientes();
         vista.getJtClientes().setRowSelectionInterval(0, 0);
-        seleccionaCliente(0);
+        seleccionaCliente();
         vista.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentShown(ComponentEvent e) {
@@ -77,6 +77,10 @@ public class PuntoDeVentaControlador implements ActionListener {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraClientes();
+                if (esCodigoEnClientes()) {
+                    vista.getJtClientes().changeSelection(0, 0, false, false);
+                    seleccionaCliente();
+                }
             }
         }
         );
@@ -85,6 +89,10 @@ public class PuntoDeVentaControlador implements ActionListener {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraProductos();
+                if (esCodigoEnProductos()) {
+                    vista.getJtProductos().changeSelection(0, 0, false, false);
+                    agrega();
+                }
             }
         }
         );
@@ -104,7 +112,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             confirmaVenta();
         } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
             if (vista.getJtClientes().getSelectedRow() != -1) {
-                seleccionaCliente(vista.getJtClientes().getSelectedRow());
+                seleccionaCliente();
             }
         }
         actualizaTotales();
@@ -115,7 +123,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         original.setRowCount(0);
         DefaultTableModel datos = ProductoDAO.getInstance().cargarTabla();
         for (int i = 0; i < datos.getRowCount(); i ++) {
-            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 4)});
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 6 /*aqui va la wea*/)});
         }
     }
 
@@ -177,7 +185,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
         for (int i = 0; i < datos.getRowCount(); i ++) {
-            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 5)});
         }
     }
 
@@ -232,7 +240,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             //Resetear GUI
             cargaClientes();
             vista.getJtClientes().setRowSelectionInterval(0, 0);
-            seleccionaCliente(1);
+            seleccionaCliente();
             vista.getTfFiltrarClientes().setText(null);
             vista.getTfFiltrarProductos().setText(null);
             filtraClientes();
@@ -247,7 +255,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         }
     }
 
-    private void seleccionaCliente(int id) {
+    private void seleccionaCliente() {
         Blob imagen = ClienteDAO.getInstance().buscaCliente(
                 (int) vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0)
         ).getFoto();
@@ -281,5 +289,23 @@ public class PuntoDeVentaControlador implements ActionListener {
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
         vista.getJtProductos().setRowSorter(tableRowSorter);
         tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getTfFiltrarProductos().getText()));
+    }
+
+    public boolean esCodigoEnProductos() {
+        boolean esCodigo = false;
+        try {
+            return vista.getTfFiltrarProductos().getText().substring(0, 5).equals("BSTR_");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean esCodigoEnClientes() {
+        boolean esCodigo = false;
+        try {
+            return vista.getTfFiltrarClientes().getText().substring(0, 5).equals("BSTR_");
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
