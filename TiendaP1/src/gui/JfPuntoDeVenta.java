@@ -243,14 +243,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
 
             },
             new String [] {
-                "ID", "Nombre", "Precio", "Detalles"
+                "ID", "Nombre", "Precio", "Detalles", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -268,6 +268,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
             jtProductos.getColumnModel().getColumn(0).setPreferredWidth(30);
             jtProductos.getColumnModel().getColumn(1).setPreferredWidth(100);
             jtProductos.getColumnModel().getColumn(2).setPreferredWidth(30);
+            jtProductos.getColumnModel().getColumn(4).setMaxWidth(1);
         }
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -382,14 +383,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
 
             },
             new String [] {
-                "ID", "Nombre", "Saldo", "Grupo"
+                "ID", "Nombre", "Saldo", "Grupo", "QR"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -408,6 +409,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
             jtClientes.getColumnModel().getColumn(1).setPreferredWidth(250);
             jtClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
             jtClientes.getColumnModel().getColumn(3).setPreferredWidth(130);
+            jtClientes.getColumnModel().getColumn(4).setMaxWidth(1);
         }
 
         jlFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
