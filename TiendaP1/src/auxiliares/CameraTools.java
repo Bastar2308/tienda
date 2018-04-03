@@ -40,6 +40,7 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
     static int height;
     
     private CameraTools() {
+        System.out.println("Instanciado");
         run();
     }
     
@@ -91,6 +92,7 @@ public class CameraTools implements JcCameraToolsIf, Runnable, WebcamListener, W
             @Override
             public void run() {
                 wPanel.start();
+                System.out.println("Corre");
             }
         };
         t.setName("example-starter");

@@ -30,33 +30,9 @@ public interface JfGeneradorCredencialIf {
 
     public abstract void setJbguardar(JButton bt);
     
-    public abstract JTextField getJtNombre();
+    public abstract JButton getJbRegresar();
 
-    public abstract void setJtNombre(JTextField tf);
-    
-    public abstract JTextField getJtNivel();
-
-    public abstract void setJtNivel(JTextField tf);
-    
-    public abstract JTextField getJtGradoGrupo();
-
-    public abstract void setJtGradoGrupo(JTextField tf);
-    
-    public abstract JTextField getJtVigenciaDD();
-
-    public abstract void setJtVigenciaDD(JTextField tf);
-    
-    public abstract JTextField getJtVigenciaMM();
-
-    public abstract void setJtVigenciaMM(JTextField tf);
-    
-    public abstract JTextField getJtVigenciaAA();
-
-    public abstract void setJtVigenciaAA(JTextField tf);
-    
-    public abstract JTextField getJtMatricula();
-
-    public abstract void setJtMatricula(JTextField tf);
+    public abstract void setJbRegresar(JButton bt);
     
     public abstract JLabel getJlQr();
 
