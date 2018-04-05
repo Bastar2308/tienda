@@ -31,7 +31,7 @@ public class ClienteDAO implements ClienteDAOIf {
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
     private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=? WHERE idCliente=?";
     private static final String SQL_UPDATE_CREDENCIAL = "UPDATE " + TABLE + " SET vigencia=? WHERE idCliente=?";
-    private static final String SQL_UPDATE_CREDENCIAL2 = "UPDATE " + TABLE + " SET vigencia=?, foto=? WHERE idCliente=?";
+    private static final String SQL_UPDATE_CREDENCIAL2 = "UPDATE " + TABLE + " SET foto=? WHERE idCliente=?";
 
     private ClienteDAO() {
     }
@@ -268,9 +268,8 @@ public class ClienteDAO implements ClienteDAOIf {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
             st = con.prepareStatement(SQL_UPDATE_CREDENCIAL2);
-            st.setDate(1, pojo.getVigencia());
-            st.setBinaryStream(2, new FileInputStream(new File(foto)), (int) new File(foto).length());
-            st.setInt(3, pojo.getIdCliente());
+            st.setBinaryStream(1, new FileInputStream(new File(foto)), (int) new File(foto).length());
+            st.setInt(2, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;

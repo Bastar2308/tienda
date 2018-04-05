@@ -7,20 +7,23 @@ package controladores;
 
 import auxiliares.CameraTools;
 import auxiliares.FileTools;
+import auxiliares.GuiTools;
 import auxiliares.MailTools;
 import auxiliares.QrTools;
 import dao.ClienteDAO;
 import dao.GrupoDAO;
 import gui.JfGeneradorCredencial;
+import gui.JfMenuGeneradorCredenciales;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,6 +62,50 @@ public class GeneradorCrendencialControlador implements ActionListener{
         vista.getJbTomar().addActionListener(this);
         vista.getJbRepetir().addActionListener(this);
         vista.getJbGuardar().addActionListener(this);
+        vista.getJbRegresar().addActionListener(this);
+        vista.addWindowListener(new WindowListener() {
+
+            @Override
+            public void windowOpened(WindowEvent we) {
+                System.out.println("Opened");
+            }
+
+            @Override
+            public void windowClosing(WindowEvent we) {
+                System.out.println("Closing");
+            }
+
+            @Override
+            public void windowClosed(WindowEvent we) {
+                System.out.println("Closed");
+            }
+
+            @Override
+            public void windowIconified(WindowEvent we) {
+                System.out.println("Iconified");
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent we) {
+                System.out.println("Deiconified");
+            }
+
+            @Override
+            public void windowActivated(WindowEvent we) {
+                System.out.println("Activated");
+                try {
+                    cargarDatos();
+                } catch (IOException | SQLException ex) {
+                    Logger.getLogger(GeneradorCrendencialControlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent we) {
+                System.out.println("Deactivated");
+                vista2.getJpPanel().stop();
+            }
+        });
     }
 
     @Override
@@ -73,15 +120,13 @@ public class GeneradorCrendencialControlador implements ActionListener{
             outputfile = FileTools.getInstance().nombraImagenes(outputfile, "");
             try {
                 guardarImagen(outputfile);
-                vista.getCliente().setVigencia(new Date(Integer.parseInt(vista.getJtVigenciaAA().getText())-1900,
-                        Integer.parseInt(vista.getJtVigenciaMM().getText()),
-                        Integer.parseInt(vista.getJtVigenciaDD().getText())));
                 guardarCliente(vista.getCliente(), outputfile);
             } catch (IOException | SQLException ex) {
                 Logger.getLogger(GeneradorCrendencialControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-        } 
+        } else if (e.getSource().equals(vista.getJbRegresar())) {
+            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
+        }
     }
     
     public BufferedImage createImage(JPanel panel) {
@@ -99,13 +144,15 @@ public class GeneradorCrendencialControlador implements ActionListener{
         salida = FileTools.getInstance().nombraImagenes(salida, "Alumnos");
         ImageIO.write(createImage(vista.getJpCamara()), "png", salida);
         if (caso == 1) {
-            if (ClienteDAO.getInstance().modificaClienteCredencial(cliente) == true) {
-                System.out.println("Actualizado correctamente");
-                return true;
-            } else {
-                System.out.println("Error al guardar cliente");
-                return false;
-            }
+//            if (ClienteDAO.getInstance().modificaClienteCredencial(cliente) == true) {
+//                System.out.println("Actualizado correctamente");
+//                return true;
+//            } else {
+//                System.out.println("Error al guardar cliente");
+//                return false;
+//            }
+            System.out.println("Ya tiene foto");
+            return true;
         } else {
             if (ClienteDAO.getInstance().modificaClienteCredencial(cliente, salida.getAbsolutePath()) == true) {
                 System.out.println("Actualizado correctamente");
@@ -115,26 +162,24 @@ public class GeneradorCrendencialControlador implements ActionListener{
                 return false;
             }
         }
-        
     }
     
     public final void cargarDatos() throws IOException, SQLException{
-        vista.getJtNombre().setText(vista.getCliente().getNombre());
         Grupo grupo = GrupoDAO.getInstance().buscaGrupo(vista.getCliente().getGrupo_idGrupo());
-        vista.getJtNivel().setText(grupo.getNivel());
-        vista.getJtGradoGrupo().setText(grupo.getGrupo());
-        vista.getJtMatricula().setText(vista.getCliente().getQr());
         colocarQr(vista.getCliente().getQr());
         if (vista.getCliente().getFoto() != null) {
             InputStream in = vista.getCliente().getFoto().getBinaryStream();  
             BufferedImage image = ImageIO.read(in);
             ImageIcon imagen3 = new ImageIcon(image);
-            Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(130, 130, Image.SCALE_DEFAULT));
+            Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(vista.getJpCamara().getWidth(), vista.getJpCamara().getHeight(), Image.SCALE_DEFAULT));
             vista.getJpCamara().removeAll();
             vista.getJpCamara().add(new JLabel(icono));
             vista.getJpCamara().repaint();
             vista.getJpCamara().revalidate();
             caso = 1;
+        } else {
+            vista2.run();
+            caso = 0;
         }
         System.out.println("caso: "+caso);
     }
