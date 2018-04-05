@@ -184,14 +184,14 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
 
             },
             new String [] {
-                "ID", "Nombre", "Saldo", "Grupo", "Vigencia"
+                "ID", "Nombre", "Saldo", "Grupo", "Vigencia", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -208,6 +208,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
         jtClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         if (jtClientes.getColumnModel().getColumnCount() > 0) {
             jtClientes.getColumnModel().getColumn(1).setPreferredWidth(250);
+            jtClientes.getColumnModel().getColumn(5).setMaxWidth(1);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

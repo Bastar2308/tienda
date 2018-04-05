@@ -50,8 +50,12 @@ public class MenuCargaSaldoControlador implements ActionListener {
         vista.getJbRegresar().addActionListener(this);
         vista.getTfBuscar().addKeyListener(new KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent e) {
+            public void keyReleased(KeyEvent e) {
                 filtra();
+                if (esCodigoEnClientes()) {
+                    vista.getJtClientes().changeSelection(0, 0, false, false);
+                    agregarSaldo();
+                }
             }
 
         });
@@ -93,24 +97,26 @@ public class MenuCargaSaldoControlador implements ActionListener {
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
         DefaultTableModel datos = ClienteDAO.getInstance().cargarClientes();
-        //Empieza desde 1 para no cargar public oen general
+        //Empieza desde 1 para no cargar publico oen general
         for (int i = 1; i < datos.getRowCount(); i ++) {
-            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 9)});
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 9), datos.getValueAt(i, 4)});
         }
     }
 
     private void agregarSaldo() {
-        if (vista.getJtClientes().getSelectedRow() != -1 && haySaldoSeleccionado()) {
+        if (vista.getJtClientes().getSelectedRow() != -1 && haySaldoSeleccionado() && JOptionPane.showConfirmDialog(null, "¿Agregar saldo?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
             if (ClienteDAO.getInstance().agregaSaldo(
                     vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString(),
                     String.valueOf(obtenValorSeleccionado()))) {
                 JOptionPane.showMessageDialog(null, "Saldo agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 vista.getJsOtra().setValue(0);
+                vista.getRbOtra().setSelected(true);
                 cargaTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Error agregando saldo", "Error", JOptionPane.ERROR_MESSAGE);
             }
-
+        } else {
+            JOptionPane.showMessageDialog(null, "Verifique el cliente y/o saldo a agregar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -150,6 +156,14 @@ public class MenuCargaSaldoControlador implements ActionListener {
         } else if (vista.getRb1000().isSelected()) {
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public boolean esCodigoEnClientes() {
+        try {
+            return vista.getTfBuscar().getText().substring(0, 5).equals("BSTR_");
+        } catch (Exception e) {
             return false;
         }
     }
