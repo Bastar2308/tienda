@@ -16,6 +16,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
 
     private MenuCargaSaldoControlador controlador;
 
+        
     /**
      * Creates new form CargaSaldo
      */
