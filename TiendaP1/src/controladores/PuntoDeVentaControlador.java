@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controladores;
-
+//cambio min
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
 import dao.Detalle_VentaDAO;
