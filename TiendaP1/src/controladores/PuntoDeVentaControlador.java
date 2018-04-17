@@ -5,6 +5,7 @@
  */
 package controladores;
 //cambio min
+
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
 import dao.Detalle_VentaDAO;
@@ -89,10 +90,11 @@ public class PuntoDeVentaControlador implements ActionListener {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraProductos();
-                if (esCodigoEnProductos()) {
-                    vista.getJtProductos().changeSelection(0, 0, false, false);
-                    agrega();
-                }
+                if (vista.getJtProductos().getRowCount() == 1)
+                    if (esCodigoEnProductos()) {
+                        vista.getJtProductos().changeSelection(0, 0, false, false);
+                        agrega();
+                    }
             }
         }
         );
@@ -100,21 +102,19 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(vista.getJbRegresar())) {
+        if (e.getSource().equals(vista.getJbRegresar()))
             GuiTools.getInstance().regresaMenu(vista);
-        } else if (e.getSource().equals(vista.getJbAgregar())) {
+        else if (e.getSource().equals(vista.getJbAgregar()))
             agrega();
-        } else if (e.getSource().equals(vista.getJbEliminar())) {
+        else if (e.getSource().equals(vista.getJbEliminar()))
             eliminar();
-        } else if (e.getSource().equals(vista.getJbLimpiar())) {
+        else if (e.getSource().equals(vista.getJbLimpiar()))
             limpiar();
-        } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
+        else if (e.getSource().equals(vista.getJbConfirmaVenta()))
             confirmaVenta();
-        } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
-            if (vista.getJtClientes().getSelectedRow() != -1) {
+        else if (e.getSource().equals(vista.getJbSeleccionaCliente()))
+            if (vista.getJtClientes().getSelectedRow() != -1)
                 seleccionaCliente();
-            }
-        }
         actualizaTotales();
     }
 
@@ -129,6 +129,9 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void agrega() {
         if (vista.getJtProductos().getSelectedRow() != -1) {
+            String idProductoElegido = vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0).toString();
+            String nombreProductoElegido = vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 1).toString();
+            String precioProductoElegido = vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 2).toString();
             int cantidad = -1;
             try {
                 cantidad = Integer.parseInt((String) JOptionPane.showInputDialog(null, "¿Qué cantidad agregar?", "Cantidad", JOptionPane.QUESTION_MESSAGE, null, null, "1"));
@@ -139,15 +142,14 @@ public class PuntoDeVentaControlador implements ActionListener {
                 boolean yaAgregado = false;
                 int idDelProductoYaAgregado = -1;
                 for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
-                    if (vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0)
-                            == vista.getJtProductosSeleccionados().getValueAt(i, 0)) {
+                    if (idProductoElegido.equals(vista.getJtProductosSeleccionados().getValueAt(i, 0).toString())) {
                         yaAgregado = true;
-                        idDelProductoYaAgregado = (int) vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0);
+                        idDelProductoYaAgregado = Integer.parseInt(idProductoElegido);
                     }
                 }
                 if (yaAgregado) {
                     for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
-                        if ((int) vista.getJtProductosSeleccionados().getValueAt(i, 0) == idDelProductoYaAgregado) {
+                        if (Integer.parseInt(vista.getJtProductosSeleccionados().getValueAt(i, 0).toString()) == idDelProductoYaAgregado) {
                             DefaultTableModel modelo = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
                             int cantidadAntigua = (int) vista.getJtProductosSeleccionados().getValueAt(i, 3);
                             modelo.setValueAt(cantidadAntigua + cantidad, i, 3);
@@ -157,10 +159,7 @@ public class PuntoDeVentaControlador implements ActionListener {
                     DefaultTableModel productosSeleccionados = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
                     productosSeleccionados.addRow(
                             new Object[]{
-                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 0),
-                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 1),
-                                vista.getJtProductos().getValueAt(vista.getJtProductos().getSelectedRow(), 2),
-                                cantidad
+                                idProductoElegido, nombreProductoElegido, Double.parseDouble(precioProductoElegido), cantidad
                             });
 
                 }
@@ -171,9 +170,8 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void eliminar() {
-        if (vista.getJtProductosSeleccionados().getSelectedRow() != -1) {
+        if (vista.getJtProductosSeleccionados().getSelectedRow() != -1)
             ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).removeRow(vista.getJtProductosSeleccionados().getSelectedRow());
-        }
     }
 
     private void limpiar() {
@@ -220,9 +218,8 @@ public class PuntoDeVentaControlador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cambio: " + (cantidadRecibida - Double.parseDouble(vista.getJlTotal().getText())), "Cambio a devolver", JOptionPane.INFORMATION_MESSAGE);
                     procedeVenta = true;
                 }
-            } else {
+            } else
                 ClienteDAO.getInstance().restaSaldo(vista.getJlId().getText(), vista.getJlTotal().getText());
-            }
             //Inserta venta y detalles de venta
             int idVenta = VentaDAO.getInstance().insertaVenta(venta);
             for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
@@ -250,9 +247,8 @@ public class PuntoDeVentaControlador implements ActionListener {
             vista.getJlProductos().setText("0");
 
             JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } else {
+        } else
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
     private void seleccionaCliente() {
