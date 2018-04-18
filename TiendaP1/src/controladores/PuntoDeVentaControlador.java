@@ -152,7 +152,7 @@ public class PuntoDeVentaControlador implements ActionListener {
                     for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
                         if (Integer.parseInt(vista.getJtProductosSeleccionados().getValueAt(i, 0).toString()) == idDelProductoYaAgregado) {
                             DefaultTableModel modelo = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
-                            int cantidadAntigua = (int) vista.getJtProductosSeleccionados().getValueAt(i, 3);
+                            int cantidadAntigua = Integer.parseInt(vista.getJtProductosSeleccionados().getValueAt(i, 3).toString());
                             modelo.setValueAt(cantidadAntigua + cantidad, i, 3);
                         }
                     }
@@ -221,7 +221,6 @@ public class PuntoDeVentaControlador implements ActionListener {
 
                 if (cantidadRecibida == Double.parseDouble(vista.getJlTotal().getText())) {
                     JOptionPane.showMessageDialog(null, "Se paga con cantidad exacta", "Pago correceto", JOptionPane.INFORMATION_MESSAGE);
-                    System.out.println("dfsgdhjds");
                     procedeVenta = true;
                 } else if (cantidadRecibida > Double.parseDouble(vista.getJlTotal().getText())) {
                     JOptionPane.showMessageDialog(null, "Cambio: " + (cantidadRecibida - Double.parseDouble(vista.getJlTotal().getText())), "Cambio a devolver", JOptionPane.INFORMATION_MESSAGE);
@@ -254,7 +253,7 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void seleccionaCliente() {
         Blob imagen = ClienteDAO.getInstance().buscaCliente(
-                (int) vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0)
+                Integer.parseInt(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString())
         ).getFoto();
 
         try {
