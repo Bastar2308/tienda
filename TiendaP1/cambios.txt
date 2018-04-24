@@ -1,18 +1,23 @@
-Aarón
-guardar foto en bd
-Dar de alta correctamente a los clientes cuando se saquen una credencial
--Ventas del día de hoy
 
--Personas con adeudos
+titulo dialogo agregar cliente está mal
+eliminar campo qr de agregar cliente
+ver compras sin credencial en campo agregar cliente
+boton cancelar aregar cliente
+error al dejar grupo en default en agregar cliente
+se puede agregar un cliente con todo vacio
+reset de datos al agregar cliente
+--
+error cargando imagen en edita cliente cuando hay imagen y cuando no hay(nullpointer)
+boton cancelar en editar cliente	
+--
+nullpointer cargando foto en ver cliente
 
--Ventas en un periodo determinado (entre fecha 1 y fecha 2)
 
--Producto más vendido
+single selection jtable control de grupos
+dialogo agregar control de grupos
+eliminar grupo en control de grupos
 
-David:
-que filtre por nombre o código
-renovar credencial
-cargar saldo y programarla
-programar finanzas
-Falta el módulo de generación de credenciales (está en test no?) Hay que pasar la gui a limpio y luego programarla
-abc de clientes
+
+filtro en genrador de redenciales
+
+punto de venta no filtra productos
