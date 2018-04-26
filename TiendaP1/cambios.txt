@@ -1,23 +1,23 @@
 
-titulo dialogo agregar cliente está mal
-eliminar campo qr de agregar cliente
+titulo dialogo agregar cliente está mal --D
+eliminar campo qr de agregar cliente --D
 ver compras sin credencial en campo agregar cliente
-boton cancelar aregar cliente
+boton cancelar aregar cliente --D
 error al dejar grupo en default en agregar cliente
-se puede agregar un cliente con todo vacio
-reset de datos al agregar cliente
+se puede agregar un cliente con todo vacio 
+reset de datos al agregar cliente --D
 --
 error cargando imagen en edita cliente cuando hay imagen y cuando no hay(nullpointer)
-boton cancelar en editar cliente	
+boton cancelar en editar cliente	--D
 --
 nullpointer cargando foto en ver cliente
 
 
-single selection jtable control de grupos
-dialogo agregar control de grupos
-eliminar grupo en control de grupos
+single selection jtable control de grupos --D
+dialogo agregar control de grupos 
+eliminar grupo en control de grupos --D
 
 
-filtro en genrador de redenciales
+filtro en genrador de redenciales --D
 
-punto de venta no filtra productos
+punto de venta no filtra productos  --D
