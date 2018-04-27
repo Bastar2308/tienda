@@ -1,7 +1,5 @@
-
-titulo dialogo agregar cliente está mal --D
-eliminar campo qr de agregar cliente --D
-ver compras sin credencial en campo agregar cliente
+generar qr al agregar cliente
+ver que onda con compras sin credencial en campo agregar cliente
 boton cancelar aregar cliente --D
 error al dejar grupo en default en agregar cliente
 se puede agregar un cliente con todo vacio 

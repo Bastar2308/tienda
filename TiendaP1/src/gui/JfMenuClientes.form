@@ -50,7 +50,6 @@
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -61,7 +60,6 @@
                                   <Component id="jsAgregarSaldo" max="32767" attributes="0"/>
                                   <Component id="tfAgregarNombre" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jcbAgregarGrupo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tfAgregarQr" alignment="0" max="32767" attributes="0"/>
                                   <Component id="tfAgregarTutor" alignment="0" max="32767" attributes="0"/>
                                   <Component id="tfAgregarTelefono" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jsAgregarComprasSinCredencial" alignment="1" max="32767" attributes="0"/>
@@ -92,15 +90,10 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jsAgregarSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfAgregarQr" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jbAgregarTomarFoto" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlAgregarImagen" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlAgregarImagen" min="-2" pref="166" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -141,20 +134,6 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/recursos/user.png"/>
                 </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="12" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="QR:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jcbAgregarGrupo">
@@ -310,8 +289,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tomar foto"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfAgregarQr">
             </Component>
           </SubComponents>
         </Container>

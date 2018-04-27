@@ -171,7 +171,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jdAgregar = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jlAgregarImagen = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jcbAgregarGrupo = new javax.swing.JComboBox<>();
         jsAgregarComprasSinCredencial = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
@@ -189,7 +188,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         tfAgregarNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jbAgregarTomarFoto = new javax.swing.JButton();
-        tfAgregarQr = new javax.swing.JTextField();
         jdEditar = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -249,11 +247,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
         jlAgregarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png"))); // NOI18N
-
-        jLabel15.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("QR:");
 
         jsAgregarComprasSinCredencial.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -321,7 +314,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(jLabel7)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel15)
                             .addComponent(jLabel17)
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
@@ -331,7 +323,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(jsAgregarSaldo)
                             .addComponent(tfAgregarNombre)
                             .addComponent(jcbAgregarGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfAgregarQr)
                             .addComponent(tfAgregarTutor)
                             .addComponent(tfAgregarTelefono)
                             .addComponent(jsAgregarComprasSinCredencial, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -354,14 +345,10 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jsAgregarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(tfAgregarQr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(118, 118, 118)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbAgregarTomarFoto)
-                    .addComponent(jlAgregarImagen))
+                    .addComponent(jlAgregarImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
@@ -899,7 +886,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -955,7 +941,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JTable jtDatos;
     private javax.swing.JTextField tfAgregarCorreo;
     private javax.swing.JTextField tfAgregarNombre;
-    private javax.swing.JTextField tfAgregarQr;
     private javax.swing.JTextField tfAgregarTelefono;
     private javax.swing.JTextField tfAgregarTutor;
     private javax.swing.JTextField tfEditarCorreo;
@@ -1208,16 +1193,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     @Override
     public void setTfAgregarNombre(javax.swing.JTextField tfAgregarNombre) {
         this.tfAgregarNombre = tfAgregarNombre;
-    }
-
-    @Override
-    public javax.swing.JTextField getTfAgregarQr() {
-        return tfAgregarQr;
-    }
-
-    @Override
-    public void setTfAgregarQr(javax.swing.JTextField tfAgregarQr) {
-        this.tfAgregarQr = tfAgregarQr;
     }
 
     @Override

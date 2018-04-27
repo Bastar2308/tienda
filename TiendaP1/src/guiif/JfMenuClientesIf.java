@@ -63,10 +63,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJsAgregarSaldo(JSpinner x);
 
-    public abstract JTextField getTfAgregarQr();
-
-    public abstract void setTfAgregarQr(JTextField x);
-
     public abstract JLabel getJlAgregarImagen();
 
     public abstract void setJlAgregarImagen(JLabel x);
