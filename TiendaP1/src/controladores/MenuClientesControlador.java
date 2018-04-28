@@ -88,6 +88,7 @@ public class MenuClientesControlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Cliente guardado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 vista.getJdAgregar().dispose();
                 cargarTabla();
+                resetDatosAgregar();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al guardar cliente", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -235,6 +236,14 @@ public class MenuClientesControlador implements ActionListener {
             Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
         GuiTools.getInstance().abreDialogo(vista.getJdVer(), 469, 546);
+    }
+
+    private void resetDatosAgregar() {
+        vista.getTfAgregarNombre().setText(null);
+        vista.getJcbAgregarGrupo().setSelectedIndex(0);
+        vista.getJsAgregarSaldo().setValue(0);
+        vista.getJlAgregarImagen().setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png")));
+
     }
 
 }
