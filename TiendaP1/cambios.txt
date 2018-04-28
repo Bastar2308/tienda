@@ -1,14 +1,14 @@
 generar qr al agregar cliente
 ver que onda con compras sin credencial en campo agregar cliente
 boton cancelar aregar cliente --D
-error al dejar grupo en default en agregar cliente
-se puede agregar un cliente con todo vacio 
+error al dejar grupo en default en agregar cliente --A
+se puede agregar un cliente con todo vacio --A
 reset de datos al agregar cliente --D
 --
-error cargando imagen en edita cliente cuando hay imagen y cuando no hay(nullpointer)
+error cargando imagen en edita cliente cuando hay imagen y cuando no hay(nullpointer) (Verificar)
 boton cancelar en editar cliente	--D
 --
-nullpointer cargando foto en ver cliente
+nullpointer cargando foto en ver cliente (Verificar)
 
 
 single selection jtable control de grupos --D

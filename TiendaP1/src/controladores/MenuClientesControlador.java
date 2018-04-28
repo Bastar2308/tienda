@@ -94,11 +94,7 @@ public class MenuClientesControlador implements ActionListener {
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
             cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
-            try {
-                cargarDatos();
-            } catch (IOException | SQLException ex) {
-                Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            cargarDatos();
             GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             try {
@@ -155,15 +151,23 @@ public class MenuClientesControlador implements ActionListener {
         }
     }
 
-    void cargarDatos() throws IOException, SQLException {
+    void cargarDatos() {
         vista.getTfEditarNombre().setText(cliente.getNombre());
         vista.getJcbEditarGrupo().setSelectedItem((Grupo) GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
         System.out.println(vista.getJcbEditarGrupo().getSelectedItem());
         vista.getJsEditarSaldo().setValue(cliente.getSaldo());
         vista.getTfEditarQr().setText(cliente.getQr());
-        InputStream in = cliente.getFoto().getBinaryStream();
-        BufferedImage image = ImageIO.read(in);
-        ImageIcon imagen3 = new ImageIcon(image);
+        InputStream in;
+        BufferedImage image;
+        ImageIcon imagen3 = null;
+        try {
+            in = cliente.getFoto().getBinaryStream();
+            image = ImageIO.read(in);
+            imagen3 = new ImageIcon(image);
+        } catch (IOException | SQLException | NullPointerException ex) {
+            System.out.println("No hay imagen editar");
+            imagen3 = new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"));
+        }
         Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
         vista.getJlEditarImagen().setIcon(icono);
         vista.getTfEditarTutor().setText(cliente.getTutor());
@@ -171,14 +175,23 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfEditarCorreo().setText(cliente.getCorreo());
     }
 
-    void cargarDatosVer() throws IOException, SQLException {
+    void cargarDatosVer() {
+        System.out.println("Cargando cliente");
         vista.getTfVerNombre().setText(cliente.getNombre());
         vista.getJcbVerGrupo().setSelectedItem((Object) GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
         vista.getJsVerSaldo().setValue(cliente.getSaldo());
         vista.getTfVerQr().setText(cliente.getQr());
-        InputStream in = cliente.getFoto().getBinaryStream();
-        BufferedImage image = ImageIO.read(in);
-        ImageIcon imagen3 = new ImageIcon(image);
+        ImageIcon imagen3;
+        InputStream in;
+        BufferedImage image = null;
+        try {
+            in = cliente.getFoto().getBinaryStream();
+            image = ImageIO.read(in);
+            imagen3 = new ImageIcon(image);
+        } catch (IOException | SQLException | NullPointerException ex) {
+            System.out.println("No hay imagen ver");
+            imagen3 = new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"));
+        }
         Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
         vista.getJlVerImagen().setIcon(icono);
         vista.getTfVerTutor().setText(cliente.getTutor());
@@ -230,11 +243,7 @@ public class MenuClientesControlador implements ActionListener {
 
     private void ver() {
         cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
-        try {
-            cargarDatosVer();
-        } catch (IOException | SQLException ex) {
-            Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cargarDatosVer();
         GuiTools.getInstance().abreDialogo(vista.getJdVer(), 469, 546);
     }
 
