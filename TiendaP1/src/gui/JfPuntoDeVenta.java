@@ -272,7 +272,7 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         }
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 255, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Total:");
@@ -366,13 +366,16 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
         }
 
         jbAgregar.setBackground(new java.awt.Color(102, 102, 102));
+        jbAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Forward_Arrow_25px.png"))); // NOI18N
 
         jbEliminar.setBackground(new java.awt.Color(102, 102, 102));
+        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Delete_25px_1.png"))); // NOI18N
 
         jbLimpiar.setBackground(new java.awt.Color(102, 102, 102));
+        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Delete_Table_25px.png"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 255, 255)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jtClientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
