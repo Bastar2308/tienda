@@ -73,15 +73,16 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJbLimpiar().addActionListener(this);
         vista.getJbConfirmaVenta().addActionListener(this);
         vista.getJbSeleccionaCliente().addActionListener(this);
+        vista.getTfFiltrarProductos().addActionListener(this);
         vista.getTfFiltrarClientes().addKeyListener(
                 new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraClientes();
-                if (esCodigoEnClientes()) {
-                    vista.getJtClientes().changeSelection(0, 0, false, false);
-                    seleccionaCliente();
-                }
+//                if (esCodigoEnClientes()) {
+//                    vista.getJtClientes().changeSelection(0, 0, false, false);
+//                    seleccionaCliente();
+//                }
             }
         }
         );
@@ -90,11 +91,6 @@ public class PuntoDeVentaControlador implements ActionListener {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraProductos();
-                if (vista.getJtProductos().getRowCount() == 1)
-                    if (esCodigoEnProductos()) {
-                        vista.getJtProductos().changeSelection(0, 0, false, false);
-                        agrega();
-                }
                 actualizaTotales();
             }
         }
@@ -103,19 +99,26 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(vista.getJbRegresar()))
+        if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().regresaMenu(vista);
-        else if (e.getSource().equals(vista.getJbAgregar()))
+        } else if (e.getSource().equals(vista.getJbAgregar())) {
             agrega();
-        else if (e.getSource().equals(vista.getJbEliminar()))
+        } else if (e.getSource().equals(vista.getJbEliminar())) {
             eliminar();
-        else if (e.getSource().equals(vista.getJbLimpiar()))
+        } else if (e.getSource().equals(vista.getJbLimpiar())) {
             limpiar();
-        else if (e.getSource().equals(vista.getJbConfirmaVenta()))
+        } else if (e.getSource().equals(vista.getTfFiltrarProductos())) {
+            if (esCodigoEnProductos()) {
+                vista.getJtProductos().changeSelection(0, 0, false, false);
+                agrega();
+            }
+        } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
             confirmaVenta();
-        else if (e.getSource().equals(vista.getJbSeleccionaCliente()))
-            if (vista.getJtClientes().getSelectedRow() != -1)
+        } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
+            if (vista.getJtClientes().getSelectedRow() != -1) {
                 seleccionaCliente();
+            }
+        }
         actualizaTotales();
     }
 
@@ -171,8 +174,9 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void eliminar() {
-        if (vista.getJtProductosSeleccionados().getSelectedRow() != -1)
+        if (vista.getJtProductosSeleccionados().getSelectedRow() != -1) {
             ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).removeRow(vista.getJtProductosSeleccionados().getSelectedRow());
+        }
     }
 
     private void limpiar() {
@@ -236,8 +240,9 @@ public class PuntoDeVentaControlador implements ActionListener {
                 reseteaGUI();
                 JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             }
-        } else
+        } else {
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void seleccionaCliente() {
@@ -277,9 +282,10 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     public boolean esCodigoEnProductos() {
-        boolean esCodigo = false;
         try {
-            return vista.getTfFiltrarProductos().getText().substring(0, 5).equals("BSTR_");
+            boolean empiezaConBstr = vista.getTfFiltrarProductos().getText().substring(0, 5).equals("BSTR_");
+            int id = Integer.parseInt(vista.getTfFiltrarProductos().getText().substring(5, vista.getTfFiltrarProductos().getText().length()));
+            return empiezaConBstr && id > 0;
         } catch (Exception e) {
             return false;
         }
