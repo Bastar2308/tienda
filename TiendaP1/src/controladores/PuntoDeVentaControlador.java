@@ -74,15 +74,12 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJbConfirmaVenta().addActionListener(this);
         vista.getJbSeleccionaCliente().addActionListener(this);
         vista.getTfFiltrarProductos().addActionListener(this);
+        vista.getTfFiltrarClientes().addActionListener(this);
         vista.getTfFiltrarClientes().addKeyListener(
                 new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtraClientes();
-//                if (esCodigoEnClientes()) {
-//                    vista.getJtClientes().changeSelection(0, 0, false, false);
-//                    seleccionaCliente();
-//                }
             }
         }
         );
@@ -112,6 +109,11 @@ public class PuntoDeVentaControlador implements ActionListener {
                 vista.getJtProductos().changeSelection(0, 0, false, false);
                 agrega();
             }
+        }else if (e.getSource().equals(vista.getTfFiltrarClientes())) {
+            System.out.println("fdsgd");
+                vista.getJtClientes().changeSelection(0, 0, false, false);
+                seleccionaCliente();
+                vista.getTfFiltrarClientes().setText(null);
         } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
             confirmaVenta();
         } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
@@ -286,15 +288,6 @@ public class PuntoDeVentaControlador implements ActionListener {
             boolean empiezaConBstr = vista.getTfFiltrarProductos().getText().substring(0, 5).equals("BSTR_");
             int id = Integer.parseInt(vista.getTfFiltrarProductos().getText().substring(5, vista.getTfFiltrarProductos().getText().length()));
             return empiezaConBstr && id > 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public boolean esCodigoEnClientes() {
-        boolean esCodigo = false;
-        try {
-            return vista.getTfFiltrarClientes().getText().substring(0, 5).equals("BSTR_");
         } catch (Exception e) {
             return false;
         }
