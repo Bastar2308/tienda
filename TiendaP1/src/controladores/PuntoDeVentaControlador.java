@@ -110,7 +110,6 @@ public class PuntoDeVentaControlador implements ActionListener {
                 agrega();
             }
         }else if (e.getSource().equals(vista.getTfFiltrarClientes())) {
-            System.out.println("fdsgd");
                 vista.getJtClientes().changeSelection(0, 0, false, false);
                 seleccionaCliente();
                 vista.getTfFiltrarClientes().setText(null);
