@@ -5,8 +5,6 @@
  */
 package controladores;
 
-import auxiliares.CameraTools;
-import auxiliares.FileTools;
 import auxiliares.GuiTools;
 import dao.ClienteDAO;
 import dao.GrupoDAO;
@@ -18,7 +16,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -124,9 +121,13 @@ public class MenuClientesControlador implements ActionListener {
 
     int agregarCliente() {
         Cliente clienteA = new Cliente();
-        Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
+        try {
+            Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
+            clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Verificar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         clienteA.setNombre(vista.getTfAgregarNombre().getText());
-        clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
         clienteA.setSaldo((Double) vista.getJsAgregarSaldo().getValue());
         clienteA.setTutor(vista.getTfAgregarTutor().getText());
         clienteA.setTelefono(vista.getTfAgregarTelefono().getText());

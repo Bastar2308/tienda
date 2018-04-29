@@ -1,7 +1,7 @@
 generar qr al agregar cliente
 ver que onda con compras sin credencial en campo agregar cliente
 boton cancelar aregar cliente --D
-error al dejar grupo en default en agregar cliente --A
+error al dejar grupo en default en agregar cliente --A  (Verificar)
 se puede agregar un cliente con todo vacio --A
 reset de datos al agregar cliente --D
 --
