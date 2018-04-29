@@ -452,6 +452,7 @@ public class ClienteDAO implements ClienteDAOIf {
             pojo.setTelefono(rs.getString("telefono"));
             pojo.setCorreo(rs.getString("correo"));
             pojo.setVigencia(rs.getDate("vigencia"));
+            pojo.setLimite(rs.getInt("limite"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar cliente " + ex);
         }
@@ -465,7 +466,7 @@ public class ClienteDAO implements ClienteDAOIf {
         String encabezados[] = {"", "", "", "", "", ""};
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia,cliente.qr from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo ORDER BY `cliente`.`idCliente` ASC");
+            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia,cliente.qr, cliente.limite from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo ORDER BY `cliente`.`idCliente` ASC");
             dt = new DefaultTableModel();
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();

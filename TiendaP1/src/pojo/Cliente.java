@@ -14,6 +14,7 @@ public class Cliente {
     private String nombre;
     private double saldo;
     private int grupo_idGrupo;
+    private int limite;
     private String qr;
     private Blob foto;
     private String tutor;
@@ -104,6 +105,14 @@ public class Cliente {
 
     public void setVigencia(Date vigencia) {
         this.vigencia = vigencia;
+    }
+
+    public int getLimite() {
+        return limite;
+    }
+
+    public void setLimite(int limite) {
+        this.limite = limite;
     }
 
 }
