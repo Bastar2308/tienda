@@ -7,8 +7,10 @@ reset de datos al agregar cliente --D
 boton cancelar en editar cliente	--D (Verificar)
 --
 single selection jtable control de grupos --D
-dialogo agregar control de grupos
+hacer dialogo agregar control de grupos --D
+hacer dialogo editar control de grupos --D
 eliminar grupo en control de grupos --D
+
 
 
 filtro en genrador de redenciales --D
