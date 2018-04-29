@@ -87,7 +87,7 @@ public class MenuClientesControlador implements ActionListener {
                 cargarTabla();
                 resetDatosAgregar();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al guardar cliente", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Verifique los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
             cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
@@ -124,31 +124,31 @@ public class MenuClientesControlador implements ActionListener {
         try {
             Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
             clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
+            clienteA.setNombre(vista.getTfAgregarNombre().getText());
+            clienteA.setSaldo((Double) vista.getJsAgregarSaldo().getValue());
+            clienteA.setTutor(vista.getTfAgregarTutor().getText());
+            clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
+            clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
+            if (vista.getSRuta() == null) {
+                if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
+                    System.out.println("Insertado correctamente");
+                    return 1;
+                } else {
+                    System.out.println("Error en la inserción");
+                    return 0;
+                }
+            } else {
+                if (ClienteDAO.getInstance().insertaCliente(clienteA, vista.getSRuta()) != 0) {
+                    System.out.println("Insertado correctamente");
+                    vista.setSRuta(null);
+                    return 1;
+                } else {
+                    System.out.println("Error en la inserción");
+                    return 0;
+                }
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Verificar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        clienteA.setNombre(vista.getTfAgregarNombre().getText());
-        clienteA.setSaldo((Double) vista.getJsAgregarSaldo().getValue());
-        clienteA.setTutor(vista.getTfAgregarTutor().getText());
-        clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
-        clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
-        if (vista.getSRuta() == null) {
-            if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
-                System.out.println("Insertado correctamente");
-                return 1;
-            } else {
-                System.out.println("Error en la inserción");
-                return 0;
-            }
-        } else {
-            if (ClienteDAO.getInstance().insertaCliente(clienteA, vista.getSRuta()) != 0) {
-                System.out.println("Insertado correctamente");
-                vista.setSRuta(null);
-                return 1;
-            } else {
-                System.out.println("Error en la inserción");
-                return 0;
-            }
+            return 0;
         }
     }
 
