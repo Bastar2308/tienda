@@ -91,9 +91,11 @@ public class MenuClientesControlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Verifique los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
-            cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
-            cargarDatos();
-            GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
+            if (vista.getJtDatos().getSelectedRow() != -1) {
+                cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
+                cargarDatos();
+                GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
+            }
         } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
             vista.getJdEditar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
@@ -115,7 +117,9 @@ public class MenuClientesControlador implements ActionListener {
             }
 
         } else if (e.getSource().equals(vista.getJbVer())) {
-            ver();
+            if (vista.getJtDatos().getSelectedRow() != -1) {
+                ver();
+            }
         } else if (e.getSource().equals(vista.getJbAgregarTomarFoto())) {
             vista.getJdAgregar().setVisible(false);
             JfCamaraPortatil.getInstance(vista.getJlAgregarImagen(), vista.getJdAgregar(), vista).setVisible(true);
