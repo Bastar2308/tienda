@@ -65,6 +65,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getJbAgregarTomarFoto().addActionListener(this);
         vista.getJbEditar().addActionListener(this);
         vista.getJbEditarAceptar().addActionListener(this);
+        vista.getJbEditarCancelar().addActionListener(this);
         vista.getJbEditarTomarFoto().addActionListener(this);
         vista.getJbVer().addActionListener(this);
         vista.getJbEliminar().addActionListener(this);
@@ -93,6 +94,8 @@ public class MenuClientesControlador implements ActionListener {
             cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
             cargarDatos();
             GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
+        } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
+            vista.getJdEditar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             try {
                 actualizarDatos();
