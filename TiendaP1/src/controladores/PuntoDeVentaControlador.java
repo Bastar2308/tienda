@@ -109,10 +109,10 @@ public class PuntoDeVentaControlador implements ActionListener {
                 vista.getJtProductos().changeSelection(0, 0, false, false);
                 agrega();
             }
-        }else if (e.getSource().equals(vista.getTfFiltrarClientes())) {
-                vista.getJtClientes().changeSelection(0, 0, false, false);
-                seleccionaCliente();
-                vista.getTfFiltrarClientes().setText(null);
+        } else if (e.getSource().equals(vista.getTfFiltrarClientes())) {
+            vista.getJtClientes().changeSelection(0, 0, false, false);
+            seleccionaCliente();
+            vista.getTfFiltrarClientes().setText(null);
         } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
             confirmaVenta();
         } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
@@ -189,7 +189,16 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
         for (int i = 0; i < datos.getRowCount(); i ++) {
-            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 5)});
+            original.addRow(
+                    new Object[]{
+                        datos.getValueAt(i, 0),
+                        datos.getValueAt(i, 1),
+                        datos.getValueAt(i, 2),
+                        datos.getValueAt(i, 3),
+                        datos.getValueAt(i, 4),
+                        datos.getValueAt(i, 5),
+                        datos.getValueAt(i, 6)
+                    });
         }
     }
 
@@ -231,7 +240,7 @@ public class PuntoDeVentaControlador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cambio: " + (cantidadRecibida - Double.parseDouble(vista.getJlTotal().getText())), "Cambio a devolver", JOptionPane.INFORMATION_MESSAGE);
                     procedeVenta = true;
                 }
-            } else {
+            } else if (puedePuedeComprar(vista.getJlId().getText(), vista.getJlTotal().getText())) {
                 ClienteDAO.getInstance().restaSaldo(vista.getJlId().getText(), vista.getJlTotal().getText());
                 procedeVenta = true;
             }
@@ -240,6 +249,8 @@ public class PuntoDeVentaControlador implements ActionListener {
                 agregaRegistroVenta(venta);
                 reseteaGUI();
                 JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Verifique saldo ", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
@@ -247,11 +258,8 @@ public class PuntoDeVentaControlador implements ActionListener {
     }
 
     private void seleccionaCliente() {
-        Blob imagen = ClienteDAO.getInstance().buscaCliente(
-                Integer.parseInt(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString())
-        ).getFoto();
-
         try {
+            Blob imagen = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString())).getFoto();
             InputStream is = imagen.getBinaryStream(1, imagen.length());
             BufferedImage imag = ImageIO.read(is);
             Image image = imag;
@@ -319,5 +327,22 @@ public class PuntoDeVentaControlador implements ActionListener {
 
             Detalle_VentaDAO.getInstance().insertaDetalle_Venta(detalle_Venta);
         }
+    }
+
+    private boolean puedePuedeComprar(String idCliente, String cantidadACobrarString) {
+        double saldoActual = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(idCliente)).getSaldo();
+        int limite = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(idCliente)).getLimite();
+        int cantidadACobrar = new Double(Double.parseDouble(cantidadACobrarString)).intValue();
+        System.out.println("procedeVenta() = " + procedeVenta(saldoActual, limite, cantidadACobrar));
+        return procedeVenta(saldoActual, limite, cantidadACobrar);
+    }
+
+    private static boolean procedeVenta(double saldoActual, int limite, int cantidadACobrar) {
+        if (limite < 0) {
+            return (saldoActual - cantidadACobrar) >= limite;
+        } else if (limite == 0) {
+            return cantidadACobrar <= saldoActual;
+        }
+        return false;
     }
 }
