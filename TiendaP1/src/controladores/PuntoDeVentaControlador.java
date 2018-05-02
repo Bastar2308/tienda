@@ -333,7 +333,6 @@ public class PuntoDeVentaControlador implements ActionListener {
         double saldoActual = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(idCliente)).getSaldo();
         int limite = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(idCliente)).getLimite();
         int cantidadACobrar = new Double(Double.parseDouble(cantidadACobrarString)).intValue();
-        System.out.println("procedeVenta() = " + procedeVenta(saldoActual, limite, cantidadACobrar));
         return procedeVenta(saldoActual, limite, cantidadACobrar);
     }
 
