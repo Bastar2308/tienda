@@ -463,22 +463,20 @@ public class ClienteDAO implements ClienteDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"", "", "", "", "", ""};
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.vigencia,cliente.qr, cliente.limite from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo ORDER BY `cliente`.`idCliente` ASC");
+            st = con.prepareStatement("SELECT cliente.idCliente,cliente.nombre,cliente.saldo,cliente.limite,CONCAT(grupo.nivel,' ',grupo.grado,' ',grupo.grupo),cliente.qr from cliente,grupo WHERE cliente.Grupo_idGrupo=grupo.idGrupo\n ORDER BY `cliente`.`idCliente` ASC");
             dt = new DefaultTableModel();
-            dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
+            dt.setColumnIdentifiers(new Object[7]);
             while (rs.next()) {
                 dt.addRow(new Object[]{
                     rs.getInt(1),
                     rs.getString(2),
                     rs.getInt(3),
-                    rs.getString(4),
-                    rs.getDate(5),
-                    rs.getString(6)
-                });
+                    rs.getInt(4),
+                    rs.getString(5),
+                    rs.getString(6)});
             }
             rs.close();
         } catch (Exception e) {
