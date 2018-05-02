@@ -383,14 +383,14 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
 
             },
             new String [] {
-                "ID", "Nombre", "Saldo", "Grupo", "QR"
+                "ID", "Nombre", "Saldo", "Límite", "Grupo", "QR"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -408,8 +408,8 @@ public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVenta
             jtClientes.getColumnModel().getColumn(0).setPreferredWidth(30);
             jtClientes.getColumnModel().getColumn(1).setPreferredWidth(250);
             jtClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
-            jtClientes.getColumnModel().getColumn(3).setPreferredWidth(130);
-            jtClientes.getColumnModel().getColumn(4).setMaxWidth(1);
+            jtClientes.getColumnModel().getColumn(4).setPreferredWidth(130);
+            jtClientes.getColumnModel().getColumn(5).setMaxWidth(1);
         }
 
         jlFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
