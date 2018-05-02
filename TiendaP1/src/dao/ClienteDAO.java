@@ -22,13 +22,13 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=? WHERE idCliente=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, limite=? WHERE idCliente=?";
     private static final String SQL_UPDATE_CREDENCIAL = "UPDATE " + TABLE + " SET vigencia=? WHERE idCliente=?";
     private static final String SQL_UPDATE_CREDENCIAL2 = "UPDATE " + TABLE + " SET foto=? WHERE idCliente=?";
 
@@ -147,6 +147,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
+            st.setInt(9, pojo.getLimite());
             id = st.executeUpdate();
         } catch (SQLException | FileNotFoundException e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -220,7 +221,8 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(6, pojo.getTutor());
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
-            st.setInt(9, pojo.getIdCliente());
+            st.setInt(9, pojo.getLimite());
+            st.setInt(10, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -335,7 +337,7 @@ public class ClienteDAO implements ClienteDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia"};
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia","Límite"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -355,6 +357,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 ob[7] = pojo.getTelefono();
                 ob[8] = pojo.getCorreo();
                 ob[9] = pojo.getVigencia();
+                ob[10] = pojo.getLimite();
                 dt.addRow(ob);
             }
             rs.close();
@@ -372,7 +375,7 @@ public class ClienteDAO implements ClienteDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia"};
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia", "Límite"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -380,7 +383,7 @@ public class ClienteDAO implements ClienteDAOIf {
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Object ob[] = new Object[10];
+                Object ob[] = new Object[11];
                 Cliente pojo = inflaCliente(rs);
                 Grupo grupo = GrupoDAO.getInstance().buscaGrupo(pojo.getGrupo_idGrupo());
                 ob[0] = pojo.getIdCliente();
@@ -393,6 +396,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 ob[7] = pojo.getTelefono();
                 ob[8] = pojo.getCorreo();
                 ob[9] = pojo.getVigencia();
+                ob[10] = pojo.getLimite();
                 dt.addRow(ob);
             }
             rs.close();

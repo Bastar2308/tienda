@@ -701,6 +701,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         setResizable(false);
 
         jbRegresar.setBackground(new java.awt.Color(51, 51, 51));
+        jbRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"))); // NOI18N
         jbRegresar.setText("Regresar");
 
         jbControlDeGrupos.setBackground(new java.awt.Color(51, 51, 51));
@@ -796,7 +797,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
