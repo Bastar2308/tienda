@@ -34,7 +34,7 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JButton getJbControlDeGrupos();
 
     public abstract void setJbControlDeGrupos(JButton x);
-    
+
     public abstract JButton getJbRegresar();
 
     public abstract void setJbRegresar(JButton x);
@@ -77,15 +77,23 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract JTextField getTfAgregarTelefono();
 
+    public abstract void setJsAgregarLimite(JSpinner x);
+
+    public abstract JSpinner getJsAgregarLimite();
+
+    public abstract void setJsEditarLimite(JSpinner x);
+
+    public abstract JSpinner getJsEditarLimite();
+
+    public abstract void setJsVerLimite(JSpinner x);
+
+    public abstract JSpinner getJsVerLimite();
+
     public abstract void setTfAgregarTelefono(JTextField x);
 
     public abstract JTextField getTfAgregarCorreo();
 
     public abstract void setTfAgregarCorreo(JTextField x);
-
-    public abstract JSpinner getJsAgregarComprasSinCredencial();
-
-    public abstract void setJsAgregarComprasSinCredencial(JSpinner x);
 
     public abstract JButton getJbAgregarCancelar();
 
@@ -131,10 +139,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setTfEditarCorreo(JTextField x);
 
-    public abstract JSpinner getJsEditarComprasSinCredencial();
-
-    public abstract void setJsEditarComprasSinCredencial(JSpinner x);
-
     public abstract JButton getJbEditarCancelar();
 
     public abstract void setJbEditarCancelar(JButton x);
@@ -179,10 +183,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setTfVerCorreo(JTextField x);
 
-    public abstract JSpinner getJsVerComprasSinCredencial();
-
-    public abstract void setJsVerComprasSinCredencial(JSpinner x);
-    
     public abstract String getSRuta();
 
     public abstract void setSRuta(String x);
