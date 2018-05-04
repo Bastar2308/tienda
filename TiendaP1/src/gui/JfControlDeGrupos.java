@@ -373,6 +373,7 @@ public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDe
             }
         });
         jtDatos.setColumnSelectionAllowed(true);
+        jtDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
         jtDatos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
