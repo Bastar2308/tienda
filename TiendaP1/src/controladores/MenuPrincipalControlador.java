@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import gui.JfAyuda;
 import gui.JfMenuCargaSaldo;
 import gui.JfMenuClientes;
 import gui.JfMenuFinanzas;
@@ -45,19 +46,25 @@ public class MenuPrincipalControlador implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbAyuda())) {
             JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfAyuda.getInstance());
         } else if (e.getSource().equals(vista.getJbCargarSaldo())) {
-            GuiTools.getInstance().abre(vista, JfMenuCargaSaldo.getInstance());
+            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuCargaSaldo.getInstance());
         } else if (e.getSource().equals(vista.getJbClientes())) {
-            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
+            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
         } else if (e.getSource().equals(vista.getJbFinanzas())) {
-            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
+            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
-            GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
+//            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
+            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
             GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
-            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
-        }else if (e.getSource().equals(vista.getJbSalir())) {
+            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+//            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
+        } else if (e.getSource().equals(vista.getJbSalir())) {
             JOptionPane.showMessageDialog(null, "Adios");
             System.exit(0);
         }
