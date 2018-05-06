@@ -136,6 +136,7 @@ public class MenuClientesControlador implements ActionListener {
             clienteA.setTutor(vista.getTfAgregarTutor().getText());
             clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
             clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
+            clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()));
             if (vista.getSRuta() == null) {
                 if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
                     System.out.println("Insertado correctamente");
@@ -205,6 +206,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfVerTutor().setText(cliente.getTutor());
         vista.getTfVerTelefono().setText(cliente.getTelefono());
         vista.getTfVerCorreo().setText(cliente.getCorreo());
+        vista.getJsVerLimite().setValue(cliente.getLimite());
     }
 
     void actualizarDatos() throws IOException, SQLException {
@@ -216,6 +218,7 @@ public class MenuClientesControlador implements ActionListener {
         cliente.setTutor(vista.getTfEditarTutor().getText());
         cliente.setTelefono(vista.getTfEditarTelefono().getText());
         cliente.setCorreo(vista.getTfEditarCorreo().getText());
+        cliente.setLimite(Integer.parseInt(vista.getJsEditarLimite().getValue().toString()));
     }
 
     void actualizarCliente() throws IOException {
