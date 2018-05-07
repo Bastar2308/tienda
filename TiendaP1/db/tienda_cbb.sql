@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2018 a las 05:09:01
+-- Tiempo de generación: 07-05-2018 a las 01:57:32
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -77,7 +77,7 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`idCliente`, `nombre`, `saldo`, `Grupo_idGrupo`, `qr`, `foto`, `tutor`, `telefono`, `correo`, `vigencia`, `limite`) VALUES
 (1, 'PUBLICO EN GENERAL', 0, 30, NULL, NULL, NULL, NULL, NULL, '2018-12-31', 0),
 (2, 'ALARCON MARTINEZ EMILIO', 0, 5, 'BSTR_2_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
-(3, 'ALCEDA YORBA REGINA', -285, 5, 'BSTR_3_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
+(3, 'ALCEDA YORBA REGINA', 0, 5, 'BSTR_3_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
 (4, 'CHANTIRI VIDAL KAREN NICOLE', 0, 5, 'BSTR_4_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
 (5, 'FLORES LUJAMBIO ANA ISABEL', 0, 5, 'BSTR_5_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
 (6, 'FLORES VELAZQUEZ CHRISTIAN ADAN', 0, 5, 'BSTR_6_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0),
@@ -908,7 +908,8 @@ INSERT INTO `usuario` (`idUsuario`, `nombre`, `usuario`, `password`) VALUES
 (5, 'Bastar', 'bastar123', 'bastar123'),
 (6, 'Aarón', 'aaron123', 'aaron123'),
 (7, 'Davir', 'david123', 'david123'),
-(8, 'Ele', 'l', 'l');
+(8, 'Ele', 'l', 'l'),
+(9, 'Raquel', 'raque', 'ra123');
 
 -- --------------------------------------------------------
 
@@ -1019,7 +1020,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
