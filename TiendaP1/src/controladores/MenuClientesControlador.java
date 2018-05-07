@@ -100,11 +100,15 @@ public class MenuClientesControlador implements ActionListener {
             vista.getJdEditar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbEditarAceptar())) {
             try {
-                actualizarDatos();
-                actualizarCliente();
+                if (actualizarCliente() != 0) {
+                    JOptionPane.showMessageDialog(null, "Cliente editado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Verifique los datos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
+                
         } else if (e.getSource().equals(vista.getJbEditarTomarFoto())) {
             vista.getJdEditar().setVisible(false);
             JfCamaraPortatil.getInstance(vista.getJlEditarImagen(), vista.getJdEditar(), vista).setVisible(true);
@@ -221,25 +225,30 @@ public class MenuClientesControlador implements ActionListener {
         cliente.setLimite(Integer.parseInt(vista.getJsEditarLimite().getValue().toString())*-1);
     }
 
-    void actualizarCliente() throws IOException {
-        if (vista.getSRuta() == null) {
-            if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
-                JOptionPane.showMessageDialog(null, "Cliente actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                vista.setSRuta(null);
-                cargarTabla();
-                vista.getJdEditar().dispose();
+    int actualizarCliente() throws IOException, SQLException {
+        try {
+            actualizarDatos();
+            if (vista.getSRuta() == null) {
+                if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
+                    vista.setSRuta(null);
+                    cargarTabla();
+                    vista.getJdEditar().dispose();
+                    return 1;
+                } else {
+                    return 0;
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Error al actualizar cliente", "Error", JOptionPane.ERROR_MESSAGE);
+                if (ClienteDAO.getInstance().modificaCliente(cliente, vista.getSRuta()) == true) {
+                    vista.setSRuta(null);
+                    cargarTabla();
+                    vista.getJdEditar().dispose();
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
-        } else {
-            if (ClienteDAO.getInstance().modificaCliente(cliente, vista.getSRuta()) == true) {
-                JOptionPane.showMessageDialog(null, "Cliente actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                vista.setSRuta(null);
-                cargarTabla();
-                vista.getJdEditar().dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al actualizar cliente", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+        } catch (Exception e) {
+            return 0;
         }
     }
 
