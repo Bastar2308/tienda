@@ -273,7 +273,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJlId().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString());
         vista.getJlNombre().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 1).toString());
         vista.getJlSaldo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 2).toString());
-        vista.getJlGrupo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 3).toString());
+        vista.getJlGrupo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 4).toString());
     }
 
     void filtraClientes() {
