@@ -1,5 +1,7 @@
 generar qr al agregar cliente
 //se puede agregar un cliente con todo vacio --A
+-agregar datos a jtabla clientes original en vez de reemplazar su modelo con el de su DAO
+-no se muestran datos del cliente selccionado al editarlo
 --
 
 --
@@ -11,3 +13,7 @@ filtro en genrador de redenciales --D
 Copiar código de punto de venta en el filtro de CargarSaldo --D
 
 agregar datos a jtabla control de grupos original en vez de reemplazar su modelo con el de su DAO
+
+poner en construcción
+
+agrgar cnsultas a finanzas

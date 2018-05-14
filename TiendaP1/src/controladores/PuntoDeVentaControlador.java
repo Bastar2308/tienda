@@ -234,7 +234,7 @@ public class PuntoDeVentaControlador implements ActionListener {
                 }
 
                 if (cantidadRecibida == Double.parseDouble(vista.getJlTotal().getText())) {
-                    JOptionPane.showMessageDialog(null, "Se paga con cantidad exacta", "Pago correceto", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Se paga con cantidad exacta", "Pago correcto", JOptionPane.INFORMATION_MESSAGE);
                     procedeVenta = true;
                 } else if (cantidadRecibida > Double.parseDouble(vista.getJlTotal().getText())) {
                     JOptionPane.showMessageDialog(null, "Cambio: " + (cantidadRecibida - Double.parseDouble(vista.getJlTotal().getText())), "Cambio a devolver", JOptionPane.INFORMATION_MESSAGE);
@@ -248,10 +248,11 @@ public class PuntoDeVentaControlador implements ActionListener {
             if (procedeVenta) {
                 agregaRegistroVenta(venta);
                 reseteaGUI();
-                JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+//                JOptionPane.showMessageDialog(null, "Venta agregada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Verifique saldo ", "Error", JOptionPane.ERROR_MESSAGE);
             }
+            vista.getTfFiltrarProductos().requestFocus();
         } else {
             JOptionPane.showMessageDialog(null, "Agrega artículos al pedido", "Error", JOptionPane.ERROR_MESSAGE);
         }
