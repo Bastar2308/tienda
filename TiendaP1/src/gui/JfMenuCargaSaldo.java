@@ -204,6 +204,7 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
             }
         });
         jtClientes.setColumnSelectionAllowed(true);
+        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jtClientes);
         jtClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
