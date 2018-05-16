@@ -52,13 +52,9 @@ public class MenuCargaSaldoControlador implements ActionListener {
             @Override
             public void keyReleased(KeyEvent e) {
                 filtra();
-                if (esCodigoEnClientes()) {
-                    vista.getJtClientes().changeSelection(0, 0, false, false);
-                    agregarSaldo();
-                }
             }
-
         });
+        vista.getTfBuscar().addActionListener(this);
         vista.getRb20().addActionListener(this);
         vista.getRb50().addActionListener(this);
         vista.getRb100().addActionListener(this);
@@ -83,6 +79,9 @@ public class MenuCargaSaldoControlador implements ActionListener {
             vista.getJsOtra().setEnabled(false);
         } else if (e.getSource().equals(vista.getRbOtra())) {
             vista.getJsOtra().setEnabled(true);
+        } else if (e.getSource().equals(vista.getTfBuscar())) {
+            vista.getJtClientes().changeSelection(0, 0, false, false);
+            agregarSaldo();
         }
     }
 
@@ -111,6 +110,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Saldo agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 vista.getJsOtra().setValue(0);
                 vista.getRbOtra().setSelected(true);
+                vista.getTfBuscar().setText(null);
                 cargaTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Error agregando saldo", "Error", JOptionPane.ERROR_MESSAGE);
