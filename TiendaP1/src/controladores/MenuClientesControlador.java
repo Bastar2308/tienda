@@ -26,6 +26,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
 import pojo.Grupo;
 
@@ -47,7 +48,19 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(ClienteDAO.getInstance().cargarTabla());
+        DefaultTableModel datos = ClienteDAO.getInstance().cargarTabla();
+        DefaultTableModel original = (DefaultTableModel) vista.getJtDatos().getModel();
+        original.setRowCount(0);
+        for (int i = 0; i < datos.getRowCount(); i ++) {
+            original.addRow(new Object[]{
+                datos.getValueAt(i, 3),
+                datos.getValueAt(i, 1),
+                datos.getValueAt(i, 2),
+                datos.getValueAt(i, 6),
+                datos.getValueAt(i, 7),
+                datos.getValueAt(i, 9)
+            });
+        }
     }
 
     public void cargarCombos() {
@@ -108,7 +121,7 @@ public class MenuClientesControlador implements ActionListener {
             } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-                
+
         } else if (e.getSource().equals(vista.getJbEditarTomarFoto())) {
             vista.getJdEditar().setVisible(false);
             JfCamaraPortatil.getInstance(vista.getJlEditarImagen(), vista.getJdEditar(), vista).setVisible(true);
