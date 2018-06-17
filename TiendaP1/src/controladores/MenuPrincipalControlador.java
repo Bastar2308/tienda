@@ -45,24 +45,19 @@ public class MenuPrincipalControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbAyuda())) {
-            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            GuiTools.getInstance().abre(vista, JfAyuda.getInstance());
+            GuiTools.getInstance().abre(vista, JfAyuda.getInstance());
         } else if (e.getSource().equals(vista.getJbCargarSaldo())) {
             GuiTools.getInstance().abre(vista, JfMenuCargaSaldo.getInstance());
         } else if (e.getSource().equals(vista.getJbClientes())) {
-            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
+            GuiTools.getInstance().abre(vista, JfMenuClientes.getInstance());
         } else if (e.getSource().equals(vista.getJbFinanzas())) {
-            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
+            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbGeneradorDeCredenciales())) {
-//            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
-            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
+            GuiTools.getInstance().abre(vista, JfMenuFinanzas.getInstance());
         } else if (e.getSource().equals(vista.getJbPuntoDeVentas())) {
             GuiTools.getInstance().abre(vista, JfPuntoDeVenta.getInstance());
         } else if (e.getSource().equals(vista.getJbMenuProductos())) {
-            JOptionPane.showMessageDialog(null, "Módulo en construcción", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
+            GuiTools.getInstance().abre(vista, JfProductosMenuPrincipal.getInstance());
         } else if (e.getSource().equals(vista.getJbSalir())) {
             JOptionPane.showMessageDialog(null, "Adios");
             System.exit(0);
