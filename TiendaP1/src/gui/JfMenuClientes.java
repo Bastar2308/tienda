@@ -748,6 +748,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 return canEdit [columnIndex];
             }
         });
+        jtDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtDatos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtDatos);
 
