@@ -53,6 +53,7 @@ public class MenuClientesControlador implements ActionListener {
         original.setRowCount(0);
         for (int i = 0; i < datos.getRowCount(); i ++) {
             original.addRow(new Object[]{
+                datos.getValueAt(i, 0),
                 datos.getValueAt(i, 3),
                 datos.getValueAt(i, 1),
                 datos.getValueAt(i, 2),
@@ -153,7 +154,7 @@ public class MenuClientesControlador implements ActionListener {
             clienteA.setTutor(vista.getTfAgregarTutor().getText());
             clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
             clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
-            clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString())*-1);
+            clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()) * -1);
             if (vista.getSRuta() == null) {
                 if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
                     System.out.println("Insertado correctamente");
@@ -179,8 +180,15 @@ public class MenuClientesControlador implements ActionListener {
 
     void cargarDatos() {
         vista.getTfEditarNombre().setText(cliente.getNombre());
-        vista.getJcbEditarGrupo().setSelectedItem((Grupo) GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
-        System.out.println(vista.getJcbEditarGrupo().getSelectedItem());
+        Grupo grupo = GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo());
+        for (int i = 1; i < vista.getJcbEditarGrupo().getItemCount(); i ++) {
+            String grupoDeLaListaActual = vista.getJcbEditarGrupo().getItemAt(i).toString();
+            if (grupoDeLaListaActual.equals(grupo.toString())) {
+                vista.getJcbEditarGrupo().setSelectedIndex(i);
+            }
+        }
+//        vista.getJcbEditarGrupo().setSelectedItem((Grupo) GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo()));
+//        System.out.println(vista.getJcbEditarGrupo().getSelectedItem());
         vista.getJsEditarSaldo().setValue(cliente.getSaldo());
         vista.getTfEditarQr().setText(cliente.getQr());
         InputStream in;
@@ -223,7 +231,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfVerTutor().setText(cliente.getTutor());
         vista.getTfVerTelefono().setText(cliente.getTelefono());
         vista.getTfVerCorreo().setText(cliente.getCorreo());
-        vista.getJsVerLimite().setValue(cliente.getLimite()*-1);
+        vista.getJsVerLimite().setValue(cliente.getLimite() * -1);
     }
 
     void actualizarDatos() throws IOException, SQLException {
@@ -235,7 +243,7 @@ public class MenuClientesControlador implements ActionListener {
         cliente.setTutor(vista.getTfEditarTutor().getText());
         cliente.setTelefono(vista.getTfEditarTelefono().getText());
         cliente.setCorreo(vista.getTfEditarCorreo().getText());
-        cliente.setLimite(Integer.parseInt(vista.getJsEditarLimite().getValue().toString())*-1);
+        cliente.setLimite(Integer.parseInt(vista.getJsEditarLimite().getValue().toString()) * -1);
     }
 
     int actualizarCliente() throws IOException, SQLException {
