@@ -1,7 +1,6 @@
 generar qr al agregar cliente
-//se puede agregar un cliente con todo vacio --A
+//se puede agregar un cliente con todo vacio -- CORRECCIÓN -- Ahora sólo se puede agregar un cliente siempre y cuando se agregue su nombre, nombre de tutor y grupo al que pertenece.
 -agregar datos a jtabla clientes original en vez de reemplazar su modelo con el de su DAO
--no se muestran datos del cliente selccionado al editarlo
 --
 
 --
