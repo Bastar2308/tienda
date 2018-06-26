@@ -13,8 +13,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
 import pojo.Grupo;
@@ -337,7 +339,7 @@ public class ClienteDAO implements ClienteDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia","Límite"};
+        String encabezados[] = {"Id", "Nombre", "Saldo", "Grupo", "QR", "Foto", "Tutor", "Telefono", "Correo", "Vigencia", "Límite"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -368,6 +370,40 @@ public class ClienteDAO implements ClienteDAOIf {
             Conexion.close(st);
         }
         return dt;
+    }
+
+    public JComboBox<Cliente> cargarClientesCombo() {
+        Connection con = null;
+        PreparedStatement st = null;
+        JComboBox<Cliente> combo = new JComboBox<>();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(SQL_QUERY_ALL);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Object ob[] = new Object[11];
+                Cliente pojo = inflaCliente(rs);
+                ob[0] = pojo.getIdCliente();
+                ob[1] = pojo.getNombre();
+                ob[2] = pojo.getSaldo();
+                ob[3] = pojo.getGrupo_idGrupo();
+                ob[4] = pojo.getQr();
+                ob[5] = pojo.getFoto();
+                ob[6] = pojo.getTutor();
+                ob[7] = pojo.getTelefono();
+                ob[8] = pojo.getCorreo();
+                ob[9] = pojo.getVigencia();
+                ob[10] = pojo.getLimite();
+                combo.addItem(pojo);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error al cargar la tabla cliente " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return combo;
     }
 
     @Override

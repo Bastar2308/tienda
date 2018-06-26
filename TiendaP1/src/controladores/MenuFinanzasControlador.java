@@ -7,12 +7,15 @@ package controladores;
 
 import auxiliares.GuiTools;
 import com.toedter.calendar.JDateChooser;
+import dao.ClienteDAO;
 import dao.ConsultasDAO;
 import gui.JfMenuFinanzas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import pojo.Cliente;
 
 /**
  *
@@ -50,8 +53,11 @@ public class MenuFinanzasControlador implements ActionListener {
             case 3: 
                  JDateChooser desde = new JDateChooser();
                  JDateChooser hasta = new JDateChooser();
-                 JOptionPane.showConfirmDialog(null, new Object[]{"Desde:",desde,"Hasta:",hasta}, "Rango", JOptionPane.PLAIN_MESSAGE);
-                vista.getJtResultados().setModel(ConsultasDAO.getInstance().consultaComprasEnRango(new Date(desde.getDate().getTime()) ,new Date(hasta.getDate().getTime()) ));break;
+                 JComboBox<Cliente> combo = ClienteDAO.getInstance().cargarClientesCombo();
+                 JOptionPane.showConfirmDialog(null, new Object[]{
+                     "Cliente",combo,"Desde:",desde,"Hasta:",hasta},
+                         "Rango", JOptionPane.PLAIN_MESSAGE);
+                vista.getJtResultados().setModel(ConsultasDAO.getInstance().consultaComprasEnRango((Cliente)combo.getSelectedItem(),new Date(desde.getDate().getTime()) ,new Date(hasta.getDate().getTime()) ));break;
             default:throw new AssertionError();
         }
     }

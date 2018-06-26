@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
+import pojo.Cliente;
 
 /**
  * @author David Vazquez
@@ -50,15 +51,17 @@ public class ConsultasDAO {
         return dt;
     }
 
-    public DefaultTableModel consultaComprasEnRango(Date desde, Date hasta) {
+    public DefaultTableModel consultaComprasEnRango(Cliente cliente, Date desde, Date hasta) {
+        System.out.println(cliente.getNombre() + " " + desde.getTime() + " " + hasta.getTime());
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = new DefaultTableModel();
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(VENTAS_EN_RANGO);
-            st.setDate(1, desde);
-            st.setDate(2, hasta);
+            st.setInt(1, cliente.getIdCliente());
+            st.setDate(2, desde);
+            st.setDate(3, hasta);
             ResultSet rs = st.executeQuery();
             dt = GuiTools.getInstance().resultSetToDefaultTableModel(rs);
         } catch (Exception e) {
