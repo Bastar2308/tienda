@@ -3,4 +3,23 @@ hacer dialogo agregar control de grupos --D
 hacer dialogo editar control de grupos --D
 eliminar grupo en control de grupos --D
 
-terminar cnsultas de finanzas -A
+
+credenciales se queda en construccion
+----------
+cambiar el orden de cargar saldo*
+cargar saldo solo mostrar
+id nombre, saldo,vigencia
+-------------------------
+finanzas pausado*
+--------------------------
+productos generar qr de producto en el escritorio
+---------
+clientes
+filtro******
+id, grupo, nombre,saldo,limite****
+
+
+buscar clientes
+subir foto
+------------
+control de grupos estan bien los encabezados?
