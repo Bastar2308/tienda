@@ -133,7 +133,7 @@ public class GrupoDAO implements GrupoDAOIf {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Nombre", "Nivel"};
+        String encabezados[] = {"Id", "Grado", "Grupo","Nivel"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
