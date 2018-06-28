@@ -98,7 +98,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
         DefaultTableModel datos = ClienteDAO.getInstance().cargarClientes();
         //Empieza desde 1 para no cargar publico oen general
         for (int i = 1; i < datos.getRowCount(); i ++) {
-            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 9), datos.getValueAt(i, 4)});
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 9), datos.getValueAt(i, 4)});
         }
     }
 

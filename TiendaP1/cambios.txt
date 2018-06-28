@@ -5,9 +5,6 @@ eliminar grupo en control de grupos --D
 
 
 credenciales se queda en construccion
-----------
-cargar saldo solo mostrar
-id nombre, saldo,vigencia
 --------------------------
 productos generar qr de producto en el escritorio
 ---------
