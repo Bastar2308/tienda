@@ -9,8 +9,6 @@ credenciales se queda en construccion
 cambiar el orden de cargar saldo*
 cargar saldo solo mostrar
 id nombre, saldo,vigencia
--------------------------
-finanzas pausado*
 --------------------------
 productos generar qr de producto en el escritorio
 ---------
