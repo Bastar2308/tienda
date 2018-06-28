@@ -15,7 +15,6 @@ finanzas pausado*
 productos generar qr de producto en el escritorio
 ---------
 clientes
-filtro******
 id, grupo, nombre,saldo,limite****
 
 

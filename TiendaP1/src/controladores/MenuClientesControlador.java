@@ -15,6 +15,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +28,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import pojo.Cliente;
 import pojo.Grupo;
 
@@ -51,7 +55,7 @@ public class MenuClientesControlador implements ActionListener {
         DefaultTableModel datos = ClienteDAO.getInstance().cargarTabla();
         DefaultTableModel original = (DefaultTableModel) vista.getJtDatos().getModel();
         original.setRowCount(0);
-        for (int i = 0; i < datos.getRowCount(); i ++) {
+        for (int i = 0; i < datos.getRowCount(); i++) {
             original.addRow(new Object[]{
                 datos.getValueAt(i, 0),
                 datos.getValueAt(i, 3),
@@ -83,6 +87,13 @@ public class MenuClientesControlador implements ActionListener {
         vista.getJbEditarTomarFoto().addActionListener(this);
         vista.getJbVer().addActionListener(this);
         vista.getJbEliminar().addActionListener(this);
+        vista.getJlFiltro().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                filtraClientes();
+            }
+
+        });
     }
 
     @Override
@@ -189,7 +200,7 @@ public class MenuClientesControlador implements ActionListener {
     void cargarDatos() {
         vista.getTfEditarNombre().setText(cliente.getNombre());
         Grupo grupo = GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo());
-        for (int i = 1; i < vista.getJcbEditarGrupo().getItemCount(); i ++) {
+        for (int i = 1; i < vista.getJcbEditarGrupo().getItemCount(); i++) {
             String grupoDeLaListaActual = vista.getJcbEditarGrupo().getItemAt(i).toString();
             if (grupoDeLaListaActual.equals(grupo.toString())) {
                 vista.getJcbEditarGrupo().setSelectedIndex(i);
@@ -222,15 +233,15 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfVerNombre().setText(cliente.getNombre());
         vista.getJsVerSaldo().setValue(cliente.getSaldo());
         vista.getTfVerQr().setText(cliente.getQr());
-        
+
         Grupo grupo = GrupoDAO.getInstance().buscaGrupo(cliente.getGrupo_idGrupo());
-        for (int i = 1; i < vista.getJcbEditarGrupo().getItemCount(); i ++) {
+        for (int i = 1; i < vista.getJcbEditarGrupo().getItemCount(); i++) {
             String grupoDeLaListaActual = vista.getJcbEditarGrupo().getItemAt(i).toString();
             if (grupoDeLaListaActual.equals(grupo.toString())) {
                 vista.getJcbVerGrupo().setSelectedIndex(i);
             }
         }
-        
+
         ImageIcon imagen3;
         InputStream in;
         BufferedImage image = null;
@@ -312,4 +323,10 @@ public class MenuClientesControlador implements ActionListener {
 
     }
 
+    void filtraClientes() {
+        DefaultTableModel defaultTableModel = (DefaultTableModel) vista.getJtDatos().getModel();
+        TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<>(defaultTableModel);
+        vista.getJtDatos().setRowSorter(tableRowSorter);
+        tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getJlFiltro().getText()));
+    }
 }
