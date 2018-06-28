@@ -80,6 +80,7 @@ public class MenuClientesControlador implements ActionListener {
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
         vista.getJbReporte().addActionListener(this);
+        vista.getJbEnviar().addActionListener(this);
         vista.getJbControlDeGrupos().addActionListener(this);
         vista.getJbAgregar().addActionListener(this);
         vista.getJbAgregarAceptar().addActionListener(this);
@@ -360,6 +361,6 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     private void envia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
