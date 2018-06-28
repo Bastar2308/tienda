@@ -6,6 +6,7 @@
 package auxiliares;
 
 import gui.JfMenuPrincipal;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -104,21 +105,25 @@ public class GuiTools {
     }
 
     public void abreDialogo(JDialog dialogo, int largo, int alto) {
-        dialogo.setSize(largo, alto);
+        dialogo.setSize(alto, largo);
         dialogo.setLocationRelativeTo(null);
         dialogo.setVisible(true);
+    }
+
+    public void abreDialogo(JDialog dialogo, Dimension tamanho) {
+        abreDialogo(dialogo, tamanho.height, tamanho.width);
     }
 
     public DefaultTableModel resultSetToDefaultTableModel(ResultSet source) {
         DefaultTableModel modelo = new DefaultTableModel();
         try {
             ResultSetMetaData meta = source.getMetaData();
-            for (int i = 0; i < meta.getColumnCount(); i ++) {
-                modelo.addColumn(meta.getColumnLabel(i+1));
+            for (int i = 0; i < meta.getColumnCount(); i++) {
+                modelo.addColumn(meta.getColumnLabel(i + 1));
             }
             while (source.next()) {
                 Object[] fila = new Object[meta.getColumnCount()];
-                for (int i = 0; i < meta.getColumnCount(); i ++) {
+                for (int i = 0; i < meta.getColumnCount(); i++) {
                     fila[i] = source.getObject(i + 1);
                 }
                 modelo.addRow(fila);
