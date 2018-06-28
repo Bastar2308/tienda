@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -343,6 +344,7 @@ public class MenuClientesControlador implements ActionListener {
         if (vista.getJtDatos().getSelectedRow() != -1) {
             JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
             DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
+            double totalRango = 0;
             original.setRowCount(0);
             DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
                     (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
@@ -350,12 +352,14 @@ public class MenuClientesControlador implements ActionListener {
                     new Date(hasta.getDate().getTime()));
             for (int i = 0; i < datos.getRowCount(); i++) {
                 original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
+                totalRango += Double.parseDouble(String.valueOf(datos.getValueAt(i, 3).toString()));
             }
             Cliente clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
             vista.getJlNombre().setText(clienteBuscando.getNombre());
             vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", desde.getDate()));
             vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta.getDate()));
             vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
+            vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
             GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
         }
     }

@@ -75,6 +75,10 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJlAgregarImagen(JLabel x);
 
+    public abstract JLabel getJlTotal();
+
+    public abstract void setJlTotal(JLabel x);
+
     public abstract JLabel getJlNombre();
 
     public abstract void setJlNombre(JLabel x);
