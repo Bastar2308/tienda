@@ -81,8 +81,8 @@ public class MailTools {
             message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse("aaronlr160399@hotmail.com"));
-            message.setSubject("Correo enviado desde STCBB");
-            message.setText("Funciona");
+            message.setSubject(asunto);
+            message.setText(mensaje);
 
             Transport.send(message);
             System.out.println("Enviado con éxito");

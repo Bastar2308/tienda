@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import auxiliares.MailTools;
 import com.toedter.calendar.JDateChooser;
 import dao.ClienteDAO;
 import dao.ConsultasDAO;
@@ -365,6 +366,18 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     private void envia() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String contenido = "";
+        for (int i = 0; i < vista.getJtReporte().getRowCount(); i++) {
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 0).toString() + " - ";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 1).toString() + " - ";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
+        }
+        contenido = contenido + "Total: "+vista.getJlTotal().getText();
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
+                "aaronlr160399@hotmail.com", 
+                "Consumo: "+vista.getJlNombre().getText() + " "+vista.getJlDesde().getText()+" - "+vista.getJlHasta().getText(), 
+                contenido);
+        JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 }
