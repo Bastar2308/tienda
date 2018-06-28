@@ -114,7 +114,7 @@ public class GuiTools {
         try {
             ResultSetMetaData meta = source.getMetaData();
             for (int i = 0; i < meta.getColumnCount(); i ++) {
-                modelo.addColumn(meta.getColumnLabel(i));
+                modelo.addColumn(meta.getColumnLabel(i+1));
             }
             while (source.next()) {
                 Object[] fila = new Object[meta.getColumnCount()];
