@@ -61,9 +61,7 @@ public class MenuClientesControlador implements ActionListener {
                 datos.getValueAt(i, 3),
                 datos.getValueAt(i, 1),
                 datos.getValueAt(i, 2),
-                datos.getValueAt(i, 6),
-                datos.getValueAt(i, 7),
-                datos.getValueAt(i, 9)
+                datos.getValueAt(i, 10)
             });
         }
     }

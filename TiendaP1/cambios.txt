@@ -2,13 +2,8 @@ generar qr al agregar cliente
 hacer dialogo agregar control de grupos --D
 hacer dialogo editar control de grupos --D
 eliminar grupo en control de grupos --D
-
 --------------------------
 productos generar qr de producto en el escritorio
 ---------
-clientes
-id, grupo, nombre,saldo,limite****
-
-
 buscar clientes
 subir foto
