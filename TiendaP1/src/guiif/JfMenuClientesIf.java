@@ -22,6 +22,10 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JDialog getJdAgregar();
 
     public abstract void setJdAgregar(JDialog x);
+    
+    public abstract JTextField getJlFiltro();
+
+    public abstract void setJlFiltro(JTextField x);
 
     public abstract JDialog getJdEditar();
 
