@@ -25,7 +25,10 @@ public class ConsultasDAO {
 "INNER JOIN producto ON detalle_venta.Producto_idProducto =  producto.idProducto\n" +
 "INNER JOIN marca ON producto.Marca_idMarca = marca.idMarca\n" +
 "GROUP BY marca.nombre";
-    public static final String VENTAS_POR_PRODUCTO = "SELECT detalle_venta.Producto_idProducto, SUM(detalle_venta.cantidad) AS 'Cantidad total' FROM detalle_venta GROUP BY detalle_venta.Producto_idProducto";
+    public static final String VENTAS_POR_PRODUCTO = "SELECT producto.nombre AS 'Producto', SUM(detalle_venta.cantidad) AS Cantidad_total FROM detalle_venta\n" +
+"INNER JOIN producto on detalle_venta.Producto_idProducto = producto.idProducto\n" +
+"GROUP BY detalle_venta.Producto_idProducto\n" +
+"ORDER BY Cantidad_total DESC";
     public static final String VENTAS_EN_RANGO = "SELECT * FROM venta WHERE venta.fechahora BETWEEN =? AND =?";
 
     private ConsultasDAO() {
