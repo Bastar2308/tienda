@@ -29,7 +29,10 @@ public class ConsultasDAO {
             + "INNER JOIN producto on detalle_venta.Producto_idProducto = producto.idProducto\n"
             + "GROUP BY detalle_venta.Producto_idProducto\n"
             + "ORDER BY Cantidad_total DESC";
-    public static final String VENTAS_EN_RANGO = "SELECT * FROM venta WHERE venta.fechahora BETWEEN =? AND =?";
+    public static final String VENTAS_EN_RANGO = "SELECT venta.fechahora AS Fecha, producto.nombre AS Producto, detalle_venta.cantidad AS Cantidad, detalle_venta.subtotal AS Subtotal FROM detalle_venta\n"
+            + "INNER JOIN venta ON venta.idVenta = detalle_venta.Venta_idVenta\n"
+            + "INNER JOIN producto ON producto.idProducto = detalle_venta.Producto_idProducto\n"
+            + "WHERE venta.Cliente_idCliente =? AND venta.fechahora BETWEEN ? AND ?";
 
     private ConsultasDAO() {
     }
@@ -62,17 +65,16 @@ public class ConsultasDAO {
         return dt;
     }
 
-    public DefaultTableModel consultaComprasEnRango(Cliente cliente, Date desde, Date hasta) {
-        System.out.println(cliente.getNombre() + " " + desde.getTime() + " " + hasta.getTime());
+    public DefaultTableModel consultaComprasEnRango(int idCliente, Date desde, Date hasta) {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = new DefaultTableModel();
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(VENTAS_EN_RANGO);
-            st.setInt(1, cliente.getIdCliente());
-            st.setDate(2, desde);
-            st.setDate(3, hasta);
+            st.setInt(1, idCliente);
+            st.setString(2, desde.toString() + " 00:00:00");
+            st.setString(3, hasta.toString() + " 23:59:59");
             ResultSet rs = st.executeQuery();
             dt = GuiTools.getInstance().resultSetToDefaultTableModel(rs);
         } catch (Exception e) {

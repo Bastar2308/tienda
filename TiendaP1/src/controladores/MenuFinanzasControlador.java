@@ -50,14 +50,6 @@ public class MenuFinanzasControlador implements ActionListener {
             case 0: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_CATEGORIA));break;
             case 1: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_MARCA));break;
             case 2: vista.getJtResultados().setModel(ConsultasDAO.getInstance().consulta(ConsultasDAO.VENTAS_POR_PRODUCTO));break;
-            case 3: 
-                 JDateChooser desde = new JDateChooser();
-                 JDateChooser hasta = new JDateChooser();
-                 JComboBox<Cliente> combo = ClienteDAO.getInstance().cargarClientesCombo();
-                 JOptionPane.showConfirmDialog(null, new Object[]{
-                     "Cliente",combo,"Desde:",desde,"Hasta:",hasta},
-                         "Rango", JOptionPane.PLAIN_MESSAGE);
-                vista.getJtResultados().setModel(ConsultasDAO.getInstance().consultaComprasEnRango((Cliente)combo.getSelectedItem(),new Date(desde.getDate().getTime()) ,new Date(hasta.getDate().getTime()) ));break;
             default:throw new AssertionError();
         }
     }

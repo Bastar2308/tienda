@@ -6,7 +6,9 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import com.toedter.calendar.JDateChooser;
 import dao.ClienteDAO;
+import dao.ConsultasDAO;
 import dao.GrupoDAO;
 import gui.JfCamaraPortatil;
 import gui.JfControlDeGrupos;
@@ -20,6 +22,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +45,8 @@ public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
     Cliente cliente;
+    JDateChooser desde = new JDateChooser();
+    JDateChooser hasta = new JDateChooser();
 
     public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
@@ -74,6 +79,7 @@ public class MenuClientesControlador implements ActionListener {
 
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
+        vista.getJbReporte().addActionListener(this);
         vista.getJbControlDeGrupos().addActionListener(this);
         vista.getJbAgregar().addActionListener(this);
         vista.getJbAgregarAceptar().addActionListener(this);
@@ -150,6 +156,10 @@ public class MenuClientesControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbAgregarTomarFoto())) {
             vista.getJdAgregar().setVisible(false);
             JfCamaraPortatil.getInstance(vista.getJlAgregarImagen(), vista.getJdAgregar(), vista).setVisible(true);
+        } else if (e.getSource().equals(vista.getJbReporte())) {
+            reporte();
+        } else if (e.getSource().equals(vista.getJbEnviar())) {
+            envia();
         }
     }
 
@@ -326,5 +336,30 @@ public class MenuClientesControlador implements ActionListener {
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<>(defaultTableModel);
         vista.getJtDatos().setRowSorter(tableRowSorter);
         tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getJlFiltro().getText()));
+    }
+
+    private void reporte() {
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
+            DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
+            original.setRowCount(0);
+            DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
+                    (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
+                    new Date(desde.getDate().getTime()),
+                    new Date(hasta.getDate().getTime()));
+            for (int i = 0; i < datos.getRowCount(); i++) {
+                original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
+            }
+            Cliente clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+            vista.getJlNombre().setText(clienteBuscando.getNombre());
+            vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", desde.getDate()));
+            vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta.getDate()));
+            vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
+            GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
+        }
+    }
+
+    private void envia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -174,6 +174,62 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.JlFiltro = JlFiltro;
     }
 
+    public javax.swing.JButton getJbReporte() {
+        return JbReporte;
+    }
+
+    public void setJbReporte(javax.swing.JButton JbReporte) {
+        this.JbReporte = JbReporte;
+    }
+
+    public javax.swing.JLabel getJlDesde() {
+        return JlDesde;
+    }
+
+    public void setJlDesde(javax.swing.JLabel JlDesde) {
+        this.JlDesde = JlDesde;
+    }
+
+    public javax.swing.JLabel getJlHasta() {
+        return JlHasta;
+    }
+
+    public void setJlHasta(javax.swing.JLabel JlHasta) {
+        this.JlHasta = JlHasta;
+    }
+
+    public javax.swing.JTable getJtReporte() {
+        return JtReporte;
+    }
+
+    public void setJtReporte(javax.swing.JTable JtReporte) {
+        this.JtReporte = JtReporte;
+    }
+
+    public javax.swing.JDialog getJdReporte() {
+        return jdReporte;
+    }
+
+    public void setJdReporte(javax.swing.JDialog jdReporte) {
+        this.jdReporte = jdReporte;
+    }
+
+    public javax.swing.JLabel getJlNombre() {
+        return jlNombre;
+    }
+
+    public void setJlNombre(javax.swing.JLabel jlNombre) {
+        this.jlNombre = jlNombre;
+    }
+
+    public javax.swing.JButton getJbEnviar() {
+        return JbEnviar;
+    }
+
+    public void setJbEnviar(javax.swing.JButton JbEnviar) {
+        this.JbEnviar = JbEnviar;
+    }
+
     private static class JfMenuClientesHolder {
 
         private static final JfMenuClientes INSTANCE = new JfMenuClientes();
@@ -248,6 +304,18 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jlVerImagen = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jsVerLimite = new javax.swing.JSpinner();
+        jdReporte = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jlVerImagen1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jlNombre = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        JlDesde = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        JlHasta = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JtReporte = new javax.swing.JTable();
+        JbEnviar = new javax.swing.JButton();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -258,6 +326,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jbEliminar = new javax.swing.JButton();
         jbEditar = new javax.swing.JButton();
         jbVer = new javax.swing.JButton();
+        JbReporte = new javax.swing.JButton();
         JlFiltro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
@@ -716,6 +785,134 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
+        jdReporte.setTitle("Reporte de consumo");
+        jdReporte.setModal(true);
+        jdReporte.setResizable(false);
+
+        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Consumo de");
+
+        jlNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jlNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombre.setText("{nombre}");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("desde el");
+
+        JlDesde.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JlDesde.setForeground(new java.awt.Color(255, 255, 255));
+        JlDesde.setText("{diaSemana diaMes de mes}");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("hasta el");
+
+        JlHasta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JlHasta.setForeground(new java.awt.Color(255, 255, 255));
+        JlHasta.setText("{diaSemana diaMes de mes}");
+
+        JtReporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "Producto", "Cantidad", "Subtotal"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        JtReporte.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.setViewportView(JtReporte);
+
+        JbEnviar.setBackground(new java.awt.Color(102, 102, 102));
+        JbEnviar.setText("Enviar reporte al correo del tutor");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(JbEnviar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 957, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(jlVerImagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JlDesde)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JlHasta)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jlVerImagen1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jlNombre)
+                            .addComponent(jLabel12)
+                            .addComponent(JlDesde)
+                            .addComponent(jLabel15)
+                            .addComponent(JlHasta))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)))
+                .addGap(13, 13, 13)
+                .addComponent(JbEnviar)
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout jdReporteLayout = new javax.swing.GroupLayout(jdReporte.getContentPane());
+        jdReporte.getContentPane().setLayout(jdReporteLayout);
+        jdReporteLayout.setHorizontalGroup(
+            jdReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1050, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jdReporteLayout.setVerticalGroup(
+            jdReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdReporteLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
@@ -773,6 +970,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jbVer.setBackground(new java.awt.Color(102, 102, 102));
         jbVer.setText("Ver");
 
+        JbReporte.setBackground(new java.awt.Color(102, 102, 102));
+        JbReporte.setText("Reporte");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -783,7 +983,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                     .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JbReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -795,7 +996,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addComponent(jbEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbVer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(JbReporte)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(jbEliminar)
                 .addContainerGap())
         );
@@ -871,7 +1074,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -900,11 +1103,18 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JbEnviar;
+    private javax.swing.JButton JbReporte;
+    private javax.swing.JLabel JlDesde;
     private javax.swing.JTextField JlFiltro;
+    private javax.swing.JLabel JlHasta;
+    private javax.swing.JTable JtReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -924,13 +1134,16 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
@@ -948,10 +1161,13 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JComboBox<pojo.Grupo> jcbVerGrupo;
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
+    private javax.swing.JDialog jdReporte;
     private javax.swing.JDialog jdVer;
     private javax.swing.JLabel jlAgregarImagen;
     private javax.swing.JLabel jlEditarImagen;
+    private javax.swing.JLabel jlNombre;
     private javax.swing.JLabel jlVerImagen;
+    private javax.swing.JLabel jlVerImagen1;
     private javax.swing.JSpinner jsAgregarLimite;
     private javax.swing.JSpinner jsAgregarSaldo;
     private javax.swing.JSpinner jsEditarLimite;

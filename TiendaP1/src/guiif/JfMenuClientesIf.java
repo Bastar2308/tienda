@@ -23,6 +23,10 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJdAgregar(JDialog x);
     
+    public abstract JDialog getJdReporte();
+
+    public abstract void setJdReporte(JDialog x);
+    
     public abstract JTextField getJlFiltro();
 
     public abstract void setJlFiltro(JTextField x);
@@ -71,9 +75,29 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJlAgregarImagen(JLabel x);
 
+    public abstract JLabel getJlNombre();
+
+    public abstract void setJlNombre(JLabel x);
+
+    public abstract JLabel getJlDesde();
+
+    public abstract void setJlDesde(JLabel x);
+
+    public abstract JLabel getJlHasta();
+
+    public abstract void setJlHasta(JLabel x);
+
     public abstract JButton getJbAgregarTomarFoto();
 
     public abstract void setJbAgregarTomarFoto(JButton x);
+    
+    public abstract JButton getJbEnviar();
+
+    public abstract void setJbEnviar(JButton x);
+    
+    public abstract JButton getJbReporte();
+
+    public abstract void setJbReporte(JButton x);
 
     public abstract JTextField getTfAgregarTutor();
 
