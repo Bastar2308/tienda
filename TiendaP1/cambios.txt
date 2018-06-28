@@ -17,5 +17,3 @@ id, grupo, nombre,saldo,limite****
 
 buscar clientes
 subir foto
-------------
-control de grupos estan bien los encabezados?
