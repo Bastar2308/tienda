@@ -9,9 +9,9 @@ import auxiliares.GuiTools;
 import dao.GrupoDAO;
 import gui.JfControlDeGrupos;
 import gui.JfMenuClientes;
-import gui.JfMenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,6 +39,11 @@ public class ControlDeGruposControlador implements ActionListener {
     }
 
     public void cargarTabla() {
-        vista.getJtDatos().setModel(GrupoDAO.getInstance().cargarTabla());
+        DefaultTableModel datos = GrupoDAO.getInstance().cargarTabla();
+        DefaultTableModel original = (DefaultTableModel) vista.getJtDatos().getModel();
+        original.setRowCount(0);
+        for (int i = 0; i < datos.getRowCount(); i++) {
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
+        }
     }
 }
