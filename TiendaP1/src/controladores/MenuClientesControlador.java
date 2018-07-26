@@ -49,6 +49,7 @@ public class MenuClientesControlador implements ActionListener {
     Cliente cliente;
     JDateChooser desde = new JDateChooser();
     JDateChooser hasta = new JDateChooser();
+    Cliente clienteBuscando;
 
     public MenuClientesControlador(JfMenuClientes vista) {
         this.vista = vista;
@@ -355,7 +356,7 @@ public class MenuClientesControlador implements ActionListener {
                 original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
                 totalRango += Double.parseDouble(String.valueOf(datos.getValueAt(i, 3).toString()));
             }
-            Cliente clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+            clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
             vista.getJlNombre().setText(clienteBuscando.getNombre());
             vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", desde.getDate()));
             vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta.getDate()));
@@ -375,9 +376,10 @@ public class MenuClientesControlador implements ActionListener {
         }
         contenido = contenido + "Total: "+vista.getJlTotal().getText();
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
-                "aaronlr160399@hotmail.com", 
+                clienteBuscando.getCorreo(), 
                 "Consumo: "+vista.getJlNombre().getText() + " "+vista.getJlDesde().getText()+" - "+vista.getJlHasta().getText(), 
                 contenido);
+        System.out.println("Enviado a: "+clienteBuscando.getCorreo());
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 }

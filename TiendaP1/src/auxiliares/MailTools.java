@@ -80,12 +80,12 @@ public class MailTools {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("aaronlr160399@hotmail.com"));
+                    InternetAddress.parse(destinatario));
             message.setSubject(asunto);
             message.setText(mensaje);
 
             Transport.send(message);
-            System.out.println("Enviado con éxito");
+            System.out.println("Enviado con éxito a:" + destinatario);
             return true;
 
         } catch (MessagingException e) {
@@ -120,12 +120,12 @@ public class MailTools {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("aaronlr160399@hotmail.com"));
+                    InternetAddress.parse(destinatario));
             message.setSubject(asunto);
             message.setContent(multiParte);
 
             Transport.send(message);
-            System.out.println("Enviado con éxito");
+            System.out.println("Enviado con éxito a:"+destinatario);
             return true;
 
         } catch (MessagingException e) {
