@@ -25,7 +25,7 @@ public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite) VALUES (?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, limite) VALUES (?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
@@ -53,7 +53,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Error al actualizar cliente" + e);
+            System.out.println("Error al actualizar cliente resta saldo" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -73,7 +73,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Error al actualizar cliente" + e);
+            System.out.println("Error al actualizar cliente agrega saldo" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -168,6 +168,7 @@ public class ClienteDAO implements ClienteDAOIf {
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_INSERT2, PreparedStatement.RETURN_GENERATED_KEYS);
+            System.out.println("Insert2");
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
@@ -175,6 +176,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(5, pojo.getTutor());
             st.setString(6, pojo.getTelefono());
             st.setString(7, pojo.getCorreo());
+            st.setDouble(8, pojo.getLimite());
             id = st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -229,8 +231,43 @@ public class ClienteDAO implements ClienteDAOIf {
             if (x == 0) {
                 return false;
             }
+            System.out.println("Estiy en modifica cliente 1");
         } catch (Exception e) {
-            System.out.println("Error al actualizar cliente" + e);
+            System.out.println("Error al actualizar cliente 1" + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
+    }
+    
+    @Override
+    public boolean modificaCliente(Cliente pojo, String path) {
+        Connection con = null;
+        PreparedStatement st = null;
+        System.out.println("Estoy en modifica cliente con foto");
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement(SQL_UPDATE);
+            
+            st.setString(1, pojo.getNombre());
+            st.setDouble(2, pojo.getSaldo());
+            st.setInt(3, pojo.getGrupo_idGrupo());
+            st.setString(4, pojo.getQr());
+            st.setBinaryStream(5, new FileInputStream(new File(path)), (int) new File(path).length());
+            st.setString(6, pojo.getTutor());
+            st.setString(7, pojo.getTelefono());
+            st.setString(8, pojo.getCorreo());
+            st.setInt(9, pojo.getLimite());
+            st.setInt(10, pojo.getIdCliente());
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al actualizar cliente con foto" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -254,7 +291,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println("Error al actualizar cliente" + e);
+            System.out.println("Error al actualizar cliente credencial 1" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -278,7 +315,7 @@ public class ClienteDAO implements ClienteDAOIf {
                 return false;
             }
         } catch (SQLException | FileNotFoundException e) {
-            System.out.println("Error al actualizar cliente" + e);
+            System.out.println("Error al actualizar cliente credencial 2" + e);
             return false;
         } finally {
             Conexion.close(con);
@@ -287,30 +324,7 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
-    public boolean modificaCliente(Cliente pojo, String path) {
-        Connection con = null;
-        PreparedStatement st = null;
-        try {
-            con = Conexion.getConnection();
-            //Recuerden que el últmo es el id
-            st = con.prepareStatement(SQL_UPDATE);
-            st.setDate(1, pojo.getVigencia());
-            st.setBinaryStream(2, new FileInputStream(new File(path)), (int) new File(path).length());
-            st.setInt(3, pojo.getIdCliente());
-            int x = st.executeUpdate();
-            if (x == 0) {
-                return false;
-            }
-        } catch (Exception e) {
-            System.out.println("Error al actualizar cliente" + e);
-            return false;
-        } finally {
-            Conexion.close(con);
-            Conexion.close(st);
-        }
-        return true;
-    }
+    
 
     @Override
     public Cliente buscaCliente(int id) {

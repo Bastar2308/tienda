@@ -82,6 +82,7 @@ public class CamaraPortatilControlador implements ActionListener{
                 Logger.getLogger(CamaraPortatilControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
             GuiTools.getInstance().abreDialogo(dialogo, 500, 588);
+            System.out.println(dialogo.getName());
         }
     }
     

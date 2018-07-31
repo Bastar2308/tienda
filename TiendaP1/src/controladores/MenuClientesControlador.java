@@ -274,6 +274,7 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     void actualizarDatos() throws IOException, SQLException {
+        System.out.println("Actualizando datos");
         cliente.setNombre(vista.getTfEditarNombre().getText());
         Grupo grupo = (Grupo) vista.getJcbEditarGrupo().getSelectedItem();
         cliente.setGrupo_idGrupo(grupo.getIdGrupo());
@@ -289,6 +290,7 @@ public class MenuClientesControlador implements ActionListener {
         try {
             actualizarDatos();
             if (vista.getSRuta() == null) {
+                System.out.println("modificando cliente IF");
                 if (ClienteDAO.getInstance().modificaCliente(cliente) == true) {
                     vista.setSRuta(null);
                     cargarTabla();
@@ -298,6 +300,7 @@ public class MenuClientesControlador implements ActionListener {
                     return 0;
                 }
             } else {
+                System.out.println("modificando cliente ELSE");
                 if (ClienteDAO.getInstance().modificaCliente(cliente, vista.getSRuta()) == true) {
                     vista.setSRuta(null);
                     cargarTabla();
@@ -332,6 +335,10 @@ public class MenuClientesControlador implements ActionListener {
         vista.getJcbAgregarGrupo().setSelectedIndex(0);
         vista.getJsAgregarSaldo().setValue(0);
         vista.getJlAgregarImagen().setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png")));
+        vista.getTfAgregarTutor().setText(null);
+        vista.getTfAgregarTelefono().setText(null);
+        vista.getTfAgregarCorreo().setText(null);
+        vista.getJsAgregarLimite().setValue(0);
 
     }
 
@@ -375,7 +382,7 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
         }
         contenido = contenido + "Total: "+vista.getJlTotal().getText();
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"), 
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("puntodeventabastar@hotmail.com", "puntodeventa23"), 
                 clienteBuscando.getCorreo(), 
                 "Consumo: "+vista.getJlNombre().getText() + " "+vista.getJlDesde().getText()+" - "+vista.getJlHasta().getText(), 
                 contenido);
