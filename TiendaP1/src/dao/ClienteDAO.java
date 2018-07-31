@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
@@ -150,6 +151,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getLimite());
+            st.setString(10, pojo.getQr());
             id = st.executeUpdate();
         } catch (SQLException | FileNotFoundException e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -158,6 +160,30 @@ public class ClienteDAO implements ClienteDAOIf {
             Conexion.close(st);
         }
         return id;
+    }
+    
+    public boolean agregarQR(String qr, int id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = Conexion.getConnection();
+            //Recuerden que el últmo es el id
+            st = con.prepareStatement("UPDATE "+TABLE+" SET qr=? WHERE id=?");
+            st.setString(1, qr);
+            st.setInt(2, id);
+            int x = st.executeUpdate();
+            if (x == 0) {
+                return false;
+            }
+            System.out.println("Estoy agregando el QR");
+        } catch (Exception e) {
+            System.out.println("Error al agregar QRs " + e);
+            return false;
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return true;
     }
 
     @Override

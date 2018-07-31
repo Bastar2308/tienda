@@ -183,7 +183,13 @@ public class MenuClientesControlador implements ActionListener {
                 clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
                 clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()) * -1);
                 if (vista.getSRuta() == null) {
-                    if (ClienteDAO.getInstance().insertaCliente(clienteA) != 0) {
+                    int x;
+                    if ((x=ClienteDAO.getInstance().insertaCliente(clienteA)) != 0) {
+                        if (ClienteDAO.getInstance().agregarQR("BSTR_"+x+"_", x)) {
+                            System.out.println("QR insertado correctamente");
+                        } else {
+                            System.out.println("Error al insertar QR");
+                        }
                         System.out.println("Insertado correctamente");
                         return 1;
                     } else {
@@ -382,7 +388,7 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
         }
         contenido = contenido + "Total: "+vista.getJlTotal().getText();
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("puntodeventabastar@hotmail.com", "puntodeventa23"), 
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("puntodeventabastar@outlook.com", "puntodeventa23"), 
                 clienteBuscando.getCorreo(), 
                 "Consumo: "+vista.getJlNombre().getText() + " "+vista.getJlDesde().getText()+" - "+vista.getJlHasta().getText(), 
                 contenido);
