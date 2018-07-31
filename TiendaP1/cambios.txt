@@ -16,7 +16,6 @@ Agregar asterisco a LABEL OBLIGATORIOS
 No permite agregar cuando SALDO es 0 (permitirlo)
 La tabla no muestra el SALDO ni el LIMITE
 En CARGAR SALDO quitar columna VIGENCIA
-Al agregar se genere el CÓDIGO QR BSTR_id_vigencia
 
 correo_prueba456@hotmail.com
 Contrasena
