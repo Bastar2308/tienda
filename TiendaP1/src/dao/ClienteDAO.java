@@ -168,7 +168,7 @@ public class ClienteDAO implements ClienteDAOIf {
         try {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
-            st = con.prepareStatement("UPDATE "+TABLE+" SET qr=? WHERE id=?");
+            st = con.prepareStatement("UPDATE "+TABLE+" SET qr=? WHERE idCliente=?");
             st.setString(1, qr);
             st.setInt(2, id);
             int x = st.executeUpdate();
@@ -204,6 +204,11 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(7, pojo.getCorreo());
             st.setDouble(8, pojo.getLimite());
             id = st.executeUpdate();
+            ResultSet rs2 = st.getGeneratedKeys();
+            if (rs2.next()) {
+                id = rs2.getInt(1);
+            }
+            System.out.println(id);
         } catch (Exception e) {
             System.out.println("Error al insertar cliente: " + e);
         } finally {
@@ -566,5 +571,8 @@ public class ClienteDAO implements ClienteDAOIf {
             Conexion.close(st);
         }
         return dt;
+    }
+    public static void main(String[] args) {
+        System.out.println("Adios");
     }
 }

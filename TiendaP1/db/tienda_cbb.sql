@@ -66,7 +66,7 @@ CREATE TABLE `cliente` (
   `tutor` varchar(255) DEFAULT NULL,
   `telefono` varchar(255) DEFAULT NULL,
   `correo` varchar(255) DEFAULT NULL,
-  `vigencia` date NOT NULL DEFAULT '2018-03-10',
+  `vigencia` date NOT NULL,
   `limite` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

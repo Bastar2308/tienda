@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -185,7 +186,10 @@ public class MenuClientesControlador implements ActionListener {
                 if (vista.getSRuta() == null) {
                     int x;
                     if ((x=ClienteDAO.getInstance().insertaCliente(clienteA)) != 0) {
-                        if (ClienteDAO.getInstance().agregarQR("BSTR_"+x+"_", x)) {
+                        System.out.println(x);
+                        Calendar calC = Calendar.getInstance();
+                        int year= calC.get(Calendar.YEAR) + 1;
+                        if (ClienteDAO.getInstance().agregarQR("BSTR_"+x+"_"+year+"-06-30", x)) {
                             System.out.println("QR insertado correctamente");
                         } else {
                             System.out.println("Error al insertar QR");
