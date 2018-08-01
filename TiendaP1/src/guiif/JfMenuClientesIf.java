@@ -198,4 +198,28 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract String getSRuta();
 
     public abstract void setSRuta(String x);
+    
+    public abstract JLabel getJlAgregarNombre();
+
+    public abstract void setJlAgregarNombre(JLabel x);
+    
+    public abstract JLabel getJlAgregarTutor();
+
+    public abstract void setJlAgregarTutor(JLabel x);
+    
+    public abstract JLabel getJlAgregarGrupo();
+
+    public abstract void setJlAgregarGrupo(JLabel x);
+    
+    public abstract JLabel getJlEditarNombre();
+
+    public abstract void setJlEditarNombre(JLabel x);
+    
+    public abstract JLabel getJlEditarTutor();
+
+    public abstract void setJlEditarTutor(JLabel x);
+    
+    public abstract JLabel getJlEditarGrupo();
+
+    public abstract void setJlEditarGrupo(JLabel x);
 }

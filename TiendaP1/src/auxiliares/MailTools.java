@@ -78,7 +78,7 @@ public class MailTools {
     public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("puntodeventabastar@hotmail.com"));
+            message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
@@ -118,7 +118,7 @@ public class MailTools {
             multiParte.addBodyPart(adjunto);
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("puntodeventabastar@hotmail.com"));
+            message.setFrom(new InternetAddress("correo_prueba456@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);

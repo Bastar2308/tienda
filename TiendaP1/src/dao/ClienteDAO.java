@@ -572,7 +572,4 @@ public class ClienteDAO implements ClienteDAOIf {
         }
         return dt;
     }
-    public static void main(String[] args) {
-        System.out.println("Adios");
-    }
 }

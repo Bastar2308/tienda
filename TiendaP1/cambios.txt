@@ -10,7 +10,6 @@ buscar clientes
 subir foto
 -------------------------
 Agregar asterisco a LABEL OBLIGATORIOS
-La tabla no muestra el SALDO ni el LIMITE
 En CARGAR SALDO quitar columna VIGENCIA
 
 correo_prueba456@hotmail.com

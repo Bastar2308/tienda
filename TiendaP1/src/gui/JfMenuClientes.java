@@ -7,6 +7,7 @@ import guiif.JfMenuClientesIf;
 import javax.swing.JButton;
 import controladores.MenuClientesControlador;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 /**
  *
@@ -227,6 +228,66 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
     public void setJlTotal(javax.swing.JLabel jlTotal) {
         this.jlTotal = jlTotal;
+    }
+
+    @Override
+    public JLabel getJlAgregarNombre() {
+        return jLabel1;
+    }
+
+    @Override
+    public void setJlAgregarNombre(JLabel x) {
+        this.jLabel1 = x;
+    }
+
+    @Override
+    public JLabel getJlAgregarTutor() {
+        return jLabel17;
+    }
+
+    @Override
+    public void setJlAgregarTutor(JLabel x) {
+        this.jLabel17 = x;
+    }
+
+    @Override
+    public JLabel getJlAgregarGrupo() {
+        return jLabel3;
+    }
+
+    @Override
+    public void setJlAgregarGrupo(JLabel x) {
+        this.jLabel3 = x;
+    }
+
+    @Override
+    public JLabel getJlEditarNombre() {
+        return jLabel4;
+    }
+
+    @Override
+    public void setJlEditarNombre(JLabel x) {
+        this.jLabel4 = x;
+    }
+
+    @Override
+    public JLabel getJlEditarTutor() {
+        return jLabel20;
+    }
+
+    @Override
+    public void setJlEditarTutor(JLabel x) {
+        this.jLabel20 = x;
+    }
+
+    @Override
+    public JLabel getJlEditarGrupo() {
+        return jLabel6;
+    }
+
+    @Override
+    public void setJlEditarGrupo(JLabel x) {
+        this.jLabel6 = x;
     }
 
     private static class JfMenuClientesHolder {
