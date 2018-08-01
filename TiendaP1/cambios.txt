@@ -1,4 +1,5 @@
 generar qr al agregar cliente
+//los siguientes 3 no los he hecho porque aún no es necesario meterse con control de grupos
 hacer dialogo agregar control de grupos --D
 hacer dialogo editar control de grupos --D
 eliminar grupo en control de grupos --D
@@ -8,12 +9,7 @@ productos generar qr de producto en el escritorio
 buscar clientes
 subir foto
 -------------------------
-Quitar TOMAR FOTO de agregar cliente (Menu Clientes)
-En clientes EDITAR quitar TOMAR FOTO
-En ventana AGREGAR CLIENTE no se ven los botones de ACEPTAR y CANCELAR
-En ventana EDITAR CLIENTE no se ven los botones de ACEPTAR y CANCELAR
 Agregar asterisco a LABEL OBLIGATORIOS
-No permite agregar cuando SALDO es 0 (permitirlo)
 La tabla no muestra el SALDO ni el LIMITE
 En CARGAR SALDO quitar columna VIGENCIA
 
