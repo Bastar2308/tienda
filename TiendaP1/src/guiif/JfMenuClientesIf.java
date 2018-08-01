@@ -22,11 +22,11 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JDialog getJdAgregar();
 
     public abstract void setJdAgregar(JDialog x);
-    
+
     public abstract JDialog getJdReporte();
 
     public abstract void setJdReporte(JDialog x);
-    
+
     public abstract JTextField getJlFiltro();
 
     public abstract void setJlFiltro(JTextField x);
@@ -71,10 +71,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJsAgregarSaldo(JSpinner x);
 
-    public abstract JLabel getJlAgregarImagen();
-
-    public abstract void setJlAgregarImagen(JLabel x);
-
     public abstract JLabel getJlTotal();
 
     public abstract void setJlTotal(JLabel x);
@@ -91,14 +87,10 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setJlHasta(JLabel x);
 
-    public abstract JButton getJbAgregarTomarFoto();
-
-    public abstract void setJbAgregarTomarFoto(JButton x);
-    
     public abstract JButton getJbEnviar();
 
     public abstract void setJbEnviar(JButton x);
-    
+
     public abstract JButton getJbReporte();
 
     public abstract void setJbReporte(JButton x);
@@ -151,14 +143,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
 
     public abstract void setTfEditarQr(JTextField x);
 
-    public abstract JLabel getJlEditarImagen();
-
-    public abstract void setJlEditarImagen(JLabel x);
-
-    public abstract JButton getJbEditarTomarFoto();
-
-    public abstract void setJbEditarTomarFoto(JButton x);
-
     public abstract JTextField getTfEditarTutor();
 
     public abstract void setTfEditarTutor(JTextField x);
@@ -198,10 +182,6 @@ public interface JfMenuClientesIf extends FrameRegresable {
     public abstract JTextField getTfVerQr();
 
     public abstract void setTfVerQr(JTextField x);
-
-    public abstract JLabel getJlVerImagen();
-
-    public abstract void setJlVerImagen(JLabel x);
 
     public abstract JTextField getTfVerTutor();
 

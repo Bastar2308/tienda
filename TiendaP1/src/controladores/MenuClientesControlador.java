@@ -89,11 +89,9 @@ public class MenuClientesControlador implements ActionListener {
         vista.getJbAgregar().addActionListener(this);
         vista.getJbAgregarAceptar().addActionListener(this);
         vista.getJbAgregarCancelar().addActionListener(this);
-        vista.getJbAgregarTomarFoto().addActionListener(this);
         vista.getJbEditar().addActionListener(this);
         vista.getJbEditarAceptar().addActionListener(this);
         vista.getJbEditarCancelar().addActionListener(this);
-        vista.getJbEditarTomarFoto().addActionListener(this);
         vista.getJbVer().addActionListener(this);
         vista.getJbEliminar().addActionListener(this);
         vista.getJlFiltro().addKeyListener(new KeyAdapter() {
@@ -112,7 +110,7 @@ public class MenuClientesControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbControlDeGrupos())) {
             GuiTools.getInstance().abre(vista, JfControlDeGrupos.getInstance());
         } else if (e.getSource().equals(vista.getJbAgregar())) {
-            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), 500, 588);
+            GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), vista.getJdAgregar().getPreferredSize().width, vista.getJdAgregar().getPreferredSize().height);
         } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
             vista.getJdAgregar().setVisible(false);
         } else if (e.getSource().equals(vista.getJbAgregarAceptar())) {
@@ -128,7 +126,7 @@ public class MenuClientesControlador implements ActionListener {
             if (vista.getJtDatos().getSelectedRow() != -1) {
                 cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
                 cargarDatos();
-                GuiTools.getInstance().abreDialogo(vista.getJdEditar(), 469, 546);
+                GuiTools.getInstance().abreDialogo(vista.getJdEditar(), vista.getJdEditar().getPreferredSize().width, vista.getJdEditar().getPreferredSize().height);
             }
         } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
             vista.getJdEditar().setVisible(false);
@@ -143,9 +141,6 @@ public class MenuClientesControlador implements ActionListener {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } else if (e.getSource().equals(vista.getJbEditarTomarFoto())) {
-            vista.getJdEditar().setVisible(false);
-            JfCamaraPortatil.getInstance(vista.getJlEditarImagen(), vista.getJdEditar(), vista).setVisible(true);
         } else if (e.getSource().equals(vista.getJbEliminar())) {
             if (ClienteDAO.getInstance().eliminaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString())) == true) {
                 JOptionPane.showMessageDialog(null, "Cliente eliminado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -158,9 +153,6 @@ public class MenuClientesControlador implements ActionListener {
             if (vista.getJtDatos().getSelectedRow() != -1) {
                 ver();
             }
-        } else if (e.getSource().equals(vista.getJbAgregarTomarFoto())) {
-            vista.getJdAgregar().setVisible(false);
-            JfCamaraPortatil.getInstance(vista.getJlAgregarImagen(), vista.getJdAgregar(), vista).setVisible(true);
         } else if (e.getSource().equals(vista.getJbReporte())) {
             reporte();
         } else if (e.getSource().equals(vista.getJbEnviar())) {
@@ -244,7 +236,6 @@ public class MenuClientesControlador implements ActionListener {
             imagen3 = new javax.swing.ImageIcon(getClass().getResource("/recursos/Import_16px.png"));
         }
         Icon icono = new ImageIcon(imagen3.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
-        vista.getJlEditarImagen().setIcon(icono);
         vista.getTfEditarTutor().setText(cliente.getTutor());
         vista.getTfEditarTelefono().setText(cliente.getTelefono());
         vista.getTfEditarCorreo().setText(cliente.getCorreo());
@@ -344,7 +335,6 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfAgregarNombre().setText(null);
         vista.getJcbAgregarGrupo().setSelectedIndex(0);
         vista.getJsAgregarSaldo().setValue(0);
-        vista.getJlAgregarImagen().setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/user.png")));
         vista.getTfAgregarTutor().setText(null);
         vista.getTfAgregarTelefono().setText(null);
         vista.getTfAgregarCorreo().setText(null);
