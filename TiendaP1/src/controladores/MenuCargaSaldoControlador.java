@@ -141,7 +141,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
     }
 
     boolean haySaldoSeleccionado() {
-        if (vista.getRbOtra().isSelected() && ((int) vista.getJsOtra().getValue()) > 0) {
+        if (vista.getRbOtra().isSelected() && ((int) vista.getJsOtra().getValue()) >= 0) {
             return true;
         } else if (vista.getRb20().isSelected()) {
             return true;
