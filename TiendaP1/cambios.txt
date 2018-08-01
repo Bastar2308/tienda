@@ -9,7 +9,6 @@ productos generar qr de producto en el escritorio
 buscar clientes
 subir foto
 -------------------------
-Agregar asterisco a LABEL OBLIGATORIOS
 En CARGAR SALDO quitar columna VIGENCIA
 
 correo_prueba456@hotmail.com
