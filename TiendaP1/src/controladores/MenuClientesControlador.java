@@ -188,7 +188,7 @@ public class MenuClientesControlador implements ActionListener {
     int agregarCliente() {
         Cliente clienteA = new Cliente();
         try {
-            if (!vista.getTfAgregarNombre().getText().equals("") && !vista.getTfAgregarTutor().getText().equals("")) {
+            if (!vista.getTfAgregarNombre().getText().equals("")) {
                 System.out.println("Dentro del IF");
                 System.out.println(vista.getTfAgregarNombre().getText());
                 System.out.println(vista.getTfAgregarTutor().getText());
@@ -315,7 +315,7 @@ public class MenuClientesControlador implements ActionListener {
 
     int actualizarCliente() throws IOException, SQLException {
         try {
-            if (!vista.getTfEditarNombre().getText().equals("") && !vista.getTfEditarTutor().getText().equals("")) {
+            if (!vista.getTfEditarNombre().getText().equals("")) {
                 actualizarDatos();
                 if (vista.getSRuta() == null) {
                     System.out.println("modificando cliente IF");
@@ -400,6 +400,8 @@ public class MenuClientesControlador implements ActionListener {
             vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
             vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
             GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
+            desde.setDate(null);
+            hasta.setDate(null);
         }
     }
 
