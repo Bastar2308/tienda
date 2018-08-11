@@ -108,6 +108,26 @@ public class ClienteDAO implements ClienteDAOIf {
         return id;
     }
 
+    public String obtenObservaciones(String id) {
+        Connection con = null;
+        PreparedStatement st = null;
+        String observaciones = "";
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("SELECT observaciones FROM cliente WHERE idCliente=" + id);
+            ResultSet rs = st.executeQuery();
+
+            rs.next();
+            observaciones = rs.getString(1);
+        } catch (Exception e) {
+            System.out.println("Error al consultar cliente con adeudos" + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return observaciones;
+    }
+
     @Override
     public Cliente obtenerClienteConAdeudos() {
         Connection con = null;
@@ -162,14 +182,14 @@ public class ClienteDAO implements ClienteDAOIf {
         }
         return id;
     }
-    
+
     public boolean agregarQR(String qr, int id) {
         Connection con = null;
         PreparedStatement st = null;
         try {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
-            st = con.prepareStatement("UPDATE "+TABLE+" SET qr=? WHERE idCliente=?");
+            st = con.prepareStatement("UPDATE " + TABLE + " SET qr=? WHERE idCliente=?");
             st.setString(1, qr);
             st.setInt(2, id);
             int x = st.executeUpdate();
@@ -275,7 +295,7 @@ public class ClienteDAO implements ClienteDAOIf {
         }
         return true;
     }
-    
+
     @Override
     public boolean modificaCliente(Cliente pojo, String path) {
         Connection con = null;
@@ -285,7 +305,7 @@ public class ClienteDAO implements ClienteDAOIf {
             con = Conexion.getConnection();
             //Recuerden que el últmo es el id
             st = con.prepareStatement(SQL_UPDATE);
-            
+
             st.setString(1, pojo.getNombre());
             st.setDouble(2, pojo.getSaldo());
             st.setInt(3, pojo.getGrupo_idGrupo());
@@ -358,8 +378,6 @@ public class ClienteDAO implements ClienteDAOIf {
         }
         return true;
     }
-
-    
 
     @Override
     public Cliente buscaCliente(int id) {

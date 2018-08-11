@@ -127,7 +127,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel original = (DefaultTableModel) vista.getJtProductos().getModel();
         original.setRowCount(0);
         DefaultTableModel datos = ProductoDAO.getInstance().cargarTabla();
-        for (int i = 0; i < datos.getRowCount(); i ++) {
+        for (int i = 0; i < datos.getRowCount(); i++) {
             original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3), datos.getValueAt(i, 6 /*aqui va la wea*/)});
         }
     }
@@ -146,14 +146,14 @@ public class PuntoDeVentaControlador implements ActionListener {
             if (cantidad > 0) {
                 boolean yaAgregado = false;
                 int idDelProductoYaAgregado = -1;
-                for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+                for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i++) {
                     if (idProductoElegido.equals(vista.getJtProductosSeleccionados().getValueAt(i, 0).toString())) {
                         yaAgregado = true;
                         idDelProductoYaAgregado = Integer.parseInt(idProductoElegido);
                     }
                 }
                 if (yaAgregado) {
-                    for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+                    for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i++) {
                         if (Integer.parseInt(vista.getJtProductosSeleccionados().getValueAt(i, 0).toString()) == idDelProductoYaAgregado) {
                             DefaultTableModel modelo = (DefaultTableModel) vista.getJtProductosSeleccionados().getModel();
                             int cantidadAntigua = Integer.parseInt(vista.getJtProductosSeleccionados().getValueAt(i, 3).toString());
@@ -188,7 +188,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         DefaultTableModel datos = ClienteDAO.getInstance().cargarTablaPuntoDeVenta();
         DefaultTableModel original = (DefaultTableModel) vista.getJtClientes().getModel();
         original.setRowCount(0);
-        for (int i = 0; i < datos.getRowCount(); i ++) {
+        for (int i = 0; i < datos.getRowCount(); i++) {
             original.addRow(
                     new Object[]{
                         datos.getValueAt(i, 0),
@@ -205,7 +205,7 @@ public class PuntoDeVentaControlador implements ActionListener {
     private void actualizaTotales() {
         double total = 0;
         int cantidad = 0;
-        for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+        for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i++) {
             total += Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 2).toString())
                     * Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 3).toString());
             cantidad += Double.parseDouble(vista.getJtProductosSeleccionados().getValueAt(i, 3).toString());
@@ -275,6 +275,8 @@ public class PuntoDeVentaControlador implements ActionListener {
         vista.getJlNombre().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 1).toString());
         vista.getJlSaldo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 2).toString());
         vista.getJlGrupo().setText(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 4).toString());
+        vista.getjTObservaciones().setText(ClienteDAO.getInstance().obtenObservaciones(
+                vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString()));
     }
 
     void filtraClientes() {
@@ -317,7 +319,7 @@ public class PuntoDeVentaControlador implements ActionListener {
 
     private void agregaRegistroVenta(Venta venta) {
         int idVenta = VentaDAO.getInstance().insertaVenta(venta);
-        for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i ++) {
+        for (int i = 0; i < vista.getJtProductosSeleccionados().getRowCount(); i++) {
             Detalle_Venta detalle_Venta = new Detalle_Venta();
 
             detalle_Venta.setVenta_idVenta(idVenta);
