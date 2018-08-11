@@ -7,6 +7,9 @@
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
+CREATE DATABASE IF NOT EXISTS tienda_cbb;
+USE tienda_cbb;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
