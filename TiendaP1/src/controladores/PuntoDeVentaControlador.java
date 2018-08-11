@@ -308,6 +308,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         cargaClientes();
         vista.getJtClientes().setRowSelectionInterval(0, 0);
         seleccionaCliente();
+        vista.getjTObservaciones().setText("");
         vista.getTfFiltrarClientes().setText(null);
         vista.getTfFiltrarProductos().setText(null);
         filtraClientes();
