@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import auxiliares.MailTools;
 import dao.ClienteDAO;
 import gui.JfMenuCargaSaldo;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import org.apache.logging.log4j.core.config.builder.api.Component;
+import pojo.Cliente;
 
 /**
  *
@@ -108,6 +110,10 @@ public class MenuCargaSaldoControlador implements ActionListener {
                     vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString(),
                     String.valueOf(obtenValorSeleccionado()))) {
                 JOptionPane.showMessageDialog(null, "Saldo agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                String id = vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString();
+                Cliente cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(id));
+                MiHilo miHilo = new MiHilo(cliente.getCorreo(), String.valueOf(obtenValorSeleccionado()), String.valueOf(cliente.getSaldo()));
+                miHilo.start();
                 vista.getJsOtra().setValue(0);
                 vista.getRbOtra().setSelected(true);
                 vista.getTfBuscar().setText(null);
@@ -166,5 +172,30 @@ public class MenuCargaSaldoControlador implements ActionListener {
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    public void enviaCorreo(String correo, String recarga, String saldo){
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"), 
+                correo, 
+                "Recarga de saldo", 
+                "Su recarga de $"+recarga+".00 ha sido realizada exitosamente\nSu saldo actual es de: $"+saldo);
+        System.out.println("Enviado a: "+correo);
+    }
+    class MiHilo extends Thread{
+        private String a;
+        private String b;
+        private String c;
+        @Override
+        public void run() {
+            super.run(); //To change body of generated methods, choose Tools | Templates.
+            enviaCorreo(a, b, c);
+        }
+
+        public MiHilo(String a, String b, String c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+        
     }
 }

@@ -10,6 +10,10 @@ buscar clientes
 subir foto
 -------------------------
 En CARGAR SALDO quitar columna VIGENCIA
+Agregar observación a los alumnos en el sistema
+Borrar fechas de REPORTE
+Reiniciar el filtro de CLIENTES
+Actualizar tabla al abrir CLIENTES
 
 correo_prueba456@hotmail.com
 Contrasena
