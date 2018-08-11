@@ -10,8 +10,7 @@ buscar clientes
 subir foto
 -------------------------
 En CARGAR SALDO quitar columna VIGENCIA
-Agregar observación a los alumnos en el sistema
-Borrar fechas de REPORTE
+Agregar observación a los alumnos en el sistema (Ya quedó el POJO y el DAO falta la GUI)
 Reiniciar el filtro de CLIENTES
 Actualizar tabla al abrir CLIENTES
 

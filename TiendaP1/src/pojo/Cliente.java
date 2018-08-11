@@ -20,6 +20,7 @@ public class Cliente {
     private String tutor;
     private String telefono;
     private String correo;
+    private String observacion;
     private Date vigencia;
 
     public int getIdCliente() {
@@ -113,6 +114,14 @@ public class Cliente {
 
     public void setLimite(int limite) {
         this.limite = limite;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
 }

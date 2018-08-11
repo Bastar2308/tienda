@@ -25,13 +25,13 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite) VALUES (?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, limite) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite, observaciones) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, limite, observaciones) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idCliente=?";
-    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, limite=? WHERE idCliente=?";
+    private static final String SQL_UPDATE = "UPDATE " + TABLE + " SET nombre=?, saldo=?, Grupo_idGrupo=?, qr=?, foto=?, tutor=?, telefono=?, correo=?, limite=?, observaciones=? WHERE idCliente=?";
     private static final String SQL_UPDATE_CREDENCIAL = "UPDATE " + TABLE + " SET vigencia=? WHERE idCliente=?";
     private static final String SQL_UPDATE_CREDENCIAL2 = "UPDATE " + TABLE + " SET foto=? WHERE idCliente=?";
 
@@ -152,6 +152,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getLimite());
             st.setString(10, pojo.getQr());
+            st.setString(11, pojo.getObservacion());
             id = st.executeUpdate();
         } catch (SQLException | FileNotFoundException e) {
             System.out.println("Error al insertar cliente: " + e);
@@ -203,6 +204,7 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(6, pojo.getTelefono());
             st.setString(7, pojo.getCorreo());
             st.setDouble(8, pojo.getLimite());
+            st.setString(9, pojo.getObservacion());
             id = st.executeUpdate();
             ResultSet rs2 = st.getGeneratedKeys();
             if (rs2.next()) {
@@ -257,7 +259,8 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getLimite());
-            st.setInt(10, pojo.getIdCliente());
+            st.setString(10, pojo.getObservacion());
+            st.setInt(11, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -292,7 +295,8 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(7, pojo.getTelefono());
             st.setString(8, pojo.getCorreo());
             st.setInt(9, pojo.getLimite());
-            st.setInt(10, pojo.getIdCliente());
+            st.setString(10, pojo.getObservacion());
+            st.setInt(11, pojo.getIdCliente());
             int x = st.executeUpdate();
             if (x == 0) {
                 return false;
@@ -538,6 +542,7 @@ public class ClienteDAO implements ClienteDAOIf {
             pojo.setCorreo(rs.getString("correo"));
             pojo.setVigencia(rs.getDate("vigencia"));
             pojo.setLimite(rs.getInt("limite"));
+            pojo.setObservacion(rs.getString("observaciones"));
         } catch (SQLException ex) {
             System.out.println("Error al inflar cliente " + ex);
         }
