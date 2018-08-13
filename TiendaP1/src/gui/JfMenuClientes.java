@@ -290,6 +290,30 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         this.jLabel6 = x;
     }
 
+    public javax.swing.JTextArea gettAAgregarObservaciones() {
+        return tAAgregarObservaciones;
+    }
+
+    public void settAAgregarObservaciones(javax.swing.JTextArea tAAgregarObservaciones) {
+        this.tAAgregarObservaciones = tAAgregarObservaciones;
+    }
+
+    public javax.swing.JTextArea gettAEditarObservaciones() {
+        return tAEditarObservaciones;
+    }
+
+    public void settAEditarObservaciones(javax.swing.JTextArea tAEditarObservaciones) {
+        this.tAEditarObservaciones = tAEditarObservaciones;
+    }
+
+    public javax.swing.JTextArea gettAVerObservaciones() {
+        return tAVerObservaciones;
+    }
+
+    public void settAVerObservaciones(javax.swing.JTextArea tAVerObservaciones) {
+        this.tAVerObservaciones = tAVerObservaciones;
+    }
+
     private static class JfMenuClientesHolder {
 
         private static final JfMenuClientes INSTANCE = new JfMenuClientes();
@@ -322,6 +346,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel1 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jsAgregarLimite = new javax.swing.JSpinner();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tAAgregarObservaciones = new javax.swing.JTextArea();
         jdEditar = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -343,6 +370,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jlEditarImagen = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jsEditarLimite = new javax.swing.JSpinner();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tAEditarObservaciones = new javax.swing.JTextArea();
+        jLabel31 = new javax.swing.JLabel();
         jdVer = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -362,6 +392,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jlVerImagen = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jsVerLimite = new javax.swing.JSpinner();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tAVerObservaciones = new javax.swing.JTextArea();
         jdReporte = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jlVerImagen1 = new javax.swing.JLabel();
@@ -440,6 +473,17 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jsAgregarLimite.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9999, 10));
 
+        jLabel30.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Observaciones:");
+
+        tAAgregarObservaciones.setColumns(20);
+        tAAgregarObservaciones.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        tAAgregarObservaciones.setLineWrap(true);
+        tAAgregarObservaciones.setRows(5);
+        jScrollPane3.setViewportView(tAAgregarObservaciones);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -460,7 +504,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(jLabel17)
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
-                            .addComponent(jLabel27))
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel30))
                         .addGap(48, 48, 48)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jsAgregarSaldo)
@@ -469,7 +514,8 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(tfAgregarTutor)
                             .addComponent(tfAgregarTelefono)
                             .addComponent(tfAgregarCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jsAgregarLimite, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))))
+                            .addComponent(jsAgregarLimite, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3))))
                 .addGap(40, 40, 40))
         );
         jPanel3Layout.setVerticalGroup(
@@ -503,7 +549,11 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(jsAgregarLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAgregarAceptar)
                     .addComponent(jbAgregarCancelar))
@@ -524,7 +574,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
-        jdEditar.setTitle("Agregar producto");
+        jdEditar.setTitle("Editar cliente");
         jdEditar.setModal(true);
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
@@ -579,6 +629,17 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
 
         jsEditarLimite.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9999, 10));
 
+        tAEditarObservaciones.setColumns(20);
+        tAEditarObservaciones.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        tAEditarObservaciones.setLineWrap(true);
+        tAEditarObservaciones.setRows(5);
+        jScrollPane4.setViewportView(tAEditarObservaciones);
+
+        jLabel31.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Observaciones:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -586,16 +647,6 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(44, 44, 44)
-                        .addComponent(jsEditarLimite))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbEditarCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbEditarAceptar)
-                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -612,11 +663,25 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(jcbEditarGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jlEditarImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
+                                .addComponent(jlEditarImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(tfEditarQr, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tfEditarTutor, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tfEditarTelefono, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfEditarCorreo))))
+                            .addComponent(tfEditarCorreo)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbEditarCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbEditarAceptar)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel31))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                            .addComponent(jsEditarLimite))))
                 .addGap(40, 40, 40))
         );
         jPanel4Layout.setVerticalGroup(
@@ -656,7 +721,11 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jsEditarLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbEditarAceptar)
                     .addComponent(jbEditarCancelar))
@@ -667,7 +736,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jdEditar.getContentPane().setLayout(jdEditarLayout);
         jdEditarLayout.setHorizontalGroup(
             jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jdEditarLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jdEditarLayout.setVerticalGroup(
             jdEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,7 +748,7 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGap(30, 30, 30))
         );
 
-        jdVer.setTitle("Agregar producto");
+        jdVer.setTitle("Ver cliente");
         jdVer.setModal(true);
 
         jPanel5.setBackground(new java.awt.Color(102, 102, 102));
@@ -695,6 +766,11 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jLabel23.setText("QR:");
 
         jcbVerGrupo.setEnabled(false);
+        jcbVerGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbVerGrupoActionPerformed(evt);
+            }
+        });
 
         jLabel11.setBackground(new java.awt.Color(102, 102, 102));
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -740,19 +816,34 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         jsVerLimite.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9999, 10));
         jsVerLimite.setEnabled(false);
 
+        jLabel32.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Observaciones:");
+
+        tAVerObservaciones.setEditable(false);
+        tAVerObservaciones.setColumns(20);
+        tAVerObservaciones.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        tAVerObservaciones.setLineWrap(true);
+        tAVerObservaciones.setRows(5);
+        jScrollPane5.setViewportView(tAVerObservaciones);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel29)
                         .addGap(44, 44, 44)
-                        .addComponent(jsVerLimite)
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jsVerLimite))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
@@ -761,23 +852,20 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                             .addComponent(jLabel26)
                             .addComponent(jLabel25)
                             .addComponent(jLabel24))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcbVerGrupo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
+                                .addGap(2, 2, 2)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfVerTelefono, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(tfVerCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(tfVerTutor)
-                                    .addComponent(jlVerImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                                    .addComponent(jlVerImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tfVerQr)
-                                    .addComponent(jsVerSaldo))
-                                .addGap(20, 20, 20))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfVerNombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jcbVerGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap())))))
+                                    .addComponent(jsVerSaldo)))
+                            .addComponent(tfVerNombre))))
+                .addGap(40, 40, 40))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,14 +904,18 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(jsVerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdVerLayout = new javax.swing.GroupLayout(jdVer.getContentPane());
         jdVer.getContentPane().setLayout(jdVerLayout);
         jdVerLayout.setHorizontalGroup(
             jdVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jdVerLayout.setVerticalGroup(
             jdVerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1131,6 +1223,10 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbVerGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbVerGrupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbVerGrupoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1199,6 +1295,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1213,6 +1312,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
@@ -1242,6 +1344,9 @@ public class JfMenuClientes extends javax.swing.JFrame implements JfMenuClientes
     private javax.swing.JSpinner jsVerLimite;
     private javax.swing.JSpinner jsVerSaldo;
     private javax.swing.JTable jtDatos;
+    private javax.swing.JTextArea tAAgregarObservaciones;
+    private javax.swing.JTextArea tAEditarObservaciones;
+    private javax.swing.JTextArea tAVerObservaciones;
     private javax.swing.JTextField tfAgregarCorreo;
     private javax.swing.JTextField tfAgregarNombre;
     private javax.swing.JTextField tfAgregarTelefono;

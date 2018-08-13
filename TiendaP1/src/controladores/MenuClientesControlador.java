@@ -200,6 +200,7 @@ public class MenuClientesControlador implements ActionListener {
                 clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
                 clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
                 clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()) * -1);
+                clienteA.setObservacion(vista.gettAAgregarObservaciones().getText());
                 if (vista.getSRuta() == null) {
                     int x;
                     if ((x=ClienteDAO.getInstance().insertaCliente(clienteA)) != 0) {
@@ -265,6 +266,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfEditarTelefono().setText(cliente.getTelefono());
         vista.getTfEditarCorreo().setText(cliente.getCorreo());
         vista.getJsEditarLimite().setValue(cliente.getLimite()*-1);
+        vista.gettAEditarObservaciones().setText(ClienteDAO.getInstance().buscaCliente(cliente.getIdCliente()).getObservacion());
     }
 
     void cargarDatosVer() {
@@ -298,6 +300,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfVerTelefono().setText(cliente.getTelefono());
         vista.getTfVerCorreo().setText(cliente.getCorreo());
         vista.getJsVerLimite().setValue(cliente.getLimite() * -1);
+        vista.gettAVerObservaciones().setText(cliente.getObservacion());
     }
 
     void actualizarDatos() throws IOException, SQLException {
@@ -369,6 +372,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfAgregarTelefono().setText(null);
         vista.getTfAgregarCorreo().setText(null);
         vista.getJsAgregarLimite().setValue(0);
+        vista.gettAAgregarObservaciones().setText(null);
 
     }
 
