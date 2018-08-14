@@ -25,8 +25,8 @@ import pojo.Grupo;
 public class ClienteDAO implements ClienteDAOIf {
 
     private static final String TABLE = "cliente";
-    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite, observaciones) VALUES (?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, limite, observaciones) VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite, observaciones, vigencia) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT2 = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, tutor, telefono, correo, limite, observaciones,vigencia) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idCliente = ?";
     private static final String SQL_ADEUDOS = "SELECT * FROM " + TABLE + " WHERE saldo < 0";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
@@ -196,7 +196,6 @@ public class ClienteDAO implements ClienteDAOIf {
             if (x == 0) {
                 return false;
             }
-            System.out.println("Estoy agregando el QR");
         } catch (Exception e) {
             System.out.println("Error al agregar QRs " + e);
             return false;
@@ -225,14 +224,15 @@ public class ClienteDAO implements ClienteDAOIf {
             st.setString(7, pojo.getCorreo());
             st.setDouble(8, pojo.getLimite());
             st.setString(9, pojo.getObservacion());
+            st.setDate(10, pojo.getVigencia());
             id = st.executeUpdate();
             ResultSet rs2 = st.getGeneratedKeys();
             if (rs2.next()) {
                 id = rs2.getInt(1);
             }
             System.out.println(id);
-        } catch (Exception e) {
-            System.out.println("Error al insertar cliente: " + e);
+        } catch (SQLException e) {
+           e.printStackTrace();
         } finally {
             Conexion.close(con);
             Conexion.close(st);

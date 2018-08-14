@@ -112,40 +112,25 @@ public class MenuClientesControlador implements ActionListener {
             GuiTools.getInstance().abre(vista, JfControlDeGrupos.getInstance());
         } else if (e.getSource().equals(vista.getJbAgregar())) {
             GuiTools.getInstance().abreDialogo(vista.getJdAgregar(), vista.getJdAgregar().getPreferredSize().width, vista.getJdAgregar().getPreferredSize().height);
-            vista.getJlAgregarNombre().setForeground(Color.WHITE);
-            vista.getJlAgregarGrupo().setForeground(Color.WHITE);
-            vista.getJlAgregarTutor().setForeground(Color.WHITE);
-            vista.getJlAgregarNombre().setText("Nombre:");
-            vista.getJlAgregarGrupo().setText("Grupo:");
-            vista.getJlAgregarTutor().setText("Tutor:");
         } else if (e.getSource().equals(vista.getJbAgregarCancelar())) {
             vista.getJdAgregar().dispose();
         } else if (e.getSource().equals(vista.getJbAgregarAceptar())) {
-            if (agregarCliente() != 0) {
+            if (!(vista.getTfAgregarNombre().getText().length() == 0
+                    || vista.getJcbAgregarGrupo().getSelectedIndex() == 0
+                    || vista.getTfAgregarTutor().getText().length() == 0)) {
+                agregarCliente();
                 JOptionPane.showMessageDialog(null, "Cliente guardado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 vista.getJdAgregar().dispose();
                 cargarTabla();
                 resetDatosAgregar();
             } else {
                 JOptionPane.showMessageDialog(null, "Verifique los datos", "Error", JOptionPane.ERROR_MESSAGE);
-                vista.getJlAgregarNombre().setForeground(Color.BLUE);
-                vista.getJlAgregarGrupo().setForeground(Color.BLUE);
-                vista.getJlAgregarTutor().setForeground(Color.BLUE);
-                vista.getJlAgregarNombre().setText("Nombre:*");
-                vista.getJlAgregarGrupo().setText("Grupo:*");
-                vista.getJlAgregarTutor().setText("Tutor:*");
             }
         } else if (e.getSource().equals(vista.getJbEditar())) {
             if (vista.getJtDatos().getSelectedRow() != -1) {
                 cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()));
                 cargarDatos();
                 GuiTools.getInstance().abreDialogo(vista.getJdEditar(), vista.getJdEditar().getPreferredSize().width, vista.getJdEditar().getPreferredSize().height);
-                vista.getJlEditarNombre().setForeground(Color.WHITE);
-                vista.getJlEditarGrupo().setForeground(Color.WHITE);
-                vista.getJlEditarTutor().setForeground(Color.WHITE);
-                vista.getJlEditarNombre().setText("Nombre:");
-                vista.getJlEditarGrupo().setText("Grupo:");
-                vista.getJlEditarTutor().setText("Tutor:");
             }
         } else if (e.getSource().equals(vista.getJbEditarCancelar())) {
             vista.getJdEditar().dispose();
@@ -155,12 +140,6 @@ public class MenuClientesControlador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cliente editado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Verifique los datos", "Error", JOptionPane.ERROR_MESSAGE);
-                    vista.getJlEditarNombre().setForeground(Color.BLUE);
-                    vista.getJlEditarGrupo().setForeground(Color.BLUE);
-                    vista.getJlEditarTutor().setForeground(Color.BLUE);
-                    vista.getJlEditarNombre().setText("Nombre:*");
-                    vista.getJlEditarGrupo().setText("Grupo:*");
-                    vista.getJlEditarTutor().setText("Tutor:*");
                 }
             } catch (IOException | SQLException ex) {
                 Logger.getLogger(MenuClientesControlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -187,54 +166,23 @@ public class MenuClientesControlador implements ActionListener {
 
     int agregarCliente() {
         Cliente clienteA = new Cliente();
-        try {
-            if (!vista.getTfAgregarNombre().getText().equals("")) {
-                System.out.println("Dentro del IF");
-                System.out.println(vista.getTfAgregarNombre().getText());
-                System.out.println(vista.getTfAgregarTutor().getText());
-                Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
-                clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
-                clienteA.setNombre(vista.getTfAgregarNombre().getText());
-                clienteA.setSaldo((Double) vista.getJsAgregarSaldo().getValue());
-                clienteA.setTutor(vista.getTfAgregarTutor().getText());
-                clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
-                clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
-                clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()) * -1);
-                clienteA.setObservacion(vista.gettAAgregarObservaciones().getText());
-                if (vista.getSRuta() == null) {
-                    int x;
-                    if ((x=ClienteDAO.getInstance().insertaCliente(clienteA)) != 0) {
-                        System.out.println(x);
-                        Calendar calC = Calendar.getInstance();
-                        int year= calC.get(Calendar.YEAR) + 1;
-                        if (ClienteDAO.getInstance().agregarQR("BSTR_"+x+"_"+year+"-06-30", x)) {
-                            System.out.println("QR insertado correctamente");
-                        } else {
-                            System.out.println("Error al insertar QR");
-                        }
-                        System.out.println("Insertado correctamente");
-                        return 1;
-                    } else {
-                        System.out.println("Error en la inserción");
-                        return 0;
-                    }
-                } else {
-                    if (ClienteDAO.getInstance().insertaCliente(clienteA, vista.getSRuta()) != 0) {
-                        System.out.println("Insertado correctamente");
-                        vista.setSRuta(null);
-                        return 1;
-                    } else {
-                        System.out.println("Error en la inserción");
-                        return 0;
-                    }
-                }
-            } else {
-                System.out.println("Dentro del ELSE");
-                return 0;
-            }
-        } catch (Exception e) {
-            return 0;
-        }
+        int id = 0;
+        Grupo grupo = (Grupo) vista.getJcbAgregarGrupo().getSelectedItem();
+        clienteA.setGrupo_idGrupo(grupo.getIdGrupo());
+
+        clienteA.setNombre(vista.getTfAgregarNombre().getText());
+        clienteA.setSaldo(Double.parseDouble(vista.getJsAgregarSaldo().getValue().toString()));
+        clienteA.setTutor(vista.getTfAgregarTutor().getText());
+        clienteA.setTelefono(vista.getTfAgregarTelefono().getText());
+        clienteA.setCorreo(vista.getTfAgregarCorreo().getText());
+        clienteA.setLimite(Integer.parseInt(vista.getJsAgregarLimite().getValue().toString()) * -1);
+        clienteA.setObservacion(vista.gettAAgregarObservaciones().getText());
+        Calendar calC = Calendar.getInstance();
+        calC.add(Calendar.YEAR, 1);
+        clienteA.setVigencia(new Date(calC.getTime().getTime()));
+        id = ClienteDAO.getInstance().insertaCliente(clienteA);
+        ClienteDAO.getInstance().agregarQR("BSTR_" + id + "_" + (calC.get(Calendar.YEAR) + 1) + "-6-30", id);
+        return id;
     }
 
     void cargarDatos() {
@@ -265,7 +213,7 @@ public class MenuClientesControlador implements ActionListener {
         vista.getTfEditarTutor().setText(cliente.getTutor());
         vista.getTfEditarTelefono().setText(cliente.getTelefono());
         vista.getTfEditarCorreo().setText(cliente.getCorreo());
-        vista.getJsEditarLimite().setValue(cliente.getLimite()*-1);
+        vista.getJsEditarLimite().setValue(cliente.getLimite() * -1);
         vista.gettAEditarObservaciones().setText(ClienteDAO.getInstance().buscaCliente(cliente.getIdCliente()).getObservacion());
     }
 
@@ -417,12 +365,12 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
         }
-        contenido = contenido + "Total: "+vista.getJlTotal().getText();
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"), 
-                clienteBuscando.getCorreo(), 
-                "Consumo: "+vista.getJlNombre().getText() + " "+vista.getJlDesde().getText()+" - "+vista.getJlHasta().getText(), 
+        contenido = contenido + "Total: " + vista.getJlTotal().getText();
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
+                clienteBuscando.getCorreo(),
+                "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
                 contenido);
-        System.out.println("Enviado a: "+clienteBuscando.getCorreo());
+        System.out.println("Enviado a: " + clienteBuscando.getCorreo());
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 }
