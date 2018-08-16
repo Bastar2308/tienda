@@ -189,7 +189,7 @@ public class MenuClientesControlador implements ActionListener {
         calC.add(Calendar.YEAR, 1);
         clienteA.setVigencia(new Date(calC.getTime().getTime()));
         id = ClienteDAO.getInstance().insertaCliente(clienteA);
-        ClienteDAO.getInstance().agregarQR("BSTR_" + id + "_" + (calC.get(Calendar.YEAR) + 1) + "-6-30", id);
+        ClienteDAO.getInstance().agregarQR("BSTR_" + id + "_" + (calC.get(Calendar.YEAR)) + "-6-30", id);
         return id;
     }
 
