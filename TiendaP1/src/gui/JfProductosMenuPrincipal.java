@@ -6,7 +6,6 @@
 package gui;
 
 import controladores.ProductosMenuPrincipalControlador;
-import guiif.JfProductosMenuPrincipalIf;
 import java.awt.Color;
 import javax.swing.JComboBox;
 
@@ -14,7 +13,7 @@ import javax.swing.JComboBox;
  *
  * @author ALUMNO
  */
-public class JfProductosMenuPrincipal extends javax.swing.JFrame implements JfProductosMenuPrincipalIf {
+public class JfProductosMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form JfProductosMenuPrincipal

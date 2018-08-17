@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.Detalle_VentaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Detalle_Venta;
 import pojo.Producto;
 
-public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
+public class Detalle_VentaDAO {
 
     private static final String TABLE = "detalle_venta";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (venta_idventa, producto_idproducto,cantidad, subtotal) VALUES (?,?,?,?)";
@@ -40,7 +39,6 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         private static final Detalle_VentaDAO INSTANCE = new Detalle_VentaDAO();
     }
 
-    @Override
     public int insertaDetalle_Venta(Detalle_Venta pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -62,7 +60,6 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaDetalle_Venta(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -84,7 +81,6 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaDetalle_Venta(Detalle_Venta pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -110,7 +106,6 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         return true;
     }
 
-    @Override
     public Detalle_Venta buscaCategoria(int id, int id2) {
         Connection con = null;
         PreparedStatement st = null;
@@ -133,7 +128,6 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -166,17 +160,14 @@ public class Detalle_VentaDAO implements Detalle_VentaDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Detalle_Venta> cargarCombo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public DefaultListModel<Detalle_Venta> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Detalle_Venta inflaVenta(ResultSet rs) {
         Detalle_Venta pojo = new Detalle_Venta();
         try {

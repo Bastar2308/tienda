@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  *
  * @author BurnKill
  */
-public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuPrincipalIf {
+public class JfMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuPrincipal
@@ -43,7 +43,8 @@ public class JfMenuPrincipal extends javax.swing.JFrame implements guiif.JfMenuP
 
         private static final JfMenuPrincipal INSTANCE = new JfMenuPrincipal();
     }
-public static void main(String args[]) {
+
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -74,6 +75,7 @@ public static void main(String args[]) {
             }
         });
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -279,47 +281,38 @@ public static void main(String args[]) {
     private javax.swing.JLabel jlUsuario;
     // End of variables declaration//GEN-END:variables
 
-    @Override
     public JLabel getJlUsuario() {
         return jlUsuario;
     }
 
-    @Override
     public void setJlUsuario(JLabel jl) {
         this.jlUsuario = jl;
     }
 
-    @Override
     public JButton getJbAyuda() {
         return jbAyuda;
     }
 
-    @Override
     public void setJbAyuda(JButton jb) {
         this.jbAyuda = jb;
     }
 
-    @Override
     public JButton getJbCargarSaldo() {
         return jbCargarSaldo;
     }
 
-    @Override
     public void setJbCargarSaldo(JButton jb) {
         this.jbCargarSaldo = jb;
     }
 
-    @Override
     public JButton getJbFinanzas() {
         return jbFinanzas;
     }
 
-    @Override
     public void setJbFinanzas(JButton jb) {
         this.jbFinanzas = jb;
     }
 
-    @Override
     public JButton getJbClientes() {
         return jbClientes;
     }
@@ -332,29 +325,20 @@ public static void main(String args[]) {
         this.jbMenuProductos = jbMenuProductos;
     }
 
-    @Override
     public void setJbClientes(JButton jb) {
         this.jbClientes = jb;
     }
 
-    @Override
     public JButton getJbGeneradorDeCredenciales() {
         return jbGeneradorDeCredenciales;
     }
 
-    @Override
     public void setJbGeneradorDeCredenciales(JButton jb) {
         this.jbGeneradorDeCredenciales = jb;
     }
 
-    @Override
     public JButton getJbPuntoDeVentas() {
         return jbPuntoDeVista;
-    }
-
-    @Override
-    public void setJbPuntoDeVentas(JButton jb) {
-        this.jbPuntoDeVista = jb;
     }
 
 }

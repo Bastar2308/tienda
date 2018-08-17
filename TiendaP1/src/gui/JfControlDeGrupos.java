@@ -3,7 +3,6 @@
  */
 package gui;
 
-import guiif.JfControlDeGruposIf;
 import controladores.ControlDeGruposControlador;
 import java.awt.Color;
 
@@ -11,7 +10,7 @@ import java.awt.Color;
  *
  * @author BurnKill
  */
-public class JfControlDeGrupos extends javax.swing.JFrame implements JfControlDeGruposIf {
+public class JfControlDeGrupos extends javax.swing.JFrame {
 
     ControlDeGruposControlador controlador;
 

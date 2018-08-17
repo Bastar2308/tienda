@@ -8,7 +8,6 @@ package gui;
 import auxiliares.CameraTools;
 import controladores.GeneradorCrendencialControlador;
 import dao.ClienteDAO;
-import guiif.JfGeneradorCredencialIf;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,13 +18,15 @@ import pojo.Cliente;
  *
  * @author Fernando
  */
-public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGeneradorCredencialIf{
+public class JfGeneradorCredencial extends javax.swing.JFrame {
+
     private final GeneradorCrendencialControlador controlador;
     private static Cliente cl;
+
     /**
      * Creates new form JfGeneradorCredencial
      */
-    
+
     public JfGeneradorCredencial() {
         initComponents();
         setSize(715, 450);
@@ -34,89 +35,73 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         controlador = new GeneradorCrendencialControlador(this, CameraTools.getInstance(200, 200, jpCamara, this));
         System.out.println("Cambió");
     }
-    
+
     public static JfGeneradorCredencial getInstance(int id) {
         cl = ClienteDAO.getInstance().buscaCliente(id);
         System.out.println(cl);
         return JfGeneradorCredencialHolder.INSTANCE;
     }
 
-    @Override
     public JButton getJbTomar() {
         return jbTomar;
     }
 
-    @Override
     public void setJbTomar(JButton bt) {
         this.jbTomar = bt;
     }
 
-    @Override
     public JButton getJbRepetir() {
         return jbRepetir;
     }
 
-    @Override
     public void setJbRepetir(JButton bt) {
         this.jbRepetir = bt;
     }
 
-    @Override
     public JButton getJbGuardar() {
         return jbGuardar;
     }
 
-    @Override
     public void setJbguardar(JButton bt) {
         this.jbGuardar = bt;
     }
 
-    @Override
     public JLabel getJlQr() {
         return jlQr;
     }
 
-    @Override
     public void setJlQr(JLabel lb) {
         this.jlQr = lb;
     }
 
-    @Override
     public JPanel getJpCamara() {
         return jpCamara;
     }
 
-    @Override
     public void setJpCamara(JPanel pn) {
         this.jpCamara = pn;
     }
 
-    @Override
     public JPanel getJpCredencial() {
         return jpCredencial;
     }
 
-    @Override
     public void setJpCredencial(JPanel pn) {
         this.jpCredencial = pn;
     }
 
-    @Override
     public Cliente getCliente() {
         return cl;
     }
 
-    @Override
     public void setCliente(Cliente cl) {
         this.cl = cl;
     }
 
-    @Override
     public JButton getJbRegresar() {
         return jbRegresar;
     }
 
-    @Override
     public void setJbRegresar(JButton jbRegresar) {
         this.jbRegresar = jbRegresar;
     }
@@ -125,6 +110,7 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
 
         private static final JfGeneradorCredencial INSTANCE = new JfGeneradorCredencial();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,9 +175,8 @@ public class JfGeneradorCredencial extends javax.swing.JFrame implements JfGener
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel13))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel13)
         );
 
         jpCamara.setBackground(new java.awt.Color(255, 255, 255));

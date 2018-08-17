@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.CategoriaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Categoria;
 
-public class CategoriaDAO implements CategoriaDAOIf {
+public class CategoriaDAO  {
 
     private static final String TABLE = "categoria";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre) VALUES (?)";
@@ -36,7 +35,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         private static final CategoriaDAO INSTANCE = new CategoriaDAO();
     }
 
-    @Override
     public int insertaCategoria(Categoria pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -55,7 +53,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaCategoria(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -77,7 +74,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaCategoria(Categoria pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -101,7 +97,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return true;
     }
 
-    @Override
     public Categoria buscaCategoria(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -123,7 +118,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
@@ -152,7 +146,6 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Categoria> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -179,12 +172,10 @@ public class CategoriaDAO implements CategoriaDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Categoria> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Categoria inflaCategoria(ResultSet rs) {
         Categoria pojo = new Categoria();
         try {

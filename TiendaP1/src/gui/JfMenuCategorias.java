@@ -6,11 +6,9 @@
 package gui;
 
 import controladores.MenuCategoriasControlador;
-import guiif.JMenuCategoriasIf;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -18,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author ALUMNO
  */
-public class JfMenuCategorias extends javax.swing.JFrame implements JMenuCategoriasIf {
+public class JfMenuCategorias extends javax.swing.JFrame {
 
     public JButton getJbEliminar() {
         return JbEliminar;

@@ -3,7 +3,6 @@
  */
 package gui;
 
-import guiif.JfPuntoDeVentaIf;
 import javax.swing.JButton;
 import controladores.PuntoDeVentaControlador;
 import java.awt.Color;
@@ -12,7 +11,7 @@ import java.awt.Color;
  *
  * @author BurnKill
  */
-public class JfPuntoDeVenta extends javax.swing.JFrame implements JfPuntoDeVentaIf {
+public class JfPuntoDeVenta extends javax.swing.JFrame {
 
     private PuntoDeVentaControlador controlador;
 

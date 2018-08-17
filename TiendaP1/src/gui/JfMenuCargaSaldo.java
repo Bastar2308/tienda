@@ -4,7 +4,6 @@
 package gui;
 
 import controladores.MenuCargaSaldoControlador;
-import guiif.JfMenuCargaSaldoIf;
 import java.awt.Color;
 import javax.swing.JButton;
 
@@ -12,7 +11,7 @@ import javax.swing.JButton;
  *
  * @author BurnKill
  */
-public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaSaldoIf {
+public class JfMenuCargaSaldo extends javax.swing.JFrame {
 
     private MenuCargaSaldoControlador controlador;
 
@@ -344,7 +343,6 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new JfMenuCargaSaldo().setVisible(true);
             }
@@ -374,12 +372,10 @@ public class JfMenuCargaSaldo extends javax.swing.JFrame implements JfMenuCargaS
     private javax.swing.JTextField tfBuscar;
     // End of variables declaration//GEN-END:variables
 
-    @Override
     public JButton getJbRegresar() {
         return jbRegresar;
     }
 
-    @Override
     public void setJbRegresar(JButton jb) {
         this.jbRegresar = jb;
     }

@@ -5,9 +5,7 @@
  */
 package controladores;
 
-import auxiliares.GuiTools;
 import dao.UsuarioDAO;
-import daoif.UsuarioDAOIf;
 import gui.JfLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

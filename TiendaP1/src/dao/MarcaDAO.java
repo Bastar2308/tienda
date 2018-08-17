@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.MarcaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Marca;
 
-public class MarcaDAO implements MarcaDAOIf {
+public class MarcaDAO {
 
     private static final String TABLE = "marca";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre) VALUES (?)";
@@ -36,7 +35,6 @@ public class MarcaDAO implements MarcaDAOIf {
         private static final MarcaDAO INSTANCE = new MarcaDAO();
     }
 
-    @Override
     public int insertaMarca(Marca pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -55,7 +53,6 @@ public class MarcaDAO implements MarcaDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaMarca(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -77,7 +74,6 @@ public class MarcaDAO implements MarcaDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaMarca(Marca pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -101,7 +97,6 @@ public class MarcaDAO implements MarcaDAOIf {
         return true;
     }
 
-    @Override
     public Marca buscaMarca(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -123,7 +118,6 @@ public class MarcaDAO implements MarcaDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
@@ -152,7 +146,6 @@ public class MarcaDAO implements MarcaDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Marca> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -179,12 +172,10 @@ public class MarcaDAO implements MarcaDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Marca> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Marca inflaMarca(ResultSet rs) {
         Marca pojo = new Marca();
         try {

@@ -4,15 +4,13 @@
 package gui;
 
 import controladores.MenuFinanzasControlador;
-import guiif.JfMenuFinanzasIf;
 import java.awt.Color;
-import javax.swing.JButton;
 
 /**
  *
  * @author BurnKill
  */
-public class JfMenuFinanzas extends javax.swing.JFrame implements JfMenuFinanzasIf {
+public class JfMenuFinanzas extends javax.swing.JFrame {
 
     MenuFinanzasControlador controlador;
 

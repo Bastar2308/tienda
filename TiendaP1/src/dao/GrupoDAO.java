@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.GrupoDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import pojo.Grupo;
 
-public class GrupoDAO implements GrupoDAOIf {
+public class GrupoDAO {
 
     private static final String TABLE = "grupo";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nivel, grado, grupo) VALUES (?,?,?)";
@@ -23,7 +22,6 @@ public class GrupoDAO implements GrupoDAOIf {
     private static final String SQL_QUERY = "SELECT * FROM " + TABLE + " WHERE idGrupo = ?";
     private static final String SQL_QUERY_ALL = "Select * from " + TABLE;
     private static final String SQL_DELETE = "DELETE FROM " + TABLE + " WHERE idGrupo=?";
-    
 
     private GrupoDAO() {
     }
@@ -37,7 +35,6 @@ public class GrupoDAO implements GrupoDAOIf {
         private static final GrupoDAO INSTANCE = new GrupoDAO();
     }
 
-    @Override
     public int insertaGrupo(Grupo pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -58,7 +55,6 @@ public class GrupoDAO implements GrupoDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaGrupo(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -80,7 +76,6 @@ public class GrupoDAO implements GrupoDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaGrupo(Grupo pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -106,7 +101,6 @@ public class GrupoDAO implements GrupoDAOIf {
         return true;
     }
 
-    @Override
     public Grupo buscaGrupo(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -128,12 +122,11 @@ public class GrupoDAO implements GrupoDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
         DefaultTableModel dt = null;
-        String encabezados[] = {"Id", "Grado", "Grupo","Nivel"};
+        String encabezados[] = {"Id", "Grado", "Grupo", "Nivel"};
         try {
             con = Conexion.getConnection();
             st = con.prepareStatement(SQL_QUERY_ALL);
@@ -159,7 +152,6 @@ public class GrupoDAO implements GrupoDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Grupo> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -187,12 +179,10 @@ public class GrupoDAO implements GrupoDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Grupo> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Grupo inflaGrupo(ResultSet rs) {
         Grupo pojo = new Grupo();
         try {

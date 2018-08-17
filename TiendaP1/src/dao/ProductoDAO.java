@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.ProductoDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +16,7 @@ import pojo.Categoria;
 import pojo.Marca;
 import pojo.Producto;
 
-public class ProductoDAO implements ProductoDAOIf {
+public class ProductoDAO {
 
     private static final String TABLE = "producto";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, precio, detalles, categoria_idCategoria, marca_idMarca, codigo) VALUES (?,?,?,?,?,?)";
@@ -38,7 +37,6 @@ public class ProductoDAO implements ProductoDAOIf {
         private static final ProductoDAO INSTANCE = new ProductoDAO();
     }
 
-    @Override
     public int insertaProducto(Producto pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -65,7 +63,6 @@ public class ProductoDAO implements ProductoDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaProducto(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -87,7 +84,6 @@ public class ProductoDAO implements ProductoDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaProducto(Producto pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -136,7 +132,6 @@ public class ProductoDAO implements ProductoDAOIf {
         return true;
     }
 
-    @Override
     public Producto buscaCategoria(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -158,7 +153,6 @@ public class ProductoDAO implements ProductoDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
@@ -194,7 +188,6 @@ public class ProductoDAO implements ProductoDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Producto> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -222,12 +215,10 @@ public class ProductoDAO implements ProductoDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Producto> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Producto inflaProducto(ResultSet rs) {
         Producto pojo = new Producto();
         try {
