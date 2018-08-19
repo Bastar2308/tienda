@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.ClienteDAOIf;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,8 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
@@ -22,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
 import pojo.Grupo;
 
-public class ClienteDAO implements ClienteDAOIf {
+public class ClienteDAO {
 
     private static final String TABLE = "cliente";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nombre, saldo, Grupo_idGrupo, qr, foto, tutor, telefono, correo, limite, observaciones, vigencia) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -42,7 +39,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return ClienteDAOHolder.INSTANCE;
     }
 
-    @Override
     public boolean restaSaldo(String idClienteint, String cantidadARestar) {
         Connection con = null;
         PreparedStatement st = null;
@@ -83,7 +79,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public int obtenerRecienInsertado() {
         Connection con = null;
         PreparedStatement st = null;
@@ -128,7 +123,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return observaciones;
     }
 
-    @Override
     public Cliente obtenerClienteConAdeudos() {
         Connection con = null;
         PreparedStatement st = null;
@@ -154,7 +148,6 @@ public class ClienteDAO implements ClienteDAOIf {
         private static final ClienteDAO INSTANCE = new ClienteDAO();
     }
 
-    @Override
     public int insertaCliente(Cliente pojo, String foto) {
         Connection con = null;
         PreparedStatement st = null;
@@ -206,7 +199,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public int insertaCliente(Cliente pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -232,7 +224,7 @@ public class ClienteDAO implements ClienteDAOIf {
             }
             System.out.println(id);
         } catch (SQLException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         } finally {
             Conexion.close(con);
             Conexion.close(st);
@@ -240,7 +232,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaCliente(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -262,7 +253,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaCliente(Cliente pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -296,7 +286,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaCliente(Cliente pojo, String path) {
         Connection con = null;
         PreparedStatement st = null;
@@ -331,7 +320,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaClienteCredencial(Cliente pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -355,7 +343,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaClienteCredencial(Cliente pojo, String foto) {
         Connection con = null;
         PreparedStatement st = null;
@@ -379,7 +366,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return true;
     }
 
-    @Override
     public Cliente buscaCliente(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -401,7 +387,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarClientes() {
         Connection con = null;
         PreparedStatement st = null;
@@ -474,7 +459,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
@@ -513,7 +497,6 @@ public class ClienteDAO implements ClienteDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Cliente> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -541,12 +524,10 @@ public class ClienteDAO implements ClienteDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Cliente> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Cliente inflaCliente(ResultSet rs) {
         Cliente pojo = new Cliente();
         try {

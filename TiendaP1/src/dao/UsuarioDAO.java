@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.UsuarioDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +12,7 @@ import java.sql.SQLException;
 import pojo.Categoria;
 import pojo.Usuario;
 
-public class UsuarioDAO implements UsuarioDAOIf {
+public class UsuarioDAO {
 
     private UsuarioDAO() {
     }
@@ -27,7 +26,6 @@ public class UsuarioDAO implements UsuarioDAOIf {
         private static final UsuarioDAO INSTANCE = new UsuarioDAO();
     }
 
-    @Override
     public Usuario iniciaSesion(String usuario, String password) {
         Usuario pojo = new Usuario();
         Connection con = null;
@@ -47,7 +45,6 @@ public class UsuarioDAO implements UsuarioDAOIf {
         return pojo;
     }
 
-    @Override
     public Usuario inflaUsuario(ResultSet rs) {
         Usuario pojo = new Usuario();
         try {

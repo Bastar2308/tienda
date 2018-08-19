@@ -113,6 +113,7 @@ public class PuntoDeVentaControlador implements ActionListener {
             vista.getJtClientes().changeSelection(0, 0, false, false);
             seleccionaCliente();
             vista.getTfFiltrarClientes().setText(null);
+            vista.getTfFiltrarProductos().requestFocus();
         } else if (e.getSource().equals(vista.getJbConfirmaVenta())) {
             confirmaVenta();
         } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {

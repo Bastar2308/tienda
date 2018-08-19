@@ -7,7 +7,6 @@ package gui;
 
 import auxiliares.CameraTools;
 import controladores.CamaraPortatilControlador;
-import guiif.JfCamaraPortatilIf;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -18,12 +17,13 @@ import javax.swing.JPanel;
  *
  * @author Fernando
  */
-public class JfCamaraPortatil extends javax.swing.JFrame implements JfCamaraPortatilIf{
+public class JfCamaraPortatil extends javax.swing.JFrame {
 
     private CamaraPortatilControlador controlador;
     static JLabel foto2;
     static JDialog dialogo2;
     static JfMenuClientes ruta2;
+
     /**
      * Creates new form JfCamaraPortatil
      */
@@ -32,7 +32,7 @@ public class JfCamaraPortatil extends javax.swing.JFrame implements JfCamaraPort
         add(jPanel1, BorderLayout.SOUTH);
         controlador = new CamaraPortatilControlador(this, CameraTools.getInstance(400, 400, jpCamara, this), foto2, dialogo2, ruta2);
     }
-    
+
     public static JfCamaraPortatil getInstance(JLabel foto, JDialog dialogo, JfMenuClientes ruta) {
         foto2 = foto;
         dialogo2 = dialogo;
@@ -40,46 +40,38 @@ public class JfCamaraPortatil extends javax.swing.JFrame implements JfCamaraPort
         return JfCamaraPortatilHolder.INSTANCE;
     }
 
-    @Override
     public void setJpCamara(JPanel jpCamara) {
         this.jpCamara = jpCamara;
     }
 
-    @Override
     public JPanel getJpCamra() {
         return jpCamara;
     }
 
-    @Override
     public JButton getJbTomar() {
         return jbTomar;
     }
 
-    @Override
     public void setJbTomar(JButton jbTomar) {
         this.jbTomar = jbTomar;
     }
 
-    @Override
     public JButton getJbRepetir() {
         return jbRepetir;
     }
 
-    @Override
     public void setJbRepetir(JButton jbRepetir) {
         this.jbRepetir = jbRepetir;
     }
 
-    @Override
     public JButton getJbAceptar() {
         return jbAceptar;
     }
 
-    @Override
     public void setJbAceptar(JButton jbAceptar) {
         this.jbAceptar = jbAceptar;
     }
-    
+
     private static class JfCamaraPortatilHolder {
 
         private static final JfCamaraPortatil INSTANCE = new JfCamaraPortatil();

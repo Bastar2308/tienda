@@ -4,7 +4,6 @@
 package gui;
 
 import controladores.MenuGeneradorCredencialesControlador;
-import guiif.JfMenuGeneradorCredencialesIf;
 import java.awt.Color;
 import javax.swing.JButton;
 
@@ -12,7 +11,7 @@ import javax.swing.JButton;
  *
  * @author BurnKill
  */
-public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements JfMenuGeneradorCredencialesIf {
+public class JfMenuGeneradorCredenciales extends javax.swing.JFrame {
 
     MenuGeneradorCredencialesControlador controlador;
     int id;
@@ -40,12 +39,10 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
         this.jtClientes = jtClientes;
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public void setId(int id) {
         this.id = id;
     }
@@ -230,12 +227,10 @@ public class JfMenuGeneradorCredenciales extends javax.swing.JFrame implements J
     private javax.swing.JTextField tfBuscar;
     // End of variables declaration//GEN-END:variables
 
-    @Override
     public JButton getJbRegresar() {
         return jbRegresar;
     }
 
-    @Override
     public void setJbRegresar(JButton jb) {
         this.jbRegresar = jb;
     }

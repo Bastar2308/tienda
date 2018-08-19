@@ -5,13 +5,11 @@
  */
 package gui;
 
-import guiif.JfAyudaIf;
-
 /**
  *
  * @author ALUMNO
  */
-public class JfAyuda extends javax.swing.JFrame implements JfAyudaIf {
+public class JfAyuda extends javax.swing.JFrame {
 
     /**
      * Creates new form Ayuda

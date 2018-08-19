@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.VentaDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Cliente;
 import pojo.Venta;
 
-public class VentaDAO implements VentaDAOIf {
+public class VentaDAO {
 
     private static final String TABLE = "venta";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (nota, total, cliente_idCliente) VALUES (?,?,?)";
@@ -32,7 +31,6 @@ public class VentaDAO implements VentaDAOIf {
         return VentaDAOHolder.INSTANCE;
     }
 
-    @Override
     public DefaultTableModel cargarTabla(String fecha1, String fecha2) {
         Connection con = null;
         PreparedStatement st = null;
@@ -40,7 +38,7 @@ public class VentaDAO implements VentaDAOIf {
         String encabezados[] = {"Id", "Nota", "Fecha/Hora", "Total", "Cliente"};
         try {
             con = Conexion.getConnection();
-            st = con.prepareStatement("SELECT * FROM " + TABLE + " WHERE fechahora >= "+fecha1+" and fechahora <= "+fecha2);
+            st = con.prepareStatement("SELECT * FROM " + TABLE + " WHERE fechahora >= " + fecha1 + " and fechahora <= " + fecha2);
             dt = new DefaultTableModel();
             dt.setColumnIdentifiers(encabezados);
             ResultSet rs = st.executeQuery();
@@ -70,7 +68,6 @@ public class VentaDAO implements VentaDAOIf {
         private static final VentaDAO INSTANCE = new VentaDAO();
     }
 
-    @Override
     public int insertaVenta(Venta pojo) {
         Connection con = null;
         PreparedStatement st = null;
@@ -95,7 +92,6 @@ public class VentaDAO implements VentaDAOIf {
         return id;
     }
 
-    @Override
     public boolean eliminaVenta(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -117,7 +113,6 @@ public class VentaDAO implements VentaDAOIf {
         return true;
     }
 
-    @Override
     public boolean modificaVenta(Venta pojo, int idVenta) {
         Connection con = null;
         PreparedStatement st = null;
@@ -144,7 +139,6 @@ public class VentaDAO implements VentaDAOIf {
         return true;
     }
 
-    @Override
     public Venta buscaVenta(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -166,7 +160,6 @@ public class VentaDAO implements VentaDAOIf {
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla() {
         Connection con = null;
         PreparedStatement st = null;
@@ -199,7 +192,6 @@ public class VentaDAO implements VentaDAOIf {
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Venta> cargarCombo() {
         Connection con = null;
         PreparedStatement st = null;
@@ -227,12 +219,10 @@ public class VentaDAO implements VentaDAOIf {
         return combo;
     }
 
-    @Override
     public DefaultListModel<Venta> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Venta inflaVenta(ResultSet rs) {
         Venta pojo = new Venta();
         try {

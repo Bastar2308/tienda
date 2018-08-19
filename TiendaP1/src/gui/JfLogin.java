@@ -4,13 +4,12 @@
 package gui;
 
 import controladores.LoginControlador;
-import guiif.JfLoginIf;
 
 /**
  *
  * @author BurnKill
  */
-public class JfLogin extends javax.swing.JFrame implements JfLoginIf {
+public class JfLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form Login

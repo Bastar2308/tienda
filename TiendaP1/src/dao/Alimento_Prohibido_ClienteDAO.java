@@ -5,7 +5,6 @@
  */
 package dao;
 
-import daoif.Alimento_Prohibido_ClienteDAOIf;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import pojo.Alimento_Prohibido_Cliente;
 import pojo.Producto;
 
-public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_ClienteDAOIf {
+public class Alimento_Prohibido_ClienteDAO {
 
     private static final String TABLE = "prohibido";
     private static final String SQL_INSERT = "INSERT INTO " + TABLE + " (cliente_idCliente, producto_idProducto, fecha_inicio, fecha_fin, descripcion) VALUES (?,?,?,?,?)";
@@ -41,7 +40,6 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
         private static final Alimento_Prohibido_ClienteDAO INSTANCE = new Alimento_Prohibido_ClienteDAO();
     }
 
-    @Override
     public int insertaAlimento_Prohibido_Cliente(Alimento_Prohibido_Cliente pojo) {
         Connection con = null;
         PreparedStatement ps = null;
@@ -65,7 +63,6 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
         return x;
     }
 
-    @Override
     public boolean eliminaAlimento_Prohibido_Cliente(int id, int id2) {
         Connection con = null;
         PreparedStatement st = null;
@@ -88,12 +85,10 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
         return true;
     }
 
-    @Override
     public boolean modificaAlimento_Prohibido_Cliente(Alimento_Prohibido_Cliente pojo, int id, int id2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Alimento_Prohibido_Cliente buscaAlimento_Prohibido_Cliente(int id, int id2) {
         Connection con = null;
         PreparedStatement st = null;
@@ -116,7 +111,6 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
         return pojo;
     }
 
-    @Override
     public DefaultTableModel cargarTabla(int id) {
         Connection con = null;
         PreparedStatement st = null;
@@ -150,17 +144,14 @@ public class Alimento_Prohibido_ClienteDAO implements Alimento_Prohibido_Cliente
         return dt;
     }
 
-    @Override
     public DefaultComboBoxModel<Alimento_Prohibido_Cliente> cargarCombo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public DefaultListModel<Alimento_Prohibido_Cliente> cargarLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Alimento_Prohibido_Cliente inflaAlimentoProhibido(ResultSet rs) {
         Alimento_Prohibido_Cliente pojo = new Alimento_Prohibido_Cliente();
         try {
