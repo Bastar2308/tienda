@@ -112,7 +112,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Saldo agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 String id = vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString();
                 Cliente cliente = ClienteDAO.getInstance().buscaCliente(Integer.parseInt(id));
-                MiHilo miHilo = new MiHilo(cliente.getCorreo(), String.valueOf(obtenValorSeleccionado()), String.valueOf(cliente.getSaldo()));
+                MiHilo miHilo = new MiHilo(cliente.getCorreo(), String.valueOf(obtenValorSeleccionado()), String.valueOf(cliente.getSaldo()), cliente.getNombre());
                 miHilo.start();
                 vista.getJsOtra().setValue(0);
                 vista.getRbOtra().setSelected(true);
@@ -174,27 +174,29 @@ public class MenuCargaSaldoControlador implements ActionListener {
         }
     }
     
-    public void enviaCorreo(String correo, String recarga, String saldo){
+    public void enviaCorreo(String correo, String recarga, String saldo, String alumno){
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"), 
                 correo, 
-                "Recarga de saldo", 
-                "Su recarga de $"+recarga+".00 ha sido realizada exitosamente\nSu saldo actual es de: $"+saldo);
+                "Recarga de saldo de "+alumno, 
+                "Su recarga de $"+recarga+".00 ha sido realizada exitosamente para el alumno "+alumno+"\nSu saldo actual es de: $"+saldo+".");
         System.out.println("Enviado a: "+correo);
     }
     class MiHilo extends Thread{
         private String a;
         private String b;
         private String c;
+        private String d;
         @Override
         public void run() {
             super.run(); //To change body of generated methods, choose Tools | Templates.
-            enviaCorreo(a, b, c);
+            enviaCorreo(a, b, c, d);
         }
 
-        public MiHilo(String a, String b, String c) {
+        public MiHilo(String a, String b, String c, String d) {
             this.a = a;
             this.b = b;
             this.c = c;
+            this.d = d;
         }
         
     }
