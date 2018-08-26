@@ -270,6 +270,7 @@ public class MenuClientesControlador implements ActionListener {
         cliente.setTelefono(vista.getTfEditarTelefono().getText());
         cliente.setCorreo(vista.getTfEditarCorreo().getText());
         cliente.setLimite(Integer.parseInt(vista.getJsEditarLimite().getValue().toString()) * -1);
+        cliente.setObservacion(vista.gettAEditarObservaciones().getText());
     }
 
     int actualizarCliente() throws IOException, SQLException {
