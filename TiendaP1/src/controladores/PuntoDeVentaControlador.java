@@ -307,8 +307,6 @@ public class PuntoDeVentaControlador implements ActionListener {
     private void reseteaGUI() {
         //Resetear GUI
         cargaClientes();
-        vista.getJtClientes().setRowSelectionInterval(0, 0);
-        seleccionaCliente();
         vista.getjTObservaciones().setText("");
         vista.getTfFiltrarClientes().setText(null);
         vista.getTfFiltrarProductos().setText(null);
@@ -317,6 +315,8 @@ public class PuntoDeVentaControlador implements ActionListener {
         ((DefaultTableModel) vista.getJtProductosSeleccionados().getModel()).setRowCount(0);
         vista.getJlTotal().setText("0.00");
         vista.getJlProductos().setText("0");
+        vista.getJtClientes().setRowSelectionInterval(0, 0);
+        seleccionaCliente();
     }
 
     private void agregaRegistroVenta(Venta venta) {
