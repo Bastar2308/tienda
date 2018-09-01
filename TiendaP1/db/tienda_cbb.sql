@@ -1,44 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2018 a las 19:02:26
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.3
 
-CREATE DATABASE IF NOT EXISTS tienda_cbb;
-USE tienda_cbb;
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `tienda_cbb`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria`
---
-
-CREATE TABLE `categoria` (
-  `idCategoria` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `categoria`
---
 
 INSERT INTO `categoria` (`idCategoria`, `nombre`) VALUES
 (1, 'Bebida'),
@@ -51,140 +11,9 @@ INSERT INTO `categoria` (`idCategoria`, `nombre`) VALUES
 (8, 'Desechable'),
 (9, 'Dulce');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE `cliente` (
-  `idCliente` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `saldo` double DEFAULT NULL,
-  `Grupo_idGrupo` int(11) NOT NULL,
-  `qr` varchar(255) DEFAULT NULL,
-  `foto` longblob,
-  `tutor` varchar(255) DEFAULT NULL,
-  `telefono` varchar(255) DEFAULT NULL,
-  `correo` varchar(255) DEFAULT NULL,
-  `vigencia` date NOT NULL,
-  `limite` int(11) NOT NULL DEFAULT '0',
-  `observaciones` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Volcado de datos para la tabla `cliente`
 --
-
-INSERT INTO `cliente` (`idCliente`, `nombre`, `saldo`, `Grupo_idGrupo`, `qr`, `foto`, `tutor`, `telefono`, `correo`, `vigencia`, `limite`, `observaciones`) VALUES
-(1, 'PUBLICO EN GENERAL', 0, 30, NULL, NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(11, 'MARIN PONCE DIEGO', -9, 5, 'BSTR_11_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(111, 'ARJONA TRUJILLO PATRICIO', -192, 7, 'BSTR_111_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(318, 'SEBASTIAN SALAZAR NAVAS', 9, 12, 'BSTR_318_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(343, 'XIMENA ZARRABAL AQUINO', 9, 13, 'BSTR_343_2018-12-31', NULL, 'LIZETH AQUINO', '2291890810', 'lizaqui1@hotmail.com', '2018-12-31', -200, ''),
-(527, 'ILEAN DENISSE QUINTANA MORALES', 62, 21, 'BSTR_527_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(585, 'LOPEZ SALVADOR UZIEL', -27, 13, 'BSTR_585_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
-(586, 'RAMIRO BASTAR GONZALEZ', -15, 30, 'BSTR_586_2019-06-30', NULL, 'no aplica ', '2299005004', 'profesorbastar@hotmail.com', '2018-03-10', -300, '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detalle_venta`
---
-
-CREATE TABLE `detalle_venta` (
-  `Venta_idVenta` int(11) NOT NULL,
-  `Producto_idProducto` int(11) DEFAULT NULL,
-  `cantidad` double DEFAULT NULL,
-  `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `detalle_venta`
---
-
-INSERT INTO `detalle_venta` (`Venta_idVenta`, `Producto_idProducto`, `cantidad`, `subtotal`) VALUES
-(6, 92, 1, 12),
-(6, 65, 1, 7),
-(6, 93, 1, 10),
-(7, 62, 1, 12),
-(7, 63, 1, 7),
-(7, 22, 1, 14),
-(8, 62, 2, 24),
-(8, 14, 1, 7),
-(8, 4, 3, 45),
-(8, 50, 1, 8),
-(8, 11, 1, 15),
-(8, 84, 1, 14),
-(8, 28, 1, 13),
-(8, 8, 1, 12),
-(8, 58, 1, 9),
-(8, 61, 1, 14),
-(8, 66, 4, 48),
-(9, 92, 1, 12),
-(9, 33, 1, 15),
-(10, 82, 1, 7),
-(11, 10, 1, 12),
-(12, 3, 1, 10),
-(13, 81, 1, 10),
-(14, 43, 1, 10),
-(14, 50, 1, 8),
-(15, 43, 1, 10),
-(16, 10, 1, 12),
-(17, 1, 1, 30),
-(17, 83, 1, 11),
-(17, 35, 1, 12),
-(18, 67, 1, 6),
-(18, 25, 2, 4),
-(19, 43, 1, 10),
-(19, 93, 2, 20),
-(20, 67, 1, 6),
-(20, 56, 3, 3),
-(21, 4, 1, 15),
-(22, 1, 1, 30),
-(23, 83, 1, 11),
-(24, 67, 1, 6),
-(25, 67, 1, 6),
-(26, 1, 1, 30),
-(26, 3, 1, 10),
-(27, 3, 1, 10),
-(28, 73, 1, 12),
-(28, 53, 1, 12),
-(29, 93, 1, 10),
-(30, 12, 1, 6),
-(31, 93, 1, 10),
-(31, 53, 1, 12),
-(32, 33, 1, 15),
-(33, 60, 1, 10),
-(34, 25, 2, 4),
-(34, 35, 1, 12),
-(35, 39, 1, 10),
-(36, 23, 1, 13),
-(37, 12, 1, 6),
-(38, 29, 3, 30),
-(38, 50, 1, 8),
-(39, 33, 1, 15),
-(40, 1, 1, 40),
-(40, 24, 1, 25),
-(40, 49, 1, 9);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `grupo`
---
-
-CREATE TABLE `grupo` (
-  `idGrupo` int(11) NOT NULL,
-  `nivel` varchar(200) DEFAULT NULL,
-  `grado` varchar(45) DEFAULT NULL,
-  `grupo` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `grupo`
---
-
 INSERT INTO `grupo` (`idGrupo`, `nivel`, `grado`, `grupo`) VALUES
 (1, 'Kinder', '1', 'Green'),
 (2, 'Kinder', '1', 'Yellow'),
@@ -215,18 +44,127 @@ INSERT INTO `grupo` (`idGrupo`, `nivel`, `grado`, `grupo`) VALUES
 (27, 'Secundaria', '8', 'B'),
 (28, 'Secundaria', '9', 'A'),
 (29, 'Secundaria', '9', 'B'),
-(30, 'N/A', 'N/A', 'Sin grupo');
+(30, 'N/A', 'N/A', 'Sin grupo'),
+(31, 'Kinder', '1', 'Red'),
+(32, 'Kinder', '2', 'Red'),
+(33, 'Kinder', '3', 'Red');
 
--- --------------------------------------------------------
+INSERT INTO `cliente` (`idCliente`, `nombre`, `saldo`, `Grupo_idGrupo`, `qr`, `foto`, `tutor`, `telefono`, `correo`, `vigencia`, `limite`, `observaciones`) VALUES
+(1, 'PUBLICO EN GENERAL', 0, 30, NULL, NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
+(318, 'SEBASTIAN SALAZAR NAVAS', 9, 12, 'BSTR_318_2018-12-31', NULL, NULL, NULL, NULL, '2018-12-31', 0, ''),
+(343, 'XIMENA ZARRABAL AQUINO', -185, 13, 'BSTR_343_2018-12-31', NULL, 'LIZETH AQUINO', '2291890810', 'lizaqui1@hotmail.com', '2018-12-31', -200, ''),
+(527, 'ILEAN DENISSE QUINTANA MORALES', -196, 21, 'BSTR_527_2018-12-31', NULL, '', '', '', '2018-12-31', -200, ''),
+(586, 'RAMIRO BASTAR GONZALEZ', -174, 30, 'http://BSTR_586_2019-6-30', NULL, 'SIN TUTOR', '2299005004', 'profesorbastar@hotmail.com', '0000-00-00', -300, ''),
+(588, 'MARINA QUINTERO CRUZ', 68, 30, 'http://BSTR_588_2019-6-30', NULL, 'SIN TUTOR', '', 'marina.quintero@cbaltico.edu.mx', '2019-08-15', -100, ''),
+(589, 'ELIZABETH CRUZ LAGUNES', 0, 30, 'http://BSTR_589_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -200, ''),
+(590, 'GABRIELA ESPINOSA DE LOS MONTEROS SOSA', -168, 30, 'http://BSTR_590_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -250, ''),
+(591, 'ERIKA SAUVINET OCEGUERA', 0, 30, 'http://BSTR_591_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(592, 'HEIDY LUCIA SARMIENTO DURAN', -103, 30, 'http://BSTR_592_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(593, 'LAURA IWALANI GARCIA OSORIO', -12, 30, 'http://BSTR_593_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -250, ''),
+(594, 'ERIKA MORALES MARQUEZ', -284, 30, 'http://BSTR_594_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -500, ''),
+(595, 'BERTHA LIZETH AQUINO MORALES', -203, 30, 'http://BSTR_595_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(596, 'BELINDA CARLIS MORA', -191, 30, 'http://BSTR_596_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(597, 'CLAUDIA LOPERENA JIMENEZ', -139, 30, 'http://BSTR_597_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -250, ''),
+(598, 'ELOISA VERGARA ARIAS', -128, 30, 'http://BSTR_598_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -200, ''),
+(599, 'ADRIAN KARIM PALAFOX HAKIM', -293, 30, 'http://BSTR_599_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(600, 'SHANTAL AZAMAR VILLEGAS', -33, 30, 'http://BSTR_600_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(601, 'ROSSANA REGINA RAMIREZ MARTINEZ', -167, 30, 'http://BSTR_601_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -500, ''),
+(602, 'LEYVI LAURA LARA HERNANDEZ', -137, 30, 'http://BSTR_602_2019-6-30', NULL, 'SIN TUTOR', '', 'leyvi_19@outlook.com', '2019-08-15', -300, ''),
+(603, 'MARIA ELIZABETH GUEVARA CORRALES', -53, 30, 'http://BSTR_603_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -250, ''),
+(604, 'LUZ AIDA HORTA FABIAN', 0, 30, 'http://BSTR_604_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', -300, ''),
+(605, 'RAMIRO BASTAR ALATORRE', -147, 30, 'http://BSTR_605_2019-6-30', NULL, 'SIN TUTOR', '', 'ramiro.bastar@outlook.com', '2019-08-15', -450, ''),
+(606, 'ELIAS WAZEN QUEZADA', 0, 22, 'http://BSTR_606_2019-6-30', NULL, 'LESLIE QUEZADA PEREZ', '', 'LESCA2@HOTMAIL.COM', '2019-08-15', -250, ' '),
+(607, 'LESLIE WAZEN QUEZADA', 0, 23, 'http://BSTR_607_2019-6-30', NULL, 'LESLIE QUEZADA PEREZ', '', 'LESCA2@HOTMAIL.COM', '2019-08-15', -250, ' '),
+(608, 'EMMA RODRIGUEZ VILA', 0, 14, 'http://BSTR_608_2019-6-30', NULL, '', '', '', '2019-08-15', 0, ' '),
+(609, 'GABRIEL VALLE MIRANDA', 200, 18, 'http://BSTR_609_2019-6-30', NULL, 'ROCIO MIRANDA LOPEZ', '', '', '2019-08-15', -500, ' '),
+(610, 'INGRID YEPEZ VICENTE ', 100, 20, 'http://BSTR_610_2019-6-30', NULL, 'MIRIAM VICENTE RODRIGUEZ', '', 'MIRIAM14141@HOTMAIL.COM', '2019-08-15', 0, ' '),
+(611, 'HANNAH Z. CANO ROBLES', 250, 19, 'http://BSTR_611_2019-6-30', NULL, 'MIRNA ROBLES', '', 'mroblesjarquin@gmail.com', '2019-08-15', 0, ' '),
+(612, 'VANYA CANO ROBLES', 250, 23, 'http://BSTR_612_2019-6-30', NULL, 'MIRNA ROBLES', '', 'mroblesjarquin@gmail.com', '2019-08-15', 0, ' '),
+(613, 'BEMYARMIN ALEXANDRO DUARTE ALVAREZ', 0, 20, 'http://BSTR_613_2019-6-30', NULL, 'MARYURYS CAROLINA ALVAREZ PEREIRA', '', 'caro_bem@hotmail.com', '2019-08-15', 0, ' '),
+(614, 'KEVIN DUARTE ALVAREZ', 0, 32, 'http://BSTR_614_2019-6-30', NULL, 'MARYURYS CAROLINA ALVAREZ PEREIRA', '', 'caro_bem@hotmail.com', '2019-08-15', 0, ' '),
+(615, 'ISABELA NORIEGA FERRER', 150, 12, 'http://BSTR_615_2019-6-30', NULL, 'KARLA FERRER', '2223284047', 'bernardeet72@hotmail.com', '2019-08-15', 0, ' '),
+(616, 'FATIMA NORIEGA FERRER', 150, 3, 'http://BSTR_616_2019-6-30', NULL, 'KARLA FERRER', '2223284047', 'bernardeet72@hotmail.com', '2019-08-15', 0, ' '),
+(617, 'SEBASTIAN JIRAM ALEMAN MARISCAL', 0, 3, 'http://BSTR_617_2019-6-30', NULL, 'LIBERTAD MARISCAL MOLINA', '', 'libe.mariscal@gmail.com', '2019-08-15', 0, ' '),
+(618, 'SANTIAGO NORIEGA FERRER', 150, 18, 'http://BSTR_618_2019-6-30', NULL, 'KARLA FERRER', '2223284047', 'bernardeet72@hotmail.com', '2019-08-15', 0, ' '),
+(619, 'VICTORIA DELGADO GONZALEZ', 0, 16, 'http://BSTR_619_2019-6-30', NULL, 'EVELYN GONZALEZ CONSTANTINO', '9615791844', 'evelyngonzalezc@gmail.com', '2019-08-15', -150, ' '),
+(620, 'MATTEO DELGADO GONZALEZ', 0, 5, 'http://BSTR_620_2019-6-30', NULL, 'EVELYN GONZALEZ CONSTANTINO', '9615791844', 'evelyngonzalezc@gmail.com', '2019-08-15', -100, ' '),
+(621, 'CARLOS AGAUSTIN REYES ROJAS', 0, 21, 'http://BSTR_621_2019-6-30', NULL, 'CARLOS ALBERTO REYES GUTIERREZ', '', 'carareygut373@gmail.com', '2019-08-15', 0, ' '),
+(622, 'IRMA BETZABE VARELA BELLOT', 0, 20, 'http://BSTR_622_2019-6-30', NULL, 'IRMA BETZABE BELLOT GARCIA', '2292934832', 'betzabebellot@aol.com', '2019-08-15', 0, ' '),
+(623, 'JUAN PABLO GARCIA HERRERA', 150, 19, 'http://BSTR_623_2019-6-30', NULL, 'LETICIA HERRERA LOPEZ', '5529004001', 'lechicia@yahoo.com.mx', '2019-08-15', 0, ' '),
+(624, 'VANESSA GONZALEZ ELIZUNDIA', 200, 21, 'http://BSTR_624_2019-6-30', NULL, 'MONSERRAT ELIZUNDIA', '', 'elizundia1973@yahoo.com.mx', '2019-08-15', 0, ' '),
+(625, 'NANCY GONZALEZ ELIZUNDIA', 200, 12, 'http://BSTR_625_2019-6-30', NULL, 'MONSERRAT ELIZUNDIA', '', 'elizundia1973@yahoo.com.mx', '2019-08-15', 0, ' '),
+(626, 'ANA PAULA MORALES RODRIGUEZ', 0, 21, 'http://BSTR_626_2019-6-30', NULL, 'MARIANA RODRIGUEZ PENA', '2291543184', 'marianarp2010@hotmail.com', '2019-08-15', 0, ' '),
+(627, 'FRANCISCO JAVIER BELTRAN RAMIREZ', 200, 6, 'http://BSTR_627_2019-6-30', NULL, 'BIBIANA RAMIREZ', '5543235219', 'paradise.gladis@yahoo.com', '2019-08-15', 0, ' '),
+(628, 'EMILIO CUENCA ARIAS', 600, 2, 'http://BSTR_628_2019-6-30', NULL, 'CLARA ARIAS PANIAGUA', '2292659039', 'arias_clara@hotmail.com', '2019-08-15', 0, ' '),
+(629, 'ARMANDO PINEYRO CASTILLO', 0, 21, 'http://BSTR_629_2019-6-30', NULL, 'ADRIANA I. CASTILLO ORTIZ', '', '', '2019-08-15', 0, ' '),
+(630, 'ANDRES PINEIRO CASTILLO', 0, 16, 'http://BSTR_630_2019-6-30', NULL, 'ADRIANA I. CASTILLO ORTIZ', '', '', '2019-08-15', 0, ' '),
+(631, 'ALONSO PINEYRO CASTILLO', 0, 17, 'http://BSTR_631_2019-6-30', NULL, 'ADRIANA I. CASTILLO ORTIZ', '', '', '2019-08-15', 0, ' '),
+(632, 'SOFIA RODRIGUEZ HERNANDEZ', 125, 21, 'http://BSTR_632_2019-6-30', NULL, 'THALIA HERNANDEZ GRAJALES', '2299015134', 'ataliahg@hotmail.com', '2019-08-15', 0, ' '),
+(633, 'RENATA RODRIGUEZ HERNANDEZ', 125, 14, 'http://BSTR_633_2019-6-30', NULL, 'THALIA HERNANDEZ GRAJALES', '2299015134', 'ataliahg@hotmail.com', '2019-08-15', 0, ' '),
+(634, 'CAMILA RUBI RUIZ', 150, 20, 'http://BSTR_634_2019-6-30', NULL, 'GABRIEL RUIZ', '2283042182', 'ruiz.g@live.com', '2019-08-15', 0, ' '),
+(635, 'LUCAS GABRIEL RUIZ', 150, 3, 'http://BSTR_635_2019-6-30', NULL, 'GABRIEL RUIZ', '2283042182', 'ruiz.g@live.com', '2019-08-15', 0, ' '),
+(636, 'DIEGO ORTIZ GUTIERREZ', 100, 18, 'http://BSTR_636_2019-6-30', NULL, 'GLORIA GUTIERREZ', '22914373028', 'glortiagtz79@hotmail.com', '2019-08-15', 0, ' '),
+(637, 'CAMILA ORTIZ GUTIERREZ', 100, 12, 'http://BSTR_637_2019-6-30', NULL, 'GLORIA GUTIERREZ', '22914373028', 'glortiagtz79@hotmail.com', '2019-08-15', 0, ' '),
+(638, 'ARTURO GOMEZ CASSANI', 0, 16, 'http://BSTR_638_2019-6-30', NULL, 'ANGELICA CASSANI', '2292666626', 'angelica712003@hotmail.com', '2019-08-15', -300, ' '),
+(639, 'ROMINA MENDEZ ALE', 0, 16, 'http://BSTR_639_2019-6-30', NULL, 'HILDA ALE VALDEZ', '2291995361', 'hildi.80@hotmail.com', '2019-08-15', -300, ' '),
+(640, 'CAMILA JUAREZ GAXIOLA', 100, 20, 'http://BSTR_640_2019-6-30', NULL, 'MONICA GAXIOLA QUINTERO', '5566763095', 'gaxiola_mok@hotmail.com', '2019-08-15', 0, ' '),
+(641, 'JOSE ANTONIO DURAN RENDON', 0, 17, 'http://BSTR_641_2019-6-30', NULL, 'LAURA ALICIA RENDON CRUZ', '', 'dra.laurarc@gmail.com', '2019-08-15', 0, ' '),
+(642, 'LUIS ANGEL CAMARA SUBIZAR', 0, 2, 'http://BSTR_642_2019-6-30', NULL, 'ARELI SUBIZAR RAMON', '', 'subizareli@hotmail.com', '2019-08-15', 0, ' '),
+(643, 'MATEO CAMARA SUBIZAR', 0, 8, 'http://BSTR_643_2019-6-30', NULL, 'ARELI SUBIZAR RAMON', '', 'subizareli@hotmail.com', '2019-08-15', 0, ' '),
+(644, 'ALFONSO ALE GALICIA', 0, 5, 'http://BSTR_644_2019-6-30', NULL, 'KEREN GALICIA VIRVES', '', 'keren_galicia@hotmail.com', '2019-08-15', -150, ' '),
+(645, 'ANA SOFIA GALICIA VIRVES', 0, 7, 'http://BSTR_645_2019-6-30', NULL, 'KEREN GALICIA VIRVES', '', 'keren_galicia@hotmail.com', '2019-08-15', -150, ' '),
+(646, 'EMILIO MARTINEZ HORTA', 0, 20, 'http://BSTR_646_2019-6-30', NULL, 'LUZ AIDA HORTA FABIAN', '', '', '2019-08-15', -200, ' '),
+(647, 'MATEO MARTINEZ HORTA', 0, 13, 'http://BSTR_647_2019-6-30', NULL, 'LUZ AIDA HORTA FABIAN', '', '', '2019-08-15', -200, ' '),
+(648, 'JORGE QUINTANA MORALES', 0, 10, 'http://BSTR_648_2019-6-30', NULL, 'ERIKA MORALES MARQUEZ', '', '', '2019-08-15', -300, ' '),
+(649, 'IAN SAID QUINTANA MORALES', 0, 16, 'http://BSTR_649_2019-6-30', NULL, 'ERIKA MORALES MARQUEZ', '', '', '2019-08-15', -300, ' '),
+(650, 'VALERIA ZARRABAL AQUINO', 0, 19, 'http://BSTR_650_2019-6-30', NULL, 'LIZETH AQUINO MORALES', '', '', '2019-08-15', -200, ' '),
+(651, 'MIRANDA SAAVEDRA RAMIREZ', 0, 20, 'http://BSTR_651_2019-6-30', NULL, 'ROSSANA REGINA RAMIREZ MARTINEZ', '', '', '2019-08-15', -500, ' '),
+(652, 'JOSE RAMON TRUJILLO AZAMAR', 0, 5, 'http://BSTR_652_2019-6-30', NULL, 'SHANTAL AZAMAR VILLEGAS', '', '', '2019-08-15', -200, ' '),
+(653, 'SOFIA ISABELA VALENCIA DIAZ', 100, 14, 'http://BSTR_653_2019-6-30', NULL, 'CARMEN DIAZ ARDILA', '2292852089', 'carludiaz@gmail.com', '2019-08-15', 0, ' '),
+(654, 'NATALIA VALENCIA DIAZ', 100, 9, 'http://BSTR_654_2019-6-30', NULL, 'CARMEN DIAZ ARDILA', '2292852089', 'carludiaz@gmail.com', '2019-08-15', 0, ' '),
+(655, 'RODRIGO GALLAND AUBRY', 0, 23, 'http://BSTR_655_2019-6-30', NULL, 'ILEANA AUBRY GONZALEZ', '', '', '2019-08-15', -150, ' '),
+(656, 'SANTIAGO GALLAND AUBRY', 0, 22, 'http://BSTR_656_2019-6-30', NULL, 'ILEANA AUBRY GONZALEZ', '', '', '2019-08-15', -150, ' '),
+(657, 'MARCELO VILLANUEVA LOZANO', 100, 17, 'http://BSTR_657_2019-6-30', NULL, 'ANA LAURA LOZANO P', '8115314414', 'anylozano@hotmail.com', '2019-08-15', 0, ' '),
+(658, 'MIGUEL ANGEL CHAVEZ HERRERA', 0, 22, 'http://BSTR_658_2019-6-30', NULL, 'CORAL HERRERA CRUZ', '4448038824', 'coryherre@hotmail.com', '2019-08-15', -300, ' '),
+(659, 'MARIA FERNANDA CHAVEZ HERRERA', 0, 14, 'http://BSTR_659_2019-6-30', NULL, 'CORAL HERRERA CRUZ', '4448038824', 'coryherre@hotmail.com', '2019-08-15', 0, ' '),
+(660, 'MONICA MURILLO LEZA', 0, 23, 'http://BSTR_660_2019-6-30', NULL, 'LILIAN LEZA', '2299055619', 'lilianlezamontaudan@live.com.mx', '2019-08-15', -100, ' '),
+(661, 'VALENTINA HERNANDEZ CASTRO', 0, 15, 'http://BSTR_661_2019-6-30', NULL, 'MONICA CASTRO PALACIOS', '2292664946', 'monicacp86@gmail.com', '2019-08-15', -200, ' '),
+(662, 'ISABELA HERNANDEZ CASTRO', 0, 8, 'http://BSTR_662_2019-6-30', NULL, 'MONICA CASTRO PALACIOS', '2292664946', 'monicacp86@gmail.com', '2019-08-15', -200, ' '),
+(663, 'MATTEO TREVINO DELGADO', 300, 13, 'http://BSTR_663_2019-6-30', NULL, 'CINTHIA DELGADO GONZALEZ', '2293300552', 'cinthiadelgado.1@gmail.com', '2019-08-15', 0, ' '),
+(664, 'ALBERTO GOMEZ CASSANI', 0, 21, 'http://BSTR_664_2019-6-30', NULL, 'ANGELICA CASSANI', '2292666626', 'angelica712003@hotmail.com', '2019-08-15', -300, ' '),
+(665, 'SANTIAGO ALEJANDRO LIRA CUEVAS', 0, 21, 'http://BSTR_665_2019-6-30', NULL, 'SIN TUTOR', '2291542738', '', '2019-08-15', 0, ' '),
+(666, 'RODRIGO HERNANDEZ MARQUEZ', 0, 21, 'http://BSTR_666_2019-6-30', NULL, 'SIN TUTOR', '', '', '2019-08-15', 0, ' '),
+(667, 'FELIX EDUARDO REYES RIVERA', 0, 7, 'http://BSTR_667_2019-6-30', NULL, 'ROSALIA RIVERA', '2291320758', 'reyesfelix01@hotmail.com', '2019-08-15', 0, ' '),
+(668, 'NATALIA NARVAEZ PERERA', 0, 21, 'http://BSTR_668_2019-6-30', NULL, 'MARIA LUISA PERERA', '1993160947', 'aitana32@hotmail.com', '2019-08-15', 0, ' '),
+(669, 'MAURICIO NARVAEZ PERERA', 0, 19, 'http://BSTR_669_2019-6-30', NULL, 'MARIA LUISA PERERA', '1993160947', 'aitana32@hotmail.com', '2019-08-15', 0, ' '),
+(670, 'ANA CAROLINA VILLANUEVA LOZANO', 100, 9, 'http://BSTR_670_2019-6-30', NULL, 'ANA LAURA LOZANO P', '8115314414', 'anylozano@hotmail.com', '2019-08-15', 0, ' '),
+(671, 'MELISSA MEDEL DIAZ', 0, 31, 'http://BSTR_671_2019-6-30', NULL, 'PATRICIA DIAZ FRANCO', '2294223351', 'snoppy_diaz@hotmail.com', '2019-08-15', -150, ' '),
+(672, 'EDUARDO TRUEBA VERDUZCO', 0, 32, 'http://BSTR_672_2019-6-30', NULL, 'MARISOL VERDUZCO ZAMBRANO', '2291269818', 'mariysol@gmail.com', '2019-08-15', -100, ' '),
+(673, 'MATEO HINOJOSA HERRERA', 0, 31, 'http://BSTR_673_2019-6-30', NULL, 'JAZHEEL HERRERA SAN ROMAN', '', 'jazheelh@hotmail.com', '2019-08-15', -600, ' '),
+(674, 'JOSE EMILIO RIOS RAMIREZ', 0, 13, 'http://BSTR_674_2019-6-30', NULL, 'CLAUDIA RAMIREZ GONZALEZ', '', '', '2019-08-15', -600, 'DESAYUNO'),
+(675, 'JOSE ANTONIO HADDAD RAMIREZ', 0, 31, 'http://BSTR_675_2019-6-30', NULL, 'CLAUDIA RAMIREZ GONZALEZ', '', '', '2019-08-15', -600, 'DESAYUNO'),
+(676, 'MATEO TREVINO DELGADO', 0, 13, 'http://BSTR_676_2019-6-30', NULL, 'CINTHIA DELGADO GONZALEZ', '2293300552', 'cinthiadelgado.1@gmail.com', '2019-08-15', -600, 'DESAYUNO'),
+(677, 'ANGELICA NAVAS GALINDO', 0, 30, 'http://BSTR_677_2019-6-30', NULL, 'SIN TUTOR', '', 'angelica.navas@cbaltico.edu.mx ', '2019-08-15', -300, ' '),
+(688, 'MARIANA RUBI ROSADO IBARRA', 100, 22, 'http://BSTR_688_2019-6-30', NULL, 'PERLA RUBI IBARRA', '2291402407', 'perlarubi18@hotmail.com', '2019-08-15', 0, ' '),
+(689, 'FERNANDO HAZAS HAAZ', 0, 16, 'http://BSTR_689_2019-6-30', NULL, 'BELEN HAAZ DIEZ', '2721031045', 'belenhaaz@hotmail.com', '2019-08-15', -150, ' '),
+(690, 'MARIA JOSE HAZAS HAAZ', 0, 19, 'http://BSTR_690_2019-6-30', NULL, 'BELEN HAAZ DIEZ', '2721031045', 'belenhaaz@hotmail.com', '2019-08-15', -150, ' '),
+(691, 'GUSTAVO HERNANDEZ MORA', 100, 21, 'http://BSTR_691_2019-6-30', NULL, 'CRISTINA MORA', '5343511171', 'moar73@hotmail.com', '2019-08-15', 0, ' '),
+(692, 'JULIAN EDUARDO ESTRADA TAPIA', 0, 20, 'http://BSTR_692_2019-6-30', NULL, 'GUADALUPE TAPIA HERNANDEZ', '2293569852', 'iielupita@hotmail.com', '2019-08-15', -200, ' '),
+(693, 'ALEJANDRO ESTRADA TAPIA', 0, 13, 'http://BSTR_693_2019-6-30', NULL, 'GUADALUPE TAPIA HERNANDEZ', '2293569852', 'iielupita@hotmail.com', '2019-08-15', -200, ' '),
+(694, 'VICTORIA PEDRERO GARCIA', 150, 33, 'http://BSTR_694_2019-6-30', NULL, 'MIRSHA GARCIA', '2721547155', 'ahsriim@hotmail.com', '2019-08-15', 0, ' '),
+(695, 'JOSEAN PEDRERO GARCIA', 150, 13, 'http://BSTR_695_2019-6-30', NULL, 'MIRSHA GARCIA', '2721547155', 'ahsriim@hotmail.com', '2019-08-15', 0, ' '),
+(696, 'usuarioXd', 200, 1, 'BSTR_696_2019-6-30', NULL, 'No hay tutor', '', '', '2019-09-01', 0, '');
 
 --
--- Estructura de tabla para la tabla `marca`
+-- Volcado de datos para la tabla `detalle_venta`
 --
 
-CREATE TABLE `marca` (
-  `idMarca` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `grupo`
+--
+
+
 
 --
 -- Volcado de datos para la tabla `marca`
@@ -260,22 +198,6 @@ INSERT INTO `marca` (`idMarca`, `nombre`) VALUES
 (25, 'Paris'),
 (26, 'Tuni'),
 (27, 'Chili Chon');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE `producto` (
-  `idProducto` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `precio` double DEFAULT NULL,
-  `detalles` varchar(255) DEFAULT NULL,
-  `Categoria_idCategoria` int(11) NOT NULL,
-  `Marca_idMarca` int(11) NOT NULL,
-  `codigo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -384,20 +306,13 @@ INSERT INTO `producto` (`idProducto`, `nombre`, `precio`, `detalles`, `Categoria
 (100, 'waffles', 12, 'waffle', 1, 9, 'BSTR_100'),
 (101, 'conchita preparada ', 18, '', 7, 24, 'BSTR_101'),
 (102, 'pinguinos', 16, 'pastelito de chocolate ', 5, 7, 'BSTR_102'),
-(103, 'enfrijoladas', 15, 'tortillas con frijol y queso sencillas', 7, 9, 'BSTR_103');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `idUsuario` int(11) NOT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  `usuario` varchar(25) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(103, 'enfrijoladas', 15, 'tortillas con frijol y queso sencillas', 7, 9, 'BSTR_103'),
+(104, 'sopes', 15, '', 7, 9, 'BSTR_104'),
+(105, 'quesadilla  de champiñon', 15, '', 7, 9, 'BSTR_105'),
+(106, 'madalenas', 14, '', 7, 7, 'BSTR_106'),
+(107, 'doraditas', 14, '', 5, 7, 'BSTR_107'),
+(108, 'ensalada de nopal', 35, '', 7, 9, 'BSTR_108'),
+(109, 'burrito de huevo', 9, '', 7, 9, 'BSTR_109');
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -410,20 +325,6 @@ INSERT INTO `usuario` (`idUsuario`, `nombre`, `usuario`, `password`) VALUES
 (7, 'Davir', 'david123', 'david123'),
 (8, 'Ele', 'l', 'l'),
 (9, 'Raquel', 'raque', 'ra123');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `venta`
---
-
-CREATE TABLE `venta` (
-  `idVenta` int(11) NOT NULL,
-  `nota` varchar(255) DEFAULT NULL,
-  `fechahora` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `total` double DEFAULT NULL,
-  `Cliente_idCliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `venta`
@@ -464,142 +365,320 @@ INSERT INTO `venta` (`idVenta`, `nota`, `fechahora`, `total`, `Cliente_idCliente
 (37, '', '2018-07-02 16:54:44', 6, 318),
 (38, '', '2018-07-11 17:41:47', 38, 527),
 (39, '', '2018-08-02 15:57:10', 15, 586),
-(40, '', '2018-08-08 13:44:12', 74, 1);
+(40, '', '2018-08-08 13:44:12', 74, 1),
+(41, '', '2018-08-14 02:16:38', 9, 586),
+(42, '', '2018-08-14 02:50:46', 9, 586),
+(43, '', '2018-08-16 13:21:58', 31, 605),
+(44, '', '2018-08-16 14:13:36', 45, 586),
+(45, '', '2018-08-16 14:13:39', 45, 586),
+(46, '', '2018-08-16 14:13:43', 45, 586),
+(47, '', '2018-08-16 14:13:43', 45, 586),
+(48, '', '2018-08-16 14:13:58', 45, 586),
+(49, '', '2018-08-16 14:13:59', 45, 586),
+(50, '', '2018-08-16 14:17:08', 15, 586),
+(51, '', '2018-08-16 14:17:47', 30, 586),
+(52, '', '2018-08-16 15:28:44', 60, 590),
+(53, '', '2018-08-16 15:31:44', 12, 602),
+(54, '', '2018-08-16 16:17:04', 30, 605),
+(55, '', '2018-08-16 16:18:02', 12, 605),
+(56, '', '2018-08-16 16:19:18', 12, 586),
+(57, '', '2018-08-16 17:33:54', 57, 599),
+(58, '', '2018-08-16 19:43:40', 14, 590),
+(59, '', '2018-08-17 12:21:27', 14, 590),
+(60, '', '2018-08-17 12:46:55', 59, 602),
+(61, '', '2018-08-17 12:48:36', 44, 597),
+(62, '', '2018-08-17 13:44:11', 32, 605),
+(63, '', '2018-08-17 13:52:16', 60, 599),
+(64, '', '2018-08-17 14:07:40', 34, 596),
+(65, '', '2018-08-17 14:17:50', 40, 586),
+(66, '', '2018-08-17 15:36:52', 14, 588),
+(67, '', '2018-08-17 15:39:53', 45, 590),
+(68, '', '2018-08-17 15:43:01', 39, 603),
+(69, '', '2018-08-17 15:59:24', 16, 602),
+(70, '', '2018-08-17 16:04:12', 46, 598),
+(71, '', '2018-08-17 16:46:27', 33, 600),
+(72, '', '2018-08-17 16:57:29', 12, 605),
+(73, '', '2018-08-17 17:00:07', 30, 605),
+(74, '', '2018-08-20 13:17:55', 60, 597),
+(75, '', '2018-08-20 14:27:19', 49, 596),
+(76, '', '2018-08-20 14:28:15', 59, 599),
+(77, '', '2018-08-20 14:28:55', 35, 592),
+(78, '', '2018-08-20 14:37:12', 67, 343),
+(79, '', '2018-08-20 14:56:00', 35, 601),
+(80, '', '2018-08-20 14:56:41', 47, 594),
+(81, '', '2018-08-20 14:57:41', 39, 598),
+(82, '', '2018-08-20 15:59:07', 28, 343),
+(83, '', '2018-08-20 16:07:08', 61, 527),
+(84, '', '2018-08-20 16:12:16', 14, 594),
+(85, '', '2018-08-20 17:31:10', 39, 527),
+(86, '', '2018-08-20 18:17:07', 12, 343),
+(87, '', '2018-08-20 18:21:40', 12, 601),
+(88, '', '2018-08-20 18:32:07', 15, 527),
+(89, '', '2018-08-20 18:38:37', 12, 595),
+(90, '', '2018-08-20 18:39:33', 14, 603),
+(91, '', '2018-08-20 18:40:05', 24, 527),
+(92, '', '2018-08-20 18:43:39', 15, 595),
+(93, '', '2018-08-20 18:51:29', 15, 343),
+(94, '', '2018-08-20 19:32:13', 35, 597),
+(95, '', '2018-08-20 20:19:05', 24, 527),
+(96, '', '2018-08-21 13:21:09', 33, 592),
+(97, '', '2018-08-21 13:21:49', 54, 596),
+(98, '', '2018-08-21 13:22:37', 34, 594),
+(99, '', '2018-08-21 13:23:30', 40, 599),
+(100, '', '2018-08-21 14:29:02', 27, 343),
+(101, '', '2018-08-21 15:14:41', 40, 601),
+(102, '', '2018-08-21 15:27:02', 27, 527),
+(103, '', '2018-08-21 15:56:38', 6, 588),
+(104, '', '2018-08-21 15:59:04', 7, 527),
+(105, '', '2018-08-21 16:19:17', 20, 586),
+(106, '', '2018-08-21 17:56:15', 12, 593),
+(107, '', '2018-08-21 19:12:39', 90, 594),
+(108, '', '2018-08-21 19:20:52', 15, 343),
+(109, '', '2018-08-21 19:31:10', 42, 599),
+(110, '', '2018-08-21 19:36:58', 15, 594),
+(111, '', '2018-08-21 19:37:57', 12, 527),
+(112, '', '2018-08-21 19:46:16', 30, 343),
+(113, '', '2018-08-21 19:50:50', 27, 527),
+(114, '', '2018-08-21 19:58:53', 37, 594),
+(115, '', '2018-08-21 20:23:26', 10, 527),
+(116, '', '2018-08-21 20:23:55', 10, 596),
+(117, '', '2018-08-22 12:32:37', 35, 590),
+(118, '', '2018-08-22 13:42:24', 15, 586),
+(119, '', '2018-08-22 13:46:16', 80, 601),
+(120, '', '2018-08-22 13:46:53', 35, 599),
+(121, '', '2018-08-22 13:47:48', 44, 596),
+(122, '', '2018-08-22 13:53:46', 154, 595),
+(123, '', '2018-08-22 13:56:07', 47, 594),
+(124, '', '2018-08-22 13:56:27', 35, 592),
+(125, '', '2018-08-22 17:17:37', 12, 598),
+(126, '', '2018-08-22 17:21:01', 50, 602),
+(127, '', '2018-08-22 17:33:33', 12, 588),
+(128, '', '2018-08-22 17:35:30', 16, 598),
+(129, '', '2018-08-22 18:53:03', 15, 598),
+(130, '', '2018-08-22 19:17:40', 22, 595),
+(131, '', '2018-08-22 19:27:21', 12, 527),
+(132, '', '2018-09-01 17:44:21', 27, 586);
+INSERT INTO `detalle_venta` (`Venta_idVenta`, `Producto_idProducto`, `cantidad`, `subtotal`) VALUES
+(6, 92, 1, 12),
+(6, 65, 1, 7),
+(6, 93, 1, 10),
+(7, 62, 1, 12),
+(7, 63, 1, 7),
+(7, 22, 1, 14),
+(8, 62, 2, 24),
+(8, 14, 1, 7),
+(8, 4, 3, 45),
+(8, 50, 1, 8),
+(8, 11, 1, 15),
+(8, 84, 1, 14),
+(8, 28, 1, 13),
+(8, 8, 1, 12),
+(8, 58, 1, 9),
+(8, 61, 1, 14),
+(8, 66, 4, 48),
+(9, 92, 1, 12),
+(9, 33, 1, 15),
+(10, 82, 1, 7),
+(11, 10, 1, 12),
+(12, 3, 1, 10),
+(13, 81, 1, 10),
+(14, 43, 1, 10),
+(14, 50, 1, 8),
+(15, 43, 1, 10),
+(16, 10, 1, 12),
+(17, 1, 1, 30),
+(17, 83, 1, 11),
+(17, 35, 1, 12),
+(18, 67, 1, 6),
+(18, 25, 2, 4),
+(19, 43, 1, 10),
+(19, 93, 2, 20),
+(20, 67, 1, 6),
+(20, 56, 3, 3),
+(21, 4, 1, 15),
+(22, 1, 1, 30),
+(23, 83, 1, 11),
+(24, 67, 1, 6),
+(25, 67, 1, 6),
+(26, 1, 1, 30),
+(26, 3, 1, 10),
+(27, 3, 1, 10),
+(28, 73, 1, 12),
+(28, 53, 1, 12),
+(29, 93, 1, 10),
+(30, 12, 1, 6),
+(31, 93, 1, 10),
+(31, 53, 1, 12),
+(32, 33, 1, 15),
+(33, 60, 1, 10),
+(34, 25, 2, 4),
+(34, 35, 1, 12),
+(35, 39, 1, 10),
+(36, 23, 1, 13),
+(37, 12, 1, 6),
+(38, 29, 3, 30),
+(38, 50, 1, 8),
+(39, 33, 1, 15),
+(40, 1, 1, 40),
+(40, 24, 1, 25),
+(40, 49, 1, 9),
+(41, 2, 1, 9),
+(42, 2, 1, 9),
+(43, 16, 1, 18),
+(43, 9, 1, 13),
+(44, 33, 1, 15),
+(44, 104, 2, 30),
+(45, 33, 1, 15),
+(45, 104, 2, 30),
+(46, 33, 1, 15),
+(46, 104, 2, 30),
+(47, 33, 1, 15),
+(47, 104, 2, 30),
+(48, 33, 1, 15),
+(48, 104, 2, 30),
+(49, 33, 1, 15),
+(49, 104, 2, 30),
+(50, 33, 1, 15),
+(51, 104, 2, 30),
+(52, 104, 3, 45),
+(52, 84, 1, 15),
+(53, 3, 1, 12),
+(54, 104, 2, 30),
+(55, 83, 1, 12),
+(56, 83, 1, 12),
+(57, 81, 3, 30),
+(57, 8, 1, 12),
+(57, 84, 1, 15),
+(58, 55, 1, 14),
+(59, 55, 1, 14),
+(60, 15, 1, 15),
+(60, 105, 2, 30),
+(60, 106, 1, 14),
+(61, 106, 1, 14),
+(61, 105, 1, 15),
+(61, 84, 1, 15),
+(62, 16, 1, 18),
+(62, 55, 1, 14),
+(63, 105, 3, 45),
+(63, 84, 1, 15),
+(64, 24, 1, 25),
+(64, 50, 1, 9),
+(65, 89, 1, 25),
+(65, 33, 1, 15),
+(66, 61, 1, 14),
+(67, 105, 2, 30),
+(67, 23, 1, 15),
+(68, 105, 1, 15),
+(68, 83, 1, 12),
+(68, 8, 1, 12),
+(69, 11, 1, 16),
+(70, 81, 3, 30),
+(70, 11, 1, 16),
+(71, 69, 1, 15),
+(71, 52, 1, 9),
+(71, 97, 1, 9),
+(72, 83, 1, 12),
+(73, 105, 2, 30),
+(74, 96, 1, 12),
+(74, 7, 1, 14),
+(74, 107, 1, 14),
+(74, 19, 1, 20),
+(75, 88, 2, 40),
+(75, 50, 1, 9),
+(76, 1, 1, 35),
+(76, 92, 2, 24),
+(77, 1, 1, 35),
+(78, 52, 1, 9),
+(78, 100, 4, 48),
+(78, 87, 1, 10),
+(79, 1, 1, 35),
+(80, 1, 1, 35),
+(80, 83, 1, 12),
+(81, 15, 1, 15),
+(81, 83, 2, 24),
+(82, 93, 1, 10),
+(82, 63, 1, 9),
+(82, 50, 1, 9),
+(83, 92, 1, 12),
+(83, 100, 2, 24),
+(83, 87, 1, 10),
+(83, 51, 1, 15),
+(84, 61, 1, 14),
+(85, 100, 2, 24),
+(85, 51, 1, 15),
+(86, 92, 1, 12),
+(87, 83, 1, 12),
+(88, 69, 1, 15),
+(89, 83, 1, 12),
+(90, 78, 1, 14),
+(91, 63, 1, 9),
+(91, 69, 1, 15),
+(92, 22, 1, 15),
+(93, 22, 1, 15),
+(94, 108, 1, 35),
+(95, 92, 2, 24),
+(96, 18, 1, 23),
+(96, 99, 1, 10),
+(97, 30, 1, 40),
+(97, 7, 1, 14),
+(98, 5, 1, 22),
+(98, 83, 1, 12),
+(99, 46, 1, 40),
+(100, 45, 1, 15),
+(100, 53, 1, 12),
+(101, 46, 1, 40),
+(102, 69, 1, 15),
+(102, 92, 1, 12),
+(103, 34, 2, 6),
+(104, 67, 1, 7),
+(105, 88, 1, 20),
+(106, 83, 1, 12),
+(107, 45, 1, 15),
+(107, 87, 2, 20),
+(107, 92, 1, 12),
+(107, 26, 1, 30),
+(107, 35, 1, 13),
+(108, 22, 1, 15),
+(109, 69, 1, 15),
+(109, 84, 1, 15),
+(109, 92, 1, 12),
+(110, 69, 1, 15),
+(111, 60, 1, 12),
+(112, 98, 1, 18),
+(112, 60, 1, 12),
+(113, 92, 1, 12),
+(113, 69, 1, 15),
+(114, 76, 1, 13),
+(114, 69, 1, 15),
+(114, 50, 1, 9),
+(115, 93, 1, 10),
+(116, 93, 1, 10),
+(117, 81, 2, 20),
+(117, 84, 1, 15),
+(118, 33, 1, 15),
+(119, 30, 2, 80),
+(120, 1, 1, 35),
+(121, 1, 1, 35),
+(121, 50, 1, 9),
+(122, 92, 3, 36),
+(122, 109, 2, 18),
+(122, 90, 1, 22),
+(122, 87, 1, 10),
+(122, 22, 1, 15),
+(122, 1, 1, 35),
+(122, 48, 1, 18),
+(123, 1, 1, 35),
+(123, 83, 1, 12),
+(124, 1, 1, 35),
+(125, 83, 1, 12),
+(126, 15, 1, 15),
+(126, 1, 1, 35),
+(127, 44, 1, 12),
+(128, 36, 1, 16),
+(129, 51, 1, 15),
+(130, 92, 1, 12),
+(130, 93, 1, 10),
+(131, 63, 1, 9),
+(131, 56, 3, 3),
+(132, 2, 3, 27);
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`idCategoria`);
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idCliente`),
-  ADD KEY `fk_Cliente_Grupo1_idx` (`Grupo_idGrupo`);
-
---
--- Indices de la tabla `detalle_venta`
---
-ALTER TABLE `detalle_venta`
-  ADD KEY `fk_Venta_has_Producto_Producto1_idx` (`Producto_idProducto`),
-  ADD KEY `fk_Venta_has_Producto_Venta1_idx` (`Venta_idVenta`);
-
---
--- Indices de la tabla `grupo`
---
-ALTER TABLE `grupo`
-  ADD PRIMARY KEY (`idGrupo`);
-
---
--- Indices de la tabla `marca`
---
-ALTER TABLE `marca`
-  ADD PRIMARY KEY (`idMarca`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`idProducto`),
-  ADD KEY `fk_Producto_Categoria_idx` (`Categoria_idCategoria`),
-  ADD KEY `fk_Producto_Marca1_idx` (`Marca_idMarca`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idUsuario`);
-
---
--- Indices de la tabla `venta`
---
-ALTER TABLE `venta`
-  ADD PRIMARY KEY (`idVenta`),
-  ADD KEY `fk_Venta_Cliente1_idx` (`Cliente_idCliente`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=587;
-
---
--- AUTO_INCREMENT de la tabla `grupo`
---
-ALTER TABLE `grupo`
-  MODIFY `idGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT de la tabla `marca`
---
-ALTER TABLE `marca`
-  MODIFY `idMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT de la tabla `producto`
---
-ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `venta`
---
-ALTER TABLE `venta`
-  MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `fk_Cliente_Grupo1` FOREIGN KEY (`Grupo_idGrupo`) REFERENCES `grupo` (`idGrupo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `detalle_venta`
---
-ALTER TABLE `detalle_venta`
-  ADD CONSTRAINT `fk_Venta_has_Producto_Producto1` FOREIGN KEY (`Producto_idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Venta_has_Producto_Venta1` FOREIGN KEY (`Venta_idVenta`) REFERENCES `venta` (`idVenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `fk_Producto_Categoria` FOREIGN KEY (`Categoria_idCategoria`) REFERENCES `categoria` (`idCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Producto_Marca1` FOREIGN KEY (`Marca_idMarca`) REFERENCES `marca` (`idMarca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `venta`
---
-ALTER TABLE `venta`
-  ADD CONSTRAINT `fk_Venta_Cliente1` FOREIGN KEY (`Cliente_idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
