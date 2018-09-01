@@ -379,7 +379,6 @@ public class MenuClientesControlador implements ActionListener {
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
                 contenido);
-        System.out.println("Enviado a: " + clienteBuscando.getCorreo());
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 }
