@@ -968,7 +968,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Total del rango:");
+        jLabel8.setText("Total :");
 
         jlTotal.setBackground(new java.awt.Color(102, 102, 102));
         jlTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
