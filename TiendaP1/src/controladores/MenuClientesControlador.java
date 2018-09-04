@@ -51,8 +51,6 @@ public class MenuClientesControlador implements ActionListener {
 
     JfMenuClientes vista;
     Cliente cliente;
-    JDateChooser desde = new JDateChooser();
-    JDateChooser hasta = new JDateChooser();
     Cliente clienteBuscando;
 
     public MenuClientesControlador(JfMenuClientes vista) {
@@ -167,11 +165,11 @@ public class MenuClientesControlador implements ActionListener {
                 ver();
             }
         } else if (e.getSource().equals(vista.getJbReporte())) {
-            reporte();
+            pideReporte(e);
         } else if (e.getSource().equals(vista.getJbEnviar())) {
             envia();
         } else if (e.getSource().equals(vista.getReporteDesdeAbono())) {
-            System.out.println("reporte desde ultimo abono");
+            pideReporte(e);
         }
     }
 
@@ -343,30 +341,26 @@ public class MenuClientesControlador implements ActionListener {
         tableRowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + vista.getJlFiltro().getText()));
     }
 
-    private void reporte() {
-        if (vista.getJtDatos().getSelectedRow() != -1) {
-            JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
-            DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
-            double totalRango = 0;
-            original.setRowCount(0);
-            DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
-                    (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
-                    new Date(desde.getDate().getTime()),
-                    new Date(hasta.getDate().getTime()));
-            for (int i = 0; i < datos.getRowCount(); i++) {
-                original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
-                totalRango += Double.parseDouble(String.valueOf(datos.getValueAt(i, 3).toString()));
-            }
-            clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
-            vista.getJlNombre().setText(clienteBuscando.getNombre());
-            vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", desde.getDate()));
-            vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta.getDate()));
-            vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
-            vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
-            GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
-            desde.setDate(null);
-            hasta.setDate(null);
+    private void reporte(long desde, long hasta) {
+        DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
+        double totalRango = 0;
+        original.setRowCount(0);
+        DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
+                (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
+                new Date(desde),
+                new Date(hasta));
+        for (int i = 0; i < datos.getRowCount(); i++) {
+            original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
+            totalRango += Double.parseDouble(String.valueOf(datos.getValueAt(i, 3).toString()));
         }
+        vista.getJlNombre().setText(clienteBuscando.getNombre());
+        vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", desde));
+        vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta));
+        //TODO no sé cual el es proposito 
+        vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
+
+        vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
+        GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
     }
 
     private void envia() {
@@ -383,5 +377,32 @@ public class MenuClientesControlador implements ActionListener {
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
                 contenido);
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void pideReporte(ActionEvent e) {
+        if (vista.getJtDatos().getSelectedRow() != -1) {
+            // que hacer si se elige un reporte con rango
+            if (e.equals(vista.getJbReporte())) {
+                JDateChooser desde = new JDateChooser();
+                JDateChooser hasta = new JDateChooser();
+                JOptionPane.showConfirmDialog(
+                        null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
+                // se usa ruta de la clase porque el importado es de sql.Date
+                java.util.Date desdeDate = desde.getDate();
+                java.util.Date hastaDate = hasta.getDate();
+
+                //protección por si el usurio no seleccionó fechas o dió clic en cancelar
+                if (desdeDate != null && hastaDate != null) {
+                    reporte(desdeDate.getTime(), hastaDate.getTime());
+                }
+
+            } else if (e.equals(vista.getReporteDesdeAbono())) {
+                // que hacer si se elige un reporte desde último abono (no hay input de datos)
+                clienteBuscando = ClienteDAO.getInstance().buscaCliente(
+                        (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0)
+                );
+                reporte(ClienteDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()), System.currentTimeMillis());
+            }
+        }
     }
 }
