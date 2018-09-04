@@ -1460,6 +1460,7 @@
                           <Component id="jbEditar" alignment="0" max="32767" attributes="0"/>
                           <Component id="jbVer" alignment="0" max="32767" attributes="0"/>
                           <Component id="JbReporte" alignment="0" max="32767" attributes="0"/>
+                          <Component id="reporteDesdeAbono" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1476,7 +1477,9 @@
                       <Component id="jbVer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JbReporte" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="176" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="reporteDesdeAbono" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="147" max="32767" attributes="0"/>
                       <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1521,7 +1524,12 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Reporte"/>
+                <Property name="text" type="java.lang.String" value="Reporte entre fechas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="reporteDesdeAbono">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte desde &#xfa;ltimo abono"/>
               </Properties>
             </Component>
           </SubComponents>

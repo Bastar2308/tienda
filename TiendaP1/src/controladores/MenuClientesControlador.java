@@ -93,6 +93,7 @@ public class MenuClientesControlador implements ActionListener {
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
         vista.getJbReporte().addActionListener(this);
+        vista.getReporteDesdeAbono().addActionListener(this);
         vista.getJbEnviar().addActionListener(this);
         vista.getJbControlDeGrupos().addActionListener(this);
         vista.getJbAgregar().addActionListener(this);
@@ -169,6 +170,8 @@ public class MenuClientesControlador implements ActionListener {
             reporte();
         } else if (e.getSource().equals(vista.getJbEnviar())) {
             envia();
+        } else if (e.getSource().equals(vista.getReporteDesdeAbono())) {
+            System.out.println("reporte desde ultimo abono");
         }
     }
 
