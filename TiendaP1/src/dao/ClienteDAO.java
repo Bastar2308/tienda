@@ -143,6 +143,10 @@ public class ClienteDAO {
         return pojo;
     }
 
+    public long ultimoAbono(int idCliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private static class ClienteDAOHolder {
 
         private static final ClienteDAO INSTANCE = new ClienteDAO();
