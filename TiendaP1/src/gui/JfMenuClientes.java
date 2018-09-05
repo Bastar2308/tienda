@@ -283,6 +283,14 @@ public class JfMenuClientes extends javax.swing.JFrame {
         this.tAVerObservaciones = tAVerObservaciones;
     }
 
+    public javax.swing.JButton getReporteDesdeAbono() {
+        return reporteDesdeAbono;
+    }
+
+    public void setReporteDesdeAbono(javax.swing.JButton reporteDesdeAbono) {
+        this.reporteDesdeAbono = reporteDesdeAbono;
+    }
+
     private static class JfMenuClientesHolder {
 
         private static final JfMenuClientes INSTANCE = new JfMenuClientes();
@@ -389,6 +397,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jbEditar = new javax.swing.JButton();
         jbVer = new javax.swing.JButton();
         JbReporte = new javax.swing.JButton();
+        reporteDesdeAbono = new javax.swing.JButton();
         JlFiltro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
@@ -959,7 +968,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(102, 102, 102));
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Total del rango:");
+        jLabel8.setText("Total :");
 
         jlTotal.setBackground(new java.awt.Color(102, 102, 102));
         jlTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1085,7 +1094,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtDatos);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jbAgregar.setBackground(new java.awt.Color(102, 102, 102));
         jbAgregar.setText("Agregar");
@@ -1100,7 +1109,9 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jbVer.setText("Ver");
 
         JbReporte.setBackground(new java.awt.Color(102, 102, 102));
-        JbReporte.setText("Reporte");
+        JbReporte.setText("Reporte entre fechas");
+
+        reporteDesdeAbono.setText("Reporte desde último abono");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1113,7 +1124,8 @@ public class JfMenuClientes extends javax.swing.JFrame {
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JbReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JbReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reporteDesdeAbono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -1127,7 +1139,9 @@ public class JfMenuClientes extends javax.swing.JFrame {
                 .addComponent(jbVer)
                 .addGap(18, 18, 18)
                 .addComponent(JbReporte)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(reporteDesdeAbono)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
                 .addComponent(jbEliminar)
                 .addContainerGap())
         );
@@ -1312,6 +1326,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
     private javax.swing.JSpinner jsVerLimite;
     private javax.swing.JSpinner jsVerSaldo;
     private javax.swing.JTable jtDatos;
+    private javax.swing.JButton reporteDesdeAbono;
     private javax.swing.JTextArea tAAgregarObservaciones;
     private javax.swing.JTextArea tAEditarObservaciones;
     private javax.swing.JTextArea tAVerObservaciones;
