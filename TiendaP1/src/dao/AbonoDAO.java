@@ -21,6 +21,18 @@ public class AbonoDAO {
     private static final String SQL_SELECT = "SELECT * FROM " + TABLE + " WHERE cliente_idCliente = ?";
     private static final String SQL_SELECT_BY_DATE = "SELECT * FROM " + TABLE + " WHERE cliente_idCliente = ? and fechahora = ?";
     
+    private AbonoDAO() {
+    }
+    
+    public static AbonoDAO getInstance() {
+        return AbonoDAOHolder.INSTANCE;
+    }
+    
+    private static class AbonoDAOHolder {
+
+        private static final AbonoDAO INSTANCE = new AbonoDAO();
+    }
+    
     public int insertaAbono(Abono pojo) {
         Connection con = null;
         PreparedStatement st = null;

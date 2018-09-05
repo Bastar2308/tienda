@@ -8,6 +8,7 @@ package controladores;
 import auxiliares.GuiTools;
 import auxiliares.MailTools;
 import com.toedter.calendar.JDateChooser;
+import dao.AbonoDAO;
 import dao.ClienteDAO;
 import dao.ConsultasDAO;
 import dao.GrupoDAO;
@@ -40,6 +41,7 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import pojo.Abono;
 import pojo.Cliente;
 import pojo.Grupo;
 
@@ -375,6 +377,31 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
         }
         contenido = contenido + "Total: " + vista.getJlTotal().getText();
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
+                clienteBuscando.getCorreo(),
+                "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
+                contenido);
+        JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
+    private void enviaUltimoDeposito() {
+        Abono abono = AbonoDAO.getInstance().buscaAbono(vista.getJtDatos().getSelectedRow());
+        String contenido = "Último depósito realizado: "+abono.getFecha_hora()+" \n Saldo antes del último depósito: "+abono.getSaldo_anterior()+" \n Saldo después del último depósito: "+abono.getSaldo_nuevo()+"\n Consumo desde el último pago, "+abono.getFecha_hora()+" hasta: "+vista.getJlHasta().getText()+"\n";
+        for (int i = 0; i < vista.getJtReporte().getRowCount(); i++) {
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 0).toString() + " - ";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 1).toString() + " - ";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
+        }
+        contenido = contenido + "Total: " + vista.getJlTotal().getText();
+        Cliente cliente1 = ClienteDAO.getInstance().buscaCliente(vista.getJtDatos().getSelectedRow());
+        if (cliente1.getSaldo() <= 0) {
+            contenido = contenido + "\nSaldo a favor: " + 0;
+            contenido = contenido + "\nSaldo en contra: " + cliente1.getSaldo();
+        } else {
+            contenido = contenido + "\nSaldo a favor: " + cliente1.getSaldo();
+            contenido = contenido + "\nSaldo en contra: " + 0;
+        }
+        contenido = contenido + "Saldo a favor: " + vista.getJlTotal().getText();
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
