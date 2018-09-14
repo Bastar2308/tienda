@@ -1,4 +1,6 @@
+CREATE DATABASE IF NOT EXISTS tienda_cbb;
 
+USE tienda_cbb;
 
 INSERT INTO `categoria` (`idCategoria`, `nombre`) VALUES
 (1, 'Bebida'),

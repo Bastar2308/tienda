@@ -7,6 +7,7 @@ package controladores;
 
 import auxiliares.GuiTools;
 import auxiliares.MailTools;
+import dao.AbonoDAO;
 import dao.ClienteDAO;
 import gui.JfMenuCargaSaldo;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import org.apache.logging.log4j.core.config.builder.api.Component;
+import pojo.Abono;
 import pojo.Cliente;
 
 /**
@@ -106,7 +108,12 @@ public class MenuCargaSaldoControlador implements ActionListener {
 
     private void agregarSaldo() {
         if (vista.getJtClientes().getSelectedRow() != -1 && haySaldoSeleccionado() && JOptionPane.showConfirmDialog(null, "¿Agregar saldo?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
-            if (ClienteDAO.getInstance().agregaSaldo(
+            if (agregarAbono(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString(), 
+                    obtenValorSeleccionado(), ClienteDAO.getInstance().
+                            buscaCliente(Integer.parseInt(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString())))) {
+                System.out.println(ClienteDAO.getInstance().
+                            buscaCliente(Integer.parseInt(vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString())).getNombre());
+                if (ClienteDAO.getInstance().agregaSaldo(
                     vista.getJtClientes().getValueAt(vista.getJtClientes().getSelectedRow(), 0).toString(),
                     String.valueOf(obtenValorSeleccionado()))) {
                 JOptionPane.showMessageDialog(null, "Saldo agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -118,11 +125,28 @@ public class MenuCargaSaldoControlador implements ActionListener {
                 vista.getRbOtra().setSelected(true);
                 vista.getTfBuscar().setText(null);
                 cargaTabla();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error agregando saldo", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Error agregando saldo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Verifique el cliente y/o saldo a agregar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public boolean agregarAbono(String idCliente, double monto, Cliente cliente){
+        Abono abono = new Abono();
+        abono.setCliente_idCliente(Integer.parseInt(idCliente));
+        abono.setMonto(monto);
+        abono.setSaldo_anterior(cliente.getSaldo());
+        abono.setSaldo_nuevo(cliente.getSaldo()+monto);
+        if (AbonoDAO.getInstance().insertaAbono(abono)!=0) {
+            System.out.println("Abono agregado correctamente");
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -181,6 +205,7 @@ public class MenuCargaSaldoControlador implements ActionListener {
                 "Su recarga de $"+recarga+".00 ha sido realizada exitosamente para el alumno "+alumno+"\nSu saldo actual es de: $"+saldo+".");
         System.out.println("Enviado a: "+correo);
     }
+    
     class MiHilo extends Thread{
         private String a;
         private String b;
@@ -199,5 +224,8 @@ public class MenuCargaSaldoControlador implements ActionListener {
             this.d = d;
         }
         
+    }
+    public static void main(String[] args) {
+        System.out.println("Hol");
     }
 }

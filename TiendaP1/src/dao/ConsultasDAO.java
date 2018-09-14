@@ -84,4 +84,24 @@ public class ConsultasDAO {
         }
         return dt;
     }
+    public DefaultTableModel consultaComprasEnRango(int idCliente, String desde, Date hasta) {
+        Connection con = null;
+        PreparedStatement st = null;
+        DefaultTableModel dt = new DefaultTableModel();
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement(VENTAS_EN_RANGO);
+            st.setInt(1, idCliente);
+            st.setString(2, desde);
+            st.setString(3, hasta.toString() + " 23:59:59");
+            ResultSet rs = st.executeQuery();
+            dt = GuiTools.getInstance().resultSetToDefaultTableModel(rs);
+        } catch (Exception e) {
+            System.out.println("Error al cargar la consulta" + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        return dt;
+    }
 }

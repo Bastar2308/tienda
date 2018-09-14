@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import pojo.Abono;
 
 /**
@@ -95,19 +98,50 @@ public class AbonoDAO {
         return pojo;
     }
     
+    public long ultimoAbono(int idCliente) {
+        Connection con = null;
+        PreparedStatement st = null;
+        long ultimoAbono = 0;
+        try {
+            con = Conexion.getConnection();
+            st = con.prepareStatement("Select fechahora from abono where cliente_idCliente="+idCliente+
+                                                                                " order by fechahora desc limit 1");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+//                ultimoAbono = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+//                        .parse(String.valueOf(rs.getDate("fechahora"))).getTime() / 1000;
+                ultimoAbono = rs.getTimestamp("fechahora").getTime();
+                
+                System.out.println(ultimoAbono);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar último abono " + e);
+        } finally {
+            Conexion.close(con);
+            Conexion.close(st);
+        }
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return ultimoAbono;
+    }
+    
     public Abono inflaAbono(ResultSet rs) {
         Abono pojo = new Abono();
         try {
             pojo.setId(rs.getInt("idabono"));
             pojo.setCliente_idCliente(rs.getInt("cliente_idcliente"));
             pojo.setMonto(rs.getDouble("monto"));
-            pojo.setSaldo_anterior(rs.getInt("saldo_anterior"));
-            pojo.setCliente_idCliente(rs.getInt("saldo_nuevo"));
-            pojo.setFecha_hora(rs.getDate("fechahora"));
+            pojo.setSaldo_anterior(rs.getDouble("saldo_anterior"));
+            pojo.setSaldo_nuevo(rs.getDouble("saldo_nuevo"));
+            pojo.setFecha_hora(new Date(rs.getTimestamp("fechahora").getTime()));
         } catch (SQLException ex) {
             System.out.println("Error al inflar abono " + ex);
         }
         return pojo;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hol");
+        AbonoDAO.getInstance().ultimoAbono(697);
     }
     
 }

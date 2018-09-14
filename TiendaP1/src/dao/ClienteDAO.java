@@ -143,27 +143,6 @@ public class ClienteDAO {
         return pojo;
     }
 
-    public long ultimoAbono(int idCliente) {
-        Connection con = null;
-        PreparedStatement st = null;
-        long ultimoAbono = 0;
-        try {
-            con = Conexion.getConnection();
-            st = con.prepareStatement("Select fechahora from abono where cliente_idCliente="+idCliente+
-                                                                                " order by fechahora desc limit 1");
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                ultimoAbono=rs.getLong("fechahora");
-            }
-        } catch (Exception e) {
-            System.out.println("Error al consultar último abono " + e);
-        } finally {
-            Conexion.close(con);
-            Conexion.close(st);
-        }
-        return ultimoAbono;
-    }
-
     private static class ClienteDAOHolder {
 
         private static final ClienteDAO INSTANCE = new ClienteDAO();
