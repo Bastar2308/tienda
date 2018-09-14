@@ -99,6 +99,7 @@ public class MenuClientesControlador implements ActionListener {
     private void addListeners() {
         vista.getJbRegresar().addActionListener(this);
         vista.getJbReporte().addActionListener(this);
+        vista.getJbReporteAbonos().addActionListener(this);
         vista.getJbEnviar().addActionListener(this);
         vista.getJbControlDeGrupos().addActionListener(this);
         vista.getJbAgregar().addActionListener(this);
@@ -175,7 +176,7 @@ public class MenuClientesControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbReporte())) {
             reporte();
             caso = 0;
-            System.out.println("JbReporte \ncaso: "+caso);
+            System.out.println("JbReporte \ncaso: " + caso);
         } else if (e.getSource().equals(vista.getJbEnviar())) {
             if (caso == 0) {
                 envia();
@@ -184,10 +185,12 @@ public class MenuClientesControlador implements ActionListener {
                 enviaUltimoDeposito();
                 System.out.println(caso);
             }
-            
-        } else if(e.getSource().equals(vista.getReporteDesdeAbono())){
+
+        } else if (e.getSource().equals(vista.getReporteDesdeAbono())) {
             reporte(AbonoDAO.getInstance().ultimoAbono(
                     Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString())));
+        } else if (e.getSource().equals(vista.getJbReporteAbonos())) {
+            reporteDeAbonos();
         }
     }
 
@@ -361,7 +364,7 @@ public class MenuClientesControlador implements ActionListener {
 
     private void reporte() {
         caso = 0;
-        System.out.println("Caso: "+caso);
+        System.out.println("Caso: " + caso);
         if (vista.getJtDatos().getSelectedRow() != -1) {
             JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
             DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
@@ -386,16 +389,17 @@ public class MenuClientesControlador implements ActionListener {
             hasta.setDate(null);
         }
     }
-    private void reporte(long ultimo){
+
+    private void reporte(long ultimo) {
         caso = 1;
-        System.out.println("Caso: "+caso);
+        System.out.println("Caso: " + caso);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if (vista.getJtDatos().getSelectedRow() != -1) {
             JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
             DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
             double totalRango = 0;
             original.setRowCount(0);
-            System.out.println("FechaSQL: "+dateFormat.format(ultimo));
+            System.out.println("FechaSQL: " + dateFormat.format(ultimo));
             DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
                     (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
                     dateFormat.format(ultimo),
@@ -431,18 +435,18 @@ public class MenuClientesControlador implements ActionListener {
                 contenido);
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
-   
+
     private void enviaUltimoDeposito() {
 //        Date date = new Date(AbonoDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()));
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date fecha = new Date(AbonoDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()));
-        System.out.println("Fecha SQL en enviaUltimo: "+dateFormat.format(fecha));
-        Abono abono = AbonoDAO.getInstance().buscaAbono(clienteBuscando.getIdCliente(),dateFormat.format(fecha));
-        String contenido = "Último depósito realizado: "+dateFormat.format(abono.getFecha_hora().getTime())+
-                " \n Saldo antes del último depósito: "+abono.getSaldo_anterior()+"\nDepósito realizado: "+abono.getMonto()+
-                "\n Saldo después del último depósito: "+abono.getSaldo_nuevo()+
-                "\n\n Consumo desde el último pago, "+dateFormat.format(abono.getFecha_hora().getTime())+
-                " hasta: "+vista.getJlHasta().getText()+"\n\n";
+        System.out.println("Fecha SQL en enviaUltimo: " + dateFormat.format(fecha));
+        Abono abono = AbonoDAO.getInstance().buscaAbono(clienteBuscando.getIdCliente(), dateFormat.format(fecha));
+        String contenido = "Último depósito realizado: " + dateFormat.format(abono.getFecha_hora().getTime())
+                + " \n Saldo antes del último depósito: " + abono.getSaldo_anterior() + "\nDepósito realizado: " + abono.getMonto()
+                + "\n Saldo después del último depósito: " + abono.getSaldo_nuevo()
+                + "\n\n Consumo desde el último pago, " + dateFormat.format(abono.getFecha_hora().getTime())
+                + " hasta: " + vista.getJlHasta().getText() + "\n\n";
         for (int i = 0; i < vista.getJtReporte().getRowCount(); i++) {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 0).toString() + " - ";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 1).toString() + " - ";
@@ -463,7 +467,25 @@ public class MenuClientesControlador implements ActionListener {
                 contenido);
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
+
     public static void main(String[] args) {
         System.out.println("Hol");
+    }
+
+    private void reporteDeAbonos() {
+        if (vista.getJtDatos().getSelectedRow() > 1) {
+            clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+            DefaultTableModel datos;
+            datos = AbonoDAO.getInstance().abonos(clienteBuscando.getIdCliente());
+            vista.getJlNombreReporteAbonos().setText(clienteBuscando.getNombre());
+            vista.getJtReporteAbonos().setModel(datos);
+
+            double total = 0;
+            for (int i = 0; i < datos.getRowCount(); i++) {
+                total += Double.parseDouble(datos.getValueAt(i, 3).toString());
+            }
+            vista.getJlTotalReporteAbonos().setText(String.format(Locale.ENGLISH, "$%,.2f", total));
+            vista.getJdReporteDeAbonos().setVisible(true);
+        }
     }
 }
