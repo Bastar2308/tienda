@@ -291,6 +291,54 @@ public class JfMenuClientes extends javax.swing.JFrame {
         this.reporteDesdeAbono = reporteDesdeAbono;
     }
 
+    public javax.swing.JButton getJbReporteAbonos() {
+        return JbReporteAbonos;
+    }
+
+    public void setJbReporteAbonos(javax.swing.JButton JbReporteAbonos) {
+        this.JbReporteAbonos = JbReporteAbonos;
+    }
+
+    public javax.swing.JDialog getJdReporteDeAbonos() {
+        return jdReporteDeAbonos;
+    }
+
+    public void setJdReporteDeAbonos(javax.swing.JDialog jdReporteDeAbonos) {
+        this.jdReporteDeAbonos = jdReporteDeAbonos;
+    }
+
+    public javax.swing.JButton getJbEnviarReporteAbonos() {
+        return JbEnviarReporteAbonos;
+    }
+
+    public void setJbEnviarReporteAbonos(javax.swing.JButton JbEnviarReporteAbonos) {
+        this.JbEnviarReporteAbonos = JbEnviarReporteAbonos;
+    }
+
+    public javax.swing.JLabel getJlNombreReporteAbonos() {
+        return jlNombreReporteAbonos;
+    }
+
+    public void setJlNombreReporteAbonos(javax.swing.JLabel jlNombreReporteAbonos) {
+        this.jlNombreReporteAbonos = jlNombreReporteAbonos;
+    }
+
+    public javax.swing.JLabel getJlTotalReporteAbonos() {
+        return jlTotalReporteAbonos;
+    }
+
+    public void setJlTotalReporteAbonos(javax.swing.JLabel jlTotalReporteAbonos) {
+        this.jlTotalReporteAbonos = jlTotalReporteAbonos;
+    }
+
+    public javax.swing.JTable getJtReporteAbonos() {
+        return JtReporteAbonos;
+    }
+
+    public void setJtReporteAbonos(javax.swing.JTable JtReporteAbonos) {
+        this.JtReporteAbonos = JtReporteAbonos;
+    }
+
     private static class JfMenuClientesHolder {
 
         private static final JfMenuClientes INSTANCE = new JfMenuClientes();
@@ -386,6 +434,16 @@ public class JfMenuClientes extends javax.swing.JFrame {
         JbEnviar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jlTotal = new javax.swing.JLabel();
+        jdReporteDeAbonos = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jlVerImagen2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jlNombreReporteAbonos = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        JtReporteAbonos = new javax.swing.JTable();
+        JbEnviarReporteAbonos = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jlTotalReporteAbonos = new javax.swing.JLabel();
         jbRegresar = new javax.swing.JButton();
         jbControlDeGrupos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -398,6 +456,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         jbVer = new javax.swing.JButton();
         JbReporte = new javax.swing.JButton();
         reporteDesdeAbono = new javax.swing.JButton();
+        JbReporteAbonos = new javax.swing.JButton();
         JlFiltro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
@@ -1050,6 +1109,126 @@ public class JfMenuClientes extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
+        jdReporteDeAbonos.setTitle("Reporte de consumo");
+        jdReporteDeAbonos.setModal(true);
+        jdReporteDeAbonos.setResizable(false);
+
+        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Abonos de");
+
+        jlNombreReporteAbonos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jlNombreReporteAbonos.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombreReporteAbonos.setText("{nombre}");
+
+        JtReporteAbonos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "Monto", "Saldo antes", "Saldo después"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        JtReporteAbonos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane6.setViewportView(JtReporteAbonos);
+
+        JbEnviarReporteAbonos.setBackground(new java.awt.Color(102, 102, 102));
+        JbEnviarReporteAbonos.setText("Enviar reporte al correo del tutor");
+        JbEnviarReporteAbonos.setEnabled(false);
+
+        jLabel35.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Total :");
+
+        jlTotalReporteAbonos.setBackground(new java.awt.Color(102, 102, 102));
+        jlTotalReporteAbonos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jlTotalReporteAbonos.setForeground(new java.awt.Color(255, 255, 255));
+        jlTotalReporteAbonos.setText("$999,999");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(1019, 1019, 1019)
+                        .addComponent(jlVerImagen2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlNombreReporteAbonos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JbEnviarReporteAbonos)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 957, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jlTotalReporteAbonos)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jlVerImagen2))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jlNombreReporteAbonos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jlTotalReporteAbonos))
+                .addGap(34, 34, 34)
+                .addComponent(JbEnviarReporteAbonos)
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout jdReporteDeAbonosLayout = new javax.swing.GroupLayout(jdReporteDeAbonos.getContentPane());
+        jdReporteDeAbonos.getContentPane().setLayout(jdReporteDeAbonosLayout);
+        jdReporteDeAbonosLayout.setHorizontalGroup(
+            jdReporteDeAbonosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1050, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jdReporteDeAbonosLayout.setVerticalGroup(
+            jdReporteDeAbonosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdReporteDeAbonosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Clientes");
         setResizable(false);
@@ -1113,6 +1292,9 @@ public class JfMenuClientes extends javax.swing.JFrame {
 
         reporteDesdeAbono.setText("Reporte desde último abono");
 
+        JbReporteAbonos.setBackground(new java.awt.Color(102, 102, 102));
+        JbReporteAbonos.setText("Reporte de abonos");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1125,7 +1307,8 @@ public class JfMenuClientes extends javax.swing.JFrame {
                     .addComponent(jbEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JbReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reporteDesdeAbono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(reporteDesdeAbono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JbReporteAbonos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -1141,7 +1324,9 @@ public class JfMenuClientes extends javax.swing.JFrame {
                 .addComponent(JbReporte)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reporteDesdeAbono)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JbReporteAbonos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(jbEliminar)
                 .addContainerGap())
         );
@@ -1250,16 +1435,20 @@ public class JfMenuClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JbEnviar;
+    private javax.swing.JButton JbEnviarReporteAbonos;
     private javax.swing.JButton JbReporte;
+    private javax.swing.JButton JbReporteAbonos;
     private javax.swing.JLabel JlDesde;
     private javax.swing.JTextField JlFiltro;
     private javax.swing.JLabel JlHasta;
     private javax.swing.JTable JtReporte;
+    private javax.swing.JTable JtReporteAbonos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1280,6 +1469,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1292,11 +1482,13 @@ public class JfMenuClientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JButton jbAgregar;
     private javax.swing.JButton jbAgregarAceptar;
     private javax.swing.JButton jbAgregarCancelar;
@@ -1313,12 +1505,16 @@ public class JfMenuClientes extends javax.swing.JFrame {
     private javax.swing.JDialog jdAgregar;
     private javax.swing.JDialog jdEditar;
     private javax.swing.JDialog jdReporte;
+    private javax.swing.JDialog jdReporteDeAbonos;
     private javax.swing.JDialog jdVer;
     private javax.swing.JLabel jlEditarImagen;
     private javax.swing.JLabel jlNombre;
+    private javax.swing.JLabel jlNombreReporteAbonos;
     private javax.swing.JLabel jlTotal;
+    private javax.swing.JLabel jlTotalReporteAbonos;
     private javax.swing.JLabel jlVerImagen;
     private javax.swing.JLabel jlVerImagen1;
+    private javax.swing.JLabel jlVerImagen2;
     private javax.swing.JSpinner jsAgregarLimite;
     private javax.swing.JSpinner jsAgregarSaldo;
     private javax.swing.JSpinner jsEditarLimite;
