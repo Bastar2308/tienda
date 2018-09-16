@@ -1245,6 +1245,7 @@ public class JfMenuClientes extends javax.swing.JFrame {
         JbReporte.setBackground(new java.awt.Color(102, 102, 102));
         JbReporte.setText("Reporte entre fechas");
 
+        reporteDesdeAbono.setBackground(new java.awt.Color(102, 102, 102));
         reporteDesdeAbono.setText("Reporte desde último abono");
 
         JbReporteAbonos.setBackground(new java.awt.Color(102, 102, 102));
