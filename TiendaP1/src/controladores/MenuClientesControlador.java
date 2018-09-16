@@ -476,16 +476,27 @@ public class MenuClientesControlador implements ActionListener {
         if (vista.getJtDatos().getSelectedRow() != -1
                 && Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()) != 1) {
             clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
+
             DefaultTableModel datos;
+            DefaultTableModel original = (DefaultTableModel) vista.getJtReporteAbonos().getModel();
+
             datos = AbonoDAO.getInstance().abonos(clienteBuscando.getIdCliente());
+            for (int i = 0; i < datos.getRowCount(); i++) {
+                original.addRow(
+                        new Object[]{
+                            original.getValueAt(i, 5),
+                            original.getValueAt(i, 2),
+                            original.getValueAt(i, 3),
+                            original.getValueAt(i, 4)
+                        });
+            }
+
             vista.getJlNombreReporteAbonos().setText(clienteBuscando.getNombre());
-            vista.getJtReporteAbonos().setModel(datos);
 
             double total = 0;
             for (int i = 0; i < datos.getRowCount(); i++) {
                 total += Double.parseDouble(datos.getValueAt(i, 3).toString());
             }
-            vista.getJlTotalReporteAbonos().setText(String.format(Locale.ENGLISH, "$%,.2f", total));
             vista.getJdReporteDeAbonos().setSize(vista.getJdReporteDeAbonos().getPreferredSize());
             vista.getJdReporteDeAbonos().setLocationRelativeTo(null);
             vista.getJdReporteDeAbonos().setVisible(true);
