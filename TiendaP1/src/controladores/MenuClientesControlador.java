@@ -450,16 +450,16 @@ public class MenuClientesControlador implements ActionListener {
         System.out.println("Fecha SQL en enviaUltimo: " + dateFormat.format(fecha));
         Abono abono = AbonoDAO.getInstance().buscaAbono(clienteBuscando.getIdCliente(), dateFormat.format(fecha));
         String contenido = "Último depósito realizado: " + String.format("%te de %<tB a las %<tH:%<tM", abono.getFecha_hora().getTime())
-                + "\nSaldo antes del último depósito: " +String.format("$%,.2f", abono.getSaldo_anterior())  + "\nDepósito realizado: " + String.format("$%,.2f",abono.getMonto())
-                + "\nSaldo después del último depósito: " + String.format("$%,.2f",abono.getSaldo_nuevo())
-                + "\n\n Tu consumo desde el último depósito hasta ahora: "+String.format("%te de %<tB a las %<tH:%<tM", new java.util.Date())+"\n\n";
+                + "\n<br>Saldo antes del último depósito: " +String.format("$%,.2f", abono.getSaldo_anterior())  + "\n<br>Depósito realizado: " + String.format("$%,.2f",abono.getMonto())
+                + "\n<br>Saldo después del último depósito: " + String.format("$%,.2f",abono.getSaldo_nuevo())
+                + "\n\n<br><br>Tu consumo desde el último depósito hasta ahora: "+String.format("%te de %<tB a las %<tH:%<tM", new java.util.Date())+"\n\n<br><br>";
         for (int i = 0; i < vista.getJtReporte().getRowCount(); i++) {
             contenido = contenido + String.format("%td-%<tb %<tH:%<tM", new Date(((Timestamp)vista.getJtReporte().getValueAt(i, 0)).getTime())) + " - ";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 1).toString() + " - ";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
-            contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
+            contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n<br>";
         }
-        contenido = contenido + "Total: " + vista.getJlTotal().getText()+"\nTú saldo actual es de: "+String.format("$%,.2f", clienteBuscando.getSaldo());
+        contenido = contenido + "Total: " + vista.getJlTotal().getText()+"\n<br><br>Tú saldo actual es de: "+String.format("$%,.2f", clienteBuscando.getSaldo());
         
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
