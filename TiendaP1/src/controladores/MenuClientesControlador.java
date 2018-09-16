@@ -476,19 +476,17 @@ public class MenuClientesControlador implements ActionListener {
         if (vista.getJtDatos().getSelectedRow() != -1
                 && Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString()) != 1) {
             clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
-
-            DefaultTableModel datos;
             DefaultTableModel original = (DefaultTableModel) vista.getJtReporteAbonos().getModel();
-
-            datos = AbonoDAO.getInstance().abonos(clienteBuscando.getIdCliente());
+            original.setRowCount(0);
+            
+            DefaultTableModel datos = AbonoDAO.getInstance().abonos(clienteBuscando.getIdCliente());
             for (int i = 0; i < datos.getRowCount(); i++) {
                 original.addRow(
                         new Object[]{
-                            // idAbono, idAlumno, monto, antes, depues, fecha
-                            original.getValueAt(i, 5),
-                            original.getValueAt(i, 2),
-                            original.getValueAt(i, 3),
-                            original.getValueAt(i, 4)
+                            datos.getValueAt(i, 5),
+                            datos.getValueAt(i, 2),
+                            datos.getValueAt(i, 3),
+                            datos.getValueAt(i, 4)
                         });
             }
 
