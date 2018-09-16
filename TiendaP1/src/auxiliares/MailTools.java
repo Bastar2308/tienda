@@ -78,7 +78,7 @@ public class MailTools {
     public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
         try {
             BodyPart texto = new MimeBodyPart();
-            texto.setText(mensaje);
+            texto.setContent("<html><head></head>"+mensaje+"</html>", "text/html; charset=utf-8");
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
             Message message = new MimeMessage(session);
