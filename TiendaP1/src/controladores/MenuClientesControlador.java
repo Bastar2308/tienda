@@ -484,7 +484,7 @@ public class MenuClientesControlador implements ActionListener {
             for (int i = 0; i < datos.getRowCount(); i++) {
                 original.addRow(
                         new Object[]{
-                            // idAbono, idAlomno, monto, antes, depues, fecha
+                            // idAbono, idAlumno, monto, antes, depues, fecha
                             original.getValueAt(i, 5),
                             original.getValueAt(i, 2),
                             original.getValueAt(i, 3),
