@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -437,39 +438,32 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     private void enviaUltimoDeposito() {
-//        Date date = new Date(AbonoDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()));
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        
         Date fecha = new Date(AbonoDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()));
         System.out.println("Fecha SQL en enviaUltimo: " + dateFormat.format(fecha));
         Abono abono = AbonoDAO.getInstance().buscaAbono(clienteBuscando.getIdCliente(), dateFormat.format(fecha));
-        String contenido = "Último depósito realizado: " + dateFormat.format(abono.getFecha_hora().getTime())
-                + " \n Saldo antes del último depósito: " + abono.getSaldo_anterior() + "\nDepósito realizado: " + abono.getMonto()
-                + "\n Saldo después del último depósito: " + abono.getSaldo_nuevo()
-                + "\n\n Consumo desde el último pago, " + dateFormat.format(abono.getFecha_hora().getTime())
-                + " hasta: " + vista.getJlHasta().getText() + "\n\n";
+        String contenido = "Último <b>depósito</b> realizado: " + String.format("%te de %<tB a las %<tH:%<tM", abono.getFecha_hora().getTime())
+                + "\nSaldo antes del último depósito: " +String.format("$%,.2f", abono.getSaldo_anterior())  + "\nDepósito realizado: " + String.format("$%,.2f",abono.getMonto())
+                + "\nSaldo después del último depósito: " + String.format("$%,.2f",abono.getSaldo_nuevo())
+                + "\n\n Tu consumo desde el último depósito hasta ahora: "+String.format("%te de %<tB a las %<tH:%<tM", new java.util.Date())+"\n\n";
         for (int i = 0; i < vista.getJtReporte().getRowCount(); i++) {
-            contenido = contenido + vista.getJtReporte().getValueAt(i, 0).toString() + " - ";
+            contenido = contenido + String.format("%td-%<tb %<tH:%<tM", new Date(((Timestamp)vista.getJtReporte().getValueAt(i, 0)).getTime())) + " - ";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 1).toString() + " - ";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n";
         }
-        contenido = contenido + "Total: " + vista.getJlTotal().getText();
-        if (clienteBuscando.getSaldo() <= 0) {
-            contenido = contenido + "\n\nSaldo a favor: " + 0;
-            contenido = contenido + "\nSaldo en contra: " + clienteBuscando.getSaldo();
-        } else {
-            contenido = contenido + "\n\nSaldo a favor: " + clienteBuscando.getSaldo();
-            contenido = contenido + "\nSaldo en contra: " + 0;
-        }
+        contenido = contenido + "Total: " + vista.getJlTotal().getText()+"\nTú saldo actual es de: "+String.format("$%,.2f", clienteBuscando.getSaldo());
+        
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
-                "Consumo: " + vista.getJlNombre().getText() + " " + abono.getFecha_hora() + " - " + vista.getJlHasta().getText(),
+                "Consumo: " + vista.getJlNombre().getText() + " desde último abono",
                 contenido);
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {
-        System.out.println("Hol");
+        System.out.println("Hoa");
     }
 
     private void reporteDeAbonos() {
