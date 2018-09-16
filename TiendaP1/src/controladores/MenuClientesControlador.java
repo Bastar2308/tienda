@@ -175,9 +175,13 @@ public class MenuClientesControlador implements ActionListener {
                 ver();
             }
         } else if (e.getSource().equals(vista.getJbReporte())) {
-            reporte();
-            caso = 0;
-            System.out.println("JbReporte \ncaso: " + caso);
+            try {
+                reporte();
+                caso = 0;
+                System.out.println("JbReporte \ncaso: " + caso);
+            } catch (Exception ex) {
+                System.out.println("No se seleccionó nada");
+            }
         } else if (e.getSource().equals(vista.getJbEnviar())) {
             if (caso == 0) {
                 envia();
@@ -188,8 +192,13 @@ public class MenuClientesControlador implements ActionListener {
             }
 
         } else if (e.getSource().equals(vista.getReporteDesdeAbono())) {
-            reporte(AbonoDAO.getInstance().ultimoAbono(
+            try {
+                reporte(AbonoDAO.getInstance().ultimoAbono(
                     Integer.parseInt(vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0).toString())));
+            } catch (Exception e2) {
+                System.out.println("Error: "+e);
+            }
+            
         } else if (e.getSource().equals(vista.getJbReporteAbonos())) {
             reporteDeAbonos();
         }
@@ -393,18 +402,15 @@ public class MenuClientesControlador implements ActionListener {
 
     private void reporte(long ultimo) {
         caso = 1;
-        System.out.println("Caso: " + caso);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if (vista.getJtDatos().getSelectedRow() != -1) {
-            JOptionPane.showConfirmDialog(null, new Object[]{"Desde:", desde, "Hasta:", hasta}, "Seleccione rango del reporte", JOptionPane.PLAIN_MESSAGE);
             DefaultTableModel original = (DefaultTableModel) vista.getJtReporte().getModel();
             double totalRango = 0;
             original.setRowCount(0);
-            System.out.println("FechaSQL: " + dateFormat.format(ultimo));
             DefaultTableModel datos = ConsultasDAO.getInstance().consultaComprasEnRango(
                     (int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0),
                     dateFormat.format(ultimo),
-                    new Date(hasta.getDate().getTime()));
+                    new Date(new java.util.Date().getTime()));
             for (int i = 0; i < datos.getRowCount(); i++) {
                 original.addRow(new Object[]{datos.getValueAt(i, 0), datos.getValueAt(i, 1), datos.getValueAt(i, 2), datos.getValueAt(i, 3)});
                 totalRango += Double.parseDouble(String.valueOf(datos.getValueAt(i, 3).toString()));
@@ -412,7 +418,7 @@ public class MenuClientesControlador implements ActionListener {
             clienteBuscando = ClienteDAO.getInstance().buscaCliente((int) vista.getJtDatos().getValueAt(vista.getJtDatos().getSelectedRow(), 0));
             vista.getJlNombre().setText(clienteBuscando.getNombre());
             vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", new Date(ultimo)));
-            vista.getJlHasta().setText(String.format("%tA, %<te de %<tB", hasta.getDate()));
+            vista.getJlHasta().setText("ahora");
             vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
             vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
             GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
@@ -443,7 +449,7 @@ public class MenuClientesControlador implements ActionListener {
         Date fecha = new Date(AbonoDAO.getInstance().ultimoAbono(clienteBuscando.getIdCliente()));
         System.out.println("Fecha SQL en enviaUltimo: " + dateFormat.format(fecha));
         Abono abono = AbonoDAO.getInstance().buscaAbono(clienteBuscando.getIdCliente(), dateFormat.format(fecha));
-        String contenido = "Último <b>depósito</b> realizado: " + String.format("%te de %<tB a las %<tH:%<tM", abono.getFecha_hora().getTime())
+        String contenido = "Último depósito realizado: " + String.format("%te de %<tB a las %<tH:%<tM", abono.getFecha_hora().getTime())
                 + "\nSaldo antes del último depósito: " +String.format("$%,.2f", abono.getSaldo_anterior())  + "\nDepósito realizado: " + String.format("$%,.2f",abono.getMonto())
                 + "\nSaldo después del último depósito: " + String.format("$%,.2f",abono.getSaldo_nuevo())
                 + "\n\n Tu consumo desde el último depósito hasta ahora: "+String.format("%te de %<tB a las %<tH:%<tM", new java.util.Date())+"\n\n";
