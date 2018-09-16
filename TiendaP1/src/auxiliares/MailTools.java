@@ -77,12 +77,16 @@ public class MailTools {
      */
     public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
         try {
+            BodyPart texto = new MimeBodyPart();
+            texto.setText(mensaje);
+            MimeMultipart multiParte = new MimeMultipart();
+            multiParte.addBodyPart(texto);
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("bastarpuntodeventa@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
-            message.setText(mensaje);
+            message.setContent(multiParte);
 
             Transport.send(message);
             System.out.println("Enviado con éxito a:" + destinatario);
@@ -92,6 +96,10 @@ public class MailTools {
             System.out.println("Error en el envío " + e);
             return false;
         }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hola");
     }
 
     /**
