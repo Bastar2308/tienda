@@ -493,11 +493,6 @@ public class MenuClientesControlador implements ActionListener {
             }
 
             vista.getJlNombreReporteAbonos().setText(clienteBuscando.getNombre());
-
-            double total = 0;
-            for (int i = 0; i < datos.getRowCount(); i++) {
-                total += Double.parseDouble(datos.getValueAt(i, 3).toString());
-            }
             vista.getJdReporteDeAbonos().setSize(vista.getJdReporteDeAbonos().getPreferredSize());
             vista.getJdReporteDeAbonos().setLocationRelativeTo(null);
             vista.getJdReporteDeAbonos().setVisible(true);
