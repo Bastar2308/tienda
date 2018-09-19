@@ -461,7 +461,7 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + "<td>" + (int)Double.parseDouble(vista.getJtReporte().getValueAt(i, 2).toString()) + " </td><td>";
             contenido = contenido + String.format("$%,.2f", Double.parseDouble(vista.getJtReporte().getValueAt(i, 3).toString())) + "\n</td></tr>";
         }
-        contenido = contenido + "</table><br>Total: " + vista.getJlTotal().getText()+"\n<br><br>Tu saldo actual es de: "+String.format("$%,.2f", clienteBuscando.getSaldo());
+        contenido = contenido + "</table><br>Total: <b>" + vista.getJlTotal().getText()+"</b>\n<br><br>Tu saldo actual es de: <b>"+String.format("$%,.2f", clienteBuscando.getSaldo()) + "</b>";
         
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
