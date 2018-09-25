@@ -107,6 +107,7 @@ public class GuiTools {
     public void abreDialogo(JDialog dialogo, int largo, int alto) {
         dialogo.setSize(dialogo.getPreferredSize());
         dialogo.setLocationRelativeTo(null);
+        dialogo.pack();
         dialogo.setVisible(true);
     }
 
