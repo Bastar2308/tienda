@@ -23,6 +23,6 @@ public class Prueba {
         Prefs.put(ENCARGADO, "Raquel Perez");
         Prefs.put(TELEFONO, "22-25925922259");
         Prefs.put(DIRECCION, "Costa de oro");
-//        System.out.println("El valor es: " + Prefs.get("pr"));
+//        System.out.println("El valor es: " + Prefs.get(NEGOCIO));
     }
 }
