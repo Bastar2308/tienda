@@ -6,6 +6,7 @@
 package controladores;
 
 import auxiliares.GuiTools;
+import auxiliares.Prefs;
 import gui.JfMenuCargaSaldo;
 import gui.JfMenuClientes;
 import gui.JfMenuPrincipal;
@@ -45,10 +46,18 @@ public class PreferenciasControlador implements ActionListener {
     }
 
     private void guarda() {
-        
+        Prefs.put(Prefs.NEGOCIO, vista.getJlNegocio().getText());
+        Prefs.put(Prefs.ESCUELA, vista.getJlEscuela().getText());
+        Prefs.put(Prefs.ENCARGADO, vista.getJlEncargado().getText());
+        Prefs.put(Prefs.TELEFONO, vista.getJlTelefono().getText());
+        Prefs.put(Prefs.DIRECCION, vista.getJlDireccion().getText());
     }
 
     private void cargaDatos() {
-//        vista.getJlNegocio(pref);
+        vista.getJlNegocio().setText(Prefs.get(Prefs.NEGOCIO));
+        vista.getJlEscuela().setText(Prefs.get(Prefs.ESCUELA));
+        vista.getJlEncargado().setText(Prefs.get(Prefs.ENCARGADO));
+        vista.getJlTelefono().setText(Prefs.get(Prefs.TELEFONO));
+        vista.getJlDireccion().setText(Prefs.get(Prefs.DIRECCION));
     }
 }
