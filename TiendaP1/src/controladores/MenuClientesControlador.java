@@ -435,7 +435,7 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 2).toString() + " - $";
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n<br>";
         }
-        contenido = contenido + "Total: " + vista.getJlTotal().getText();
+        contenido = contenido + "Total: <b>" + vista.getJlTotal().getText()+"</b>";
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),

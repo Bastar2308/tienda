@@ -78,7 +78,7 @@ public class MailTools {
     public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
         try {
             BodyPart texto = new MimeBodyPart();
-            texto.setContent("<html><head></head>"+mensaje+"</html>", "text/html; charset=utf-8");
+            texto.setContent("<html><head></head>"+generaEncabezado()+mensaje+"</html>", "text/html; charset=utf-8");
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
             Message message = new MimeMessage(session);
@@ -96,6 +96,15 @@ public class MailTools {
             System.out.println("Error en el envío " + e);
             return false;
         }
+    }
+    
+    public String generaEncabezado(){
+        String encabezado = "<b></b><br>Cafetería: <b></b><br>"
+                + "Atendido por: <b></b><br>"
+                + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b></b><br>"
+                + "<div width='100%' style='background-color:#000000'><p>línea</p></div><br>"
+                + "<h1><center>Estado de cuenta</center></h1><br>";
+        return encabezado;
     }
     
     public static void main(String[] args) {
