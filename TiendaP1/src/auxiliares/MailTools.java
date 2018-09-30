@@ -99,9 +99,10 @@ public class MailTools {
     }
     
     public String generaEncabezado(){
-        String encabezado = "<b></b><br>Cafetería: <b></b><br>"
-                + "Atendido por: <b></b><br>"
-                + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b></b><br>"
+        String encabezado = "<b>"+Prefs.get(Prefs.ESCUELA)+"</b>"
+                + "<br>Cafetería: <b>"+Prefs.get(Prefs.NEGOCIO)+"</b><br>"
+                + "Encargado: <b>"+Prefs.get(Prefs.ENCARGADO)+"</b><br>"
+                + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b>"+Prefs.get(Prefs.TELEFONO)+"</b><br>"
                 + "<div width='100%' style='background-color:#000000'><p>línea</p></div><br>"
                 + "<h1><center>Estado de cuenta</center></h1><br>";
         return encabezado;
