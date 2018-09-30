@@ -95,7 +95,6 @@ public class PreferenciasControlador implements ActionListener {
 
     private void intentaRegresar() {
         if (modifico) {
-            System.out.println("MODIFICOOO");
             if (JOptionPane.showConfirmDialog(null, "¿Regresar sin guardar cambios?", "Información", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)
                     == JOptionPane.YES_OPTION) {
                 regresa();
