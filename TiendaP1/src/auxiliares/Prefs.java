@@ -19,7 +19,7 @@ public class Prefs {
         return prefs.get(requerido, "N/A");
     }
 
-    public static void put(String key, String value) {
-        prefs.put(key, value);
+    public static void put(int key, String value) {
+        prefs.put(String.valueOf(key), value);
     }
 }
