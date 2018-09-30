@@ -13,25 +13,13 @@ import java.util.prefs.Preferences;
  */
 public class Prefs {
 
-//    public static final int NEGOCIO = 1;
-//    public static final int ESCUELA = 2;
-//    public static final int ENCARGADO = 3;
-//    public static final int TELEFONO = 4;
-//    public static final int DIRECCION = 5;
+    private static Preferences prefs = Preferences.userRoot().node("/auxiliares/Prefs");
+
     public static String get(String requerido) {
-//        Preferences prefs = Preferences.systemNodeForPackage(auxiliares.Prefs.class);
-//        return prefs.get(requerido, "N/A");
-        return "EN PROCESO";
+        return prefs.get(requerido, "N/A");
     }
 
     public static void put(String key, String value) {
-//        Preferences prefs = Preferences.systemNodeForPackage(auxiliares.Prefs.class);
-//        prefs.put(key, value);
-        throw new UnsupportedOperationException("Not supported yet.");
+        prefs.put(key, value);
     }
-
-    private static void d() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
