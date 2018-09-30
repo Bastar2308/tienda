@@ -49,6 +49,6 @@ public class PreferenciasControlador implements ActionListener {
     }
 
     private void cargaDatos() {
-        
+//        vista.getJlNegocio(pref);
     }
 }
