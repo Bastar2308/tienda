@@ -12,9 +12,9 @@ package auxiliares;
 public class Prueba {
 
     public static void main(String[] args) {
-        Prefs.put("pr", "DD");
+        //Prefs.put("pr", "DD");
         System.out.println("El valor es: " + Prefs.get("pr"));
-        Prefs.put("pr", "AA");
-        System.out.println("El valor es: " + Prefs.get("pr"));
+//        //Prefs.put("pr", "AA");
+//        System.out.println("El valor es: " + Prefs.get("pr"));
     }
 }
