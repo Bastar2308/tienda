@@ -39,6 +39,14 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
         this.jbSalir = jbSalir;
     }
 
+    public javax.swing.JButton getJbPrefs() {
+        return jbPrefs;
+    }
+
+    public void setJbPrefs(javax.swing.JButton jbPrefs) {
+        this.jbPrefs = jbPrefs;
+    }
+
     private static class JfMenuPrincipalHolder {
 
         private static final JfMenuPrincipal INSTANCE = new JfMenuPrincipal();
@@ -97,6 +105,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
         jlUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jbSalir = new javax.swing.JButton();
+        jbPrefs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
@@ -176,7 +185,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbCargarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,6 +239,13 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/salirmenor.png"))); // NOI18N
 
+        jbPrefs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/prefs.png"))); // NOI18N
+        jbPrefs.setBorder(null);
+        jbPrefs.setBorderPainted(false);
+        jbPrefs.setContentAreaFilled(false);
+        jbPrefs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbPrefs.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/prefsmenor.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,11 +257,13 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbPrefs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbAyuda)
                 .addGap(18, 18, 18)
                 .addComponent(jbSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -257,10 +275,11 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jbAyuda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbPrefs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -276,6 +295,7 @@ public class JfMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbFinanzas;
     private javax.swing.JButton jbGeneradorDeCredenciales;
     private javax.swing.JButton jbMenuProductos;
+    private javax.swing.JButton jbPrefs;
     private javax.swing.JButton jbPuntoDeVista;
     private javax.swing.JButton jbSalir;
     private javax.swing.JLabel jlUsuario;
