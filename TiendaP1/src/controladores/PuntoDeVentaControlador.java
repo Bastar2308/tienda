@@ -19,6 +19,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -92,6 +93,51 @@ public class PuntoDeVentaControlador implements ActionListener {
             }
         }
         );
+        addListenersKey();
+    }
+
+    private void addListenersKey() {
+        EscuchaF10 f10 = new EscuchaF10();
+        vista.addKeyListener(f10);
+        vista.getJbAgregar().addKeyListener(f10);
+        vista.getJbConfirmaVenta().addKeyListener(f10);
+        vista.getJbEliminar().addKeyListener(f10);
+        vista.getJbLimpiar().addKeyListener(f10);
+        vista.getJbRegresar().addKeyListener(f10);
+        vista.getJbSeleccionaCliente().addKeyListener(f10);
+        vista.getJlFoto().addKeyListener(f10);
+        vista.getJlGrupo().addKeyListener(f10);
+        vista.getJlId().addKeyListener(f10);
+        vista.getJlNombre().addKeyListener(f10);
+        vista.getJlProductos().addKeyListener(f10);
+        vista.getJlSaldo().addKeyListener(f10);
+        vista.getJlTotal().addKeyListener(f10);
+        vista.getJtClientes().addKeyListener(f10);
+        vista.getJtProductos().addKeyListener(f10);
+        vista.getJtProductosSeleccionados().addKeyListener(f10);
+        vista.getjTObservaciones().addKeyListener(f10);
+        vista.getTfFiltrar().addKeyListener(f10);
+        vista.getTfFiltrarProductos().addKeyListener(f10);
+        vista.getTfFiltrarClientes().addKeyListener(f10);
+
+    }
+
+    class EscuchaF10 implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent ke) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent ke) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent ke) {
+            if (ke.getKeyCode() == 121) {
+                confirmaVenta();
+            }
+        }
     }
 
     @Override
