@@ -439,7 +439,7 @@ public class MenuClientesControlador implements ActionListener {
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
-                contenido);
+                contenido, "Estado de cuenta");
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -476,7 +476,7 @@ public class MenuClientesControlador implements ActionListener {
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " desde último abono",
-                contenido);
+                contenido, "Estado de cuenta");
         JOptionPane.showMessageDialog(null, "Reporte enviado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 

@@ -75,10 +75,10 @@ public class MailTools {
      * @param mensaje
      *
      */
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje) {
+    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, String titulo) {
         try {
             BodyPart texto = new MimeBodyPart();
-            texto.setContent("<html><head></head>"+generaEncabezado()+mensaje+"</html>", "text/html; charset=utf-8");
+            texto.setContent("<html><head></head>"+generaEncabezado(titulo)+mensaje+"</html>", "text/html; charset=utf-8");
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
             Message message = new MimeMessage(session);
@@ -98,13 +98,13 @@ public class MailTools {
         }
     }
     
-    public String generaEncabezado(){
+    public String generaEncabezado(String titulo){
         String encabezado = "<b>"+Prefs.get(Prefs.ESCUELA)+"</b>"
                 + "<br>Cafetería: <b>"+Prefs.get(Prefs.NEGOCIO)+"</b><br>"
                 + "Encargado: <b>"+Prefs.get(Prefs.ENCARGADO)+"</b><br>"
                 + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b>"+Prefs.get(Prefs.TELEFONO)+"</b><br>"
                 + "<div width='100%' style='background-color:#000000'><p>línea</p></div><br>"
-                + "<h1><center>Estado de cuenta</center></h1><br>";
+                + "<h1><center>"+titulo+"</center></h1><br>";
         return encabezado;
     }
     

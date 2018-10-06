@@ -202,7 +202,8 @@ public class MenuCargaSaldoControlador implements ActionListener {
         MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"), 
                 correo, 
                 "Recarga de saldo de "+alumno, 
-                "Su recarga de $"+recarga+".00 ha sido realizada exitosamente para el alumno "+alumno+"\nSu saldo actual es de: $"+saldo+".");
+                "Su recarga de $"+recarga+".00 ha sido realizada exitosamente para el alumno "+alumno+"\nSu saldo actual es de: $"+saldo+".",
+                "Recarga de saldo");
         System.out.println("Enviado a: "+correo);
     }
     

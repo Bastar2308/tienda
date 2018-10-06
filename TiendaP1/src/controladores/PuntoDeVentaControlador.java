@@ -134,7 +134,7 @@ public class PuntoDeVentaControlador implements ActionListener {
 
         @Override
         public void keyReleased(KeyEvent ke) {
-            if (ke.getKeyCode() == 121) {
+            if (ke.getKeyCode() == KeyEvent.VK_F10) {
                 confirmaVenta();
             }
         }
