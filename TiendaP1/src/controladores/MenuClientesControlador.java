@@ -419,7 +419,7 @@ public class MenuClientesControlador implements ActionListener {
             vista.getJlNombre().setText(clienteBuscando.getNombre());
             vista.getJlDesde().setText(String.format("%tA, %<te de %<tB", new Date(ultimo)));
             vista.getJlHasta().setText("ahora");
-            vista.getJbEnviar().setText(vista.getJbReporte().getText() + " (" + clienteBuscando.getCorreo() + ")");
+            vista.getJbEnviar().setText(vista.getJbEnviar().getText() + " (" + clienteBuscando.getCorreo() + ")");
             vista.getJlTotal().setText(String.format(Locale.ENGLISH, "$%,.2f", totalRango));
             GuiTools.getInstance().abreDialogo(vista.getJdReporte(), vista.getJdReporte().getPreferredSize());
             desde.setDate(null);
