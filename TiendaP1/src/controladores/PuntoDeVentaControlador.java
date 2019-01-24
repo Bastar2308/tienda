@@ -130,6 +130,9 @@ public class PuntoDeVentaControlador implements ActionListener {
 
         @Override
         public void keyPressed(KeyEvent ke) {
+            if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+                seleccionaCliente();
+            }
         }
 
         @Override
@@ -137,7 +140,9 @@ public class PuntoDeVentaControlador implements ActionListener {
             if (ke.getKeyCode() == KeyEvent.VK_F10) {
                 confirmaVenta();
             }
+
         }
+
     }
 
     @Override
