@@ -131,10 +131,7 @@ public class PuntoDeVentaControlador implements ActionListener {
         @Override
         public void keyPressed(KeyEvent ke) {
             if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
-                vista.getJtClientes().changeSelection(0, 0, false, false);
                 seleccionaCliente();
-                vista.getTfFiltrarProductos().requestFocus();
-                vista.getTfFiltrarClientes().setText(null);
             }
         }
 
@@ -173,7 +170,6 @@ public class PuntoDeVentaControlador implements ActionListener {
         } else if (e.getSource().equals(vista.getJbSeleccionaCliente())) {
             if (vista.getJtClientes().getSelectedRow() != -1) {
                 seleccionaCliente();
-                vista.getTfFiltrarProductos().requestFocus();
             }
         }
         actualizaTotales();
