@@ -41,7 +41,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.activation.FileDataSource;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -317,7 +316,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        File outputfile = new File(System.getProperty("user.home") + "/Documents/system32/");
+/*        File outputfile = new File(System.getProperty("user.home") + "/Documents/system32/");
         FileTools.getInstance().verificaDirectorio(outputfile);
         outputfile = FileTools.getInstance().nombraImagenes(outputfile, "");
 
@@ -337,7 +336,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
             Logger.getLogger(CredencialGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(CredencialGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public BufferedImage createImage(JPanel panel) {

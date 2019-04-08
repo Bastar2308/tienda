@@ -11,8 +11,6 @@ import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.Properties;
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -82,7 +80,7 @@ public class MailTools {
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("bastarpuntodeventa@hotmail.com"));
+            message.setFrom(new InternetAddress("cafeteriakpbaltico@hotmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
@@ -122,7 +120,7 @@ public class MailTools {
      * @param archivo
      *
      */
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, FileDataSource archivo) {
+/*    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, FileDataSource archivo) {
         try {
             BodyPart texto = new MimeBodyPart();
             texto.setText(mensaje);
@@ -136,7 +134,7 @@ public class MailTools {
             multiParte.addBodyPart(adjunto);
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("bastarpuntodeventa@hotmail.com"));
+            message.setFrom(new InternetAddress("cafeteriakpbaltico@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
@@ -150,7 +148,7 @@ public class MailTools {
             System.out.println("Error en el envío " + e);
             return false;
         }
-    }
+    }*/
     /**
      * Crea un registro de error
      *
