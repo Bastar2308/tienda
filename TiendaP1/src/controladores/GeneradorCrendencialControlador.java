@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.activation.FileDataSource;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -109,11 +110,6 @@ public class GeneradorCrendencialControlador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-  /*  public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(vista.getJbTomar())) {
             vista2.getJpPanel().pause();
         } else if (e.getSource().equals(vista.getJbRepetir())) {
@@ -131,7 +127,7 @@ public class GeneradorCrendencialControlador implements ActionListener{
         } else if (e.getSource().equals(vista.getJbRegresar())) {
             GuiTools.getInstance().abre(vista, JfMenuGeneradorCredenciales.getInstance());
         }
-    }*/
+    }
     
     public BufferedImage createImage(JPanel panel) {
         int w = panel.getWidth();
@@ -198,11 +194,11 @@ public class GeneradorCrendencialControlador implements ActionListener{
         System.out.println("Dimensiones: "+vista.getJlQr().getWidth());
     }
     
-//    void guardarImagen(File outputfile) throws IOException{
-//        ImageIO.write(createImage(vista.getJpCredencial()), "png", outputfile);
-//        System.out.println("Éxito al guardar credencial");
-//        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
-//                "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB",
-//                new FileDataSource(outputfile));
-//    }
+    void guardarImagen(File outputfile) throws IOException{
+        ImageIO.write(createImage(vista.getJpCredencial()), "png", outputfile);
+        System.out.println("Éxito al guardar credencial");
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+                "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB",
+                new FileDataSource(outputfile));
+    }
 }

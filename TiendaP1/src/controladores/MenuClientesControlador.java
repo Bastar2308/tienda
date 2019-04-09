@@ -436,7 +436,7 @@ public class MenuClientesControlador implements ActionListener {
             contenido = contenido + vista.getJtReporte().getValueAt(i, 3).toString() + "\n<br>";
         }
         contenido = contenido + "Total: <b>" + vista.getJlTotal().getText()+"</b>";
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("cafeteriakpbaltico@hotmail.com", "R4quel_23"),
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " " + vista.getJlDesde().getText() + " - " + vista.getJlHasta().getText(),
                 contenido, "Estado de cuenta");
@@ -473,7 +473,7 @@ public class MenuClientesControlador implements ActionListener {
         }
         contenido = contenido + "</table><br>Total: <b>" + vista.getJlTotal().getText()+"</b>\n<br><br>Tu saldo actual es de: <b>"+String.format("$%,.2f", clienteBuscando.getSaldo()) + "</b>";
         
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("cafeteriakpbaltico@hotmail.com", "R4quel_23"),
+        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("bastarpuntodeventa@hotmail.com", "puntodeventa23"),
                 clienteBuscando.getCorreo(),
                 "Consumo: " + vista.getJlNombre().getText() + " desde último abono",
                 contenido, "Estado de cuenta");
@@ -481,7 +481,7 @@ public class MenuClientesControlador implements ActionListener {
     }
 
     public static void main(String[] args) {
-        
+        System.out.println("Hoa");
     }
 
     private void reporteDeAbonos() {
