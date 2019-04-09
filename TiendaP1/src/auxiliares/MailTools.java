@@ -1,15 +1,5 @@
 package auxiliares;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamPanel;
-import com.github.sarxos.webcam.WebcamResolution;
-import java.awt.Dimension;
-import java.io.File;
 import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -24,10 +14,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-/**
- *
- * @author Fernando
- */
 public class MailTools {
 
     String sender = "cafeteriakpbaltico@hotmail.com";
@@ -56,7 +42,6 @@ public class MailTools {
         props.put("mail.smtp.auth", true);
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.ssl.trust", "smtp.live.com");
-//        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.host", "smtp.live.com");
         props.put("mail.smtp.port", "587");
 
@@ -72,10 +57,10 @@ public class MailTools {
     /**
      * Envía un correo desde una sesión iniciada
      *
-     * @param session
      * @param destinatario
      * @param asunto
      * @param mensaje
+     * @param titulo
      *
      */
     public boolean enviarCorreo(String destinatario, String asunto, String mensaje, String titulo) {
@@ -119,7 +104,6 @@ public class MailTools {
     /**
      * Envía un correo desde una sesión iniciada adjuntando un archivo
      *
-     * @param session
      * @param destinatario
      * @param asunto
      * @param mensaje
@@ -155,11 +139,4 @@ public class MailTools {
             return false;
         }
     }
-    /**
-     * Crea un registro de error
-     *
-     * @param mensaje
-     * @param e
-     */
-
 }
