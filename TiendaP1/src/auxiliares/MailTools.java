@@ -30,8 +30,8 @@ import javax.mail.internet.MimeMultipart;
  */
 public class MailTools {
 
-    String sender = "bastarpuntodeventa@hotmail.com";
-    String pass = "puntodeventa23";
+    String sender = "cafeteriakpbaltico@hotmail.com";
+    String pass = "R4quel_1";
 
     private MailTools() {
     }
