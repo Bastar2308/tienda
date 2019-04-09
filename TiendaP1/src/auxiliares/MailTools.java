@@ -30,6 +30,9 @@ import javax.mail.internet.MimeMultipart;
  */
 public class MailTools {
 
+    String sender = "bastarpuntodeventa@hotmail.com";
+    String pass = "puntodeventa23";
+
     private MailTools() {
     }
 
@@ -59,10 +62,10 @@ public class MailTools {
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(correo, password);
-            }
-        });
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(correo, password);
+                    }
+                });
         return session;
     }
 
@@ -75,14 +78,15 @@ public class MailTools {
      * @param mensaje
      *
      */
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, String titulo) {
+    public boolean enviarCorreo(String destinatario, String asunto, String mensaje, String titulo) {
         try {
             BodyPart texto = new MimeBodyPart();
-            texto.setContent("<html><head></head>"+generaEncabezado(titulo)+mensaje+"</html>", "text/html; charset=utf-8");
+            texto.setContent("<html><head></head>" + generaEncabezado(titulo) + mensaje + "</html>", "text/html; charset=utf-8");
             MimeMultipart multiParte = new MimeMultipart();
             multiParte.addBodyPart(texto);
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("bastarpuntodeventa@hotmail.com"));
+
+            Message message = new MimeMessage(iniciarSesion(sender, pass));
+            message.setFrom(new InternetAddress(sender));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
@@ -97,17 +101,17 @@ public class MailTools {
             return false;
         }
     }
-    
-    public String generaEncabezado(String titulo){
-        String encabezado = "<b>"+Prefs.get(Prefs.ESCUELA)+"</b>"
-                + "<br>Cafetería: <b>"+Prefs.get(Prefs.NEGOCIO)+"</b><br>"
-                + "Encargado: <b>"+Prefs.get(Prefs.ENCARGADO)+"</b><br>"
-                + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b>"+Prefs.get(Prefs.TELEFONO)+"</b><br>"
+
+    public String generaEncabezado(String titulo) {
+        String encabezado = "<b>" + Prefs.get(Prefs.ESCUELA) + "</b>"
+                + "<br>Cafetería: <b>" + Prefs.get(Prefs.NEGOCIO) + "</b><br>"
+                + "Encargado: <b>" + Prefs.get(Prefs.ENCARGADO) + "</b><br>"
+                + "Cualquier duda o aclaración con gusto le atendemos al teléfono: <b>" + Prefs.get(Prefs.TELEFONO) + "</b><br>"
                 + "<div width='100%' style='background-color:#000000'><p>línea</p></div><br>"
-                + "<h1><center>"+titulo+"</center></h1><br>";
+                + "<h1><center>" + titulo + "</center></h1><br>";
         return encabezado;
     }
-    
+
     public static void main(String[] args) {
         System.out.println("Hola");
     }
@@ -122,7 +126,7 @@ public class MailTools {
      * @param archivo
      *
      */
-    public boolean enviarCorreo(Session session, String destinatario, String asunto, String mensaje, FileDataSource archivo) {
+    public boolean enviarCorreo(String destinatario, String asunto, String mensaje, FileDataSource archivo) {
         try {
             BodyPart texto = new MimeBodyPart();
             texto.setText(mensaje);
@@ -135,15 +139,15 @@ public class MailTools {
             multiParte.addBodyPart(texto);
             multiParte.addBodyPart(adjunto);
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("bastarpuntodeventa@hotmail.com"));
+            Message message = new MimeMessage(iniciarSesion(sender, pass));
+            message.setFrom(new InternetAddress(sender));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(destinatario));
             message.setSubject(asunto);
             message.setContent(multiParte);
 
             Transport.send(message);
-            System.out.println("Enviado con éxito a:"+destinatario);
+            System.out.println("Enviado con éxito a:" + destinatario);
             return true;
 
         } catch (MessagingException e) {
@@ -157,5 +161,5 @@ public class MailTools {
      * @param mensaje
      * @param e
      */
-    
+
 }

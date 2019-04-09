@@ -324,7 +324,7 @@ public class CredencialGUI extends javax.swing.JFrame implements Printable, Runn
         try {
             ImageIO.write(createImage(jPanel1), "png", outputfile);
             System.out.println("Éxito al guardar credencial");
-            MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+            MailTools.getInstance().enviarCorreo(
                     "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB",
                     new FileDataSource(outputfile));
         } catch (IOException ex) {

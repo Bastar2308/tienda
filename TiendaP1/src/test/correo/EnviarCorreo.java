@@ -53,7 +53,7 @@ public class EnviarCorreo {
             System.out.println("Error en el envío");
             throw new RuntimeException(e);
         }*/
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+        MailTools.getInstance().enviarCorreo(
                 "aaronlr160399@hotmail.com", "Funciona", "Mensaje enviado desde STCBB",
                 new FileDataSource("C:/Users/aaron/Desktop/0001.jpg"));
     }

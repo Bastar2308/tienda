@@ -197,7 +197,7 @@ public class GeneradorCrendencialControlador implements ActionListener{
     void guardarImagen(File outputfile) throws IOException{
         ImageIO.write(createImage(vista.getJpCredencial()), "png", outputfile);
         System.out.println("Éxito al guardar credencial");
-        MailTools.getInstance().enviarCorreo(MailTools.getInstance().iniciarSesion("correo_prueba456@hotmail.com", "Contrasena"),
+        MailTools.getInstance().enviarCorreo(
                 "aaronlr160399@hotmail.com", "Imagen", "Mensaje enviado desde STCBB",
                 new FileDataSource(outputfile));
     }
